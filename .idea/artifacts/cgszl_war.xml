@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cgszl:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="cgszl-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="cgszl:war exploded" />
+    </root>
+  </artifact>
+</component>
