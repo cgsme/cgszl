@@ -52,7 +52,7 @@
             </div><!--loginf-->
         </div><!--nopassword-->
 
-        <form id="login" action="dashboard.html" method="post">
+        <form id="login" action="/admin/login.html" method="post">
 
             <div class="username">
                 <div class="usernameinner">
