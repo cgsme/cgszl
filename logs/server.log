@@ -1234,3 +1234,387 @@ FrameworkServlet 'cgszl': initialization completed in 935 ms
 
 [WARN ] 2017-10-30 22:10:10,970 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
 No mapping found for HTTP request with URI [/WEB-INF/page/index.html] in DispatcherServlet with name 'cgszl'
+
+
+[INFO ] 2017-10-30 22:10:32,747 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-10-30 22:10:32,829 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Mon Oct 30 22:10:32 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-10-30 22:10:32,871 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-10-30 22:10:32,986 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-10-30 22:10:33,005 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[WARN ] 2017-10-30 22:10:33,166 method:org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:158)
+No MyBatis mapper was found in '[cn.cgszl.mapper]' package. Please check your configuration.
+
+
+[INFO ] 2017-10-30 22:10:33,257 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-10-30 22:10:33,258 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-10-30 22:10:33,270 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-10-30 22:10:34,159 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1410 ms
+
+
+[INFO ] 2017-10-30 22:10:34,186 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-10-30 22:10:34,189 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Oct 30 22:10:34 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-10-30 22:10:34,190 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-10-30 22:10:34,415 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-10-30 22:10:34,566 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-10-30 22:10:34,851 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Oct 30 22:10:34 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-10-30 22:10:34,905 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Oct 30 22:10:34 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-10-30 22:10:35,004 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 818 ms
+
+
+[WARN ] 2017-10-30 22:10:54,477 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:11:01,128 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/home-categories-description.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:12:48,809 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:14:19,419 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:15:46,135 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:16:25,065 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/index-2.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:16:38,057 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:17:06,334 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:17:20,919 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/index-2.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-10-30 22:18:26,084 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[INFO ] 2017-12-22 10:04:13,163 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-22 10:04:13,272 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Fri Dec 22 10:04:13 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-22 10:04:13,348 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-22 10:04:13,645 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-22 10:04:13,664 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[WARN ] 2017-12-22 10:04:13,783 method:org.mybatis.spring.mapper.ClassPathMapperScanner.doScan(ClassPathMapperScanner.java:158)
+No MyBatis mapper was found in '[cn.cgszl.mapper]' package. Please check your configuration.
+
+
+[INFO ] 2017-12-22 10:04:13,854 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-22 10:04:13,854 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-22 10:04:13,864 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-22 10:04:14,581 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1412 ms
+
+
+[INFO ] 2017-12-22 10:04:14,604 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-22 10:04:14,606 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Fri Dec 22 10:04:14 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-22 10:04:14,607 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-22 10:04:14,813 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-22 10:04:14,941 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-22 10:04:15,474 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Fri Dec 22 10:04:14 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-22 10:04:15,530 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Fri Dec 22 10:04:14 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-22 10:04:15,641 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1037 ms
+
+
+[WARN ] 2017-12-22 10:04:38,640 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:08:08,140 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/single.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:08:27,172 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/index-2.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:08:33,813 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/articles-list.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:08:40,098 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/home-categories-description.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:11:42,284 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:13:22,836 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:14:11,747 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:14:14,034 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/index-2.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:14:34,727 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:16:30,697 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:16:46,877 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:20:35,382 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:20:56,943 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:21:53,091 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:22:09,507 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:22:42,161 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:23:00,246 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:23:39,988 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:25:20,817 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:25:35,062 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:25:53,479 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:26:03,130 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:26:30,218 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:26:47,001 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:27:50,031 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:28:26,166 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:29:26,618 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:30:54,025 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:32:38,548 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/full-width.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:33:26,494 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:33:32,474 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:33:49,316 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:34:51,581 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:35:09,937 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:38:22,145 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:39:30,439 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:40:10,658 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:41:56,823 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:42:02,680 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/full-width.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:42:24,917 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:42:35,551 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:43:50,846 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:44:07,764 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:44:11,174 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/blue-skin.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:47:02,463 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:47:35,266 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:47:38,442 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:47:39,192 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-22 10:50:28,215 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/css/custom5152.html] in DispatcherServlet with name 'cgszl'

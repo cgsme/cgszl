@@ -39,10 +39,11 @@
 
             <div class="logo-container">
                 <!-- Website Logo -->
-                <a href="index-2.html" title="Knowledge Base Theme">
-                    <img src="../../images/logo.png" alt="Knowledge Base Theme">
+                <a href="portal/index-2.html" title="Knowledge Base Theme">
+                    <%--<img src="../../images/logo.png" alt="Knowledge Base Theme">--%>
+                    <span class="tag-line">图图</span>
                 </a>
-                <span class="tag-line">cgszl</span>
+                <span class="tag-line">图图 blog</span>
             </div>
 
 
@@ -50,27 +51,27 @@
             <nav class="main-nav">
                 <div class="menu-top-menu-container">
                     <ul id="menu-top-menu" class="clearfix">
-                        <li class="current-menu-item"><a href="index-2.html">Home</a></li>
-                        <li><a href="home-categories-description.html">Home 2</a></li>
-                        <li><a href="home-categories-articles.html">Home 3</a></li>
-                        <li><a href="articles-list.html">Articles List</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="#">Skins</a>
+                        <li class="current-menu-item"><a href="portal/index-2.html">主页</a></li>
+                        <%--<li><a href="home-categories-description.html">Home 2</a></li>--%>
+                        <%--<li><a href="home-categories-articles.html">Home 3</a></li>--%>
+                        <li><a href="portal/articles-list.html">文章列表</a></li>
+                        <li><a href="portal/faq.html">常见问题</a></li>
+                        <li><a href="#">换肤</a>
                             <ul class="sub-menu">
-                                <li><a href="blue-skin.html">Blue Skin</a></li>
-                                <li><a href="green-skin.html">Green Skin</a></li>
-                                <li><a href="red-skin.html">Red Skin</a></li>
-                                <li><a href="index-2.html">Default Skin</a></li>
+                                <li><a href="portal/blue-skin.html">蓝色皮肤</a></li>
+                                <li><a href="portal/green-skin.html">绿色皮肤</a></li>
+                                <li><a href="portal/red-skin.html">红色皮肤</a></li>
+                                <li><a href="portal/index-2.html">默认皮肤</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">More</a>
+                        <li><a href="#">更多</a>
                             <ul class="sub-menu">
-                                <li><a href="full-width.html">Full Width</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                                <li><a href="page.html">Sample Page</a></li>
+                                <li><a href="portal/full-width.html">Full Width</a></li>
+                                <li><a href="portal/elements.html">Elements</a></li>
+                                <li><a href="portal/page.html">Sample Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="portal/contact.html">联系我</a></li>
                     </ul>
                 </div>
             </nav>
@@ -84,18 +85,18 @@
 <!-- Start of Search Wrapper -->
 <div class="search-area-wrapper">
     <div class="search-area container">
-        <h3 class="search-header">有什么问题？</h3>
-        <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
+        <h3 class="search-header">有什么要找的？</h3>
+        <p class="search-tag-line">如果您有任何问题，可以在下面输入您要查找的内容！</p>
 
         <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
-            <input class="search-term required" type="text" id="s" name="s" placeholder="Type your search terms here" title="* Please enter a search term!" />
-            <input class="search-btn" type="submit" value="Search" />
+            <input class="search-term required" type="text" id="s" name="s" placeholder="输入您的搜索条件..." title="* 输入您的搜索条件!" />
+            <input class="search-btn" type="submit" value="搜索" />
             <div id="search-error-container"></div>
         </form>
     </div>
 </div>
 <!-- End of Search Wrapper -->
-<div class="copyrights">Collect from <a href="#" title="cgszl论坛">cgszl论坛</a></div>
+<%--<div class="copyrights">Collect from <a href="#" title="cgszl博客">cgszl博客</a></div>--%>
 
 <!-- Start of Page Container -->
 <div class="page-container">
@@ -108,35 +109,35 @@
                 <!-- Basic Home Page Template -->
                 <div class="row separator">
                     <section class="span4 articles-list">
-                        <h3>Featured Articles</h3>
+                        <h3>推荐文章</h3>
                         <ul class="articles">
                             <li class="article-entry standard">
-                                <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
-                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
+                                <h4><a href="portal/single.html">Integrating WordPress with Your Website</a></h4>
+                                <span class="article-meta">2013-02-25 发布于 <a href="#" title="View all posts in Server &amp; Database">服务器 &amp; 数据库</a></span>
                                 <span class="like-count">66</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">WordPress Site Maintenance</a></h4>
+                                <h4><a href="portal/single.html">WordPress Site Maintenance</a></h4>
                                 <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
                                 <span class="like-count">15</span>
                             </li>
                             <li class="article-entry video">
-                                <h4><a href="single.html">Meta Tags in WordPress</a></h4>
+                                <h4><a href="portal/single.html">Meta Tags in WordPress</a></h4>
                                 <span class="article-meta">23 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
                                 <span class="like-count">8</span>
                             </li>
                             <li class="article-entry image">
-                                <h4><a href="single.html">WordPress in Your Language</a></h4>
+                                <h4><a href="portal/single.html">WordPress in Your Language</a></h4>
                                 <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
                                 <span class="like-count">6</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">Know Your Sources</a></h4>
+                                <h4><a href="portal/single.html">Know Your Sources</a></h4>
                                 <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
                                 <span class="like-count">2</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">Validating a Website</a></h4>
+                                <h4><a href="portal/single.html">Validating a Website</a></h4>
                                 <span class="article-meta">21 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
                                 <span class="like-count">3</span>
                             </li>
@@ -145,35 +146,35 @@
 
 
                     <section class="span4 articles-list">
-                        <h3>Latest Articles</h3>
+                        <h3>最新文章</h3>
                         <ul class="articles">
                             <li class="article-entry standard">
-                                <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
-                                <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
+                                <h4><a href="portal/single.html">Integrating WordPress with Your Website</a></h4>
+                                <span class="article-meta">2013-02-25 in <a href="#" title="View all posts in Server &amp; Database">服务器 &amp; 数据库</a></span>
                                 <span class="like-count">66</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">Using Javascript</a></h4>
+                                <h4><a href="portal/single.html">Using Javascript</a></h4>
                                 <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
                                 <span class="like-count">18</span>
                             </li>
                             <li class="article-entry image">
-                                <h4><a href="single.html">Using Images</a></h4>
+                                <h4><a href="portal/single.html">Using Images</a></h4>
                                 <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Designing in WordPress">Designing in WordPress</a></span>
                                 <span class="like-count">7</span>
                             </li>
                             <li class="article-entry video">
-                                <h4><a href="single.html">Using Video</a></h4>
+                                <h4><a href="portal/single.html">Using Video</a></h4>
                                 <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in WordPress Plugins">WordPress Plugins</a></span>
                                 <span class="like-count">7</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">WordPress Site Maintenance</a></h4>
+                                <h4><a href="portal/single.html">WordPress Site Maintenance</a></h4>
                                 <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
                                 <span class="like-count">15</span>
                             </li>
                             <li class="article-entry standard">
-                                <h4><a href="single.html">WordPress CSS Information and Techniques</a></h4>
+                                <h4><a href="portal/single.html">WordPress CSS Information and Techniques</a></h4>
                                 <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Theme Development">Theme Development</a></span>
                                 <span class="like-count">1</span>
                             </li>
@@ -189,25 +190,25 @@
 
                 <section class="widget">
                     <div class="support-widget">
-                        <h3 class="title">Support</h3>
-                        <p class="intro">Need more support? If you did not found an answer, contact us for further help.</p>
+                        <h3 class="title">支持</h3>
+                        <p class="intro">需要更多的支持？如果您没有找到想要的，请联系我获取进一步的帮助。</p>
                     </div>
                 </section>
 
                 <section class="widget">
                     <div class="quick-links-widget">
-                        <h3 class="title">Quick Links</h3>
+                        <h3 class="title">快速链接</h3>
                         <ul id="menu-quick-links" class="menu clearfix">
-                            <li><a href="index-2.html">Home</a></li>
-                            <li><a href="articles-list.html">Articles List</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="portal/index-2.html">主页</a></li>
+                            <li><a href="portal/articles-list.html">文章列表</a></li>
+                            <li><a href="portal/faq.html">常见问题解答</a></li>
+                            <li><a href="portal/contact.html">联系我</a></li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="widget">
-                    <h3 class="title">Tags</h3>
+                    <h3 class="title">标签</h3>
                     <div class="tagcloud">
                         <a href="#" class="btn btn-mini">basic</a>
                         <a href="#" class="btn btn-mini">beginner</a>
@@ -245,34 +246,34 @@
 
             <div class="span3">
                 <section class="widget">
-                    <h3 class="title">How it works</h3>
+                    <h3 class="title">如何运行</h3>
                     <div class="textwidget">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                        <p>不知道。 </p>
+                        <p>不需要知道。 </p>
                     </div>
                 </section>
             </div>
 
             <div class="span3">
-                <section class="widget"><h3 class="title">Categories</h3>
+                <section class="widget"><h3 class="title">分类</h3>
                     <ul>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a> </li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Designing in WordPress</a></li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a></li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a></li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a></li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress for Beginners</a></li>
-                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress Plugins</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">最新技术</a> </li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress设计</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">服务器 &amp; 数据库</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">主题发展</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">网站开发</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress初学者</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress插件</a></li>
                     </ul>
                 </section>
             </div>
 
             <div class="span3">
                 <section class="widget">
-                    <h3 class="title">Latest Tweets</h3>
+                    <h3 class="title">最新推文</h3>
                     <div id="twitter_update_list">
                         <ul>
-                            <li>No Tweets loaded !</li>
+                            <li>暂无内容!</li>
                         </ul>
                     </div>
 
@@ -281,9 +282,9 @@
 
             <div class="span3">
                 <section class="widget">
-                    <h3 class="title">Flickr Photos</h3>
-                    <div class="flickr-photos" id="basicuse">
-                    </div>
+                    <h3 class="title">Flickr照片</h3>
+                    <%--<div class="flickr-photos" id="basicuse">--%>
+                    <%--</div>--%>
                 </section>
             </div>
 
@@ -297,7 +298,7 @@
             <div class="row">
                 <div class="span6">
                     <p class="copyright">
-                        Copyright © 2013. All Rights Reserved by KnowledgeBase.Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                        Copyright © 2017. tutu保留所有权利<%--Collect from <a href="#" title="图图blog" target="_blank">图图blog</a>--%>
                     </p>
                 </div>
                 <div class="span6">
