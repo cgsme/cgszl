@@ -1,4 +1,4 @@
-package cn.cgszl.common.pojo;
+package cn.cgszl.common.dao.pojo;
 
 import java.util.ArrayList;
 import java.util.List;

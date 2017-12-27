@@ -9,8 +9,6 @@ import org.apache.commons.id.uuid.UUID;
 
 /**
  * unid生成器对象
- * <p>
- * llp@linewell.com
  */
 public class UNIDGenerate {
     /**
@@ -26,7 +24,7 @@ public class UNIDGenerate {
      */
     public static String getUnid() {
 
-        // modify by cshiyong 2014-10-13 原Unid生成方式在高并发下可能产生相同的键值，改为使用apache包
+        // modify by c 原Unid生成方式在高并发下可能产生相同的键值，改为使用apache包
         return new String(Hex.encodeHex(UUID.randomUUID().getRawBytes()));
 //		UNIDGenerate ug = new UNIDGenerate();
 //		return ug.toString();

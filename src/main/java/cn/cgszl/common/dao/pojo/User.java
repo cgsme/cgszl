@@ -1,4 +1,4 @@
-package cn.cgszl.common.pojo;
+package cn.cgszl.common.dao.pojo;
 
 public class User {
     private Integer uid;

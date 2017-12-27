@@ -1,7 +1,7 @@
 package cn.cgszl.common.dao.mapper;
 
-import cn.cgszl.common.pojo.User;
-import cn.cgszl.common.pojo.UserExample;
+import cn.cgszl.common.dao.pojo.User;
+import cn.cgszl.common.dao.pojo.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
