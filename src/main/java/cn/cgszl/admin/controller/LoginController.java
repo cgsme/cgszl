@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 后台首页控制器
+ *
  * @author cguisheng 2017/10/30 21:35
  */
 @Controller
@@ -13,6 +14,7 @@ public class LoginController {
 
     /**
      * 进入后台登录页
+     *
      * @return
      */
     @RequestMapping("/admin/index")
@@ -22,6 +24,7 @@ public class LoginController {
 
     /**
      * 用户登录
+     *
      * @return
      */
     @RequestMapping("/admin/login")
@@ -33,6 +36,7 @@ public class LoginController {
 
     /**
      * 跳转到后台首页
+     *
      * @return
      */
     @RequestMapping("/admin/dashboard")
