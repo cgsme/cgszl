@@ -31,23 +31,23 @@
     <div class="loginboxinner">
 
         <div class="logo">
-            <h1 class="logo">cgszl.<span>管理登录</span></h1>
-            <span class="slogan">cgszl后台管理系统</span>
+            <h1 class="logo">博客.<span>管理登录</span></h1>
+            <span class="slogan">后台管理系统</span>
         </div><!--logo-->
 
         <br clear="all" /><br />
 
         <div class="nousername">
-            <div class="loginmsg">密码不正确.</div>
+            <div class="loginmsg">用户名不能为空.</div>
         </div><!--nousername-->
 
         <div class="nopassword">
-            <div class="loginmsg">密码不正确.</div>
+            <div class="loginmsg">密码不能为空.</div>
             <div class="loginf">
                 <div class="thumb"><img alt="" src="images/thumbs/avatar1.png" /></div>
                 <div class="userlogged">
                     <h4></h4>
-                    <a href="index.html">Not <span></span>?</a>
+                    <a href="index.html">不是 <span></span>?</a>
                 </div>
             </div><!--loginf-->
         </div><!--nopassword-->
@@ -56,7 +56,7 @@
 
             <div class="username">
                 <div class="usernameinner">
-                    <input type="text" name="username" id="username" />
+                    <input type="text" name="username" id="username" value="${username}" />
                 </div>
             </div>
 

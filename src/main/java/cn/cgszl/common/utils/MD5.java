@@ -81,7 +81,7 @@ public class MD5 {
         } catch (NoSuchAlgorithmException ex) {
             ex.printStackTrace();
         }
-        //返回Md5加密后的字符串
+        //返回Md5加密后的字符串（大写）
         return resultString.toUpperCase();
     }
 }

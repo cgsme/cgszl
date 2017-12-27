@@ -52,6 +52,8 @@ public class LoginController {
             // 重定向
             return "redirect:/admin/dashboard.html";
         }
+        model.addAttribute("username", username);
+//        model.addAttribute("password", "password");
         return "admin/login";
     }
 
