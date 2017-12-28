@@ -23,7 +23,7 @@
             </div>-->
             <div class="userinfo">
                 <img src="images/thumbs/avatar.png" alt="" />
-                <span>管理员</span>
+                <span>${user.username}</span>
             </div><!--userinfo-->
 
             <div class="userinfodrop">

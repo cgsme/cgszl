@@ -24,6 +24,8 @@
     <!--[if lt IE 9]>
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
+
+
 </head>
 
 <body class="loginpage">
@@ -39,6 +41,10 @@
 
         <div class="nousername">
             <div class="loginmsg">用户名不能为空.</div>
+        </div><!--nousername-->
+
+        <div class="errormessage">
+            <div id="errormessage" class="loginmsg">${msg}</div>
         </div><!--nousername-->
 
         <div class="nopassword">

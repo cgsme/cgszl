@@ -2,10 +2,16 @@ jQuery(document).ready(function(){
 								
 	///// 转换checkbox /////
 	jQuery('input:checkbox').uniform();
-	
+
+	if (jQuery("#errormessage").html() != '' && jQuery("#errormessage").html() != null) {
+        jQuery('.errormessage').fadeIn();
+        jQuery('.nousername').hide();
+        jQuery('.nopassword').hide();
+    }
+
 	///// 提交登录表单 /////
 	jQuery('#login').submit(function(){
-	
+
 		if(jQuery('#username').val() == '' && jQuery('#password').val() == '') {
 			jQuery('.nousername').fadeIn();
 			jQuery('.nopassword').hide();

@@ -5745,3 +5745,1107 @@ FrameworkServlet 'cgszl': initialization completed in 1053 ms
 
 [INFO ] 2017-12-27 22:11:09,265 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
 {dataSource-1} inited
+
+
+[WARN ] 2017-12-27 23:19:52,541 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/elements.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-27 23:19:56,244 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/manageblog.html] in DispatcherServlet with name 'cgszl'
+
+
+[INFO ] 2017-12-27 23:30:52,619 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-27 23:30:52,844 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Wed Dec 27 23:30:52 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-27 23:30:52,950 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-27 23:30:53,407 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-27 23:30:53,427 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-27 23:30:53,663 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-27 23:30:53,664 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-27 23:30:53,676 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:30:54,775 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 2154 ms
+
+
+[INFO ] 2017-12-27 23:30:54,807 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-27 23:30:54,810 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:30:54 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:30:54,810 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-27 23:30:55,085 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:30:55,292 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-27 23:30:55,293 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage()
+
+
+[INFO ] 2017-12-27 23:30:55,294 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-27 23:30:55,298 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-27 23:30:56,574 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:30:54 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:30:56,688 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:30:54 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:30:56,839 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 2032 ms
+
+
+[INFO ] 2017-12-27 23:32:41,678 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[WARN ] 2017-12-27 23:34:15,122 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/manageblog.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-27 23:34:18,249 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/manageblog.html] in DispatcherServlet with name 'cgszl'
+
+
+[WARN ] 2017-12-27 23:34:27,481 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/editor.html] in DispatcherServlet with name 'cgszl'
+
+
+[INFO ] 2017-12-27 23:35:30,343 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-27 23:35:30,440 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Wed Dec 27 23:35:30 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-27 23:35:30,487 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-27 23:35:30,637 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-27 23:35:30,661 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-27 23:35:30,934 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-27 23:35:30,935 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-27 23:35:30,944 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:35:31,825 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1480 ms
+
+
+[INFO ] 2017-12-27 23:35:31,856 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-27 23:35:31,858 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:35:31 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:35:31,859 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-27 23:35:32,133 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:35:32,350 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-27 23:35:32,351 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage()
+
+
+[INFO ] 2017-12-27 23:35:32,351 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-27 23:35:32,354 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-27 23:35:32,650 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:35:31 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:35:32,709 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:35:31 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:35:32,823 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 967 ms
+
+
+[INFO ] 2017-12-27 23:36:05,166 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-27 23:36:58,848 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-27 23:36:58,928 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Wed Dec 27 23:36:58 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-27 23:36:58,968 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-27 23:36:59,138 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-27 23:36:59,166 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-27 23:36:59,437 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-27 23:36:59,438 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-27 23:36:59,448 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:37:00,199 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1349 ms
+
+
+[INFO ] 2017-12-27 23:37:00,230 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-27 23:37:00,233 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:37:00 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:37:00,234 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-27 23:37:00,479 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-27 23:37:00,733 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-27 23:37:00,734 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage()
+
+
+[INFO ] 2017-12-27 23:37:00,735 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-27 23:37:00,740 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-27 23:37:01,064 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:37:00 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:37:01,116 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Wed Dec 27 23:37:00 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-27 23:37:01,220 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 990 ms
+
+
+[INFO ] 2017-12-27 23:37:29,286 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 16:17:15,708 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:17:15,861 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:17:15 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:17:15,929 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:17:16,302 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:17:16,326 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:17:16,579 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:17:16,579 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:17:16,589 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:17:17,855 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 2145 ms
+
+
+[INFO ] 2017-12-28 16:17:17,895 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:17:17,901 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:17:17 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:17:17,902 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:17:18,284 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:17:18,530 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:17:18,531 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:17:18,532 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage()
+
+
+[INFO ] 2017-12-28 16:17:18,535 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:17:19,107 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:17:17 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:17:19,166 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:17:17 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:17:19,284 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1388 ms
+
+
+[INFO ] 2017-12-28 16:23:00,919 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:23:01,007 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:23:01 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:23:01,066 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:23:01,210 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:23:01,234 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:23:01,515 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:23:01,515 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:23:01,529 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:23:02,504 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1583 ms
+
+
+[INFO ] 2017-12-28 16:23:02,551 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:23:02,554 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:23:02 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:23:02,555 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:23:02,820 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:23:03,058 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:23:03,060 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage()
+
+
+[INFO ] 2017-12-28 16:23:03,061 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:23:03,068 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:23:03,371 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:23:02 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:23:03,429 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:23:02 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:23:03,614 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1063 ms
+
+
+[INFO ] 2017-12-28 16:23:16,746 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 16:25:36,381 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:25:36,467 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:25:36 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:25:36,594 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:25:36,729 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:25:36,753 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:25:37,026 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:25:37,027 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:25:37,039 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:25:37,905 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1522 ms
+
+
+[INFO ] 2017-12-28 16:25:37,950 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:25:37,954 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:25:37 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:25:37,955 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:25:38,292 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:25:38,547 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:25:38,549 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:25:38,549 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 16:25:38,553 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:25:38,925 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:25:37 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:25:38,990 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:25:37 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:25:39,107 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1157 ms
+
+
+[INFO ] 2017-12-28 16:33:13,757 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:33:13,849 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:33:13 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:33:13,894 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:33:14,045 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:33:14,071 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:33:14,314 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:33:14,315 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:33:14,325 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:33:15,157 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1397 ms
+
+
+[INFO ] 2017-12-28 16:33:15,195 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:33:15,199 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:33:15 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:33:15,200 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:33:15,543 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:33:15,773 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:33:15,775 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 16:33:15,775 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:33:15,779 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:33:16,097 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:33:15 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:33:16,156 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:33:15 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:33:16,312 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1117 ms
+
+
+[INFO ] 2017-12-28 16:34:52,871 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 16:40:29,299 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:40:29,382 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:40:29 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:40:29,430 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:40:29,585 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:40:29,607 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:40:29,876 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:40:29,876 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:40:29,887 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:40:30,741 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1439 ms
+
+
+[INFO ] 2017-12-28 16:40:30,784 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:40:30,787 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:40:30 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:40:30,788 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:40:31,106 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:40:31,342 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:40:31,344 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 16:40:31,345 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:40:31,350 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:40:31,682 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:40:30 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:40:31,738 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:40:30 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:40:31,846 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1062 ms
+
+
+[INFO ] 2017-12-28 16:42:11,821 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 16:46:43,894 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 16:46:44,044 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 16:46:44 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 16:46:44,113 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 16:46:44,325 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 16:46:44,363 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 16:46:44,663 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 16:46:44,664 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 16:46:44,677 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:46:45,709 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1813 ms
+
+
+[INFO ] 2017-12-28 16:46:45,770 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 16:46:45,774 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:46:45 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:46:45,775 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 16:46:46,306 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 16:46:46,550 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 16:46:46,553 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 16:46:46,553 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 16:46:46,561 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 16:46:46,941 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:46:45 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:46:47,021 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 16:46:45 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 16:46:47,141 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1370 ms
+
+
+[INFO ] 2017-12-28 17:05:54,488 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 17:05:54,627 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 17:05:54 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 17:05:54,681 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 17:05:54,812 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 17:05:54,844 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 17:05:55,133 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 17:05:55,134 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 17:05:55,143 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:05:55,971 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1479 ms
+
+
+[INFO ] 2017-12-28 17:05:56,007 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 17:05:56,011 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:05:56 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:05:56,012 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 17:05:56,255 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:05:56,497 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 17:05:56,499 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 17:05:56,500 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 17:05:56,506 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 17:05:56,870 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:05:56 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:05:56,926 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:05:56 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:05:57,045 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1037 ms
+
+
+[INFO ] 2017-12-28 17:06:40,132 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 17:08:48,075 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 17:08:48,166 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 17:08:48 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 17:08:48,229 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 17:08:48,361 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 17:08:48,387 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 17:08:48,722 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 17:08:48,722 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 17:08:48,736 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:08:49,650 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1573 ms
+
+
+[INFO ] 2017-12-28 17:08:49,686 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 17:08:49,689 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:08:49 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:08:49,690 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 17:08:49,932 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:08:50,170 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 17:08:50,172 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 17:08:50,172 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 17:08:50,176 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 17:08:50,525 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:08:49 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:08:50,599 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:08:49 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:08:50,758 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1072 ms
+
+
+[INFO ] 2017-12-28 17:20:10,465 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 17:26:01,560 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 17:26:01,664 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 17:26:01 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 17:26:01,715 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 17:26:01,857 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 17:26:01,884 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 17:26:02,143 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 17:26:02,144 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 17:26:02,158 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:26:03,008 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1445 ms
+
+
+[INFO ] 2017-12-28 17:26:03,044 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 17:26:03,047 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:26:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:26:03,048 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 17:26:03,376 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:26:03,606 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 17:26:03,608 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 17:26:03,608 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 17:26:03,613 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 17:26:03,981 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:26:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:26:04,054 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:26:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:26:04,177 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 1133 ms
+
+
+[INFO ] 2017-12-28 17:26:30,259 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[INFO ] 2017-12-28 17:27:01,927 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2017-12-28 17:27:02,018 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Thu Dec 28 17:27:02 CST 2017]; root of context hierarchy
+
+
+[INFO ] 2017-12-28 17:27:02,066 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2017-12-28 17:27:02,200 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2017-12-28 17:27:02,223 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2017-12-28 17:27:02,483 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2017-12-28 17:27:02,484 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2017-12-28 17:27:02,495 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:27:03,340 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 1410 ms
+
+
+[INFO ] 2017-12-28 17:27:03,374 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2017-12-28 17:27:03,378 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:27:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:27:03,379 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2017-12-28 17:27:03,643 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2017-12-28 17:27:03,853 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2017-12-28 17:27:03,855 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2017-12-28 17:27:03,855 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2017-12-28 17:27:03,858 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2017-12-28 17:27:04,173 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:27:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:27:04,229 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Thu Dec 28 17:27:03 CST 2017]; parent: Root WebApplicationContext
+
+
+[INFO ] 2017-12-28 17:27:04,347 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 973 ms
+
+
+[INFO ] 2017-12-28 17:27:43,768 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
+
+
+[WARN ] 2017-12-28 17:28:36,345 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/editprofile.html] in DispatcherServlet with name 'cgszl'

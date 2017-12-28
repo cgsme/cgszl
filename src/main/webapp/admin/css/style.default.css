@@ -155,7 +155,7 @@ body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in coll
 	border-bottom: 1px solid #475875;
 }
 
-.loginpage .nousername, .loginpage .nopassword { display: none; }
+.loginpage .nousername, .loginpage .nopassword, .loginpage .errormessage { display: none; }
 .loginpage .nopassword { color: #fff; }
 .loginpage .nopassword .thumb { 
 	padding: 5px; background: #fff; display: inline-block; vertical-align: top; 

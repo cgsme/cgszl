@@ -19,5 +19,5 @@ public interface UserService {
      * @param username
      * @return
      */
-    boolean validateLogin(String username, String password);
+    User validateLogin(String username, String password);
 }
