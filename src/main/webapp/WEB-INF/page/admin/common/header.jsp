@@ -3,12 +3,12 @@
 
     <div class="topheader">
         <div class="left">
-            <h1 class="logo">Ama.<span>Admin</span></h1>
+            <h1 class="logo">Tutu.<span>Admin</span></h1>
             <span class="slogan">后台管理系统</span>
 
             <div class="search">
                 <form action="" method="post">
-                    <input type="text" name="keyword" id="keyword" value="请输入" />
+                    <input type="text" name="keyword" id="keyword" placeholder="请输入关键字..."/>
                     <button class="submitbutton"></button>
                 </form>
             </div><!--search-->
@@ -39,13 +39,13 @@
                     </div>
                 </div><!--avatar-->
                 <div class="userdata">
-                    <h4>Juan</h4>
-                    <span class="email">youremail@yourdomain.com</span>
+                    <h4>${user.username}</h4>
+                    <span class="email">${user.email}</span>
                     <ul>
                         <li><a href="editprofile.html">编辑资料</a></li>
                         <li><a href="accountsettings.html">账号设置</a></li>
                         <li><a href="help.html">帮助</a></li>
-                        <li><a href="index.html">退出</a></li>
+                        <li><a href="/admin/logout.html">注销</a></li>
                     </ul>
                 </div><!--userdata-->
             </div><!--userinfodrop-->
@@ -63,12 +63,12 @@
         <div class="headerwidget">
             <div class="earnings">
                 <div class="one_half">
-                    <h4>Today's Earnings</h4>
-                    <h2>$640.01</h2>
+                    <h4>今日访问</h4>
+                    <h2>666</h2>
                 </div><!--one_half-->
                 <div class="one_half last alignright">
-                    <h4>Current Rate</h4>
-                    <h2>53%</h2>
+                    <h4>历史访问</h4>
+                    <h2>999</h2>
                 </div><!--one_half last-->
             </div><!--earnings-->
         </div><!--headerwidget-->

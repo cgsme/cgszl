@@ -4,7 +4,7 @@
 <script type="text/javascript" src="<%=webAppPath %>common/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=webAppPath %>common/js/jquery.json-2.2.min.js"></script>
 <script type="text/javascript" src="<%=webAppPath %>common/js/jquery.form.js"></script>
-
+<link rel="shortcut icon" href="../../../../images/favicon.png" />
 <link href="<%=webAppPath %>js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 //应用的主目录

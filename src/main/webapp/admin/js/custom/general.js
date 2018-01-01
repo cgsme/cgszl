@@ -14,7 +14,7 @@ jQuery.noConflict();
 jQuery(document).ready(function(){
 								
 								
-	///// SHOW/HIDE USERDATA WHEN USERINFO IS CLICKED ///// 
+	///// 当USERINFO被点击时显示/隐藏用户数据 /////
 	
 	jQuery('.userinfo').click(function(){
 		if(!jQuery(this).hasClass('active')) {
@@ -32,7 +32,7 @@ jQuery(document).ready(function(){
 	});
 	
 	
-	///// SHOW/HIDE NOTIFICATION /////
+	///// 显示/隐藏通知 /////
 	
 	jQuery('.notification a').click(function(){
 		var t = jQuery(this);
@@ -192,10 +192,10 @@ jQuery(document).ready(function(){
 	
 	jQuery('#keyword').bind('focusin focusout', function(e){
 		var t = jQuery(this);
-		if(e.type == 'focusin' && t.val() == 'Enter keyword(s)') {
+		if(e.type == 'focusin' && t.val() == '请输入关键字...') {
 			t.val('');
 		} else if(e.type == 'focusout' && t.val() == '') {
-			t.val('Enter keyword(s)');	
+			t.val('请输入关键字...');	
 		}
 	});
 	

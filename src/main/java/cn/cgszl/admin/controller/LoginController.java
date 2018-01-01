@@ -79,6 +79,18 @@ public class LoginController {
     }
 
     /**
+     * 退出登录
+     *
+     * @return
+     */
+    @RequestMapping("/admin/logout")
+    public String logOut(HttpServletRequest request) {
+        request.getSession().invalidate();
+        // 返回到登录页
+        return "redirect:/admin/index.html";
+    }
+
+    /**
      * 跳转到后台首页
      *
      * @return
