@@ -23,7 +23,7 @@ public class ActionUtils {
         CommonResult ccipResult = new CommonResult();
         ccipResult.setSuccess(isSuccess);
         ccipResult.setMessage(message);
-        ccipResult.setContent(content);
+        ccipResult.setData(content);
 //		CommonResult ar = new CommonResult();
         return ccipResult;
     }

@@ -30,7 +30,7 @@
             targetPackage     指定生成的model生成所在的包名
             targetProject     指定在该项目下所在的路径
         -->
-        <javaModelGenerator targetPackage="cn.cgszl.common.pojo" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="cn.cgszl.common.dao.pojo" targetProject="src/main/java">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 是否对model添加 构造函数 -->
@@ -58,8 +58,27 @@
         <table tableName="t_users" domainObjectName="User">
             <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
         </table>
-
-
+        <table tableName="t_relationships" domainObjectName="Relationship">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName=" t_options" domainObjectName="Option">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName="t_metas" domainObjectName="Metas">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName="t_logs" domainObjectName="Log">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName="t_comments" domainObjectName="Comment">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName="t_attach" domainObjectName="Attach">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
+        <table tableName="t_articles" domainObjectName="Article">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
         <!-- 配置表
             schema：不用填写
             tableName: 表名

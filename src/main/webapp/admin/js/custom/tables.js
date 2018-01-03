@@ -126,15 +126,69 @@ jQuery(document).ready(function(){
 	jQuery('#dyntable').dataTable({
 		"sPaginationType": "full_numbers"
 	});
-	
-	jQuery('#dyntable2').dataTable({
-		"sPaginationType": "full_numbers",
-		"aaSortingFixed": [[0,'asc']],
-		"fnDrawCallback": function(oSettings) {
+
+	////// jquery dataTable插件 //////
+	jQuery('#allpoststable').dataTable({
+        "sAjaxSource" : '/admin/getAllArticleList.action',
+        /*"fnServerData": function (sSource, aoData, fnCallback) {
+            var json = {
+                "page": {
+                    "start": aoData[3].value,
+                    "length": aoData[4].value,
+                },
+                "search": {
+                    "xb": $("#searchTitle").val()
+                }
+            };
+            $.ajax({
+                "dataType": 'json',
+                "type": "POST",
+                "url": "/admin/getAllArticleList.html",
+                "contentType": "application/json; charset=utf-8",
+                "data": JSON.stringify(json),
+                "success": function (data) {
+                    data.recordsTotal = data.page.recordsTotal;
+                    data.recordsFiltered = data.page.recordsTotal;
+                    fnCallback(data);
+                }
+            });
+        },*/
+        columns: ['文章标题','作者','状态','发布时间','点击量','所属分类'],
+		sPaginationType: "full_numbers",
+		aaSortingFixed: [[0,'asc']],
+        dom: 'Bfrtip',
+        buttons: ['colvis', 'excel', 'print'],
+		aLengthMenu:[1, 5, 10, 20, 50],
+		iDisplayLength:1,
+        oLanguage: {
+			"sDom": "<'top'fi>rt<'bottom'pl><'clear'>",
+            "sProcessing": "正在加载中...",
+            "sLengthMenu": "每页显示 _MENU_ 条记录",
+            "sZeroRecords": "对不起，查询不到相关数据！",
+            "sEmptyTable": "表中无数据存在！",
+            "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+            "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+            "sSearch": "搜索",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上一页",
+                "sNext": "下一页",
+                "sLast": "末页"
+            }
+        }, //多语言配置
+		fnDrawCallback: function(oSettings) {
             jQuery('input:checkbox,input:radio').uniform();
 			//jQuery.uniform.update();
-        }
-	});
+        },
+        aoColumns: [
+            {"data": "title"},
+            {"data": "authorId"},
+            {"data": "status"},
+            {"data": "created"},
+            {"data": "hits"},
+            {"data": "categories"},
+        ]
+    });
 
 	
 	///// TRANSFORM CHECKBOX AND RADIO BOX USING UNIFORM PLUGIN /////

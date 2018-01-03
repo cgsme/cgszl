@@ -1,22 +1,15 @@
 /*
- * 	Additional function for manageblog.html
- *	Written by ThemePixels	
- *	http://themepixels.com/
- *
- *	Copyright (c) 2012 ThemePixels (http://themepixels.com)
- *	
- *	Built for Amanda Premium Responsive Admin Template
- *  http://themeforest.net/category/site-templates/admin-templates
+ * 	博客管理 manageblog.jsp
  */
 
 
 jQuery(document).ready(function(){
 
-	///// load ajax/blog/allposts.html /////
+	///// 异步加载所有文章 /////
 	
-	jQuery.post('ajax/blog/allposts.html', function(data){
+	jQuery.post('/admin/allposts.html', function(data){
 		jQuery('#contentwrapper').html(data);
-		jQuery('.stdtable input:checkbox').uniform();	//restyling checkbox
+		jQuery('.stdtable input:checkbox').uniform();	// 重新设定复选框
 	});
 	
 	jQuery('.checkall, .checkall2').live('click',function(){

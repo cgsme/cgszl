@@ -20,15 +20,29 @@
     // 应用的主路径
 //    String sSystemPath = sSystemPath;
 %>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<script type="text/javascript" src="<%=sSystemPath %>js/eventResite.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="shortcut icon" href="../../../images/favicon.png" />
+<link rel="stylesheet" href="<%=sSystemPath %>common/layui/css/layui.css" media="all">
 
-<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery-1.8.2.min.js"></script>
 <%--<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery-1.7.2.min.js"></script>--%>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.json-2.2.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.form.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.json-2.2.min.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.form.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/layui/layui.all.js"></script>
 
-<link href="<%=sSystemPath %>js/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="<%=sSystemPath %>admin/css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="<%=sSystemPath %>admin/css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="<%=sSystemPath %>admin/js/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+
 <script type="text/javascript">
     //应用的主目录
     var WEB_APP_PATH = "<%= sSystemPath%>";

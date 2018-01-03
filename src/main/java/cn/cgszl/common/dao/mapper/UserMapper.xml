@@ -291,11 +291,11 @@
     where uid = #{uid,jdbcType=INTEGER}
   </update>
 
-
   <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_users
     where username = #{username,jdbcType=VARCHAR}
   </select>
+
 </mapper>

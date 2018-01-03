@@ -4,16 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%@include file="common/common.jsp"%>
+    <%@include file="common/pageResource.jsp"%>
     <title>发布文章页面</title>
-    <link rel="stylesheet" href="${request.pageContext.contextPath}/admin/css/style.default.css" type="text/css" />
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery-1.7.min.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.cookie.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.alerts.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.uniform.min.js"></script>
     <%--<script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/tinymce2/jquery.tinymce.js"></script>--%>
     <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/custom/general.js"></script>
+
     <%--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--%>
     <script type="text/javascript">
 
@@ -67,7 +63,6 @@
                             "styleselect formatselect fontselect fontsizeselect",
 
             });
-
 
             jQuery('.editornav a').click(function(){
                 jQuery('.editornav li.current').removeClass('current');
