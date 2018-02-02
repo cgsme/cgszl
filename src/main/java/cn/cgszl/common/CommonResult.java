@@ -11,32 +11,19 @@ public class CommonResult {
     private boolean success;    // 操作是否成功
     private Object data;     // 返回的结果
     private String message;     // 提示信息
-    private String code;        // 状态码
-    private Integer count;       // 总记录数
-//    private int type;
-//    private ExceptionType exceptionType;
-//    private String[] params;
-//    private DataType dataType = DataType.CCIP_RESULT;
+    private int code;        // 状态码
 
     public CommonResult() {}
 
-    public void init(String paramString, Object data) {
+    public void init(String message, Object data) {
         this.success = true;
-        this.message = paramString;
+        this.message = message;
         this.data = data;
     }
 
-    public void init(boolean paramBoolean, String paramString) {
+    public void init(boolean paramBoolean, String message) {
         this.success = paramBoolean;
-        this.message = paramString;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
+        this.message = message;
     }
 
     public Object getData() {
@@ -47,11 +34,11 @@ public class CommonResult {
         this.data = data;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -59,8 +46,8 @@ public class CommonResult {
         return this.message;
     }
 
-    public void setMessage(String paramString) {
-        this.message = paramString;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public boolean isSuccess() {

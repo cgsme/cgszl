@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 博客文章管理业务实现类
+ *
  * @author cguisheng 2018/1/1 14:50
  */
 @Service
@@ -21,10 +22,23 @@ public class BlogServiceImpl implements BlogService {
 
     /**
      * 获取所有文章
+     *
      * @return 文章集合
      */
     @Override
     public List<Article> getBlogList() {
         return articleMapper.getArticleList();
+    }
+
+    /**
+     * 保存文章
+     *
+     * @param article 文章对象
+     * @return 执行是否成功
+     */
+    @Override
+    public boolean savePost(Article article) {
+//        article
+        return false;
     }
 }

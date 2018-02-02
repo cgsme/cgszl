@@ -19,9 +19,10 @@
 
     <div class="centercontent">
 
-        <div class="pageheader">
-            <h1 class="pagetitle">管理文章</h1>
-            <span class="pagedesc">以下内容由ajax加载</span>
+        <%--<div class="pageheader">--%>
+        <div>
+            <%--<h1 class="pagetitle">管理文章</h1>--%>
+            <%--<span class="pagedesc">以下内容由ajax加载</span>--%>
 
             <ul class="hornav blogmenu">
                 <li class="current"><a href="allposts.html">所有文章 (5)</a></li>
@@ -31,7 +32,7 @@
             </ul>
         </div><!--pageheader-->
 
-        <div id="contentwrapper" class="">
+        <div id="contentwrapper"><%-- class="contentwrapper"--%>
 
         </div><!--contentwrapper-->
 

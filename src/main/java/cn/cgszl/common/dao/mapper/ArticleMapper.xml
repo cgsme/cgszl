@@ -47,6 +47,7 @@
       <arg column="delete_flag" javaType="java.lang.Boolean" jdbcType="BIT" />
       <arg column="content" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
     </constructor>
+    <association property="user" resultMap="userResultMap" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -539,12 +540,37 @@
     where aid = #{aid,jdbcType=INTEGER}
   </update>
 
+  <!--用户-->
+<resultMap id="userResultMap" type="cn.cgszl.common.dao.pojo.User">
+  <id property="uid" column="uid" />
+  <result property="username" column="username" javaType="java.lang.String" jdbcType="VARCHAR" />
+  <result property="password" column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+  <result property="email" column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+  <result property="homeUrl" column="home_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+  <result property="screenName" column="screen_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+  <result property="created" column="created" javaType="java.lang.Integer" jdbcType="INTEGER" />
+  <result property="activated" column="activated" javaType="java.lang.Integer" jdbcType="INTEGER" />
+  <result property="logged" column="logged" javaType="java.lang.Integer" jdbcType="INTEGER" />
+  <result property="groupName" column="group_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+</resultMap>
 
+  <!--文字表和用户表管理-->
   <select id="getArticleList" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
-    select
+    <!--select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from t_articles
+    from t_articles order by created DESC-->
+    select
+      t_articles.aid, t_articles.title, t_articles.slug, t_articles.created, t_articles.modified, t_articles.author_id, t_articles.type, t_articles.status, t_articles.tags, t_articles.categories, t_articles.hits,
+      t_articles.comments_num, t_articles.allow_comment, t_articles.allow_ping, t_articles.allow_feed, t_articles.like_num, t_articles.unlike_num, t_articles.draft,
+      t_articles.delete_flag, t_articles.content,
+      t_users.uid, t_users.username, t_users.password, t_users.email, t_users.home_url, t_users.screen_name, t_users.created, t_users.activated, t_users.logged,
+      t_users.group_name
+    FROM t_articles, t_users
+    WHERE t_articles.author_id = t_users.uid
+      AND t_articles.categories IS NOT NULL
+      AND t_articles.categories !=''
+    order by t_articles.created DESC
   </select>
 </mapper>

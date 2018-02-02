@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%@include file="common/common.jsp" %>
     <%@include file="common/pageResource.jsp" %>
-    <script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>
+    <script type="text/javascript" src="<%=sSystemPath %>common/js/cgszl.utils.js"></script>
+    <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
     <title>所有文章页面</title>
 </head>
+
 <body>
 <%--文章列表--%>
 <table id="articleGrid" lay-filter="articleGrid">
@@ -28,6 +30,8 @@
     </thead>--%>
 </table>
 
+<ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
+
 <script type="text/html" id="toolbar">
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -43,15 +47,32 @@
             , url: '/admin/getAllArticleList.action' //数据接口
             , page: true //开启分页
             , style: [{"background-color": "red"}]
-            , size: 'sm'
-            , cols: [[ //表头
+            , size: ''
+            , limit: 20
+            , height: 'full-240'
+            , limits:[10,20,40]
+            , cols: [[    // 表头
                 {type: 'checkbox'}
                 , {field: 'title', title: '文章标题', width: 350}
-                , {field: 'authorId', title: '作者', width: 80}
-                , {field: 'status', title: '状态', width: 80}
-                , {field: 'created', title: '发布时间', width: 120}
-                , {field: 'hits', title: '访问量', width: 100, sort: true}
-                , {field: 'categories', title: '所属分类', width: 90}
+                , {field: 'user', title: '作者', width: 80, align: 'center',
+                    templet: function (d) {
+                        return d.user.username;
+                    }
+                }
+                , {field: 'status', title: '状态', width: 80, align: 'center',
+                    templet: function (d) {
+                        if (d.status === 'publish') {
+                            return "<font color='green'>已发布</font>";
+                        }
+                    }
+                }
+                , {field: 'created', title: '发布时间', width: 180, align: 'center',
+                    templet: function (d) {
+                        return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
+                    }
+                }
+                , {field: 'hits', title: '访问量', width: 100, sort: true, align: 'right',}
+                , {field: 'categories', title: '所属分类', width: 90, align: 'center',}
                 , {fixed: 'right', width: 178, align: 'center', toolbar: '#toolbar', title: "操作"}
             ]],
             done: function (res, curr, count) {
@@ -70,14 +91,27 @@
         //监听工具条
         table.on('tool(articleGrid)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'detail') {
+            ////// 操作 //////
+            if (obj.event === 'detail') {    ////// 查看详情 //////
+
+
                 layer.msg('ID：' + data.aid + ' 的查看操作');
-            } else if (obj.event === 'del') {
+
+
+
+            } else if (obj.event === 'del') {  ////// 删除文章 //////
                 layer.confirm('真的删除行么', function (index) {
+
+
+
                     obj.del();
                     layer.close(index);
                 });
-            } else if (obj.event === 'edit') {
+
+
+
+
+            } else if (obj.event === 'edit') {    ////// 编辑文章 //////
                 layer.alert('编辑行：<br>' + JSON.stringify(data))
             }
         });

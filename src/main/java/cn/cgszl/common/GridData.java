@@ -12,13 +12,41 @@ import java.util.List;
 public class GridData implements Serializable {
 
     // 状态码
-    private String code;
+    private Integer code;
     // 提示信息
     private String msg;
     // 总记录数
     private long count;
     // 要显示的数据的集合
     private List data;
+
+    /**
+     * 构造请求成功时的结果
+     *
+     * @param data 返回的数据
+     * @return GridData layui表格通用对象
+     */
+    public static GridData build(List data, long count) {
+        return new GridData(data, count);
+    }
+
+    public GridData() {
+    }
+
+    public GridData(List data, long count) {
+        this.data = data;
+        this.msg = "ok";
+        this.count = count;
+        // layui 默认code为0
+        this.code = 0;
+    }
+
+    public GridData(Integer code, String msg, long count, List data) {
+        this.code = code;
+        this.msg = msg;
+        this.count = count;
+        this.data = data;
+    }
 
     public long getCount() {
         return count;
@@ -36,11 +64,11 @@ public class GridData implements Serializable {
         this.data = data;
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
@@ -51,4 +79,6 @@ public class GridData implements Serializable {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+
 }

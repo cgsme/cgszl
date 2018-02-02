@@ -11,8 +11,15 @@ import java.util.List;
 public interface BlogService {
 
     /**
-     * 获取所有文章
+     * 获取所有文章，按创建实践降序
      * @return 文章集合
      */
     List<Article> getBlogList();
+
+    /**
+     * 保存文章
+     * @param article
+     * @return
+     */
+    boolean savePost(Article article);
 }

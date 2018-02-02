@@ -41,6 +41,8 @@ public class Article {
 
     private String content;
 
+    private User user; // 管理用户
+
     public Article(Integer aid, String title, String slug, Integer created, Integer modified, Integer authorId, String type, String status, String tags, String categories, Integer hits, Integer commentsNum, Boolean allowComment, Boolean allowPing, Boolean allowFeed, Integer likeNum, Integer unlikeNum, Boolean draft, Boolean deleteFlag) {
         this.aid = aid;
         this.title = title;
@@ -248,5 +250,13 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
