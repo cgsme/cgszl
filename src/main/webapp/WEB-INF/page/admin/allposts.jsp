@@ -5,9 +5,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <%@include file="common/common.jsp" %>
-    <%@include file="common/pageResource.jsp" %>
-    <script type="text/javascript" src="<%=sSystemPath %>common/js/cgszl.utils.js"></script>
+    <%--<%@include file="common/common.jsp" %>--%><%--防止重复加载资源文件导致卡顿--%>
+    <%--<%@include file="common/pageResource.jsp" %>--%>
+    <script type="text/javascript" src="/common/js/cgszl.utils.js"></script>
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
     <title>所有文章页面</title>
 </head>
