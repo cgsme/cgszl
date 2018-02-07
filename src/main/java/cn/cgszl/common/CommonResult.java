@@ -7,23 +7,45 @@ package cn.cgszl.common;
  */
 public class CommonResult {
 
-    private static final long serialVersionUID = -556009412227715921L;
     private boolean success;    // 操作是否成功
     private Object data;     // 返回的结果
     private String message;     // 提示信息
-    private int code;        // 状态码
 
     public CommonResult() {}
 
-    public void init(String message, Object data) {
-        this.success = true;
-        this.message = message;
-        this.data = data;
+    public CommonResult(boolean success) {
+        this.success = success;
     }
 
-    public void init(boolean paramBoolean, String message) {
-        this.success = paramBoolean;
+    public CommonResult(boolean success, Object data, String message) {
+        this.success = success;
+        this.data = data;
         this.message = message;
+    }
+
+    /**
+     * 操作成功
+     */
+    public static CommonResult ok() {
+        return new CommonResult(true);
+    }
+
+    /**
+     * 操作成功
+     * @param message 提示信息
+     * @param data 返回数据
+     */
+    public static CommonResult ok(String message, Object data) {
+        return new CommonResult(true, data, message);
+    }
+
+    /**
+     * 操作失败
+     * @param success 操作结果
+     * @param message 提示信息
+     */
+    public static CommonResult fail(boolean success, String message) {
+        return new CommonResult(success, null, message);
     }
 
     public Object getData() {
@@ -32,14 +54,6 @@ public class CommonResult {
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
     }
 
     public String getMessage() {

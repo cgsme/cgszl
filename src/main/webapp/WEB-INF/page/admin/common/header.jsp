@@ -23,7 +23,7 @@
             </div>-->
             <div class="userinfo">
                 <img src="images/thumbs/avatar.png" alt="" />
-                <span>${user.username}</span>
+                <span>${login_user.username}</span>
             </div><!--userinfo-->
 
             <div class="userinfodrop">
@@ -39,8 +39,8 @@
                     </div>
                 </div><!--avatar-->
                 <div class="userdata">
-                    <h4>${user.username}</h4>
-                    <span class="email">${user.email}</span>
+                    <h4>${login_user.username}</h4>
+                    <span class="email">${login_user.email}</span>
                     <ul>
                         <li><a href="editprofile.html">编辑资料</a></li>
                         <li><a href="accountsettings.html">账号设置</a></li>

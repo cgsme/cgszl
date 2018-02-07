@@ -1,6 +1,7 @@
 package cn.cgszl.admin.controller;
 
 import cn.cgszl.admin.service.UserService;
+import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.pojo.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,7 @@ public class LoginController {
         User user = userService.validateLogin(username, password);
         if (null != user) {
             // 保存用户登录信息
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             // 重定向
             return "redirect:/admin/dashboard.html";
         }

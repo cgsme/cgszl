@@ -29,7 +29,8 @@
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.json-2.2.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.form.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.json-2.2.min.js"></script>
-<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.form.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.serializejson.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/layui/layui.all.js"></script>
 
 
