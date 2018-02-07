@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -38,6 +39,11 @@ public class BlogController {
     @Resource
     private MetasService metasService;
 
+    /**
+     * 博客管理页
+     *
+     * @return 博客管理页面地址
+     */
     @RequestMapping("/admin/manageblog")
     public String toBlogMnanagr() {
         return "admin/manageblog";
@@ -54,7 +60,7 @@ public class BlogController {
         String actionType = request.getParameter("actionType");
         // 如果操作时查看详情
         if (StringUtils.isNotBlank(actionType) && (actionType.equals("viewDetail")
-                                                || actionType.equals("edit"))) {
+                || actionType.equals("edit"))) {
             // 根据id获取文章信息
             Article article = blogService.findArticleById(aid);
             if (null != article) {
@@ -136,6 +142,12 @@ public class BlogController {
         }
     }
 
+    /**
+     * 根据文章标识删除文章
+     *
+     * @param aid 文章标识
+     * @return 通用结果对象
+     */
     @RequestMapping(value = "/admin/blog/deleteByAid", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult deleteByAid(@RequestParam(value = "aid") String aid) {
@@ -144,5 +156,51 @@ public class BlogController {
             return CommonResult.ok();
         }
         return CommonResult.fail(false, "删除失败");
+    }
+
+    /**
+     * 跳转到草稿箱页面
+     *
+     * @return 页面地址
+     */
+    @RequestMapping(value = "/admin/draft")
+    public String allDraft() {
+        // 返回草稿箱页面
+        return "admin/draft";
+    }
+
+    /**
+     * 分页获取草稿箱列表
+     *
+     * @param page  当前页
+     * @param limit 每页显示记录数
+     * @return layui数据表格通用结果对象
+     */
+    @RequestMapping(value = "/admin/blog/getAllDraftList")
+    @ResponseBody
+    public GridData getAllDraftList(int page, int limit) {
+        // 创建mybatis分页对象
+        PageHelper pageHelper = new PageHelper();
+        pageHelper.startPage(page, limit);
+        // 调用service获取文章数据
+        List<Article> articleList = blogService.findAllDraftList();
+        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+        PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
+        return GridData.build(articleList, articleList.size());
+    }
+
+    @RequestMapping(value = "/admin/blog/publishByAid", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult publishByAid(@RequestParam(value = "aid") String aid) {
+        try {
+            boolean resule = blogService.publishById(aid);
+            if (resule) {
+                return CommonResult.ok();
+            } else {
+                return CommonResult.fail(false, "发布失败");
+            }
+        } catch (CgszlException e) {
+            return CommonResult.fail(false, "系统异常,请稍后再试……");
+        }
     }
 }

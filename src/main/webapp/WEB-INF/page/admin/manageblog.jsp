@@ -25,10 +25,10 @@
             <%--<span class="pagedesc">以下内容由ajax加载</span>--%>
 
             <ul class="hornav blogmenu">
-                <li class="current"><a href="allposts.html">所有文章 (5)</a></li>
-                <li><a href="published.html">已发布 (5)</a></li>
-                <li><a href="draft.html">草稿 (3)</a></li>
-                <li><a href="trash.html">垃圾 (1)</a></li>
+                <li class="current"><a href="allposts.html">已发布 (<span id="totalPub">-</span>)</a></li>
+                <li><a href="draft.html">草稿箱 (<span id="totalDraft">-</span>)</a></li>
+                <li><a href="trash.html">回收站 (<span id="totalTrash">-</span>)</a></li>
+                <li><a href="published.html">所有文章 (<span id="totalArticle">-</span>)</a></li>
             </ul>
         </div><!--pageheader-->
 

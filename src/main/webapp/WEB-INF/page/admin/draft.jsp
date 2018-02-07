@@ -14,12 +14,12 @@
 
 <body>
 
-    <div class="layui-btn-group articleTable" style="padding-top: 10px">
-        <button class="layui-btn layui-btn-primary" data-type="createNewArticle">创建新文章</button>
+    <%--<div class="layui-btn-group articleTable" style="padding-top: 10px">--%>
+        <%--<button class="layui-btn layui-btn-primary" data-type="createNewArticle">111创建新文章</button>--%>
         <%--<button class="layui-btn layui-btn-primary" data-type="getCheckData">获取选中行数据</button>--%>
         <%--<button class="layui-btn layui-btn-primary" data-type="getCheckLength">获取选中数目</button>--%>
         <%--<button class="layui-btn layui-btn-primary" data-type="isAll">验证是否全选</button>--%>
-    </div>
+    <%--</div>--%>
     <%--文章列表--%>
     <table id="articleGrid" lay-filter="articleGrid">
         <%--<thead>
@@ -40,7 +40,7 @@
     <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
 
     <script type="text/html" id="toolbar">
-        <%--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>--%>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="publish">发布</a>
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     </script>
@@ -53,7 +53,7 @@
             // 文章列表
             table.render({
                 elem: '#articleGrid'     // 表格元素id
-                , url: '/admin/getAllArticleList.action' //数据接口
+                , url: '/admin/blog/getAllDraftList.action' //数据接口
                 , page: true //开启分页
                 , style: [{"background-color": "red"}]
                 , size: ''
@@ -73,6 +73,8 @@
                         templet: function (d) {
                             if (d.status === 'publish') {
                                 return "<font color='green'>已发布</font>";
+                            } else {
+                                return "<font color='#ff4500'>未发布</font>";
                             }
                         }
                     }
@@ -81,7 +83,7 @@
                             return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
                         }
                     }
-                    , {field: 'hits', title: '访问量', width: 100, sort: true, align: 'right',}
+//                    , {field: 'hits', title: '访问量', width: 100, sort: true, align: 'right',}
                     , {field: 'categories', title: '所属分类', width: 90, align: 'center',}
                     , {fixed: 'right', width: 178, align: 'center', toolbar: '#toolbar', title: "操作"}
                 ]],
@@ -89,7 +91,7 @@
                     //如果是异步请求数据方式，res即为你接口返回的信息。
                     //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                     // 展示当前已发布文章总数
-                    jQuery("#totalPub").html(count);
+                    jQuery("#totalDraft").html(count);
 
                     console.log(res);
                     //得到当前页码
@@ -114,7 +116,7 @@
                         , loading: true          // 显示正在加载...
                         , end: function () {   // 窗口销毁时触发,无参数
                             // 重新加载列表数据
-//                            table.reload('articleGrid');
+                            table.reload('articleGrid');
                         }
 //                      , btn: ['发布', '存草稿', '取消']
                         /*,success: function(layero, index){
@@ -184,9 +186,28 @@
                 var data = obj.data;
                 ////// 操作 //////
                 ////// 查看详情 //////
-                if (obj.event === 'detail') {
-                    layer.msg('ID：' + data.aid + ' 的查看操作');
-
+                if (obj.event === 'publish') {
+//                    layer.msg('ID：' + data.aid + ' 的发布操作');
+                    layer.confirm('确认发布该文章?', {icon: 3, title:'温馨提示'}, function (index) {
+                        // 移除列表中选中的数据
+                        jQuery.ajax({
+                            url: "/admin/blog/publishByAid.action"
+                            , type: "POST"
+                            , data: {aid: data.aid}
+                            , dataType: "JSON"
+                            , async: true
+                            , success: function (resule) {
+                                if (resule && resule.success) {
+                                    obj.del();
+                                    top.layer.msg('发布成功', {icon: 1, title: "系统提示"});
+                                } else {
+                                    top.layer.msg(resule.message, {icon: 2, title: "系统提示"});
+                                }
+                            }
+                        });
+                        // 关闭确认框
+                        layer.close(index);
+                    });
                 ////// 删除文章 //////
                 } else if (obj.event === 'del') {
                     layer.confirm('删除后可在回收站找回. 确认删除该文章?', {icon: 3, title:'温馨提示'}, function (index) {
@@ -216,7 +237,7 @@
                         type: 2   // 此处是iframe
                         , title: '编辑文章'
                         , area: ['1120px', '620px']
-                        , shade: 0.3  // 默认0.3
+                        , shade: 0.3
                         , maxmin: true
                         , content: '/admin/newpost.html?aid=' + data.aid + "&actionType=edit"    // 需要加载的页面地址
                         , loading: true          // 显示正在加载...

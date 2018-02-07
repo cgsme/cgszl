@@ -2,7 +2,9 @@ package cn.cgszl.common.dao.mapper;
 
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.dao.pojo.ArticleExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ArticleMapper {
@@ -36,7 +38,15 @@ public interface ArticleMapper {
 
     /**
      * 查询所有文章
+     *
      * @return 文章集合
      */
     List<Article> getArticleList();
+
+    /**
+     * 获取草稿箱列表
+     *
+     * @return 草稿集合
+     */
+    List<Article> getArticleDraftList();
 }

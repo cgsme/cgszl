@@ -3,6 +3,7 @@ package cn.cgszl.admin.service.impl;
 import cn.cgszl.admin.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
+import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.DateUtils;
 import cn.cgszl.common.utils.UNIDGenerate;
@@ -43,7 +44,7 @@ public class BlogServiceImpl implements BlogService {
      * @return 执行是否成功
      */
     @Override
-    public boolean savePost(Article article) throws CgszlException{
+    public boolean savePost(Article article) throws CgszlException {
         // 验证用户是否登录
         if (null == article || article.getAuthorId() == null) {
             throw new CgszlException("请先登录...");
@@ -81,16 +82,37 @@ public class BlogServiceImpl implements BlogService {
         return result;
     }
 
+    /**
+     * 根据文章标识获取文章列表
+     *
+     * @param aid 文章标识
+     * @return 文章对象
+     * @throws CgszlException 全局异常
+     */
     @Override
     public Article findArticleById(String aid) throws CgszlException {
         return articleMapper.selectByPrimaryKey(Integer.parseInt(aid));
     }
 
+    /**
+     * 更新文章
+     *
+     * @param article 文章对象
+     * @return 操作结果
+     * @throws CgszlException 全局异常
+     */
     @Override
     public boolean updatePost(Article article) throws CgszlException {
         return articleMapper.updateByPrimaryKeyWithBLOBs(article) > 0;
     }
 
+    /**
+     * 根据文章标识删除文章
+     *
+     * @param aid 文章标识
+     * @return 删除结果
+     * @throws CgszlException 全局异常
+     */
     @Override
     public boolean deleteByAid(String aid) throws CgszlException {
         Article article = findArticleById(aid);
@@ -101,5 +123,29 @@ public class BlogServiceImpl implements BlogService {
         } else {
             return false;
         }
+    }
+
+    /**
+     * 获取所有草稿列表
+     *
+     * @return 草稿集合
+     * @throws CgszlException 全局异常
+     */
+    @Override
+    public List<Article> findAllDraftList() throws CgszlException {
+        return articleMapper.getArticleDraftList();
+    }
+
+    /**
+     * 根据文章标识发布文章
+     * @param aid 文章标识
+     * @return 操作结果
+     * @throws CgszlException 系统异常
+     */
+    @Override
+    public boolean publishById(String aid) throws CgszlException {
+        Article article = findArticleById(aid);
+        article.setStatus("publish");
+        return articleMapper.updateByPrimaryKeySelective(article) > 0;
     }
 }
