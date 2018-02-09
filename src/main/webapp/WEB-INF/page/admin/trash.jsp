@@ -62,11 +62,12 @@
                 , style: [{"background-color": "red"}]
                 , size: ''
                 , limit: 10
-                , skin: 'nob'
+                , skin: ''
                 , height: 'full-235'
                 , limits:[10,20,40]
                 , cols: [[    // 表头
                     {type: 'checkbox'}
+                    , {type: 'numbers', title: '序号'}
                     , {field: 'title', title: '文章标题', width: 370}
                     , {field: 'user', title: '作者', width: 100, align: 'center',
                         templet: function (d) {
