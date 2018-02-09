@@ -40,9 +40,15 @@
     <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
 
     <script type="text/html" id="toolbar">
-        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="publish">发布</a>
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="publish">
+            <i class="layui-icon">&#xe609;</i>发布
+        </a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">
+            <i class="layui-icon">&#xe642;</i>编辑
+        </a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">
+            <i class="layui-icon">&#xe640;</i>删除
+        </a>
     </script>
 
     <script>
@@ -59,7 +65,7 @@
                 , size: ''
                 , limit: 10
                 , skin: 'nob'
-                , height: 'full-285'
+                , height: 'full-235'
                 , limits:[10,20,40]
                 , cols: [[    // 表头
                     {type: 'checkbox'}
@@ -85,7 +91,7 @@
                     }
 //                    , {field: 'hits', title: '访问量', width: 100, sort: true, align: 'right',}
                     , {field: 'categories', title: '所属分类', width: 90, align: 'center',}
-                    , {fixed: 'right', width: 178, align: 'center', toolbar: '#toolbar', title: "操作"}
+                    , {fixed: 'right', width: 205, align: 'center', toolbar: '#toolbar', title: "操作"}
                 ]],
                 done: function (res, curr, count) {
                     //如果是异步请求数据方式，res即为你接口返回的信息。

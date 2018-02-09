@@ -3,11 +3,7 @@ package cn.cgszl.admin.service.impl;
 import cn.cgszl.admin.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
-import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.exception.CgszlException;
-import cn.cgszl.common.utils.DateUtils;
-import cn.cgszl.common.utils.UNIDGenerate;
-import com.sun.org.apache.regexp.internal.RE;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -138,6 +134,7 @@ public class BlogServiceImpl implements BlogService {
 
     /**
      * 根据文章标识发布文章
+     *
      * @param aid 文章标识
      * @return 操作结果
      * @throws CgszlException 系统异常
@@ -147,5 +144,42 @@ public class BlogServiceImpl implements BlogService {
         Article article = findArticleById(aid);
         article.setStatus("publish");
         return articleMapper.updateByPrimaryKeySelective(article) > 0;
+    }
+
+    /**
+     * 获取回收站文章列表
+     *
+     * @return 文章集合
+     * @throws CgszlException 系统异常
+     */
+    @Override
+    public List<Article> getAllTrashList() throws CgszlException {
+        return articleMapper.getAllTrashList();
+    }
+
+    /**
+     * 还原回收站中的文章
+     *
+     * @param aid 文章标识
+     * @return 通用结果对象
+     * @throws CgszlException 系统异常
+     */
+    @Override
+    public boolean revertByAid(String aid) throws CgszlException {
+        Article article = findArticleById(aid);
+        article.setDeleteFlag(false);
+        return articleMapper.updateByPrimaryKeySelective(article) > 0;
+    }
+
+    /**
+     * 根据文章标识删除文章（物理删）
+     *
+     * @param aid 文章标识
+     * @return 操作结果
+     * @throws CgszlException 系统异常
+     */
+    @Override
+    public boolean deleteByAidPhy(String aid) throws CgszlException {
+        return articleMapper.deleteByPrimaryKey(Integer.parseInt(aid)) > 0;
     }
 }

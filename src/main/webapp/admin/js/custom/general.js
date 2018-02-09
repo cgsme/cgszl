@@ -141,9 +141,12 @@ jQuery(document).ready(function () {
             jQuery('.contentwrapper .subcontent').hide();
             jQuery(url).show();
         } else {
-            jQuery.post(url, function (data) {
-                jQuery('#contentwrapper').html(data);
-                jQuery('.stdtable input:checkbox').uniform();	// 重新设定复选框
+            jQuery.ajax({
+                url: url,
+                success: function (data) {
+                    jQuery('#contentwrapper').html(data);
+                    jQuery('.stdtable input:checkbox').uniform();	// 重新设定复选框
+                }
             });
         }
         return false;

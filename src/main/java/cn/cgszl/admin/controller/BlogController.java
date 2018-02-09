@@ -143,7 +143,7 @@ public class BlogController {
     }
 
     /**
-     * 根据文章标识删除文章
+     * 根据文章标识删除文章(逻辑删)
      *
      * @param aid 文章标识
      * @return 通用结果对象
@@ -158,6 +158,17 @@ public class BlogController {
         return CommonResult.fail(false, "删除失败");
     }
 
+    @RequestMapping(value = "/admin/blog/deleteByAidPhy", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult deleteByAidPhy(@RequestParam(name = "aid") String aid) {
+        boolean result = blogService.deleteByAidPhy(aid);
+        if (result) {
+            return CommonResult.ok();
+        } else {
+            return CommonResult.fail(false, "删除失败");
+        }
+    }
+
     /**
      * 跳转到草稿箱页面
      *
@@ -167,6 +178,17 @@ public class BlogController {
     public String allDraft() {
         // 返回草稿箱页面
         return "admin/draft";
+    }
+
+    /**
+     * 跳转到回收站页面
+     *
+     * @return 页面地址
+     */
+    @RequestMapping(value = "/admin/trash")
+    public String allTrash() {
+        // 返回回收站页面
+        return "admin/trash";
     }
 
     /**
@@ -189,6 +211,12 @@ public class BlogController {
         return GridData.build(articleList, articleList.size());
     }
 
+    /**
+     * 草稿箱中发布文章
+     *
+     * @param aid 文章标识
+     * @return 通用结果对象
+     */
     @RequestMapping(value = "/admin/blog/publishByAid", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult publishByAid(@RequestParam(value = "aid") String aid) {
@@ -201,6 +229,43 @@ public class BlogController {
             }
         } catch (CgszlException e) {
             return CommonResult.fail(false, "系统异常,请稍后再试……");
+        }
+    }
+
+    /**
+     * 获取回收站文章列表
+     *
+     * @param page  当前页
+     * @param limit 每页记录数
+     * @return layui通用结果对象
+     */
+    @RequestMapping(value = "/admin/blog/getAllTrashList")
+    @ResponseBody
+    public GridData getAllTrashList(int page, int limit) {
+        // 创建mybatis分页对象
+        PageHelper pageHelper = new PageHelper();
+        pageHelper.startPage(page, limit);
+        // 调用service获取文章数据
+        List<Article> articleList = blogService.getAllTrashList();
+        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+        PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
+        return GridData.build(articleList, articleList.size());
+    }
+
+    /**
+     * 还原回收站中的文章
+     *
+     * @param aid 文字标识
+     * @return 通用结果对象
+     */
+    @RequestMapping(value = "/admin/blog/revertByAid", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult revertByAid(@RequestParam(name = "aid") String aid) {
+        boolean result = blogService.revertByAid(aid);
+        if (result) {
+            return CommonResult.ok();
+        } else {
+            return CommonResult.fail(false, "操作失败");
         }
     }
 }

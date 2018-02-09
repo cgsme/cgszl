@@ -602,7 +602,7 @@
         ORDER BY t_articles.created DESC
     </select>
 
-    <!--文字表和用户表管理-->
+    <!--获取草稿 -->
     <select id="getArticleDraftList" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
         SELECT
             t_articles.aid,
@@ -642,6 +642,45 @@
               AND t_articles.delete_flag = 0
               AND t_articles.status = 'unpublish'
               AND t_articles.draft = 1
+        ORDER BY t_articles.created DESC
+    </select>
+
+    <!--获取回收站文章 -->
+    <select id="getAllTrashList" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        SELECT
+        t_articles.aid,
+        t_articles.title,
+        t_articles.slug,
+        t_articles.created,
+        t_articles.modified,
+        t_articles.author_id,
+        t_articles.type,
+        t_articles.status,
+        t_articles.tags,
+        t_articles.categories,
+        t_articles.hits,
+        t_articles.comments_num,
+        t_articles.allow_comment,
+        t_articles.allow_ping,
+        t_articles.allow_feed,
+        t_articles.like_num,
+        t_articles.unlike_num,
+        t_articles.draft,
+        t_articles.delete_flag,
+        t_articles.content,
+        t_users.uid,
+        t_users.username,
+        t_users.password,
+        t_users.email,
+        t_users.home_url,
+        t_users.screen_name,
+        t_users.created,
+        t_users.activated,
+        t_users.logged,
+        t_users.group_name
+        FROM t_articles, t_users
+        WHERE t_articles.author_id = t_users.uid
+        AND t_articles.delete_flag = 1
         ORDER BY t_articles.created DESC
     </select>
 </mapper>

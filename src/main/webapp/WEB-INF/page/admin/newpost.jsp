@@ -5,25 +5,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <%@include file="common/common.jsp" %>
-    <%@include file="common/pageResource.jsp" %>
+    <c:if test="${article.aid != null}">
+        <%@include file="common/common.jsp" %>
+        <%@include file="common/pageResource.jsp" %>
+    </c:if>
     <title>发布文章页面</title>
     <link type="text/css" href="${request.pageContext.contextPath}/admin/css/plugins/jquery.tagsinput.css">
     <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.tagsinput.min.js"></script>
-    <script type="text/javascript"
-            src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
     <%--<script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/custom/forms.js"></script>--%>
-
     <%--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--%>
+
     <script type="text/javascript">
         ////// 保存(发布)文章 //////
         function saveArticle1(actionType) {
             var url = "";
-            if (actionType === "publish") {
+            var tabPageId = "";
+            // 判断是发布操作还是存为草稿操作
+            if (actionType === "publish") {  // 发布
                 url = "/admin/savePost.action?actionType=publish";
+                tabPageId = "publishedTab";
             }
-            if (actionType === "draft") {
-                url = "/admin/savePost.action?actionType=deaft";
+            if (actionType === "draft") {  // 草稿
+                 url = "/admin/savePost.action?actionType=deaft";
+                tabPageId = "draftTab";
             }
             // 序列化表单数据为字符串
             var formData = jQuery("#articleForm").serializeJSON();
@@ -31,6 +36,7 @@
             var content = tinyMCE.activeEditor.getContent();
             // 封装content属性
             formData.content = content;
+            // 提交请求
             jQuery.ajax({
                 url : url,
                 data: formData,
@@ -38,14 +44,19 @@
                 dataType:'JSON',
                 success: function (data) {
                     if (data.success) {
+                        // 触发‘已发布’tab页的点击事件
+                        jQuery("#" + tabPageId).trigger("click");
                         // 刷新父页面的列表
-                        parent.table.reload('articleGrid');
+//                        parent.table.reload('articleGrid');
+                        // 关闭弹框
                         parent.layer.closeAll();
+                        // 弹出操作结果提示框
                         top.layer.msg('操作成功', {icon: 1, title: "系统提示" });
                     } else {
+                        // 弹出提示框
                         parent.top.layer.msg(data.message, {icon: 2, title: "系统提示" });
                     }
-                },
+                }
             });
         }
 
@@ -183,13 +194,9 @@
                 <%--<button class="submit radius2">发布</button>--%>
                 </div>
             </form>
-
         </div><!--subcontent-->
     <%--</div><!--contentwrapper-->--%>
-
 <%--</div><!--centercontent-->--%>
-
-
 <%--</div><!--bodywrapper-->--%>
 
 </body>

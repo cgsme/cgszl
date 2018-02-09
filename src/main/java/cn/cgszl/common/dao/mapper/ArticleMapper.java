@@ -49,4 +49,11 @@ public interface ArticleMapper {
      * @return 草稿集合
      */
     List<Article> getArticleDraftList();
+
+    /**
+     * 获取回收站文章列表
+     *
+     * @return 文章集合
+     */
+    List<Article> getAllTrashList();
 }

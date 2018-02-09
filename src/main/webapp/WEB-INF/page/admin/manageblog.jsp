@@ -7,6 +7,8 @@
     <title>博客管理页面</title>
     <%@include file="common/common.jsp"%>
     <%@include file="common/pageResource.jsp"%>
+    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
     <script type="text/javascript" src="js/custom/blog.js"></script>
 
 </head>
@@ -25,10 +27,10 @@
             <%--<span class="pagedesc">以下内容由ajax加载</span>--%>
 
             <ul class="hornav blogmenu">
-                <li class="current"><a href="allposts.html">已发布 (<span id="totalPub">-</span>)</a></li>
-                <li><a href="draft.html">草稿箱 (<span id="totalDraft">-</span>)</a></li>
+                <li><a href="newpost.html">新文章</a></li>
+                <li class="current"><a id="publishedTab" href="allposts.html">已发布 (<span id="totalPub">-</span>)</a></li>
+                <li><a id="draftTab" href="draft.html">草稿箱 (<span id="totalDraft">-</span>)</a></li>
                 <li><a href="trash.html">回收站 (<span id="totalTrash">-</span>)</a></li>
-                <li><a href="published.html">所有文章 (<span id="totalArticle">-</span>)</a></li>
             </ul>
         </div><!--pageheader-->
 

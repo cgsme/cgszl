@@ -66,4 +66,28 @@ public interface BlogService {
      * @return 操作结果
      */
     boolean publishById(String aid) throws CgszlException;
+
+    /**
+     * 获取回收站数据列表
+     *
+     * @return 回收站文章列表
+     */
+    List<Article> getAllTrashList() throws CgszlException;
+
+    /**
+     * 还原回收站中的文章
+     *
+     * @param aid 文章标识
+     * @return 通用结果对象
+     */
+    boolean revertByAid(String aid) throws CgszlException;
+
+    /**
+     * 根据文章标识删除文章（物理删）
+     *
+     * @param aid 文章标识
+     * @return 操作结果
+     * @throws CgszlException 系统异常
+     */
+    boolean deleteByAidPhy(String aid) throws CgszlException;
 }
