@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%--<%@include file="common/common.jsp" %>--%><%--防止重复加载资源文件导致卡顿--%>
     <%--<%@include file="common/pageResource.jsp" %>--%>
+
     <script type="text/javascript" src="/common/js/cgszl.utils.js"></script>
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
     <title>所有文章页面</title>
@@ -52,6 +53,37 @@
     </script>
 
     <script>
+        jQuery(function () {
+            ///// 水平导航（ajax / 内联数据） /////
+            jQuery('.hornav a').click(function () {
+
+                // 这仅适用于窗口大小低于450像素的情况
+                if (jQuery(this).parents('.more').length == 0)
+                    jQuery('.hornav li.more ul').hide();
+
+                // 删除当前菜单
+                jQuery('.hornav li').each(function () {
+                    jQuery(this).removeClass('current');
+                });
+
+                jQuery(this).parent().addClass('current');	// 设置为当前菜单
+
+                var url = jQuery(this).attr('href');
+                if (jQuery(url).length > 0) {
+                    jQuery('.contentwrapper .subcontent').hide();
+                    jQuery(url).show();
+                } else {
+                    jQuery.ajax({
+                        url: url,
+                        success: function (data) {
+                            jQuery('#contentwrapper').html(data);
+                            jQuery('.stdtable input:checkbox').uniform();	// 重新设定复选框
+                        }
+                    });
+                }
+                return false;
+            });
+        });
         // 表格对象
         var table;
         layui.use('table', function () {
@@ -65,12 +97,12 @@
                 , size: ''
                 , limit: 10
                 , skin: ''
-                , height: 'full-235'
+//                , height: 'full-235'
                 , limits:[10,20,40]
                 , cols: [[    // 表头
                     {type: 'checkbox'}
                     , {type: 'numbers', title: '序号'}
-                    , {field: 'title', title: '文章标题', width: 350}
+                    , {field: 'title', title: '文章标题', width: 300}
                     , {field: 'user', title: '作者', width: 100, align: 'center',
                         templet: function (d) {
                             return d.user.username;

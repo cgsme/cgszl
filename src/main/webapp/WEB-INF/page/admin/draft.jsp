@@ -64,12 +64,11 @@
                 , style: [{"background-color": "red"}]
                 , size: ''
                 , limit: 10
-                , skin: ''
-                , height: 'full-235'
+//                , skin: 'nob'
+//                , height: 'full-240'
                 , limits:[10,20,40]
                 , cols: [[    // 表头
                     {type: 'checkbox'}
-                    , {type: 'numbers', title: '序号'}
                     , {field: 'title', title: '文章标题', width: 370}
                     , {field: 'user', title: '作者', width: 100, align: 'center',
                         templet: function (d) {
@@ -92,7 +91,7 @@
                     }
 //                    , {field: 'hits', title: '访问量', width: 100, sort: true, align: 'right',}
                     , {field: 'categories', title: '所属分类', width: 90, align: 'center',}
-                    , {fixed: 'right', width: 205, align: 'center', toolbar: '#toolbar', title: "操作"}
+                    , {fixed: 'right', width: 220, align: 'center', toolbar: '#toolbar', title: "操作"}
                 ]],
                 done: function (res, curr, count) {
                     //如果是异步请求数据方式，res即为你接口返回的信息。

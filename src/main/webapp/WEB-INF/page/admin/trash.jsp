@@ -63,7 +63,7 @@
                 , size: ''
                 , limit: 10
                 , skin: ''
-                , height: 'full-235'
+//                , height: 'full-235'
                 , limits:[10,20,40]
                 , cols: [[    // 表头
                     {type: 'checkbox'}

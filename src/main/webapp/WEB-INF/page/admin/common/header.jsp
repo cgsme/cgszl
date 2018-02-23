@@ -52,7 +52,7 @@
         </div><!--right-->
     </div><!--topheader-->
 
-    <div class="header">
+    <%--<div class="header">
         <ul class="headermenu">
             <li class="current"><a href="dashboard.html"><span class="icon icon-flatscreen"></span>首页</a></li>
             <li><a href="manageblog.html"><span class="icon icon-pencil"></span>博客管理</a></li>
@@ -73,5 +73,5 @@
             </div><!--earnings-->
         </div><!--headerwidget-->
 
-    </div><!--header-->
+    </div>--%><!--header-->
 

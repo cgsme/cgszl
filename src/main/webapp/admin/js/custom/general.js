@@ -95,18 +95,32 @@ jQuery(document).ready(function () {
             if (jQuery(url).length > 0) {
                 if (jQuery(url).is(':visible')) {
                     if (!jQuery(this).parents('div').hasClass('menucoll') &&
-                        !jQuery(this).parents('div').hasClass('menucoll2'))
+                        !jQuery(this).parents('div').hasClass('menucoll2')) {
+
                         jQuery(url).slideUp();
+                    }
                 } else {
                     jQuery('.vernav ul ul, .vernav2 ul ul').each(function () {
                         jQuery(this).slideUp();
                     });
                     if (!jQuery(this).parents('div').hasClass('menucoll') &&
-                        !jQuery(this).parents('div').hasClass('menucoll2'))
+                        !jQuery(this).parents('div').hasClass('menucoll2')) {
+
                         jQuery(url).slideDown();
+                    }
                 }
-                return false;
+            } else {
+                ////// 加载页面 //////
+                jQuery.ajax({
+                    url: url,
+                    success: function (data) {
+                        // 将页面内容放入div中
+                        jQuery('#bolgmanagerbox').html(data);
+
+                    }
+                });
             }
+            return false;
         });
     });
 
@@ -263,6 +277,7 @@ jQuery(document).ready(function () {
                 jQuery('.togglemenu').removeClass('togglemenu_collapsed');
             } else {
                 jQuery('.iconmenu > ul > li > a').each(function () {
+                    // vernav2
                     var label = jQuery(this).text();
                     jQuery('<li><span>' + label + '</span></li>')
                         .insertBefore(jQuery(this).parent().find('ul li:first-child'));
