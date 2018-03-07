@@ -14,7 +14,9 @@
 </head>
 
 <body>
-
+    <div class="pageheader" style="padding-bottom: 10px">
+        <h1 class="pagetitle">评论管理</h1>
+    </div><!--pageheader-->
     <%--<div class="layui-btn-group articleTable" style="padding-top: 10px">--%>
         <%--<button class="layui-btn layui-btn-primary" data-type="createNewArticle">--%>
             <%--<i class="layui-icon">&#xe654;</i>创建新文章--%>
@@ -25,19 +27,6 @@
     <%--</div>--%>
     <%--文章列表--%>
     <table id="articleGrid" lay-filter="articleGrid">
-        <%--<thead>
-            <tr>
-                <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-                <th lay-data="{field:'aid', sort: true, fixed: true}">ID</th>
-                <th lay-data="{field:'title'}">标题</th>
-                <th lay-data="{field:'authorId', sort: true}">作者</th>
-                <th lay-data="{field:'status'}">状态</th>
-                <th lay-data="{field:'created'}">发布时间</th>
-                <th lay-data="{field:'hits', sort: true}">点击量</th>
-                <th lay-data="{field:'categories'}">分类</th>
-                <th lay-data="{fixed: 'right', align:'center', toolbar: '#barDemo'}"></th>
-            </tr>
-        </thead>--%>
     </table>
 
     <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
@@ -236,12 +225,12 @@
                             , data : {aid: data.aid}
                             , dataType : "JSON"
                             , async : true
-                            , success : function (result) {
-                                if (result && resule.success) {
+                            , success : function (resule) {
+                                if (resule && resule.success) {
                                     obj.del();
                                     top.layer.msg('删除成功', {icon: 1, title: "系统提示" });
                                 } else {
-                                    top.layer.msg(result.message, {icon: 2, title: "系统提示" });
+                                    top.layer.msg(resule.message, {icon: 2, title: "系统提示" });
                                 }
                             }
                         });

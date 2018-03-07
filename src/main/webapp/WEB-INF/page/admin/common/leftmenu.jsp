@@ -3,6 +3,7 @@
 
 <div class="vernav2 iconmenu">
     <ul>
+        <li><a href="dashboard.html" class="tables">控制台</a></li>
         <li><a href="#formsub" class="editor">博客管理</a>
             <span class="arrow"></span>
             <ul id="formsub">
@@ -12,14 +13,14 @@
             </ul>
         </li>
         <li><a href="commentmanager.html" class="addons">评论管理</a></li>
-        <li><a href="catgorymanager.html" class="typo">分类/标签</a></li>
+        <li><a href="categorymanager.html" class="typo">分类/标签</a></li>
         <li><a href="filemanager.html" class="gallery">文件管理</a></li>
         <li><a href="pagemanager.html" class="widgets">页面管理</a></li>
         <li><a href="linkmanager.html" class="support">友链管理</a></li>
         <li><a href="systemsetting.html" class="elements">系统设置</a></li>
         <li><a href="systemsetting.html" class="elements">------------------</a></li>
 
-        <li><a href="#elements" class="elements">网页元素</a>
+        <%--<li><a href="#elements" class="elements">网页元素</a>
             <span class="arrow"></span>
             <ul id="elements">
                 <li><a href="forms.html">基础表单</a></li>
@@ -52,7 +53,7 @@
                 <li><a href="gallery.html">相册</a></li>
                 <li><a href="invoice.html">购物车</a></li>
             </ul>
-        </li>
+        </li>--%>
     </ul>
     <a class="togglemenu"></a>
     <br /><br />
