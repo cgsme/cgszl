@@ -100,7 +100,7 @@
 //                    {type: 'checkbox'}
                     {type: 'numbers', title: '序号'}
                     , {field: 'name', title: '分类名称', width: 200}
-                    , {field: '', title: '文章数量', width: 100}
+                    , {field: 'count', title: '文章数量', width: 100}
                     , {fixed: 'right', width: 178, align: 'center', title: "操作", toolbar: '#toolbar1', }
                 ]],
                 done: function (res, curr, count) {
@@ -131,7 +131,7 @@
 //                    {type: 'checkbox'}
                     {type: 'numbers', title: '序号'}
                     , {field: 'name', title: '标签名称', width: 200}
-                    , {field: '', title: '文章数量', width: 100}
+                    , {field: 'count', title: '文章数量', width: 100}
                     , {fixed: 'right', width: 100, align: 'center', toolbar: '#toolbar2', title: "操作"}
                 ]],
                 done: function (res, curr, count) {
@@ -195,28 +195,27 @@
                 ////// 操作 //////
                 ////// 查看详情 //////
                 if (obj.event === 'del') {
-                    layer.confirm('删除后可在回收站找回. 确认删除该文章?', {icon: 3, title:'温馨提示'}, function (index) {
+                    layer.confirm('确认删除该标签?', {icon: 3, title:'温馨提示'}, function (index) {
                         // 移除列表中选中的数据
                         jQuery.ajax({
-                            url:"/admin/blog/deleteByAid.action"
+                            url:"/admin/category/deleteByMid.action"
                             , type : "POST"
-                            , data : {aid: data.aid}
+                            , data : {mid: data.mid}
                             , dataType : "JSON"
                             , async : true
                             , success : function (resule) {
                                 if (resule && resule.success) {
                                     obj.del();
-                                    top.layer.msg('删除成功', {icon: 1, title: "系统提示" });
+                                    top.layer.msg('删除成功', {icon: 1});
                                 } else {
-                                    top.layer.msg(resule.message, {icon: 2, title: "系统提示" });
+                                    top.layer.msg(resule.message, {icon: 2});
                                 }
                             }
                         });
                         // 关闭确认框
                         layer.close(index);
                     });
-                    ////// 编辑文章 //////
-                } else if (obj.event === 'edit') {
+                } /*else if (obj.event === 'edit') {
 //                    layer.alert('编辑行：<br>' + JSON.stringify(data))
                     layer.open({
                         type: 2   // 此处是iframe
@@ -232,7 +231,7 @@
 //                            obj.update();
                         }
                     });
-                }
+                }*/
             });
         });
 

@@ -3,6 +3,9 @@ package cn.cgszl.admin.controller;
 import cn.cgszl.admin.service.CategoryService;
 import cn.cgszl.common.CommonResult;
 import cn.cgszl.common.GridData;
+import cn.cgszl.common.constant.WebConst;
+import cn.cgszl.common.dao.dto.MetasDto;
+import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageHelper;
@@ -43,8 +46,8 @@ public class CategoryController {
     public GridData getAllCategoryList(int page, int limit) {
         PageHelper pageHelper = new PageHelper();
         pageHelper.startPage(page, limit);
-        List<Metas> categoryList = categoryService.getAllCategoryList();
-        PageInfo<Metas> metasPageInfo = new PageInfo<Metas>(categoryList);
+        List<MetasDto> categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),null);
+        PageInfo<MetasDto> metasPageInfo = new PageInfo<MetasDto>(categoryList);
         return GridData.build(categoryList, metasPageInfo.getTotal());
     }
 
@@ -60,8 +63,9 @@ public class CategoryController {
     public GridData getAllTagsList(int page, int limit) {
         PageHelper pageHelper = new PageHelper();
         pageHelper.startPage(page, limit);
-        List<Metas> tagsList = categoryService.getAllTagList();
-        PageInfo<Metas> tagsPageInfo = new PageInfo<Metas>(tagsList);
+//        List<Metas> tagsList = categoryService.getAllTagList();
+        List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(),null);
+        PageInfo<MetasDto> tagsPageInfo = new PageInfo<MetasDto>(tagsList);
         return GridData.build(tagsList, tagsPageInfo.getTotal());
     }
 

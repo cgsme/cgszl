@@ -1,5 +1,6 @@
 package cn.cgszl.admin.service;
 
+import cn.cgszl.common.dao.dto.MetasDto;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.exception.CgszlException;
 
@@ -16,8 +17,10 @@ public interface CategoryService {
      * 获取所有分类
      *
      * @return 分类集合
+     * @param type
+     * @param orderBy
      */
-    List<Metas> getAllCategoryList() throws CgszlException;
+    List<MetasDto> getAllCategoryList(String type, String orderBy) throws CgszlException;
 
     /**
      * 获取所有标签

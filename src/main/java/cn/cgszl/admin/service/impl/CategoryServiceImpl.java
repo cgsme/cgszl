@@ -1,15 +1,20 @@
 package cn.cgszl.admin.service.impl;
 
 import cn.cgszl.admin.service.CategoryService;
+import cn.cgszl.common.constant.WebConst;
+import cn.cgszl.common.dao.dto.MetasDto;
 import cn.cgszl.common.dao.mapper.MetasMapper;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.MetasExample;
 import cn.cgszl.common.exception.CgszlException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 分类管理业务接口实现类
@@ -30,10 +35,19 @@ public class CategoryServiceImpl implements CategoryService {
      * @return 分类集合
      */
     @Override
-    public List<Metas> getAllCategoryList() throws CgszlException {
-        MetasExample metasExample = new MetasExample();
-        metasExample.createCriteria().andTypeEqualTo("category");
-        return metasMapper.selectByExample(metasExample);
+    public List<MetasDto> getAllCategoryList(String type, String orderBy) throws CgszlException {
+//        MetasExample metasExample = new MetasExample();
+//        metasExample.createCriteria().andTypeEqualTo("category");
+        if (StringUtils.isNotBlank(type)) {
+            if (StringUtils.isBlank(orderBy)) {
+                orderBy = "count desc, a.mid desc";
+            }
+            Map<String, Object> paramType = new HashMap<String, Object>();
+            paramType.put("type", type);
+            paramType.put("order", orderBy);
+            return metasMapper.selectFormSql(paramType);
+        }
+        return null;
     }
 
     /**
