@@ -22,7 +22,7 @@ public interface LinkService {
     /**
      * 根据链接标题查询链接
      *
-     * @param name
+     * @param name 链接标题
      * @return
      */
     List<Metas> getLinkByName(String name) throws CgszlException;
@@ -30,7 +30,7 @@ public interface LinkService {
     /**
      * 保存链接
      *
-     * @param metas
+     * @param metas 链接对象
      * @return
      */
     boolean SaveLink(Metas metas) throws CgszlException;
@@ -38,8 +38,16 @@ public interface LinkService {
     /**
      * 根据链接标识删除链接
      *
-     * @param mid
+     * @param mid 链接标识
      * @return
      */
     boolean deleteByMid(int mid) throws CgszlException;
+
+    /**
+     * 根据链接标识获取连接
+     * @param mid 连接标识
+     * @param name
+     * @return
+     */
+    List<Metas> getLinkByMid(Integer mid, String name);
 }

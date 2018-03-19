@@ -81,4 +81,18 @@ public class LinkServiceImpl implements LinkService {
     public boolean deleteByMid(int mid) {
         return metasMapper.deleteByPrimaryKey(mid) > 0;
     }
+
+    /**
+     * 根据链接标识获取连接
+     *
+     * @param mid 链接标识
+     * @param name
+     * @return
+     */
+    @Override
+    public List<Metas> getLinkByMid(Integer mid, String name) {
+        MetasExample metasExample = new MetasExample();
+        metasExample.createCriteria().andNameEqualTo(name).andMidNotEqualTo(mid);
+        return metasMapper.selectByExample(metasExample);
+    }
 }

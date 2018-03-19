@@ -7,6 +7,7 @@ import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,15 +60,20 @@ public class LinkController {
     /**
      * 根据链接名称获取链接信息
      *
-     * @param name 链接名称
+     * @param ,metas 链接对象
      * @return 通用对象
      */
     @RequestMapping(value = "/admin/checkLinkName", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult checkLinkName(String name) {
+    public CommonResult checkLinkName(Metas metas) {
         List<Metas> metasList = null;
         try {
-            metasList = linkService.getLinkByName(name);
+            // 新增时 名称校验
+            if (null == metas.getMid() && StringUtils.isNotBlank(metas.getName())) {
+                metasList = linkService.getLinkByName(metas.getName());
+            } else {   // 修改时名称校验
+                metasList = linkService.getLinkByMid(metas.getMid(), metas.getName());
+            }
             if (null != metasList && !metasList.isEmpty()) {
                 return CommonResult.fail(false, "链接标题已存在！");
             }

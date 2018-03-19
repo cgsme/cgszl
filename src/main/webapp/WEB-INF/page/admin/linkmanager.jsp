@@ -173,7 +173,6 @@
                         return false;
                     }
                 }
-                debugger;
                 ////// 判断是否已经存在同名分类 //////
                 jQuery.ajax({
                    url: '/admin/checkLinkName.action'
