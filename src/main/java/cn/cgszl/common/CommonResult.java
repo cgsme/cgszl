@@ -11,13 +11,13 @@ public class CommonResult {
     private Object data;     // 返回的结果
     private String message;     // 提示信息
 
-    public CommonResult() {}
+    private CommonResult() {}
 
-    public CommonResult(boolean success) {
+    private CommonResult(boolean success) {
         this.success = success;
     }
 
-    public CommonResult(boolean success, Object data, String message) {
+    private CommonResult(boolean success, Object data, String message) {
         this.success = success;
         this.data = data;
         this.message = message;

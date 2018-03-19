@@ -30,10 +30,10 @@ public class GridData implements Serializable {
         return new GridData(data, count);
     }
 
-    public GridData() {
+    private GridData() {
     }
 
-    public GridData(List data, long count) {
+    private GridData(List data, long count) {
         this.data = data;
         this.msg = "ok";
         this.count = count;
@@ -41,7 +41,7 @@ public class GridData implements Serializable {
         this.code = 0;
     }
 
-    public GridData(Integer code, String msg, long count, List data) {
+    private GridData(Integer code, String msg, long count, List data) {
         this.code = code;
         this.msg = msg;
         this.count = count;

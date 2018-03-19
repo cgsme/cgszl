@@ -18,13 +18,13 @@ public class ActionUtils {
      * @param content   内容
      * @return 交互的结果
      */
-    public static CommonResult getActionResult(boolean isSuccess,
-                                               String message, Object content) {
-        CommonResult ccipResult = new CommonResult();
-        ccipResult.setSuccess(isSuccess);
-        ccipResult.setMessage(message);
-        ccipResult.setData(content);
-//		CommonResult ar = new CommonResult();
-        return ccipResult;
-    }
+//    public static CommonResult getActionResult(boolean isSuccess,
+//                                               String message, Object content) {
+////        CommonResult ccipResult = CommonResult.;
+////        ccipResult.setSuccess(isSuccess);
+////        ccipResult.setMessage(message);
+////        ccipResult.setData(content);
+//////		CommonResult ar = new CommonResult();
+////        return ccipResult;
+//    }
 }

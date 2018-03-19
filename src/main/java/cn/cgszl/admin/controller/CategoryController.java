@@ -44,11 +44,17 @@ public class CategoryController {
     @RequestMapping(value = "/admin/getAllCategoryList")
     @ResponseBody
     public GridData getAllCategoryList(int page, int limit) {
-        PageHelper pageHelper = new PageHelper();
-        pageHelper.startPage(page, limit);
-        List<MetasDto> categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),null);
-        PageInfo<MetasDto> metasPageInfo = new PageInfo<MetasDto>(categoryList);
-        return GridData.build(categoryList, metasPageInfo.getTotal());
+        try {
+            PageHelper pageHelper = new PageHelper();
+            pageHelper.startPage(page, limit);
+            List<MetasDto> categoryList = categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),
+                    null);
+            PageInfo<MetasDto> metasPageInfo = metasPageInfo = new PageInfo<MetasDto>(categoryList);
+            return GridData.build(categoryList, metasPageInfo.getTotal());
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -61,12 +67,17 @@ public class CategoryController {
     @RequestMapping(value = "/admin/getAllTagsList")
     @ResponseBody
     public GridData getAllTagsList(int page, int limit) {
-        PageHelper pageHelper = new PageHelper();
-        pageHelper.startPage(page, limit);
+        try {
+            PageHelper pageHelper = new PageHelper();
+            pageHelper.startPage(page, limit);
 //        List<Metas> tagsList = categoryService.getAllTagList();
-        List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(),null);
-        PageInfo<MetasDto> tagsPageInfo = new PageInfo<MetasDto>(tagsList);
-        return GridData.build(tagsList, tagsPageInfo.getTotal());
+            List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(),null);
+            PageInfo<MetasDto> tagsPageInfo = new PageInfo<MetasDto>(tagsList);
+            return GridData.build(tagsList, tagsPageInfo.getTotal());
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -104,7 +115,13 @@ public class CategoryController {
     @RequestMapping(value = "/admin/checkCatName", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult checkCatName(String name) {
-        boolean result = categoryService.checkCatName(name);
+        boolean result = false;
+        try {
+            result = categoryService.checkCatName(name);
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            result = false;
+        }
         if (result) {
             return CommonResult.fail(false, "已存在同名的分类...");
         } else {

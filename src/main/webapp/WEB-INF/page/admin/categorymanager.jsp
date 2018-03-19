@@ -261,6 +261,7 @@
                                 function (result) {
                                     if (result && result.success) {
                                         table.reload('categoryGrid');
+                                        jQuery('input[name=mid]').val('');
                                         jQuery('input[name=name]').val('');
                                         layer.msg('操作成功', {icon: 1});
                                     } else {

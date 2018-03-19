@@ -56,23 +56,28 @@ public class BlogController {
      */
     @RequestMapping("/admin/newpost")
     public String newpost(HttpServletRequest request, Model model) {
-        String aid = request.getParameter("aid");
-        String actionType = request.getParameter("actionType");
-        // 如果操作时查看详情
-        if (StringUtils.isNotBlank(actionType) && (actionType.equals("viewDetail")
-                || actionType.equals("edit"))) {
-            // 根据id获取文章信息
-            Article article = blogService.findArticleById(aid);
-            if (null != article) {
-                model.addAttribute("article", article);
+        try {
+            String aid = request.getParameter("aid");
+            String actionType = request.getParameter("actionType");
+            // 如果操作时查看详情
+            if (StringUtils.isNotBlank(actionType) && (actionType.equals("viewDetail")
+                    || actionType.equals("edit"))) {
+                // 根据id获取文章信息
+                Article article = blogService.findArticleById(aid);
+                if (null != article) {
+                    model.addAttribute("article", article);
+                }
             }
+            // 获取所有分类
+            List<Metas> metasList = metasService.getAllCatList();
+            // 保存到request中
+            model.addAttribute("metasList", metasList);
+            // 获取标签
+            return "admin/newpost";
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
         }
-        // 获取所有分类
-        List<Metas> metasList = metasService.getAllCatList();
-        // 保存到request中
-        model.addAttribute("metasList", metasList);
-        // 获取标签
-        return "admin/newpost";
     }
 
     /**
@@ -93,14 +98,19 @@ public class BlogController {
     @RequestMapping("/admin/getAllArticleList")
     @ResponseBody
     public GridData getAllArticleList(int page, int limit) {
-        // 创建mybatis分页对象
-        PageHelper pageHelper = new PageHelper();
-        pageHelper.startPage(page, limit);
-        // 调用service获取文章数据
-        List<Article> articleList = blogService.getBlogList();
-        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
-        PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
-        return GridData.build(articleList, articlePageInfo.getTotal());
+        try {
+            // 创建mybatis分页对象
+            PageHelper pageHelper = new PageHelper();
+            pageHelper.startPage(page, limit);
+            // 调用service获取文章数据
+            List<Article> articleList = blogService.getBlogList();
+            // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+            PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
+            return GridData.build(articleList, articlePageInfo.getTotal());
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -151,7 +161,13 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/deleteByAid", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult deleteByAid(@RequestParam(value = "aid") String aid) {
-        boolean result = blogService.deleteByAid(aid);
+        boolean result = false;
+        try {
+            result = blogService.deleteByAid(aid);
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            result = false;
+        }
         if (result) {
             return CommonResult.ok();
         }
@@ -161,7 +177,13 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/deleteByAidPhy", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult deleteByAidPhy(@RequestParam(name = "aid") String aid) {
-        boolean result = blogService.deleteByAidPhy(aid);
+        boolean result = false;
+        try {
+            result = blogService.deleteByAidPhy(aid);
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            result = false;
+        }
         if (result) {
             return CommonResult.ok();
         } else {
@@ -201,14 +223,19 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/getAllDraftList")
     @ResponseBody
     public GridData getAllDraftList(int page, int limit) {
-        // 创建mybatis分页对象
-        PageHelper pageHelper = new PageHelper();
-        pageHelper.startPage(page, limit);
-        // 调用service获取文章数据
-        List<Article> articleList = blogService.findAllDraftList();
-        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
-        PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
-        return GridData.build(articleList, articleList.size());
+        try {
+            // 创建mybatis分页对象
+            PageHelper pageHelper = new PageHelper();
+            pageHelper.startPage(page, limit);
+            // 调用service获取文章数据
+            List<Article> articleList = blogService.findAllDraftList();
+            // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+            PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
+            return GridData.build(articleList, articleList.size());
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -242,14 +269,19 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/getAllTrashList")
     @ResponseBody
     public GridData getAllTrashList(int page, int limit) {
-        // 创建mybatis分页对象
-        PageHelper pageHelper = new PageHelper();
-        pageHelper.startPage(page, limit);
-        // 调用service获取文章数据
-        List<Article> articleList = blogService.getAllTrashList();
-        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
-        PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
-        return GridData.build(articleList, articleList.size());
+        try {
+            // 创建mybatis分页对象
+            PageHelper pageHelper = new PageHelper();
+            pageHelper.startPage(page, limit);
+            // 调用service获取文章数据
+            List<Article> articleList = blogService.getAllTrashList();
+            // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+            PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
+            return GridData.build(articleList, articleList.size());
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -261,7 +293,13 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/revertByAid", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult revertByAid(@RequestParam(name = "aid") String aid) {
-        boolean result = blogService.revertByAid(aid);
+        boolean result = false;
+        try {
+            result = blogService.revertByAid(aid);
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            result = false;
+        }
         if (result) {
             return CommonResult.ok();
         } else {

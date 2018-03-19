@@ -110,13 +110,25 @@ jQuery(document).ready(function () {
                     }
                 }
             } else {
+                //loading层
+                var index = layer.load(1, {
+                    shade: [0.5,'#fff'] //0.1透明度的白色背景
+                });
+                // 先清空内容 add on 2018-03-19 00:07
+                jQuery('#bolgmanagerbox').html('');
                 ////// 加载页面 //////
                 jQuery.ajax({
                     url: url,
                     success: function (data) {
+                        // 关闭加载提示
+                        layer.close(index);
                         // 将页面内容放入div中
                         jQuery('#bolgmanagerbox').html(data);
 
+                    },
+                    error: function () {
+                        // 关闭加载提示
+                        layer.close(index);
                     }
                 });
             }
@@ -155,6 +167,7 @@ jQuery(document).ready(function () {
             jQuery('.contentwrapper .subcontent').hide();
             jQuery(url).show();
         } else {
+            jQuery('#contentwrapper').html('');
             jQuery.ajax({
                 url: url,
                 success: function (data) {

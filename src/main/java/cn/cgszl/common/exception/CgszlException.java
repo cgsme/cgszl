@@ -5,7 +5,7 @@ package cn.cgszl.common.exception;
  *
  * @author cguisheng 2018/1/3 21:35
  */
-public class CgszlException extends RuntimeException {
+public class CgszlException extends Exception {
     public CgszlException() {
     }
 
