@@ -2,7 +2,7 @@ jQuery(document).ready(function(){
 	
 		jQuery('#overviewselect, input:checkbox').uniform();
 		
-		///// DATE PICKER /////
+		///// 时间选择器 /////
 		jQuery( "#datepickfrom, #datepickto" ).datepicker();
 		
 		///// SLIM SCROLL /////
@@ -13,10 +13,10 @@ jQuery(document).ready(function(){
 			height: '175px'                  
 		});
 		
-		///// ACCORDION /////
+		///// 手风琴 /////
 		jQuery('#accordion').accordion({autoHeight:  false});
 	
-		///// SIMPLE CHART /////
+		///// 简单的图表 /////
 		var flash = [[0, 2], [1, 6], [2,3], [3, 8], [4, 5], [5, 13], [6, 8]];
 		var html5 = [[0, 5], [1, 4], [2,4], [3, 1], [4, 9], [5, 10], [6, 13]];
 			
@@ -73,7 +73,7 @@ jQuery(document).ready(function(){
 		});
 		
 		
-	///// SWITCHING LIST FROM 3 COLUMNS TO 2 COLUMN LIST /////
+	///// 将列从3列切换到2列列表 /////
 	function rearrangeShortcuts() {
 		if(jQuery(window).width() < 430) {
 			if(jQuery('.shortcuts li.one_half').length == 0) {
@@ -91,11 +91,13 @@ jQuery(document).ready(function(){
 			}
 		}
 	}
-	
+
+	////// 将列从3列切换到2列列表 //////
 	rearrangeShortcuts();
 	
-	///// ON RESIZE WINDOW /////
+	///// 窗口大小改变时 /////
 	jQuery(window).resize(function(){
+		// 将列从3列切换到2列列表
 		rearrangeShortcuts();
 	});
 

@@ -2,23 +2,8 @@
 <%--<%@page import="org.apache.commons.lang.StringUtils" %>--%>
 
 <%
-    String appId = "ModelConfigDB";
     //WEB 应用路径
     String sSystemPath = request.getContextPath() + "/";
-
-    String longTime = "";
-
-    //final String TITLE = "平台";
-
-    //获取退出地址与登录地址
-    //ServletContext sc = this.getServletContext();
-    //String casLogoutUrl = sc.getInitParameter("casLogoutUrl");
-    //String casLoginUrl = sc.getInitParameter("casLoginUrl");
-
-    //LoginInfo loginInfo = AppSessionUtils.getLoginInfo(request);
-
-    // 应用的主路径
-//    String sSystemPath = sSystemPath;
 %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="shortcut icon" href="../../../images/favicon.png" />
