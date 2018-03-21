@@ -17,7 +17,7 @@
     <%--<div class="pageheader" style="padding-bottom: 10px">
         <h1 class="pagetitle">分类/标签</h1>
     </div>--%><!--pageheader-->
-    <div class="layui-container" >
+    <div class="layui-container" style="width: 1100px">
         <div class="layui-row">
             <div class="layui-col-xs6">
                 <fieldset class="layui-elem-field layui-field-title" style="width: 545px">
@@ -40,7 +40,7 @@
                                 <div class="layui-input-inline">
                                     <input id="catName" type="text" name="name" style="width: 95%" lay-verify="required" placeholder="请输入分类名称……" autocomplete="off" class="layui-input">
                                 </div>
-                                <div class="layui-input-inline">
+                                <div class="layui-input-inline" style="width: 120px;">
                                     <button class="layui-btn" lay-submit="" lay-filter="addCategory">保存分类</button>
                                 </div>
                             </div>
