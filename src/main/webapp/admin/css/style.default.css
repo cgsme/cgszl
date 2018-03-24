@@ -1505,7 +1505,7 @@ a.btn_yellow:hover { opacity: 1; color: #fff; border-color: #ebb205; }
 /*********************************/
 
 blockquote { 
-	font-size: 16px; font-family: Georgia, "Times New Roman", Times, serif; background: url(../images/quote.png) no-repeat 0 0; 
+	font-size: 16px; /*font-family: Georgia, "Times New Roman", Times, serif;*/ background: url(../images/quote.png) no-repeat 0 0;
 	font-style: italic; line-height: 24px; padding-left: 30px; margin: 10px 0;
 }
 blockquote.alignleft { width: 300px; float: left; margin: 10px 10px 5px 0; }

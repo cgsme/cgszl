@@ -53,6 +53,7 @@
     }
 </style>
 <body>
+<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
 <div class="dropzone">
     <div class="dz-message">
         将文件拖至此处或点击上传.

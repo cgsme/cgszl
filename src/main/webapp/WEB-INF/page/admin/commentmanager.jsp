@@ -12,11 +12,11 @@
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
     <title>所有文章页面</title>
 </head>
-
+<style>
+    .layui-table-view{margin:0px 0}
+</style>
 <body>
-    <div class="pageheader" style="padding-bottom: 10px">
-        <h1 class="pagetitle">评论管理</h1>
-    </div><!--pageheader-->
+    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">评论管理</blockquote>
     <%--<div class="layui-btn-group articleTable" style="padding-top: 10px">--%>
         <%--<button class="layui-btn layui-btn-primary" data-type="createNewArticle">--%>
             <%--<i class="layui-icon">&#xe654;</i>创建新文章--%>
@@ -28,7 +28,6 @@
     <%--文章列表--%>
     <table id="articleGrid" lay-filter="articleGrid">
     </table>
-
     <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
 
     <script type="text/html" id="toolbar">

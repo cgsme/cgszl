@@ -12,16 +12,14 @@
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
     <title>所有文章页面</title>
 </head>
+<style>
+    .layui-table-view{margin:0px 0}
+</style>
 
 <body>
-
-    <fieldset class="layui-elem-field layui-field-title">
-        <legend>友情链接</legend>
-    </fieldset>
-
+    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">友情链接</blockquote>
     <%--文章列表--%>
     <table id="linkGrid" lay-filter="linkGrid" ></table>
-
     <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: normal">
         <form id="linkForm" class="layui-form layui-form-pane">
             <input id="mid" type="hidden" name="mid">
@@ -74,7 +72,6 @@
         var table;
         layui.use('table', function () {
             table = layui.table;
-            // 分类列表
             table.render({
                 elem: '#linkGrid'     // 表格元素id
                 , url: '/admin/getAllLinkList.action' //数据接口
