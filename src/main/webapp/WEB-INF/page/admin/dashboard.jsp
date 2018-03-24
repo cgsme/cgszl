@@ -2,12 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="shortcut icon" href="../../../images/favicon.png" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../../images/favicon.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>控制台页面</title>
-    <%@include file="common/common.jsp"%>
-    <%@include file="common/pageResource.jsp"%>
+    <%@include file="common/common.jsp" %>
+    <%@include file="common/pageResource.jsp" %>
 
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.cookie.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.min.js"></script>
@@ -21,7 +21,8 @@
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/tinymce/tinymce.min.js"></script>
 
     <!--[if lte IE 8]>
-    <!--<script language="javascript" type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/excanvas.min.js"></script>--><![endif]-->
+    <!--<script language="javascript" type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/excanvas.min.js"></script>-->
+    <![endif]-->
     <!--[if IE 9]>
     <!--<link rel="stylesheet" media="screen" href="css/style.ie9.css"/>-->
     <![endif]-->
@@ -45,7 +46,7 @@
 
         <div class="pageheader">
             <h1 class="pagetitle">控制台</h1>
-            <span class="pagedesc">页面的描述内容</span>
+            <span class="pagedesc">后台预览</span>
 
             <ul class="hornav">
                 <li class="current"><a href="#updates">最新更新</a></li>
@@ -58,8 +59,8 @@
             <div id="updates" class="subcontent">
                 <div class="notibar announcement">
                     <a class="close"></a>
-                    <h3>Announcement</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h3>公告</h3>
+                    <p>今天下午三点，系统维护。</p>
                 </div><!-- notification announcement -->
 
                 <div class="two_third dashboard_left">
@@ -72,10 +73,10 @@
                         <li><a href="" class="analytics"><span>分析</span></a></li>
                     </ul>
 
-                    <br clear="all" />
+                    <br clear="all"/>
 
                     <div class="contenttitle2 nomargintop">
-                        <h3>Visit Overview</h3>
+                        <h3>访问概况</h3>
                     </div><!--contenttitle-->
 
                     <div class="overviewhead">
@@ -91,18 +92,19 @@
                                 <option value="">Last Month</option>
                             </select>
                         </div><!--floatright-->
-                        From: &nbsp;<input type="text" id="datepickfrom" /> &nbsp; &nbsp; To: &nbsp;<input type="text" id="datepickto" />
+                        From: &nbsp;<input type="text" id="datepickfrom"/> &nbsp; &nbsp; To: &nbsp;<input type="text"
+                                                                                                          id="datepickto"/>
                     </div><!--overviewhead-->
 
-                    <br clear="all" />
+                    <br clear="all"/>
 
                     <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
                         <colgroup>
-                            <col class="con0" width="20%" />
-                            <col class="con1" width="20%" />
-                            <col class="con0" width="20%" />
-                            <col class="con1" width="20%" />
-                            <col class="con0" width="20%" />
+                            <col class="con0" width="20%"/>
+                            <col class="con1" width="20%"/>
+                            <col class="con0" width="20%"/>
+                            <col class="con1" width="20%"/>
+                            <col class="con0" width="20%"/>
                         </colgroup>
                         <thead>
                         <tr>
@@ -117,7 +119,9 @@
                         <tr>
                             <td>
                                 <div class="progress progress150">
-                                    <div class="bar"><div style="width: 60%;" class="value bluebar"></div></div>
+                                    <div class="bar">
+                                        <div style="width: 60%;" class="value bluebar"></div>
+                                    </div>
                                 </div>
                             </td>
                             <td>67.3%</td>
@@ -128,24 +132,24 @@
                         </tbody>
                     </table>
 
-                    <br clear="all" />
+                    <br clear="all"/>
 
                     <div id="chartplace" style="height:300px;"></div>
 
-                    <br clear="all" />
+                    <br clear="all"/>
 
                     <table cellpadding="0" cellspacing="0" border="0" class="stdtable stdtablecb overviewtable2">
                         <colgroup>
-                            <col class="con0" style="width: 4%" />
-                            <col class="con1" />
-                            <col class="con0" />
-                            <col class="con1" />
-                            <col class="con0" />
-                            <col class="con1" />
+                            <col class="con0" style="width: 4%"/>
+                            <col class="con1"/>
+                            <col class="con0"/>
+                            <col class="con1"/>
+                            <col class="con0"/>
+                            <col class="con1"/>
                         </colgroup>
                         <thead>
                         <tr>
-                            <th class="head0"><input type="checkbox" class="checkall" /></th>
+                            <th class="head0"><input type="checkbox" class="checkall"/></th>
                             <th class="head1">Rendering engine</th>
                             <th class="head0">Browser</th>
                             <th class="head1">Platform(s)</th>
@@ -155,7 +159,7 @@
                         </thead>
                         <tfoot>
                         <tr>
-                            <th class="head0"><input type="checkbox" class="checkall" /></th>
+                            <th class="head0"><input type="checkbox" class="checkall"/></th>
                             <th class="head1">Rendering engine</th>
                             <th class="head0">Browser</th>
                             <th class="head1">Platform(s)</th>
@@ -165,15 +169,15 @@
                         </tfoot>
                         <tbody>
                         <tr>
-                            <td align="center"><input type="checkbox" /></td>
+                            <td align="center"><input type="checkbox"/></td>
                             <td>Trident</td>
-                            <td>Internet  Explorer 5.5</td>
+                            <td>Internet Explorer 5.5</td>
                             <td>Win 95+</td>
                             <td class="center">5.5</td>
                             <td class="center">A</td>
                         </tr>
                         <tr>
-                            <td align="center"><input type="checkbox" /></td>
+                            <td align="center"><input type="checkbox"/></td>
                             <td>Trident</td>
                             <td>Internet Explorer 6</td>
                             <td>Win 98+</td>
@@ -181,7 +185,7 @@
                             <td class="center">A</td>
                         </tr>
                         <tr>
-                            <td align="center"><input type="checkbox" /></td>
+                            <td align="center"><input type="checkbox"/></td>
                             <td>Trident</td>
                             <td>Internet Explorer 7</td>
                             <td>Win XP SP2+</td>
@@ -191,55 +195,79 @@
                         </tbody>
                     </table>
 
-                    <br />
-                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+                    <br/>
+                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">手机网站模板</a></div>
 
                     <div class="widgetbox">
-                        <div class="title"><h3>Latest Articles</h3></div>
+                        <div class="title"><h3>最新文章</h3></div>
                         <div class="widgetcontent">
                             <div id="scroll1" class="mousescroll">
                                 <ul class="entrylist">
                                     <li>
                                         <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image1.png" alt="" /></div>
+                                            <div class="entry_img"><img src="images/thumbs/image1.png" alt=""/></div>
                                             <div class="entry_content">
                                                 <h4><a href="">Why Won't My Cat Eat?</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
-                                                <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
+                                                    2012
+                                                </small>
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                                                    consectetur, adipisci velit, sed quia non...</p>
+                                                <p>
+                                                    <button class="stdbtn btn_lime">Approve</button>
+                                                    <button class="stdbtn">Decline</button>
+                                                </p>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="even">
                                         <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image2.png" alt="" /></div>
+                                            <div class="entry_img"><img src="images/thumbs/image2.png" alt=""/></div>
                                             <div class="entry_content">
                                                 <h4><a href="">We Are About Color</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
-                                                <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
+                                                    2012
+                                                </small>
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                                                    consectetur, adipisci velit, sed quia non...</p>
+                                                <p>
+                                                    <button class="stdbtn btn_lime">Approve</button>
+                                                    <button class="stdbtn">Decline</button>
+                                                </p>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image3.png" alt="" /></div>
+                                            <div class="entry_img"><img src="images/thumbs/image3.png" alt=""/></div>
                                             <div class="entry_content">
                                                 <h4><a href="">Ancient Technology</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
-                                                <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
+                                                    2012
+                                                </small>
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                                                    consectetur, adipisci velit, sed quia non...</p>
+                                                <p>
+                                                    <button class="stdbtn btn_lime">Approve</button>
+                                                    <button class="stdbtn">Decline</button>
+                                                </p>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="even">
                                         <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image4.png" alt="" /></div>
+                                            <div class="entry_img"><img src="images/thumbs/image4.png" alt=""/></div>
                                             <div class="entry_content">
                                                 <h4><a href="">Bird's Nest Soup</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10, 2012</small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non...</p>
-                                                <p><button class="stdbtn btn_lime">Approve</button> <button class="stdbtn">Decline</button></p>
+                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
+                                                    2012
+                                                </small>
+                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                                                    consectetur, adipisci velit, sed quia non...</p>
+                                                <p>
+                                                    <button class="stdbtn btn_lime">Approve</button>
+                                                    <button class="stdbtn">Decline</button>
+                                                </p>
                                             </div>
                                         </div>
                                     </li>
@@ -254,7 +282,7 @@
                 <div class="one_third last dashboard_right">
 
                     <div class="contenttitle2 nomargintop">
-                        <h3>Top Rated Sites</h3>
+                        <h3>评分最高的网站</h3>
                     </div><!--contenttitle-->
 
 
@@ -264,7 +292,7 @@
                                 	<span class="three_fourth">
                                     	<span class="left">
                                     		<span class="title"><a href="">loremipsum.com</a></span>
-                                        	<span class="desc">Social Network</span>
+                                        	<span class="desc">社会网</span>
                                     	</span><!--left-->
                                     </span><!--three_fourth-->
                                 <span class="one_fourth last">
@@ -272,7 +300,7 @@
                                         	<span class="h3">8.1</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
-                                <br clear="all" />
+                                <br clear="all"/>
                             </div>
                         </li>
                         <li>
@@ -280,7 +308,7 @@
                                 	<span class="three_fourth">
                                     	<span class="left">
                                     		<span class="title"><a href="">dolorsitamet.net</a></span>
-                                        	<span class="desc">Social Network</span>
+                                        	<span class="desc">是个关于==</span>
                                     	</span><!--left-->
                                     </span><!--three_fourth-->
                                 <span class="one_fourth last">
@@ -288,7 +316,7 @@
                                         	<span class="h3">7.8</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
-                                <br clear="all" />
+                                <br clear="all"/>
                             </div>
                         </li>
                         <li>
@@ -304,13 +332,13 @@
                                         	<span class="h3">7.5</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
-                                <br clear="all" />
+                                <br clear="all"/>
                             </div>
                         </li>
                     </ul>
 
                     <div class="widgetbox">
-                        <div class="title"><h3>Newly Registered User</h3></div>
+                        <div class="title"><h3>新注册的用户</h3></div>
                         <div class="widgetoptions">
                             <div class="right"><a href="">View All Users</a></div>
                             <a href="">Add User</a>
@@ -318,31 +346,31 @@
                         <div class="widgetcontent userlistwidget nopadding">
                             <ul>
                                 <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png" /></div>
+                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png"/></div>
                                     <div class="info">
-                                        <a href="">Squint</a> <br />
-                                        Front-End Engineer <br /> 18 minutes ago
+                                        <a href="">Squint</a> <br/>
+                                        Front-End Engineer <br/> 18 minutes ago
                                     </div><!--info-->
                                 </li>
                                 <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png" /></div>
+                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png"/></div>
                                     <div class="info">
-                                        <a href="">Eunice</a> <br />
-                                        Architectural Designer <br /> 18 minutes ago
+                                        <a href="">Eunice</a> <br/>
+                                        Architectural Designer <br/> 18 minutes ago
                                     </div><!--info-->
                                 </li>
                                 <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png" /></div>
+                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png"/></div>
                                     <div class="info">
-                                        <a href="">Captain Gutt</a> <br />
-                                        Software Engineer <br /> 18 minutes ago
+                                        <a href="">Captain Gutt</a> <br/>
+                                        Software Engineer <br/> 18 minutes ago
                                     </div><!--info-->
                                 </li>
                                 <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png" /></div>
+                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png"/></div>
                                     <div class="info">
-                                        <a href="">Flynn</a> <br />
-                                        Accounting Manager <br /> 18 minutes ago
+                                        <a href="">Flynn</a> <br/>
+                                        Accounting Manager <br/> 18 minutes ago
                                     </div><!--info-->
                                 </li>
                             </ul>
@@ -351,7 +379,7 @@
                     </div>
 
                     <div class="widgetbox">
-                        <div class="title"><h3>Latest News</h3></div>
+                        <div class="title"><h3>最新评论</h3></div>
                         <div class="widgetcontent">
                             <div id="accordion" class="accordion">
                                 <h3><a href="#">Section 1</a></h3>
@@ -415,7 +443,7 @@
 
         </div><!--contentwrapper-->
 
-        <br clear="all" />
+        <br clear="all"/>
 
     </div><!-- centercontent -->
 

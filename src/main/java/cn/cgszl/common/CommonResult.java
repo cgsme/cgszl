@@ -11,7 +11,8 @@ public class CommonResult {
     private Object data;     // 返回的结果
     private String message;     // 提示信息
 
-    private CommonResult() {}
+    private CommonResult() {
+    }
 
     private CommonResult(boolean success) {
         this.success = success;
@@ -23,6 +24,12 @@ public class CommonResult {
         this.message = message;
     }
 
+    private CommonResult(boolean isSuccess, Object data) {
+    }
+
+    private CommonResult(boolean success, Object o, String message, Object data) {
+    }
+
     /**
      * 操作成功
      */
@@ -32,8 +39,16 @@ public class CommonResult {
 
     /**
      * 操作成功
+     */
+    public static CommonResult ok(Object data) {
+        return new CommonResult(true, data);
+    }
+
+    /**
+     * 操作成功
+     *
      * @param message 提示信息
-     * @param data 返回数据
+     * @param data    返回数据
      */
     public static CommonResult ok(String message, Object data) {
         return new CommonResult(true, data, message);
@@ -41,11 +56,22 @@ public class CommonResult {
 
     /**
      * 操作失败
+     *
      * @param success 操作结果
      * @param message 提示信息
      */
     public static CommonResult fail(boolean success, String message) {
         return new CommonResult(success, null, message);
+    }
+
+    /**
+     * 操作失败
+     *
+     * @param success 操作结果
+     * @param message 提示信息
+     */
+    public static CommonResult fail(boolean success, String message, Object data) {
+        return new CommonResult(success, null, message, data);
     }
 
     public Object getData() {

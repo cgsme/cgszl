@@ -19,8 +19,12 @@ public class WebConst {
      */
     public static final String INSTALL_FILE_CONF = "install.lock";
 
-    public static Map<String, String> initConfig = new HashMap<>();
+    /**
+     * 存储附件的路径
+     */
+    public static final String ATTACH_FILE_PATH_DIR = "upload/attach/";
 
+    public static Map<String, String> initConfig = new HashMap<>();
 
     public static String LOGIN_SESSION_KEY = "login_user";
 
