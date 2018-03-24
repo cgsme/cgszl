@@ -86,6 +86,7 @@ public class LoginController {
      */
     @RequestMapping("/admin/logout")
     public String logOut(HttpServletRequest request) {
+        // 销毁session
         request.getSession().invalidate();
         // 返回到登录页
         return "redirect:/admin/index.html";
