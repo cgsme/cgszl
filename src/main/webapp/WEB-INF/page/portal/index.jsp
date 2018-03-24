@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Knowledge Base Theme</title>
+    <title>曹图图</title>
 
     <link rel="shortcut icon" href="../../../images/favicon.png" />
 
@@ -36,7 +36,6 @@
     <header>
         <div class="container">
 
-
             <div class="logo-container">
                 <!-- Website Logo -->
                 <a href="../html/portal/index-2.html" title="Knowledge Base Theme">
@@ -45,7 +44,6 @@
                 </a>
                 <span class="tag-line">图图 blog</span>
             </div>
-
 
             <!-- Start of Main Navigation -->
             <nav class="main-nav">
