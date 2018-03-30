@@ -106,7 +106,9 @@
                         </div>
                         <div class="layui-col-md12">
                             <div class="layui-btn-group">
-                                <button onclick="deleteAttachById(${attach.id})" class="layui-btn-radius layui-btn-primary layui-btn-sm">
+                                    <%--删除按钮--%>
+                                <button onclick="deleteAttachById(${attach.id})"
+                                        class="layui-btn-radius layui-btn-primary layui-btn-sm">
                                     <i class="layui-icon">&#xe640;</i>
                                 </button>
                             </div>
@@ -117,7 +119,7 @@
         </div>
         <div id="demo2-1"></div>
         <ul id="biuuu_city_list"></ul>
-        </c:otherwise>
+    </c:otherwise>
 </c:choose>
 </body>
 <script type="text/javascript">
@@ -148,15 +150,15 @@
      * @param attachId
      */
     function deleteAttachById(attachId) {
-        layer.confirm('确认删除该文件?', {icon: 3, title:'温馨提示'}, function (index) {
+        layer.confirm('确认删除该文件?', {icon: 3, title: '温馨提示'}, function (index) {
             // 移除列表中选中的数据
             jQuery.ajax({
-                url:"/admin/attach/deleteById.action"
-                , type : "POST"
-                , data : {id : attachId}
-                , dataType : "JSON"
-                , async : false
-                , success : function (result) {
+                url: "/admin/attach/deleteById.action"
+                , type: "POST"
+                , data: {id: attachId}
+                , dataType: "JSON"
+                , async: false
+                , success: function (result) {
                     if (result && result.success) {
                         // 移除页面上的元素
                         jQuery("#" + attachId).remove();
@@ -171,34 +173,34 @@
         });
     }
 
-//    layui.use(['laypage', 'layer'], function(){
-//        var laypage = layui.laypage
-//            ,layer = layui.layer;
-//
-//        laypage.render({
-//            elem: 'demo2-1'
-//            ,count: 100
-//            ,theme: '#b0b0b0'
-//        });
-//
-//        //调用分页
-//        laypage.render({
-//            elem: 'demo2-1'
-//            ,count: data.length
-//            ,jump: function(obj){
-//                //模拟渲染
-//                document.getElementById('biuuu_city_list').innerHTML = function(){
-//                    var arr = []
-//                        ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-//                    layui.each(thisData, function(index, item){
-//                        arr.push('<li>'+ item +'</li>');
-//                    });
-//                    return arr.join('');
-//                }();
-//            }
-//        });
-//
-//    });
+    //    layui.use(['laypage', 'layer'], function(){
+    //        var laypage = layui.laypage
+    //            ,layer = layui.layer;
+    //
+    //        laypage.render({
+    //            elem: 'demo2-1'
+    //            ,count: 100
+    //            ,theme: '#b0b0b0'
+    //        });
+    //
+    //        //调用分页
+    //        laypage.render({
+    //            elem: 'demo2-1'
+    //            ,count: data.length
+    //            ,jump: function(obj){
+    //                //模拟渲染
+    //                document.getElementById('biuuu_city_list').innerHTML = function(){
+    //                    var arr = []
+    //                        ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
+    //                    layui.each(thisData, function(index, item){
+    //                        arr.push('<li>'+ item +'</li>');
+    //                    });
+    //                    return arr.join('');
+    //                }();
+    //            }
+    //        });
+    //
+    //    });
 </script>
 </html>
 

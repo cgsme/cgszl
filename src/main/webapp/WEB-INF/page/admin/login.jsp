@@ -25,7 +25,10 @@
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
 
-
+<script type="text/javascript">
+    /* 防止登录页被嵌套在框架中*/
+    if (top != window) top.location.href = window.location.href;
+</script>
 </head>
 
 <body class="loginpage">
