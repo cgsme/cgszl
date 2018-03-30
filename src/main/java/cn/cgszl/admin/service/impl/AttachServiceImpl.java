@@ -3,11 +3,16 @@ package cn.cgszl.admin.service.impl;
 import cn.cgszl.admin.service.AttachService;
 import cn.cgszl.common.dao.mapper.AttachMapper;
 import cn.cgszl.common.dao.pojo.Attach;
+import cn.cgszl.common.dao.pojo.AttachExample;
+import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.DateKit;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 附件管理业务接口
@@ -40,5 +45,41 @@ public class AttachServiceImpl implements AttachService {
         attach.setCreated(DateKit.getCurrentUnixTime());
         attachMapper.insertSelective(attach);
         return false;
+    }
+
+    /**
+     * 获取附件信息
+     *
+     * @param page  页码
+     * @param limit 页面记录数
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public PageInfo<Attach> listAttach(Integer page, Integer limit) throws CgszlException {
+        if (page == null) {
+            page = 1;
+        }
+        if (limit == null) {
+            limit = 12;
+        }
+        // 开启分页
+        PageHelper.startPage(page, limit);
+        AttachExample attachExample = new AttachExample();
+        attachExample.setOrderByClause("id desc");
+        List<Attach> attaches = attachMapper.selectByExample(attachExample);
+        return new PageInfo<Attach>(attaches);
+    }
+
+    /**
+     * 根据附件标识删除附件
+     *
+     * @param id 附件标识
+     * @return 删除结果
+     * @throws CgszlException 系统异常
+     */
+    @Override
+    public boolean deleteById(Integer id) throws CgszlException {
+        return attachMapper.deleteByPrimaryKey(id) > 0;
     }
 }

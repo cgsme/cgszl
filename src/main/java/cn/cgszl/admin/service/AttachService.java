@@ -1,5 +1,9 @@
 package cn.cgszl.admin.service;
 
+import cn.cgszl.common.dao.pojo.Attach;
+import cn.cgszl.common.exception.CgszlException;
+import com.github.pagehelper.PageInfo;
+
 /**
  * 附件管理业务接口
  *
@@ -16,5 +20,22 @@ public interface AttachService {
      * @param userId   用户标识
      * @return
      */
-    boolean sava(String fileName, String ftype, String fkey, Integer userId);
+    boolean sava(String fileName, String ftype, String fkey, Integer userId) throws CgszlException;
+
+    /**
+     * 获取附件信息列表
+     * @param page 页码
+     * @param limit 页面记录数
+     * @return
+     * @throws CgszlException
+     */
+    PageInfo<Attach> listAttach(Integer page, Integer limit) throws CgszlException;
+
+    /**
+     * 根据附件标识删除附件
+     * @param id 附件标识
+     * @return
+     * @throws CgszlException
+     */
+    boolean deleteById(Integer id) throws CgszlException;
 }

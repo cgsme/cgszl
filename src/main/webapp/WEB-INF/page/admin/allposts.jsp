@@ -237,7 +237,7 @@
                             , dataType : "JSON"
                             , async : true
                             , success : function (result) {
-                                if (result && resule.success) {
+                                if (result && result.success) {
                                     obj.del();
                                     top.layer.msg('删除成功', {icon: 1, title: "系统提示" });
                                 } else {

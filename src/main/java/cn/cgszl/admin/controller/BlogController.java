@@ -100,8 +100,7 @@ public class BlogController {
     public GridData getAllArticleList(int page, int limit) {
         try {
             // 创建mybatis分页对象
-            PageHelper pageHelper = new PageHelper();
-            pageHelper.startPage(page, limit);
+            PageHelper.startPage(page, limit);
             // 调用service获取文章数据
             List<Article> articleList = blogService.getBlogList();
             // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
