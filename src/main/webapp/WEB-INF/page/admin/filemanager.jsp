@@ -78,7 +78,7 @@
 <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
 <div class="dropzone">
     <div class="dz-message">
-        将文件拖至此处或点击上传.
+        将照片拖至此处或点击上传.
     </div>
 </div>
 <c:choose>
@@ -90,7 +90,7 @@
         </div>
     </c:when>
     <c:otherwise>
-        <div class="layui-row">
+        <div class="layui-row site-demo-flow" id="LAY_demo3">
             <c:forEach items="${attachs}" var="attach">
                 <div id="${attach.id}" class="layui-col-md2 div-center">
                     <div class="layui-row grid-demo">
@@ -101,17 +101,15 @@
                                      title="${attach.fname}"/>
                             </a>
                         </div>
-                        <div class="layui-col-md12">
+                        <div class="layui-col-md12 layui-elip" title="${attach.fname}">
                                 ${attach.fname}
                         </div>
                         <div class="layui-col-md12">
-                            <div class="layui-btn-group">
-                                    <%--删除按钮--%>
-                                <button onclick="deleteAttachById(${attach.id})"
-                                        class="layui-btn-radius layui-btn-primary layui-btn-sm">
-                                    <i class="layui-icon">&#xe640;</i>
-                                </button>
-                            </div>
+                                <%--删除按钮--%>
+                            <button onclick="deleteAttachById(${attach.id})"
+                                    class="layui-btn-radius layui-btn-primary layui-btn-sm">
+                                <i class="layui-icon">&#xe640;</i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -124,8 +122,7 @@
 </body>
 <script type="text/javascript">
 
-    <%--var data = ${attachs};--%>
-
+    // 初始化dropzone上传区域
     jQuery("div.dropzone").dropzone({
         url: "/admin/fileUpload.html",  // 上传文件的地址，
         maxFiles: 5,                    // 最多上传几个文件
@@ -133,16 +130,70 @@
         addRemoveLinks: true,           // 是否有删除文件的功能
         dictRemoveFile: "删除",          // 删除文件的文字
 //        previewsContainer:".dz-preview",
-        acceptedFiles: ".jpg,.jpeg,.png,.gif,.zip",         // 支持的文件格式
+        dictInvalidFileType: "不支持的文件类型",
+        dictFileTooBig: "文件大小{{filesize}}M，超过最大限制{{maxFilesize}}M",
+        acceptedFiles: ".jpg,.jpeg,.png,.gif,",         // 支持的文件格式
         paramName: 'files',                                 // 上传的文件名称，即服务端可以通过此来获取上传的文件，如$_FILES['dropimage']
         init: function (file) {                             // 初始化的事件
-            this.on("success", function (file) {
+
+            // 文件已经成功上传，获得服务器返回信息作为第二个参数(这个时间又被称作finished)
+            this.on("success", function (file, result) {
+                var queueFiles = this.getQueuedFiles();
+                console.log(queueFiles.length);
                 console.log("File " + file.name + "uploaded");
             });
+
+            // 当上传队列中的所有文件上传完成时调用.
+            this.on("queuecomplete", function (file) {
+                setTimeout(function () {
+                    // 触发菜单点击事件，刷新页面
+                    jQuery("a[href=filemanager\\.html]").trigger("click");
+                }, 2000);
+            });
+
+            // 移除文件时
             this.on("removedfile", function (file) {
                 console.log("File " + file.name + "removed");
             });
+
+            // 出错时. 接受 errorMessage 作为第二个参数，并且如果错误是 XMLHttpRequest对象， 那就作为第三个参数.
+            this.on("error", function (file, errorMessage) {
+                layer.msg(errorMessage, {icon: 2});
+            });
+
+            // 由于文件数量达到 maxFiles 限制数量被拒绝时调用.
+            this.on("maxfilesexceeded", function (file) {
+                layer.msg(errorMessage);
+            });
         }
+    });
+
+    // 图片懒加载
+    layui.use('flow', function () {
+        var flow = layui.flow;
+        // 按屏加载图片
+        flow.lazyimg({
+            elem: '#LAY_demo3 img'
+        });
+    });
+
+    layui.use(['util', 'laydate', 'layer'], function () {
+        var util = layui.util
+            , layer = layui.layer;
+        // 固定块
+        util.fixbar({
+//            bar1: true
+//            ,bar2: true
+            css: {right: 10, bottom: 20}
+            , bgcolor: '#a7a6a8'
+            , click: function (type) {
+                if (type === 'bar1') {
+                    layer.msg('敬请期待')
+                } else if (type === 'bar2') {
+                    layer.msg('敬请期待')
+                }
+            }
+        });
     });
 
     /**
@@ -173,34 +224,6 @@
         });
     }
 
-    //    layui.use(['laypage', 'layer'], function(){
-    //        var laypage = layui.laypage
-    //            ,layer = layui.layer;
-    //
-    //        laypage.render({
-    //            elem: 'demo2-1'
-    //            ,count: 100
-    //            ,theme: '#b0b0b0'
-    //        });
-    //
-    //        //调用分页
-    //        laypage.render({
-    //            elem: 'demo2-1'
-    //            ,count: data.length
-    //            ,jump: function(obj){
-    //                //模拟渲染
-    //                document.getElementById('biuuu_city_list').innerHTML = function(){
-    //                    var arr = []
-    //                        ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-    //                    layui.each(thisData, function(index, item){
-    //                        arr.push('<li>'+ item +'</li>');
-    //                    });
-    //                    return arr.join('');
-    //                }();
-    //            }
-    //        });
-    //
-    //    });
 </script>
 </html>
 

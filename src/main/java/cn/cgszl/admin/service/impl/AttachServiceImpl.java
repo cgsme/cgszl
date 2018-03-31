@@ -61,7 +61,7 @@ public class AttachServiceImpl implements AttachService {
             page = 1;
         }
         if (limit == null) {
-            limit = 12;
+            limit = 500;
         }
         // 开启分页
         PageHelper.startPage(page, limit);
@@ -81,5 +81,17 @@ public class AttachServiceImpl implements AttachService {
     @Override
     public boolean deleteById(Integer id) throws CgszlException {
         return attachMapper.deleteByPrimaryKey(id) > 0;
+    }
+
+    /**
+     * 根据附件标识获取附件信息
+     *
+     * @param id 附件标识
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Attach getAttachById(Integer id) throws CgszlException {
+        return attachMapper.selectByPrimaryKey(id);
     }
 }

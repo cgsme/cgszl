@@ -76,6 +76,18 @@ public class CgszlUtils {
     }
 
     /**
+     * 获取项目webapp路径
+     *
+     * @param request 请求
+     * @return 路径
+     */
+    public static String getWebappPath(HttpServletRequest request) {
+        String path = request.getSession().getServletContext().getRealPath("");
+        System.out.println("上传文件保存根路径：" + path);
+        return path;
+    }
+
+    /**
      * 获取保存文件的位置,jar所在目录的路径
      *
      * @return

@@ -24,18 +24,29 @@ public interface AttachService {
 
     /**
      * 获取附件信息列表
-     * @param page 页码
+     *
+     * @param page  页码
      * @param limit 页面记录数
-     * @return
-     * @throws CgszlException
+     * @return 分页信息对象
+     * @throws CgszlException 系统异常
      */
     PageInfo<Attach> listAttach(Integer page, Integer limit) throws CgszlException;
 
     /**
      * 根据附件标识删除附件
+     *
      * @param id 附件标识
-     * @return
-     * @throws CgszlException
+     * @return 删除结果
+     * @throws CgszlException 系统异常
      */
     boolean deleteById(Integer id) throws CgszlException;
+
+    /**
+     * 根据附件标识获取附件信息
+     *
+     * @param id 附件标识
+     * @return 附件对象
+     * @throws CgszlException 系统异常
+     */
+    Attach getAttachById(Integer id) throws CgszlException;
 }

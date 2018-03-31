@@ -65,8 +65,6 @@ public class FileController {
     @ResponseBody
     public CommonResult fileUpload(HttpServletRequest request, @RequestParam MultipartFile[] files) {
         try {
-            // 附件存储路径
-            String tmpPath = request.getSession().getServletContext().getRealPath("/") + WebConst.ATTACH_FILE_PATH_DIR;
             // 保存失败文件
             List<String> errorFileNameList = null;
             for (MultipartFile file : files) {
@@ -75,7 +73,7 @@ public class FileController {
                 if (file.getSize() <= WebConst.MAX_FILE_SIZE) {  // 文件大小合适
                     // 文件相对路径
                     String fkey = CgszlUtils.getFileKey(fileName);
-                    String servletContext = request.getSession().getServletContext().getRealPath("");
+                    String servletContext = CgszlUtils.getWebappPath(request);
                     File tmpFile = new File(servletContext + fkey);
                     if (!tmpFile.exists()) {
                         tmpFile.mkdirs();
@@ -112,14 +110,20 @@ public class FileController {
      * 根据附件标识删除附件
      *
      * @param id 附件标识
-     * @return
+     * @return 通用结果对象
      */
     @RequestMapping(value = "/admin/attach/deleteById")
     @ResponseBody
-    public CommonResult deleteById(Integer id) {
+    public CommonResult deleteById(HttpServletRequest request, Integer id) {
         try {
+            Attach attach = attachService.getAttachById(id);
             boolean result = attachService.deleteById(id);
             if (result) {
+                String webappPath = CgszlUtils.getWebappPath(request);
+                File attachFile = new File(webappPath + attach.getFkey());
+                if (attachFile.exists()) {
+                    attachFile.delete();
+                }
                 return CommonResult.ok();
             }
             return CommonResult.fail(false, "删除失败");

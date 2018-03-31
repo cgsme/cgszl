@@ -1,3 +1,4 @@
+<%@ page import="cn.cgszl.common.constant.WebConst" %>
 <%@page pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,9 +26,19 @@
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
 
+    <%
+       boolean loginFlag = true;
+        if (request.getSession().getAttribute(WebConst.LOGIN_SESSION_KEY) == null) {
+            loginFlag = false;
+        }
+    %>
+
 <script type="text/javascript">
     /* 防止登录页被嵌套在框架中*/
-    if (top != window) top.location.href = window.location.href;
+    console.error(window.location.href)
+    if (<%=loginFlag%>) {
+        top.location.href = window.location.protocol + "://" + window.location.host + "/admin/index.html" ;
+    }
 </script>
 </head>
 
