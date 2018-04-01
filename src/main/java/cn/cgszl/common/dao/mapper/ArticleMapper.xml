@@ -49,6 +49,13 @@
         </constructor>
         <association property="user" resultMap="userResultMap"/>
     </resultMap>
+    <resultMap id="hotArticlesMap" type="cn.cgszl.common.dao.pojo.Article">
+        <constructor>
+            <idArg column="aid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="categories" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </constructor>
+    </resultMap>
     <sql id="Example_Where_Clause">
         <where>
             <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -559,7 +566,7 @@
         <result property="groupName" column="group_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!--文字表和用户表管理-->
+    <!--文章表和用户表管理-->
     <select id="getArticleList" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
         SELECT
             t_articles.aid,
@@ -600,6 +607,36 @@
               AND t_articles.status = 'publish'
               AND t_articles.draft = 0
         ORDER BY t_articles.created DESC
+    </select>
+
+    <!--文章表和用户表管理-->
+    <select id="selectArticleDetailById" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+        SELECT
+            t_articles.aid,
+            t_articles.title,
+            t_articles.slug,
+            t_articles.created,
+            t_articles.modified,
+            t_articles.author_id,
+            t_articles.type,
+            t_articles.status,
+            t_articles.tags,
+            t_articles.categories,
+            t_articles.hits,
+            t_articles.comments_num,
+            t_articles.allow_comment,
+            t_articles.allow_ping,
+            t_articles.allow_feed,
+            t_articles.like_num,
+            t_articles.unlike_num,
+            t_articles.draft,
+            t_articles.delete_flag,
+            t_articles.content,
+            t_users.uid,
+            t_users.screen_name
+        FROM t_articles, t_users
+        WHERE t_articles.author_id = t_users.uid
+              AND t_articles.aid = #{aid}
     </select>
 
     <!--获取草稿 -->
@@ -648,39 +685,100 @@
     <!--获取回收站文章 -->
     <select id="getAllTrashList" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
         SELECT
-        t_articles.aid,
-        t_articles.title,
-        t_articles.slug,
-        t_articles.created,
-        t_articles.modified,
-        t_articles.author_id,
-        t_articles.type,
-        t_articles.status,
-        t_articles.tags,
-        t_articles.categories,
-        t_articles.hits,
-        t_articles.comments_num,
-        t_articles.allow_comment,
-        t_articles.allow_ping,
-        t_articles.allow_feed,
-        t_articles.like_num,
-        t_articles.unlike_num,
-        t_articles.draft,
-        t_articles.delete_flag,
-        t_articles.content,
-        t_users.uid,
-        t_users.username,
-        t_users.password,
-        t_users.email,
-        t_users.home_url,
-        t_users.screen_name,
-        t_users.created,
-        t_users.activated,
-        t_users.logged,
-        t_users.group_name
+            t_articles.aid,
+            t_articles.title,
+            t_articles.slug,
+            t_articles.created,
+            t_articles.modified,
+            t_articles.author_id,
+            t_articles.type,
+            t_articles.status,
+            t_articles.tags,
+            t_articles.categories,
+            t_articles.hits,
+            t_articles.comments_num,
+            t_articles.allow_comment,
+            t_articles.allow_ping,
+            t_articles.allow_feed,
+            t_articles.like_num,
+            t_articles.unlike_num,
+            t_articles.draft,
+            t_articles.delete_flag,
+            t_articles.content,
+            t_users.uid,
+            t_users.username,
+            t_users.password,
+            t_users.email,
+            t_users.home_url,
+            t_users.screen_name,
+            t_users.created,
+            t_users.activated,
+            t_users.logged,
+            t_users.group_name
         FROM t_articles, t_users
         WHERE t_articles.author_id = t_users.uid
-        AND t_articles.delete_flag = 1
+              AND t_articles.delete_flag = 1
         ORDER BY t_articles.created DESC
     </select>
+
+    <!--获取精选文章（高赞） -->
+    <select id="listHotArticles" resultMap="hotArticlesMap">
+        SELECT
+            t_articles.aid,
+            t_articles.title,
+            t_articles.categories
+        FROM t_articles
+        WHERE 1 = 1
+              AND t_articles.categories IS NOT NULL
+              AND t_articles.categories != ''
+              AND t_articles.delete_flag = 0
+              AND t_articles.status = 'publish'
+              AND t_articles.draft = 0
+        ORDER BY t_articles.like_num DESC
+    </select>
+
+    <!-- by sql -->
+    <select id="getArticleListBySql" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+        SELECT
+            t_articles.aid,
+            t_articles.title,
+            t_articles.slug,
+            t_articles.created,
+            t_articles.modified,
+            t_articles.author_id,
+            t_articles.type,
+            t_articles.status,
+            t_articles.tags,
+            t_articles.categories,
+            t_articles.hits,
+            t_articles.comments_num,
+            t_articles.allow_comment,
+            t_articles.allow_ping,
+            t_articles.allow_feed,
+            t_articles.like_num,
+            t_articles.unlike_num,
+            t_articles.draft,
+            t_articles.delete_flag,
+            t_articles.content,
+            t_users.uid,
+            t_users.username,
+            t_users.password,
+            t_users.email,
+            t_users.home_url,
+            t_users.screen_name,
+            t_users.created,
+            t_users.activated,
+            t_users.logged,
+            t_users.group_name
+        FROM t_articles, t_users
+        WHERE 1 = 1
+              AND t_articles.categories IS NOT NULL
+              AND t_articles.categories != ''
+              AND t_articles.delete_flag = 0
+              AND t_articles.status = 'publish'
+              AND t_articles.draft = 0
+        ORDER BY #{orderCause}
+    </select>
+
+
 </mapper>

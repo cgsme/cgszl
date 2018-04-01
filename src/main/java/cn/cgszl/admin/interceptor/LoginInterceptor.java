@@ -29,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         String url = httpServletRequest.getRequestURL().toString();
 
         // 公开的url
-        if (url.contains("index.html") || url.contains("login.html")) {
+        if (!url.contains("/admin") || url.contains("/admin/index") || url.contains("/admin/login")) {
             return true;
         }
         // session中获取用户信息

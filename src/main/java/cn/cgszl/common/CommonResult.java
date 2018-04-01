@@ -25,6 +25,8 @@ public class CommonResult {
     }
 
     private CommonResult(boolean isSuccess, Object data) {
+        this.success = isSuccess;
+        this.data = data;
     }
 
     private CommonResult(boolean success, Object o, String message, Object data) {
@@ -52,6 +54,10 @@ public class CommonResult {
      */
     public static CommonResult ok(String message, Object data) {
         return new CommonResult(true, data, message);
+    }
+
+    public static CommonResult ok(boolean isSuccess, Object data) {
+        return new CommonResult(isSuccess, data);
     }
 
     /**

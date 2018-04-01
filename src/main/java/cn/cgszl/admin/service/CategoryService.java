@@ -16,9 +16,9 @@ public interface CategoryService {
     /**
      * 获取所有分类
      *
-     * @return 分类集合
      * @param type
      * @param orderBy
+     * @return 分类集合
      */
     List<MetasDto> getAllCategoryList(String type, String orderBy) throws CgszlException;
 
@@ -64,4 +64,14 @@ public interface CategoryService {
      * @throws CgszlException
      */
     boolean updataCategory(Metas metas) throws CgszlException;
+
+    /**
+     * 获取热门分类
+     *
+     * @param page  当前页
+     * @param limit 每页记录数
+     * @return
+     * @throws CgszlException
+     */
+    List<Metas> listHotCategories(Integer page, Integer limit) throws CgszlException;
 }

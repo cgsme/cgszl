@@ -56,4 +56,27 @@ public interface ArticleMapper {
      * @return 文章集合
      */
     List<Article> getAllTrashList();
+
+    /**
+     * 根据文章标识获取文章信息
+     *
+     * @param aid 文章标识
+     * @return
+     */
+    Article selectArticleDetailById(Integer aid);
+
+    /**
+     * 获取热门分类
+     *
+     * @return
+     */
+    List<Article> listHotArticles();
+
+    /**
+     * 根据sql获取文章列表
+     *
+     * @param oederCause 排序方式
+     * @return
+     */
+    List<Article> getArticleListBySql(String oederCause);
 }

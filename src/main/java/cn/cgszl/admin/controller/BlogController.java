@@ -9,20 +9,15 @@ import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.User;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.CgszlUtils;
-import cn.cgszl.common.utils.DateKit;
-import cn.cgszl.common.utils.GsonUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -99,13 +94,9 @@ public class BlogController {
     @ResponseBody
     public GridData getAllArticleList(int page, int limit) {
         try {
-            // 创建mybatis分页对象
-            PageHelper.startPage(page, limit);
             // 调用service获取文章数据
-            List<Article> articleList = blogService.getBlogList();
-            // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
-            PageInfo<Article> articlePageInfo = new PageInfo<Article>(articleList);
-            return GridData.build(articleList, articlePageInfo.getTotal());
+            PageInfo<Article> articlePageInfo = blogService.getBlogList(page, limit);
+            return GridData.build(articlePageInfo.getList(), articlePageInfo.getTotal());
         } catch (CgszlException e) {
             e.printStackTrace();
             return null;

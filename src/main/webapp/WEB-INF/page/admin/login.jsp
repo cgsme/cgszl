@@ -34,11 +34,7 @@
     %>
 
 <script type="text/javascript">
-    /* 防止登录页被嵌套在框架中*/
-    console.error(window.location.href)
-    if (<%=loginFlag%>) {
-        top.location.href = window.location.protocol + "://" + window.location.host + "/admin/index.html" ;
-    }
+
 </script>
 </head>
 

@@ -3,7 +3,10 @@ package cn.cgszl.admin.service.impl;
 import cn.cgszl.admin.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
+import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.exception.CgszlException;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +32,12 @@ public class BlogServiceImpl implements BlogService {
      * @return 文章集合
      */
     @Override
-    public List<Article> getBlogList() {
-        return articleMapper.getArticleList();
+    public PageInfo<Article> getBlogList(Integer page, Integer limit) {
+        // 创建mybatis分页对象
+        PageHelper.startPage(page, limit);
+        List<Article> articleList = articleMapper.getArticleList();
+        // 使用pageInfo包装itemList，可以获得对应的总记录数、没有条数...等等
+        return new PageInfo<Article>(articleList);
     }
 
     /**
@@ -69,6 +76,7 @@ public class BlogServiceImpl implements BlogService {
             article.setCommentsNum(0);
             // 初始点赞为0
             article.setLikeNum(0);
+            article.setUnlikeNum(0);
             article.setCreated(time);
             result = articleMapper.insertSelective(article) > 0;
         } else {   // 编辑
@@ -181,5 +189,65 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public boolean deleteByAidPhy(String aid) throws CgszlException {
         return articleMapper.deleteByPrimaryKey(Integer.parseInt(aid)) > 0;
+    }
+
+    /**
+     * 根据文章标识获取文章信息
+     *
+     * @param aid 文章标识
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Article getArticleDetailById(Integer aid) throws CgszlException {
+        return articleMapper.selectArticleDetailById(aid);
+    }
+
+    /**
+     * 获取热门文章
+     *
+     * @param page  页码
+     * @param limit 每页记录数
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public List<Article> listHotArticles(Integer page, Integer limit) throws CgszlException {
+        PageHelper.startPage(page, limit);
+        return articleMapper.listHotArticles();
+    }
+
+    /**
+     * 点赞
+     *
+     * @param aid    文章标识
+     * @param isLike
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public boolean like(Integer aid, boolean isLike) throws CgszlException {
+        Article article = articleMapper.selectByPrimaryKey(aid);
+        if (isLike) {
+            article.setLikeNum(article.getLikeNum() + 1);
+        } else {
+            article.setUnlikeNum(article.getUnlikeNum() + 1);
+        }
+        return articleMapper.updateByPrimaryKeySelective(article) > 0;
+    }
+
+    /**
+     * 根据sql获取文章列表
+     *
+     * @param page      当前页
+     * @param limit     每页记录数
+     * @param hits_desc 排序方式
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException {
+        PageHelper.startPage(page, limit);
+        return articleMapper.getArticleListBySql(hits_desc);
     }
 }

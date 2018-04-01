@@ -3,10 +3,12 @@ package cn.cgszl.admin.service.impl;
 import cn.cgszl.admin.service.CategoryService;
 import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.dto.MetasDto;
+import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.mapper.MetasMapper;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.MetasExample;
 import cn.cgszl.common.exception.CgszlException;
+import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +26,6 @@ import java.util.Map;
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
-
 
     @Resource
     private MetasMapper metasMapper;
@@ -115,5 +116,18 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public boolean updataCategory(Metas metas) throws CgszlException {
         return metasMapper.updateByPrimaryKeySelective(metas) > 0;
+    }
+
+    /**
+     * 获取热门分类
+     * @param page  当前页
+     * @param limit 每页记录数
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public List<Metas> listHotCategories(Integer page, Integer limit) throws CgszlException {
+        PageHelper.startPage(page, limit);
+        return metasMapper.selectHotCategories();
     }
 }

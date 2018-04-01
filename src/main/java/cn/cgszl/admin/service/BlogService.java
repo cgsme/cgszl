@@ -2,6 +2,7 @@ package cn.cgszl.admin.service;
 
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -15,9 +16,11 @@ public interface BlogService {
     /**
      * 获取所有文章，按创建实践降序
      *
+     * @param page
+     * @param limit
      * @return 文章集合
      */
-    List<Article> getBlogList() throws CgszlException;
+    PageInfo<Article> getBlogList(Integer page, Integer limit) throws CgszlException;
 
     /**
      * 保存文章
@@ -90,4 +93,44 @@ public interface BlogService {
      * @throws CgszlException 系统异常
      */
     boolean deleteByAidPhy(String aid) throws CgszlException;
+
+    /**
+     * 根据文章标识获取文章信息
+     *
+     * @param aid 文章标识
+     * @return
+     * @throws CgszlException
+     */
+    Article getArticleDetailById(Integer aid) throws CgszlException;
+
+    /**
+     * 获取热门文章
+     *
+     * @param page  页码
+     * @param limit 每页记录数
+     * @return
+     * @throws CgszlException
+     */
+    List<Article> listHotArticles(Integer page, Integer limit) throws CgszlException;
+
+    /**
+     * 点赞
+     *
+     * @param aid    文章标识
+     * @param isLike 是否点赞
+     * @return
+     * @throws CgszlException
+     */
+    boolean like(Integer aid, boolean isLike) throws CgszlException;
+
+    /**
+     * 根据sql查询文章列表
+     *
+     * @param page      当前页
+     * @param limit     每页记录数
+     * @param hits_desc 排序方式
+     * @return
+     * @throws CgszlException
+     */
+    List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException;
 }
