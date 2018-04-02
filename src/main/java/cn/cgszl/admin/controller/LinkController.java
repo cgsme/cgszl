@@ -46,8 +46,7 @@ public class LinkController {
     @ResponseBody
     public GridData getAllLinkList(int page, int limit) {
         try {
-            PageHelper pageHelper = new PageHelper();
-            pageHelper.startPage(page, limit);
+            PageHelper.startPage(page, limit);
             List<Metas> linkList = linkService.getAllLinkList();
             PageInfo<Metas> metasPageInfo = new PageInfo<Metas>(linkList);
             return GridData.build(linkList, metasPageInfo.getTotal());

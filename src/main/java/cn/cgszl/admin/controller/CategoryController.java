@@ -44,8 +44,7 @@ public class CategoryController {
     @ResponseBody
     public GridData getAllCategoryList(int page, int limit) {
         try {
-            PageHelper pageHelper = new PageHelper();
-            pageHelper.startPage(page, limit);
+            PageHelper.startPage(page, limit);
             List<MetasDto> categoryList = categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),
                     null);
             PageInfo<MetasDto> metasPageInfo = metasPageInfo = new PageInfo<MetasDto>(categoryList);
@@ -67,8 +66,7 @@ public class CategoryController {
     @ResponseBody
     public GridData getAllTagsList(int page, int limit) {
         try {
-            PageHelper pageHelper = new PageHelper();
-            pageHelper.startPage(page, limit);
+            PageHelper.startPage(page, limit);
 //        List<Metas> tagsList = categoryService.getAllTagList();
             List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(),null);
             PageInfo<MetasDto> tagsPageInfo = new PageInfo<MetasDto>(tagsList);

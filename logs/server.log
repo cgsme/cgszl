@@ -7266,3 +7266,259 @@ No mapping found for HTTP request with URI [/admin/pagemanager.html] in Dispatch
 
 [WARN ] 2018-04-02 21:53:29,237 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
 No mapping found for HTTP request with URI [/admin/systemsetting.html] in DispatcherServlet with name 'cgszl'
+
+
+[INFO ] 2018-04-02 23:44:43,889 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:307)
+Root WebApplicationContext: initialization started
+
+
+[INFO ] 2018-04-02 23:44:44,114 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing Root WebApplicationContext: startup date [Mon Apr 02 23:44:44 CST 2018]; root of context hierarchy
+
+
+[INFO ] 2018-04-02 23:44:44,294 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-dao.xml]
+
+
+[INFO ] 2018-04-02 23:44:45,026 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-service.xml]
+
+
+[INFO ] 2018-04-02 23:44:45,046 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from file [C:\workspace\IDEA 2017\cgszl\target\classes\spring\applicationContext-trans.xml]
+
+
+[INFO ] 2018-04-02 23:44:45,323 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\db.properties]
+
+
+[INFO ] 2018-04-02 23:44:45,323 method:org.springframework.core.io.support.PropertiesLoaderSupport.loadProperties(PropertiesLoaderSupport.java:172)
+Loading properties file from file [C:\workspace\IDEA 2017\cgszl\target\classes\conf\resource.properties]
+
+
+[INFO ] 2018-04-02 23:44:45,335 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2018-04-02 23:44:46,871 method:org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:347)
+Root WebApplicationContext: initialization completed in 2979 ms
+
+
+[INFO ] 2018-04-02 23:44:46,899 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489)
+FrameworkServlet 'cgszl': initialization started
+
+
+[INFO ] 2018-04-02 23:44:46,902 method:org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:578)
+Refreshing WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Apr 02 23:44:46 CST 2018]; parent: Root WebApplicationContext
+
+
+[INFO ] 2018-04-02 23:44:46,902 method:org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:317)
+Loading XML bean definitions from class path resource [spring/springmvc.xml]
+
+
+[INFO ] 2018-04-02 23:44:47,332 method:org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.<init>(AutowiredAnnotationBeanPostProcessor.java:153)
+JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+
+
+[INFO ] 2018-04-02 23:44:47,779 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/getAllTrashList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.BlogController.getAllTrashList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,780 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/allposts]}" onto public java.lang.String cn.cgszl.admin.controller.BlogController.allPost(org.springframework.ui.Model)
+
+
+[INFO ] 2018-04-02 23:44:47,781 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/revertByAid],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.BlogController.revertByAid(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,782 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/deleteByAid],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.BlogController.deleteByAid(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,782 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/publishByAid],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.BlogController.publishByAid(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,782 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/manageblog]}" onto public java.lang.String cn.cgszl.admin.controller.BlogController.toBlogMnanagr()
+
+
+[INFO ] 2018-04-02 23:44:47,783 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/trash]}" onto public java.lang.String cn.cgszl.admin.controller.BlogController.allTrash()
+
+
+[INFO ] 2018-04-02 23:44:47,783 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/newpost]}" onto public java.lang.String cn.cgszl.admin.controller.BlogController.newpost(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+
+
+[INFO ] 2018-04-02 23:44:47,783 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/savePost],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.BlogController.savePost(javax.servlet.http.HttpServletRequest,cn.cgszl.common.dao.pojo.Article)
+
+
+[INFO ] 2018-04-02 23:44:47,783 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/draft]}" onto public java.lang.String cn.cgszl.admin.controller.BlogController.allDraft()
+
+
+[INFO ] 2018-04-02 23:44:47,784 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/getAllDraftList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.BlogController.getAllDraftList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,784 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/blog/deleteByAidPhy],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.BlogController.deleteByAidPhy(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,785 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/getAllArticleList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.BlogController.getAllArticleList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,789 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/checkCatName],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.CategoryController.checkCatName(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,790 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/addCategory]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.CategoryController.addCategory(cn.cgszl.common.dao.pojo.Metas)
+
+
+[INFO ] 2018-04-02 23:44:47,791 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/category/deleteByMid]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.CategoryController.deleteByMid(java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,791 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/editCategory]}" onto public java.lang.String cn.cgszl.admin.controller.CategoryController.editCategory()
+
+
+[INFO ] 2018-04-02 23:44:47,792 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/getAllTagsList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.CategoryController.getAllTagsList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,792 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/categorymanager]}" onto public java.lang.String cn.cgszl.admin.controller.CategoryController.catgoryManager()
+
+
+[INFO ] 2018-04-02 23:44:47,793 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/getAllCategoryList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.CategoryController.getAllCategoryList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,795 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/comment/listComments]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.CommentController.listComments(java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,796 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/comment/deleteById]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.CommentController.deleteById(java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,797 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/commentmanager]}" onto public java.lang.String cn.cgszl.admin.controller.CommentController.commentManager()
+
+
+[INFO ] 2018-04-02 23:44:47,797 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/comment/updateCommentStatus]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.CommentController.updateCommentStatus(java.lang.Integer,java.lang.String)
+
+
+[INFO ] 2018-04-02 23:44:47,799 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/filemanager]}" onto public java.lang.String cn.cgszl.admin.controller.FileController.fileManager(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,800 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/attach/deleteById]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.FileController.deleteById(javax.servlet.http.HttpServletRequest,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,801 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/fileUpload]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.FileController.fileUpload(javax.servlet.http.HttpServletRequest,org.springframework.web.multipart.MultipartFile[])
+
+
+[INFO ] 2018-04-02 23:44:47,802 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/checkLinkName],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.LinkController.checkLinkName(cn.cgszl.common.dao.pojo.Metas)
+
+
+[INFO ] 2018-04-02 23:44:47,803 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/saveLink],methods=[POST]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.LinkController.saveLink(cn.cgszl.common.dao.pojo.Metas)
+
+
+[INFO ] 2018-04-02 23:44:47,804 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/linkmanager]}" onto public java.lang.String cn.cgszl.admin.controller.LinkController.linkManager()
+
+
+[INFO ] 2018-04-02 23:44:47,804 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/deleteByMid]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.admin.controller.LinkController.deleteLinkById(int)
+
+
+[INFO ] 2018-04-02 23:44:47,805 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/getAllLinkList]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.admin.controller.LinkController.getAllLinkList(int,int)
+
+
+[INFO ] 2018-04-02 23:44:47,806 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/dashboard]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.toIndex()
+
+
+[INFO ] 2018-04-02 23:44:47,807 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/index]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.loginPage(java.lang.String,java.lang.String,org.springframework.ui.Model)
+
+
+[INFO ] 2018-04-02 23:44:47,807 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/login]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.login(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+
+
+[INFO ] 2018-04-02 23:44:47,807 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/logout]}" onto public java.lang.String cn.cgszl.admin.controller.LoginController.logOut(javax.servlet.http.HttpServletRequest)
+
+
+[INFO ] 2018-04-02 23:44:47,808 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/admin/editProfile]}" onto public java.lang.String cn.cgszl.admin.controller.UserController.profile()
+
+
+[INFO ] 2018-04-02 23:44:47,813 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/about]}" onto public java.lang.String cn.cgszl.portal.controller.AboutController.aboutPage()
+
+
+[INFO ] 2018-04-02 23:44:47,814 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/contact]}" onto public java.lang.String cn.cgszl.portal.controller.AboutController.contactPage()
+
+
+[INFO ] 2018-04-02 23:44:47,816 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/listHotArticles]}" onto public java.util.List<cn.cgszl.common.dao.pojo.Article> cn.cgszl.portal.controller.ArticleController.listHotArticles(java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,817 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/likeOrUnlike]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.portal.controller.ArticleController.like(java.lang.Integer,boolean)
+
+
+[INFO ] 2018-04-02 23:44:47,817 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/listArticles]}" onto public cn.cgszl.common.dto.GridData cn.cgszl.portal.controller.ArticleController.listArticles(java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,817 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/single/{aid}.html]}" onto public java.lang.String cn.cgszl.portal.controller.ArticleController.getArticleDetailById(org.springframework.ui.Model,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,817 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/listHeightHitsArticles]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.portal.controller.ArticleController.listHeightHitsArticles(java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,818 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/listHotCategories]}" onto public cn.cgszl.common.dto.CommonResult cn.cgszl.portal.controller.CategoryController.listHotCategories(java.lang.Integer,java.lang.Integer)
+
+
+[INFO ] 2018-04-02 23:44:47,818 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/index]}" onto public java.lang.String cn.cgszl.portal.controller.IndexController.index()
+
+
+[INFO ] 2018-04-02 23:44:47,819 method:org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:527)
+Mapped "{[/portal/listHotTags]}" onto public java.util.List<cn.cgszl.common.dao.dto.MetasDto> cn.cgszl.portal.controller.IndexController.listHotTags()
+
+
+[INFO ] 2018-04-02 23:44:50,256 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Apr 02 23:44:46 CST 2018]; parent: Root WebApplicationContext
+
+
+[INFO ] 2018-04-02 23:44:50,413 method:org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:532)
+Looking for @ControllerAdvice: WebApplicationContext for namespace 'cgszl-servlet': startup date [Mon Apr 02 23:44:46 CST 2018]; parent: Root WebApplicationContext
+
+
+[INFO ] 2018-04-02 23:44:50,707 method:org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:508)
+FrameworkServlet 'cgszl': initialization completed in 3808 ms
+
+
+[INFO ] 2018-04-02 23:45:04,658 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
+{dataSource-1} inited
