@@ -1,9 +1,8 @@
 package cn.cgszl.admin.controller;
 
-import cn.cgszl.admin.service.CategoryService;
-import cn.cgszl.common.CommonResult;
-import cn.cgszl.common.GridData;
-import cn.cgszl.common.constant.WebConst;
+import cn.cgszl.common.service.CategoryService;
+import cn.cgszl.common.dto.CommonResult;
+import cn.cgszl.common.dto.GridData;
 import cn.cgszl.common.dao.dto.MetasDto;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Metas;

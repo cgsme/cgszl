@@ -1,4 +1,4 @@
-package cn.cgszl.admin.service;
+package cn.cgszl.common.service;
 
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;

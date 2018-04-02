@@ -1,7 +1,7 @@
 package cn.cgszl.portal.controller;
 
-import cn.cgszl.admin.service.CategoryService;
-import cn.cgszl.common.CommonResult;
+import cn.cgszl.common.service.CategoryService;
+import cn.cgszl.common.dto.CommonResult;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.exception.CgszlException;
 import org.springframework.stereotype.Controller;

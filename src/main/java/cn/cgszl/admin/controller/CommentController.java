@@ -1,8 +1,8 @@
 package cn.cgszl.admin.controller;
 
-import cn.cgszl.admin.service.CommentService;
-import cn.cgszl.common.CommonResult;
-import cn.cgszl.common.GridData;
+import cn.cgszl.common.service.CommentService;
+import cn.cgszl.common.dto.CommonResult;
+import cn.cgszl.common.dto.GridData;
 import cn.cgszl.common.dao.pojo.Comment;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageInfo;

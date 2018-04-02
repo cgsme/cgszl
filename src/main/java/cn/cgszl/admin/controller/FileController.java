@@ -1,7 +1,7 @@
 package cn.cgszl.admin.controller;
 
-import cn.cgszl.admin.service.AttachService;
-import cn.cgszl.common.CommonResult;
+import cn.cgszl.common.service.AttachService;
+import cn.cgszl.common.dto.CommonResult;
 import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Attach;
@@ -9,7 +9,6 @@ import cn.cgszl.common.dao.pojo.User;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.CgszlUtils;
 import com.github.pagehelper.PageInfo;
-import org.apache.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,10 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

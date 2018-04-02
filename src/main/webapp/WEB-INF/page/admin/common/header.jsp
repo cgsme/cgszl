@@ -32,10 +32,10 @@
                 <div class="changetheme">
                     切换主题: <br/>
                     <a class="default"></a>
-                    <a class="blueline"></a>
-                    <a class="greenline"></a>
-                    <a class="contrast"></a>
-                    <a class="custombg"></a>
+                    <%--<a class="blueline"></a>--%>
+                    <%--<a class="greenline"></a>--%>
+                    <%--<a class="contrast"></a>--%>
+                    <%--<a class="custombg"></a>--%>
                 </div>
             </div><!--avatar-->
             <div class="userdata">

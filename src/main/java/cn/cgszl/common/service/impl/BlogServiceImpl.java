@@ -1,9 +1,8 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.BlogService;
+import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
-import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

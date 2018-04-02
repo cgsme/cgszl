@@ -1,7 +1,5 @@
 package cn.cgszl.common.utils;
 
-import cn.cgszl.common.CommonResult;
-
 /**
  * 交互的工具类
  *

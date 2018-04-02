@@ -1,4 +1,4 @@
-package cn.cgszl.common;
+package cn.cgszl.common.dto;
 
 /**
  * 通用返回结果

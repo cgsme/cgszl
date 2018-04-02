@@ -1,6 +1,6 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.AttachService;
+import cn.cgszl.common.service.AttachService;
 import cn.cgszl.common.dao.mapper.AttachMapper;
 import cn.cgszl.common.dao.pojo.Attach;
 import cn.cgszl.common.dao.pojo.AttachExample;

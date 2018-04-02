@@ -1,11 +1,10 @@
 package cn.cgszl.portal.controller;
 
-import cn.cgszl.admin.service.BlogService;
-import cn.cgszl.common.CommonResult;
-import cn.cgszl.common.GridData;
+import cn.cgszl.common.service.BlogService;
+import cn.cgszl.common.dto.CommonResult;
+import cn.cgszl.common.dto.GridData;
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.List;
 
 /**

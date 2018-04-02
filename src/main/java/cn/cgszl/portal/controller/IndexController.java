@@ -1,7 +1,6 @@
 package cn.cgszl.portal.controller;
 
-import cn.cgszl.admin.service.CategoryService;
-import cn.cgszl.common.GridData;
+import cn.cgszl.common.service.CategoryService;
 import cn.cgszl.common.dao.dto.MetasDto;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.exception.CgszlException;

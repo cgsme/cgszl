@@ -1,6 +1,6 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.MetasService;
+import cn.cgszl.common.service.MetasService;
 import cn.cgszl.common.dao.mapper.MetasMapper;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.MetasExample;

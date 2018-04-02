@@ -1,6 +1,6 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.UserService;
+import cn.cgszl.common.service.UserService;
 import cn.cgszl.common.dao.mapper.UserMapper;
 import cn.cgszl.common.dao.pojo.User;
 import cn.cgszl.common.utils.MD5;

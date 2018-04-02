@@ -1,6 +1,6 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.CommentService;
+import cn.cgszl.common.service.CommentService;
 import cn.cgszl.common.dao.mapper.CommentMapper;
 import cn.cgszl.common.dao.pojo.Comment;
 import cn.cgszl.common.dao.pojo.CommentExample;

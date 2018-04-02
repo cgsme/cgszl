@@ -1,9 +1,7 @@
-package cn.cgszl.admin.service.impl;
+package cn.cgszl.common.service.impl;
 
-import cn.cgszl.admin.service.CategoryService;
-import cn.cgszl.common.constant.WebConst;
+import cn.cgszl.common.service.CategoryService;
 import cn.cgszl.common.dao.dto.MetasDto;
-import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.mapper.MetasMapper;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.MetasExample;

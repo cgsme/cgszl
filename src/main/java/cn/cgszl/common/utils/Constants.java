@@ -1,4 +1,4 @@
-package cn.cgszl.common;
+package cn.cgszl.common.utils;
 
 /**
  * 常量的定义
