@@ -44,6 +44,7 @@
 <script src="/portal/js/jquery.min.js"></script>
 <script src="/portal/js/bootstrap.min.js"></script>
 <script src="/portal/js/modernizr.js"></script>
+<script src="/common/js/cgszl.utils.js"></script>
 
 <script type="text/javascript">
 
@@ -94,21 +95,26 @@
             function (data) {
                 $.each(data.data, function (index, article) {
                     var outerBox = ""
-                        + "<div class='col-md-6 col-sm-6'>"
-                        + "<article class='blog-teaser'>"
-                        + "<header>"
-                        + "<img src='/portal/img/2.jpg' alt='曹图图'>"
-                        + "<h3><a class='atitle' title='" + article.title + "' href='/single\\" + article.aid + ".html'>" + article.title + "</a></h3>"
-                        + "<span class='meta'>" + new Date(article.created * 1000).toLocaleString() + "，" + article.user.screenName + "</span>"
-//                        + "<hr>"
-                        + "</header>"
-                        + "<div id='" + article.aid + "' class='body acontent'>"
-                        //                                    + article.content
-                        + "</div>"
-                        + "<div class='clearfix'>"
-                        + " <a href='/single\\" + article.aid + ".html' class='btn btn-clean-one'>阅读更多 >></a>"
-                        + "</div>"
-                        + "</article>"
+                        + "<div class='col-md-6 col-sm-6''>"
+                            + "<article class='blog-teaser'>"
+                                + "<header>"
+                                    + "<img onmouseover='ooo(this, true);' onmouseleave='ooo(this, false);' "
+                                        + "src='/portal/img/2.jpg' alt='曹图图'>"
+                                    + "<h3><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h3>"
+                                    + "<span class='meta'>"
+                                        + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
+                                        + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName
+                                        + " <i title='阅读量' class='fa fa-eye'></i>" + article.hits
+                                    + "</span>"
+            //                        + "<hr>"
+                                + "</header>"
+                                + "<div id='" + article.aid + "' class='body acontent'>"
+                                //                                    + article.content
+                                + "</div>"
+                                + "<div class='clearfix'>"
+                                    + " <a href='/single\\" + article.aid + ".html' class='btn btn-clean-one'>阅读更多 >></a>"
+                                + "</div>"
+                            + "</article>"
                         + "</div>"
                         + "";
                     $("#postRow").append(outerBox);
@@ -116,6 +122,15 @@
             }
         );
     };
+
+    // 当鼠标移到到文章图片上时的动画效果
+    function ooo(img, isMouseOver) {
+        if (isMouseOver) {
+            $(img).css('box-shadow','0px 0px 11px #333');
+        } else {
+            $(img).css("box-shadow", '0');
+        }
+    }
 
     // 加载热门文章（高赞）
     function loadHotArticles(page, limit) {

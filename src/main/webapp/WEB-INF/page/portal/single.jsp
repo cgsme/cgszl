@@ -25,10 +25,10 @@
                     <div class="body">
                         <h2>${article.title}</h2>
                         <div class="meta">
-                            <i class="fa fa-user"></i> ${article.user.screenName}
-                            <i class="fa fa-calendar"></i><span id="created"> </span>
-                            <i class="fa fa-eye"></i><span class="data">${article.hits}</span>
-                            <i class="fa fa-comments"></i><span class="data"><a href="#comments">${article.commentsNum} 评论</a></span>
+                            <i title="作者" class="fa fa-user"></i>${article.user.screenName}
+                            <i title="发布日期" class="fa fa-calendar"></i><span id="created"> </span>
+                            <i title="阅读量" class="fa fa-eye"></i><span class="data">${article.hits}</span>
+                            <i title="评论数" class="fa fa-comments"></i><span class="data"><a href="#comments">${article.commentsNum} 评论</a></span>
                         </div>
                         <div class="acontent">
                             ${article.content}
@@ -185,7 +185,7 @@
     $(function () {
         // 渲染文章发布时间
         var created = ${article.created};
-        $("#created").html(new Date(created * 1000).toLocaleString());
+        $("#created").html(cgszlUtils.translateTimstampTo(created * 1000, "yyyy-MM-dd"));
     });
 
     // 喜欢

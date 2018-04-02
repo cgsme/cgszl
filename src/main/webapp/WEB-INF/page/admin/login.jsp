@@ -26,16 +26,6 @@
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
 
-    <%
-       boolean loginFlag = true;
-        if (request.getSession().getAttribute(WebConst.LOGIN_SESSION_KEY) == null) {
-            loginFlag = false;
-        }
-    %>
-
-<script type="text/javascript">
-
-</script>
 </head>
 
 <body class="loginpage">

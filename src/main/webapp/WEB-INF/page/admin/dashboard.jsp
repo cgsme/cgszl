@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="/admin/images/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>控制台页面</title>
+    <title>曹图图</title>
     <%@include file="common/common.jsp" %>
     <%@include file="common/pageResource.jsp" %>
 
