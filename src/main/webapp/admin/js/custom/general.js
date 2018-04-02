@@ -120,7 +120,7 @@ jQuery(document).ready(function () {
                 jQuery.ajax({
                     url: url,
                     success: function (data) {
-                        // TODO 此处判断加载的是否是登录页面（session过期时），若是则重新请求首页来跳转，后期调整处理方式
+                        // TODO 此处判断加载的是否是登录页面，若是则
                         if (data && data.indexOf("<title>登录页面</title>") != -1) {
                             layer.close(index);
                             window.location.reload();

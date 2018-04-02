@@ -62,7 +62,7 @@
         // 加载热门文章（高赞）
         loadHotArticles(1, 5);
         // 加载首页文章（高点击量）
-        loadHeightHitsArticle(1, 5);
+        loadHeightHitsArticle(1, 6);
         // 加载热门分类
         loadHotCategories(1, 5);
 
@@ -98,8 +98,10 @@
                         + "<div class='col-md-6 col-sm-6''>"
                             + "<article class='blog-teaser'>"
                                 + "<header>"
+                                    + "<a title='" + article.title + "' href='/single/" + article.aid + ".html'>"
                                     + "<img onmouseover='ooo(this, true);' onmouseleave='ooo(this, false);' "
-                                        + "src='/portal/img/2.jpg' alt='曹图图'>"
+                                        + "src='/portal/img/4.jpg' alt='曹图图'>"
+                                    + "</a>"
                                     + "<h3><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h3>"
                                     + "<span class='meta'>"
                                         + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")

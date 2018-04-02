@@ -25,16 +25,22 @@
     <!--[if lt IE 9]>
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
-
+<style type="text/css">
+    #world{
+        z-index: -1;
+        position: absolute;
+    }
+</style>
 </head>
 
 <body class="loginpage">
+
 <div class="loginbox">
     <div class="loginboxinner">
 
         <div class="logo">
-            <h1 class="logo">博客.<span>管理登录</span></h1>
-            <span class="slogan">后台管理系统</span>
+            <h1 class="logo">博客.<span>登录</span></h1>
+            <span class="slogan">曹图图</span>
         </div><!--logo-->
 
         <br clear="all" /><br />
@@ -80,7 +86,7 @@
 
     </div><!--loginboxinner-->
 </div><!--loginbox-->
-
-
+<%--<canvas id='world' style="position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5"></canvas>--%>
+<%--<script type="text/javascript" src="/admin/canvas/canvas.js"></script>--%>
 </body>
 </html>
