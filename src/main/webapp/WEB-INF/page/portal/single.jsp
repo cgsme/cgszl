@@ -18,7 +18,7 @@
                 <article class="blog-post">
                     <header>
                         <div class="lead-image">
-                            <img src="/portal/img/single-post.jpg" alt="" class="img-responsive">
+                            <%--<img src="/portal/img/single-post.jpg" alt="" class="img-responsive">--%>
 
                         </div>
                     </header>

@@ -47,7 +47,7 @@
                         // 触发‘已发布’tab页的点击事件
                         jQuery("#" + tabPageId).trigger("click");
                         // 刷新父页面的列表
-//                        parent.table.reload('articleGrid');
+                        parent.table.reload('articleGrid');
                         // 关闭弹框
                         parent.layer.closeAll();
                         // 弹出操作结果提示框

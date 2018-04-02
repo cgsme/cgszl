@@ -100,7 +100,7 @@
                         + "<img src='/portal/img/2.jpg' alt='曹图图'>"
                         + "<h3><a class='atitle' title='" + article.title + "' href='/single\\" + article.aid + ".html'>" + article.title + "</a></h3>"
                         + "<span class='meta'>" + new Date(article.created * 1000).toLocaleString() + "，" + article.user.screenName + "</span>"
-                        + "<hr>"
+//                        + "<hr>"
                         + "</header>"
                         + "<div id='" + article.aid + "' class='body acontent'>"
                         //                                    + article.content

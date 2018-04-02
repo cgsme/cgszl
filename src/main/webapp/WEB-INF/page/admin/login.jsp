@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>登录页面</title>
 
-    <link rel="shortcut icon" href="../../../images/favicon.png" />
+    <link rel="shortcut icon" href="/admin/images/favicon.ico" />
 
     <link rel="stylesheet" href="css/style.default.css" type="text/css" />
     <script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
