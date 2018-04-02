@@ -25,12 +25,7 @@
     <!--[if lt IE 9]>
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
-<style type="text/css">
-    #world{
-        z-index: -1;
-        position: absolute;
-    }
-</style>
+
 </head>
 
 <body class="loginpage">
@@ -86,7 +81,6 @@
 
     </div><!--loginboxinner-->
 </div><!--loginbox-->
-<%--<canvas id='world' style="position:absolute;z-index:-2;filter: alpha(opacity:50);opacity: 0.5"></canvas>--%>
-<%--<script type="text/javascript" src="/admin/canvas/canvas.js"></script>--%>
+
 </body>
 </html>
