@@ -133,4 +133,13 @@ public interface BlogService {
      * @throws CgszlException
      */
     List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException;
+
+    /**
+     * 更新文章点击量
+     *
+     * @return
+     * @throws CgszlException
+     * @param article
+     */
+    void updatePostHits(Article article) throws CgszlException;
 }

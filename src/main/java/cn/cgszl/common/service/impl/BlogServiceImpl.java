@@ -1,5 +1,6 @@
 package cn.cgszl.common.service.impl;
 
+import cn.cgszl.common.ArticleOperThread;
 import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
@@ -248,5 +249,17 @@ public class BlogServiceImpl implements BlogService {
     public List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException {
         PageHelper.startPage(page, limit);
         return articleMapper.getArticleListBySql(hits_desc);
+    }
+
+    /**
+     * 更新文章点击量
+     *
+     * @return
+     * @throws CgszlException
+     * @param article
+     */
+    @Override
+    public void updatePostHits(Article article) throws CgszlException {
+        new ArticleOperThread(articleMapper, article).start();
     }
 }
