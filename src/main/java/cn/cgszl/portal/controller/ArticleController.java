@@ -37,13 +37,14 @@ public class ArticleController {
         Article article = null;
         try {
             article = blogService.getArticleDetailById(aid);
+            // 传回前台展示
+            model.addAttribute("article", article);
             // 更新点击量
             blogService.updatePostHits(article);
         } catch (CgszlException e) {
             // TODO 异常处理
             e.printStackTrace();
         }
-        model.addAttribute("article", article);
         return "portal/single";
     }
 
