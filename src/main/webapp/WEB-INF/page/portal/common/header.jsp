@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <title>曹图图</title>
@@ -59,7 +59,7 @@
     <div class="widewrapper subheader">
         <div class="container">
             <div class="clean-breadcrumb">
-                <a href="#">曹图图</a>
+                <a href="javascript:void(0)">曹图图</a>
             </div>
 
             <div class="clean-searchbox">

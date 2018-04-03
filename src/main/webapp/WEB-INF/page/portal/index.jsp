@@ -32,8 +32,9 @@
 
                 <div class="copyrights">Collect from <a href="http://www.smallseashell.com/">手机网站模板</a></div>
 
-                <div class="paging">
-                    <a href="#" class="older">更早 >></i></a>
+                <div class="paging" style="text-align: center">
+                    <a id="loadMoreText" href="javascript:void(0)" onclick="portalIndex.loadMoreArticle();"
+                       class="older"><i class="fa fa-hand-o-down"></i><span >加载更多</span></a>
                 </div>
             </div>
             <jsp:include page="common/rightside.jsp"/>

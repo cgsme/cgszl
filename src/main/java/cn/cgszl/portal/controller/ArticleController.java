@@ -7,6 +7,8 @@ import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import java.util.List;
  * @author cguisheng 2018/3/31 15:18
  */
 @Controller
+@Transactional
 public class ArticleController {
 
     @Resource
@@ -32,6 +35,7 @@ public class ArticleController {
      * @param aid 文章标识
      * @return
      */
+    @Transactional(isolation = Isolation.READ_COMMITTED)   // 事务隔离级别为 读已提交，防止更新点击量时数据不正确
     @RequestMapping(value = "/single/{aid}.html")
     public String getArticleDetailById(Model model, @PathVariable Integer aid) {
         Article article = null;
