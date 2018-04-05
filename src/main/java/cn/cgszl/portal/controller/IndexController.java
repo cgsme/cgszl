@@ -32,11 +32,11 @@ public class IndexController {
      *
      * @return
      */
-    @RequestMapping(value = "/portal/listHotTags")
+    @RequestMapping(value = "/portal/index/listHotTags")
     @ResponseBody
-    public List<MetasDto> listHotTags() {
+    public List<MetasDto> listHotTags(Integer page, Integer limit) {
         try {
-            List<MetasDto> tagList = categoryService.getAllCategoryList(Types.TAG.getType(), "mid desc");
+            List<MetasDto> tagList = categoryService.listHotTags(page, limit);
             return tagList;
         } catch (CgszlException e) {
             e.printStackTrace();

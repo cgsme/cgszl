@@ -145,7 +145,7 @@ public class ArticleController {
      * @param type    类型
      * @return 视图
      */
-    @RequestMapping(value = "/portal/article/toHotPage/{name}/{type}.html")
+    @RequestMapping(value = "/portal/article/{type}/{name}.html")
     public String toHotPage(HttpServletRequest request, @PathVariable String name, @PathVariable String type) {
         name = new String(name.getBytes(Charset.forName("ISO8859-1")), Charset.forName("utf-8"));
         request.setAttribute("name", name);

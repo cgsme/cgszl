@@ -118,6 +118,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 获取热门分类
+     *
      * @param page  当前页
      * @param limit 每页记录数
      * @return
@@ -127,5 +128,19 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Metas> listHotCategories(Integer page, Integer limit) throws CgszlException {
         PageHelper.startPage(page, limit);
         return metasMapper.selectHotCategories();
+    }
+
+    /**
+     * 获取热门标签
+     *
+     * @return
+     * @throws CgszlException
+     * @param page
+     * @param limit
+     */
+    @Override
+    public List<MetasDto> listHotTags(Integer page, Integer limit) throws CgszlException {
+        PageHelper.startPage(page, limit);
+        return metasMapper.selectHotTags();
     }
 }

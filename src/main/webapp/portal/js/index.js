@@ -50,7 +50,7 @@ var portalIndex = (function ($) {
                 function (data) {
                     if (data && data.success) {
                         $.each(data.data, function (index, category) {
-                            var $hotCategory = $("<li><a href='/portal/article/toHotPage/"+ category.name + "/category.html'>" + category.name + "</a></li>");
+                            var $hotCategory = $("<li><a href='/portal/article/category/"+ category.name + ".html'>" + category.name + "</a></li>");
                             // $hotCategory.bind("click", function () {
                             //     portalIndex.loadArticleByCondition(category.name, "category");
                             // });
@@ -154,11 +154,12 @@ var portalIndex = (function ($) {
         // 加载热门标签
         loadHotTags: function () {
             $.ajax({
-                url: "/portal/listHotTags.action",
+                url: "/portal/index/listHotTags.action",
                 method: "POST",
+                data: {page:1, limit:12},
                 success: function (data) {
                     $.each(data, function (index, tag) {
-                        var $tagItem = $("<li><a href='/portal/article/toHotPage/"+ tag.name + "/tag.html'>" + tag.name + "</a></li>");
+                        var $tagItem = $("<li><a href='/portal/article/tag/"+ tag.name + ".html'>" + tag.name + "</a></li>");
                         // $tagItem.bind("click", function () {
                         //     portalIndex.toHotPage(tag.name, "tag");
                         // });

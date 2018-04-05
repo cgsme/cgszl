@@ -46,4 +46,11 @@ public interface MetasMapper {
      * @return
      */
     List<Metas> selectHotCategories();
+
+    /**
+     * 获取热门
+     *
+     * @return
+     */
+    List<MetasDto> selectHotTags();
 }

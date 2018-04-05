@@ -74,4 +74,14 @@ public interface CategoryService {
      * @throws CgszlException
      */
     List<Metas> listHotCategories(Integer page, Integer limit) throws CgszlException;
+
+    /**
+     * 获取热门标签
+     *
+     * @return
+     * @throws CgszlException
+     * @param page
+     * @param limit
+     */
+    List<MetasDto> listHotTags(Integer page, Integer limit) throws CgszlException;
 }
