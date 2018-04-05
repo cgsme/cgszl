@@ -5,6 +5,7 @@ import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 博客文章管理业务接口
@@ -128,18 +129,29 @@ public interface BlogService {
      *
      * @param page      当前页
      * @param limit     每页记录数
-     * @param hits_desc 排序方式
+     * @param paramMap  查询条件map
      * @return
      * @throws CgszlException
      */
-    List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException;
+    List<Article> getBlogListBySql(Integer page, Integer limit, Map<String, Object> paramMap) throws CgszlException;
 
     /**
      * 更新文章点击量
      *
+     * @param article
      * @return
      * @throws CgszlException
-     * @param article
      */
     void updatePostHits(Article article) throws CgszlException;
+
+    /**
+     * 根据条件查询文章
+     *
+     * @param searchValue 条件值
+     * @param type
+     * @param page
+     *@param limit @return
+     * @throws CgszlException
+     */
+    List<Article> loadArticleByCondition(String searchValue, String type, Integer page, Integer limit) throws CgszlException;
 }

@@ -1,6 +1,8 @@
 package cn.cgszl.common.service.impl;
 
 import cn.cgszl.common.ArticleOperThread;
+import cn.cgszl.common.dao.dto.Types;
+import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.dao.mapper.ArticleMapper;
 import cn.cgszl.common.dao.pojo.Article;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 博客文章管理业务实现类
@@ -239,27 +243,51 @@ public class BlogServiceImpl implements BlogService {
     /**
      * 根据sql获取文章列表
      *
-     * @param page      当前页
-     * @param limit     每页记录数
-     * @param hits_desc 排序方式
+     * @param page     当前页
+     * @param limit    每页记录数
+     * @param paramMap 查询条件
      * @return
      * @throws CgszlException
      */
     @Override
-    public List<Article> getBlogListBySql(Integer page, Integer limit, String hits_desc) throws CgszlException {
+    public List<Article> getBlogListBySql(Integer page, Integer limit, Map<String, Object> paramMap) throws CgszlException {
         PageHelper.startPage(page, limit);
-        return articleMapper.getArticleListBySql(hits_desc);
+        return articleMapper.getArticleListBySql(paramMap);
     }
 
     /**
      * 更新文章点击量
      *
+     * @param article
      * @return
      * @throws CgszlException
-     * @param article
      */
     @Override
     public void updatePostHits(Article article) throws CgszlException {
         new ArticleOperThread(articleMapper, article).start();
+    }
+
+    /**
+     * 根据条件查询文章
+     *
+     * @param searchValue 条件值
+     * @param type
+     * @param page
+     * @param limit       @return
+     * @throws CgszlException
+     */
+    @Override
+    public List<Article> loadArticleByCondition(String searchValue, String type, Integer page, Integer limit) throws CgszlException {
+        if (StringUtils.isNotBlank(type)) {
+            PageHelper.startPage(page, limit);
+            ArticleExample articleExample = new ArticleExample();
+            if (Types.CATEGORY.getType().equalsIgnoreCase(type)) {
+                articleExample.createCriteria().andCategoriesEqualTo(searchValue);
+            } else if (Types.TAG.getType().equalsIgnoreCase(searchValue)) {
+                articleExample.createCriteria().andTagsLike(searchValue);
+            }
+            return articleMapper.selectByExample(articleExample);
+        }
+        return null;
     }
 }

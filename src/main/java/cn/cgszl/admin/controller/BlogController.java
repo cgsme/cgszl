@@ -2,8 +2,8 @@ package cn.cgszl.admin.controller;
 
 import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.service.MetasService;
-import cn.cgszl.common.dto.CommonResult;
-import cn.cgszl.common.dto.GridData;
+import cn.cgszl.common.dao.dto.CommonResult;
+import cn.cgszl.common.dao.dto.GridData;
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.dao.pojo.Metas;
 import cn.cgszl.common.dao.pojo.User;

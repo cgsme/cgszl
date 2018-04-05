@@ -4,6 +4,7 @@ import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.dao.pojo.ArticleExample;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -78,5 +79,5 @@ public interface ArticleMapper {
      * @param oederCause 排序方式
      * @return
      */
-    List<Article> getArticleListBySql(String oederCause);
+    List<Article> getArticleListBySql(Map<String, Object> oederCause);
 }

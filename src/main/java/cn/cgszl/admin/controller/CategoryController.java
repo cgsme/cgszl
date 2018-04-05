@@ -1,8 +1,8 @@
 package cn.cgszl.admin.controller;
 
 import cn.cgszl.common.service.CategoryService;
-import cn.cgszl.common.dto.CommonResult;
-import cn.cgszl.common.dto.GridData;
+import cn.cgszl.common.dao.dto.CommonResult;
+import cn.cgszl.common.dao.dto.GridData;
 import cn.cgszl.common.dao.dto.MetasDto;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Metas;

@@ -1,7 +1,7 @@
 package cn.cgszl.admin.controller;
 
 import cn.cgszl.common.service.AttachService;
-import cn.cgszl.common.dto.CommonResult;
+import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Attach;

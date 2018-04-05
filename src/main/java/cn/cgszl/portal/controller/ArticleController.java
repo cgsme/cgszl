@@ -1,11 +1,13 @@
 package cn.cgszl.portal.controller;
 
+import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.service.BlogService;
-import cn.cgszl.common.dto.CommonResult;
-import cn.cgszl.common.dto.GridData;
+import cn.cgszl.common.dao.dto.CommonResult;
+import cn.cgszl.common.dao.dto.GridData;
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * 前台文章控制器
@@ -80,7 +88,9 @@ public class ArticleController {
     public CommonResult listHeightHitsArticles(Integer page, Integer limit) {
         try {
             // 调用service获取文章数据
-            List<Article> articleList = blogService.getBlogListBySql(page, limit, "hits desc");
+            Map<String, Object> paramMap = new HashMap<String, Object>();
+            paramMap.put("orderCause", "hits desc");
+            List<Article> articleList = blogService.getBlogListBySql(page, limit, paramMap);
             return CommonResult.ok(true, articleList);
         } catch (CgszlException e) {
             e.printStackTrace();
@@ -127,4 +137,58 @@ public class ArticleController {
         }
     }
 
+    /**
+     * 根据类型跳转到页面
+     *
+     * @param request 请求对象
+     * @param name    查询条件
+     * @param type    类型
+     * @return 视图
+     */
+    @RequestMapping(value = "/portal/article/toHotPage/{name}/{type}.html")
+    public String toHotPage(HttpServletRequest request, @PathVariable String name, @PathVariable String type) {
+        name = new String(name.getBytes(Charset.forName("ISO8859-1")), Charset.forName("utf-8"));
+        request.setAttribute("name", name);
+        request.setAttribute("type", type);
+        if (Types.TAG.getType().equalsIgnoreCase(type)) {
+            return "portal/hotTagArticle";
+        } else if (Types.CATEGORY.getType().equalsIgnoreCase(type)){
+           return  "portal/hotCategoryArticle";
+        }
+        return null;
+    }
+
+    /**
+     * 根据条件获取文章
+     *
+     * @return
+     */
+    @RequestMapping(value = "/portal/article/loadArticleByCondition")
+    @ResponseBody
+    public CommonResult loadArticleByCondition(HttpServletRequest request, String type, Integer page, Integer limit) {
+        try {
+            if (StringUtils.isNotBlank(type)) {
+                List<Article> articleList = null;
+                String searchKey = null;
+                String searchValue = null;
+                // 标签
+                if (Types.TAG.getType().equalsIgnoreCase(type)) {
+                    searchKey = "tag";
+                    searchValue = request.getParameter("tag");
+                } else if (Types.CATEGORY.getType().equalsIgnoreCase(type)) {
+                    searchKey = "categories";
+                    searchValue = request.getParameter("categories");
+                }
+                searchValue = new String(searchValue.getBytes(Charset.forName("ISO8859-1")), Charset.forName("UTF-8"));
+                Map<String, Object> paramMap = new HashMap<String, Object>();
+                paramMap.put(searchKey, searchValue);
+                articleList = blogService.getBlogListBySql(page, limit, paramMap);
+                return CommonResult.ok(articleList);
+            }
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return CommonResult.fail(false, "系统异常");
+        }
+        return CommonResult.fail(false, "请求出错");
+    }
 }

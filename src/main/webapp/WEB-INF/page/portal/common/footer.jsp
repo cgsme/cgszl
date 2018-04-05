@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="widewrapper copyright">
-        Copyright 2018 曹图图 <a href="#" target="_blank" title="图图超酷">博客</a>
+        Copyright 2018 曹图图 <a href="/" title="曹图图">博客</a>
     </div>
 </footer>
 <script src="/portal/js/jquery.min.js"></script>
@@ -49,7 +49,7 @@
 <script type="text/javascript">
     // 文档加载完成后执行
     $(function () {
-        portalIndex.loadData();
+        portalIndex.loadData('${name}', '${type}');
     });
 </script>
 </body>

@@ -738,7 +738,7 @@
     </select>
 
     <!-- by sql -->
-    <select id="getArticleListBySql" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    <select id="getArticleListBySql" parameterType="Map" resultMap="ResultMapWithBLOBs">
         SELECT
             t_articles.aid,
             t_articles.title,
@@ -776,8 +776,16 @@
               AND t_articles.categories != ''
               AND t_articles.delete_flag = 0
               AND t_articles.status = 'publish'
+            <if test="tag != null">
+                AND t_articles.tags LIKE CONCAT('%','${tag}','%' )
+            </if>
+            <if test="categories != null">
+                AND t_articles.categories = #{categories}
+            </if>
               AND t_articles.draft = 0
-        ORDER BY #{orderCause}
+        <if test="orderCausse != null">
+            ORDER BY #{orderCause}
+        </if>
     </select>
 
 

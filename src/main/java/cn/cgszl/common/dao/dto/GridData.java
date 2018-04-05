@@ -1,4 +1,4 @@
-package cn.cgszl.common.dto;
+package cn.cgszl.common.dao.dto;
 
 import java.io.Serializable;
 import java.util.List;

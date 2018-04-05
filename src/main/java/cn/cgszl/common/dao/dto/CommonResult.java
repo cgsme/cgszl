@@ -1,4 +1,4 @@
-package cn.cgszl.common.dto;
+package cn.cgszl.common.dao.dto;
 
 /**
  * 通用返回结果
