@@ -79,6 +79,8 @@
 <script>
     // 表格对象
     var table;
+    // 旧分类名
+    var oldName;
     layui.use('table', function () {
         table = layui.table;
         // 分类列表
@@ -199,12 +201,12 @@
                         , data: {mid: data.mid}
                         , dataType: "JSON"
                         , async: true
-                        , success: function (resule) {
-                            if (resule && resule.success) {
+                        , success: function (result) {
+                            if (result && result.success) {
                                 obj.del();
                                 top.layer.msg('删除成功', {icon: 1});
                             } else {
-                                top.layer.msg(resule.message, {icon: 2});
+                                top.layer.msg(result.message, {icon: 2});
                             }
                         }
                     });
@@ -212,23 +214,7 @@
                     layer.close(index);
                 });
             }
-            /*else if (obj.event === 'edit') {
-           //                    layer.alert('编辑行：<br>' + JSON.stringify(data))
-                               layer.open({
-                                   type: 2   // 此处是iframe
-                                   , title: '编辑文章'
-                                   , area: ['1120px', '620px']
-                                   , shade: 0.3  // 默认0.3
-                                   , maxmin: true
-                                   , content: '/admin/newpost.html?aid=' + data.aid + "&actionType=edit"    // 需要加载的页面地址
-                                   , loading: true          // 显示正在加载...
-                                   , end: function (e) {   // 窗口销毁时触发,无参数
-                                       // 重新加载列表数据
-           //                            table.reload('articleGrid');
-           //                            obj.update();
-                                   }
-                               });
-                           }*/
+
         });
     });
 
@@ -288,59 +274,4 @@
     });
 </script>
 </body>
-<%--<body class="withvernav">
-    &lt;%&ndash;<div class="centercontent tables">&ndash;%&gt;
-    <table id="allpoststable" cellpadding="0" cellspacing="0" border="0" class="stdtable">
-        <colgroup>
-            &lt;%&ndash;<col class="con0" style="width: 4%"/>&ndash;%&gt;
-            <col class="con1"/>
-            <col class="con0"/>
-            <col class="con1"/>
-            <col class="con0"/>
-        </colgroup>
-        <thead>
-            <tr>
-                &lt;%&ndash;<th class="head0 nosort"><input type="checkbox"  class="checkall"/></th>&ndash;%&gt;
-                <th class="head0">文章标题</th>
-                <th class="head1">作者</th>
-                <th class="head0">状态</th>
-                <th class="head0">发布时间</th>
-                <th class="head1">点击量</th>
-                <th class="head0">所属分类</th>
-            </tr>
-        </thead>
-        &lt;%&ndash;<tfoot>
-            <tr>
-                <th class="head0">
-                    <span class="center"><input type="checkbox"/></span>
-                </th>
-                <th class="head0">Rendering engine</th>
-                <th class="head1">Browser</th>
-                <th class="head0">Platform(s)</th>
-                <th class="head1">Engine version</th>
-                <th class="head0">CSS grade</th>
-            </tr>
-        </tfoot>&ndash;%&gt;
-        &lt;%&ndash;<tbody>
-            <c:forEach items="${articleList}" var="article">
-                <tr class="gradeX">
-                    <td align="center">
-                        <span class="center">
-                            <input type="checkbox"/>
-                        </span>
-                    </td>
-                    <td>${article.title}</td>
-                    <td>${article.authorId}</td>
-                    <td class="center">${article.status}</td>
-                    <td class="center">${article.created}</td>
-                    <td class="center">${article.hits}</td>
-                    <td class="center">${article.categories}</td>
-                </tr>
-            </c:forEach>
-        </tbody>&ndash;%&gt;
-    </table>
-
-</div><!--contentwrapper-->
-
-</body>--%>
 </html>

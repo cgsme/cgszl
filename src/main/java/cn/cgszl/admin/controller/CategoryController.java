@@ -46,9 +46,9 @@ public class CategoryController {
     public GridData getAllCategoryList(int page, int limit) {
         try {
             PageHelper.startPage(page, limit);
-            List<MetasDto> categoryList = categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),
+            List<MetasDto> categoryList = categoryService.getAllCategoryList(Types.CATEGORY.getType(),
                     null);
-            PageInfo<MetasDto> metasPageInfo = metasPageInfo = new PageInfo<MetasDto>(categoryList);
+            PageInfo<MetasDto> metasPageInfo = new PageInfo<>(categoryList);
             return GridData.build(categoryList, metasPageInfo.getTotal());
         } catch (CgszlException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class CategoryController {
         try {
             PageHelper.startPage(page, limit);
 //        List<Metas> tagsList = categoryService.getAllTagList();
-            List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(),null);
+            List<MetasDto> tagsList = categoryService.getAllCategoryList(Types.TAG.getType(), null);
             PageInfo<MetasDto> tagsPageInfo = new PageInfo<MetasDto>(tagsList);
             return GridData.build(tagsList, tagsPageInfo.getTotal());
         } catch (CgszlException e) {
@@ -88,7 +88,7 @@ public class CategoryController {
     @SystemLog(module = "分类/标签管理模块", methods = "保存分类")
     public CommonResult addCategory(Metas metas) {
         try {
-            boolean result = false;
+            boolean result;
             if (metas.getMid() != null) {
                 //TODO 更新分类信息，同时更新该分类下所有文章的分类类型
                 result = categoryService.updataCategory(metas);
@@ -114,7 +114,7 @@ public class CategoryController {
     @RequestMapping(value = "/admin/checkCatName", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult checkCatName(String name) {
-        boolean result = false;
+        boolean result;
         try {
             result = categoryService.checkCatName(name);
         } catch (CgszlException e) {
