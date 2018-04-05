@@ -45,7 +45,7 @@
 <script src="/portal/js/bootstrap.min.js"></script>
 <script src="/portal/js/modernizr.js"></script>
 <script src="/common/js/cgszl.utils.js"></script>
-<script src="/portal/js/index.js"></script>
+<script src="/portal/js/portalIndex.js"></script>
 <script type="text/javascript">
     // 文档加载完成后执行
     $(function () {

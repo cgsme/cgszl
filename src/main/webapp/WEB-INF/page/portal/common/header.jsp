@@ -59,7 +59,7 @@
     <div class="widewrapper subheader">
         <div class="container">
             <div class="clean-breadcrumb">
-                <a href="javascript:void(0)">曹图图</a>
+                <a>曹图图</a>
             </div>
 
             <div class="clean-searchbox">
