@@ -39,6 +39,8 @@ var portalIndex = (function ($) {
             portalIndex.loadHotArticles(1, 5);
             // 加载热门分类
             portalIndex.loadHotCategories(1, 5);
+            // 加载友情链接
+            portalIndex.loadLinksList();
         },
 
         /**
@@ -46,6 +48,27 @@ var portalIndex = (function ($) {
          */
         loadMoreArticle: function () {
             portalIndex.loadHeightHitsArticle(PAGE, LIMIT);
+        },
+
+        /**
+         * 加载友情链接
+         */
+        loadLinksList: function () {
+            $.ajax({
+                url: "/portal/link/listLinksList.action",
+                method: "POST",
+                success: function (data) {
+                    if (data && data.success) {
+                        $.each(data.data, function (index, link) {
+                            var $hotCategory = $("<li><a href='" + link.slug + "' target='_blank'>" + link.name + "</a></li>");
+                            $("#linksList").append($hotCategory);
+                        });
+                    } else {
+                        $("#linksList").html("数据获取失败……");
+                    }
+                },
+
+            });
         },
 
         /**

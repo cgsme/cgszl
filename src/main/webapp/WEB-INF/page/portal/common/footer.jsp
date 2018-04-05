@@ -25,13 +25,16 @@
                 </div>
 
                 <div class="col-md-4 footer-widget">
-                    <h3><i class="fa fa-envelope"></i>联系我</h3>
+                    <h3><i class="fa fa-link"></i>友情链接</h3>
 
-                    <p>您可以通过以下方式与我取得联系。</p>
-                    <p></p>
-                    <div class="footer-widget-icon">
-                        <i class="fa fa-weibo"></i><i class="fa fa-wechat"></i><i class="fa fa-qq"></i>
-                    </div>
+                    <ul id="linksList" class="clean-list">
+                        <%--<li><a href="">Clean - Responsive HTML5 Template</a></li>--%>
+                    </ul>
+                    <%--<p>您可以通过以下方式与我取得联系。</p>--%>
+                    <%--<p></p>--%>
+                    <%--<div class="footer-widget-icon">--%>
+                        <%--<i class="fa fa-weibo"></i><i class="fa fa-wechat"></i><i class="fa fa-qq"></i>--%>
+                    <%--</div>--%>
                 </div>
 
             </div>

@@ -4,7 +4,7 @@
 
     <div class="aside-widget">
         <header>
-            <h3>精选文章</h3>
+            <h3><i class="fa fa-star"></i>  精选文章</h3>
         </header>
         <div class="body">
             <ul id="hotArticles" class="clean-list">
@@ -15,7 +15,7 @@
 
     <div class="aside-widget">
         <header>
-            <h3>热门分类</h3>
+            <h3><i class="fa fa-list"></i>  热门分类</h3>
         </header>
         <div class="body">
             <ul id="hotCategories" class="clean-list">
@@ -26,7 +26,7 @@
 
     <div class="aside-widget">
         <header>
-            <h3>热门标签</h3>
+            <h3><i class="fa fa-tags"></i>  热门标签</h3>
         </header>
         <div class="body clearfix">
             <ul id="hotTags" class="tags">
