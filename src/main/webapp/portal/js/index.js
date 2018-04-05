@@ -18,7 +18,11 @@ var portalIndex = (function ($) {
     // 公共方法
     return {
 
-        // 加载数据
+        /**
+         * 加载初始化数据
+         * @param name
+         * @param type
+         */
         loadData: function (name, type) {
             // 说明是获取热门分类或标签中的文章
             if (type) {
@@ -37,12 +41,18 @@ var portalIndex = (function ($) {
             portalIndex.loadHotCategories(1, 5);
         },
 
-        // 加载更多
+        /**
+         * 加载更多
+         */
         loadMoreArticle: function () {
             portalIndex.loadHeightHitsArticle(PAGE, LIMIT);
         },
 
-        // 加载热门分类
+        /**
+         * 加载热门分类
+         * @param page
+         * @param limit
+         */
         loadHotCategories: function (page, limit) {
             $.post(
                 "/portal/listHotCategories.action",
@@ -50,7 +60,7 @@ var portalIndex = (function ($) {
                 function (data) {
                     if (data && data.success) {
                         $.each(data.data, function (index, category) {
-                            var $hotCategory = $("<li><a href='/portal/article/category/"+ category.name + ".html'>" + category.name + "</a></li>");
+                            var $hotCategory = $("<li><a href='/portal/article/category/" + category.name + ".html'>" + category.name + "</a></li>");
                             // $hotCategory.bind("click", function () {
                             //     portalIndex.loadArticleByCondition(category.name, "category");
                             // });
@@ -63,7 +73,11 @@ var portalIndex = (function ($) {
             )
         },
 
-        // 加载高点击量的文章
+        /**
+         * / 加载高点击量的文章
+         * @param page
+         * @param limit
+         */
         loadHeightHitsArticle: function (page, limit) {
             $.post(
                 "/portal/listHeightHitsArticles.action",
@@ -111,7 +125,11 @@ var portalIndex = (function ($) {
             );
         },
 
-        // 当鼠标移到到文章图片上时的动画效果
+        /**
+         * / 当鼠标移到到文章图片上时的动画效果
+         * @param img
+         * @param isMouseOver
+         */
         ooo: function (img, isMouseOver) {
             if (isMouseOver) {
                 $(img).css('box-shadow', '0px 0px 11px #333');
@@ -120,7 +138,11 @@ var portalIndex = (function ($) {
             }
         },
 
-        // 加载热门文章（高赞）
+        /**
+         * / 加载热门文章（高赞）
+         * @param page
+         * @param limit
+         */
         loadHotArticles: function (page, limit) {
             $.ajax({
                 url: "/portal/listHotArticles.action",
@@ -136,7 +158,11 @@ var portalIndex = (function ($) {
 
         },
 
-        // 加载最新文章
+        /**
+         * / 加载最新文章
+         * @param page
+         * @param limit
+         */
         loadRecentPost: function (page, limit) {
             $.ajax({
                 url: "/portal/listArticles.action",
@@ -151,15 +177,17 @@ var portalIndex = (function ($) {
             });
         },
 
-        // 加载热门标签
+        /**
+         * / 加载热门标签
+         */
         loadHotTags: function () {
             $.ajax({
                 url: "/portal/index/listHotTags.action",
                 method: "POST",
-                data: {page:1, limit:12},
+                data: {page: 1, limit: 12},
                 success: function (data) {
                     $.each(data, function (index, tag) {
-                        var $tagItem = $("<li><a href='/portal/article/tag/"+ tag.name + ".html'>" + tag.name + "</a></li>");
+                        var $tagItem = $("<li><a href='/portal/article/tag/" + tag.name + ".html'>" + tag.name + "</a></li>");
                         // $tagItem.bind("click", function () {
                         //     portalIndex.toHotPage(tag.name, "tag");
                         // });
@@ -169,7 +197,11 @@ var portalIndex = (function ($) {
             })
         },
 
-        // 根据条件获取文章列表
+        /**
+         * / 根据条件获取文章列表
+         * @param searchValue
+         * @param type
+         */
         loadArticleByCondition: function (searchValue, type) {
             var param;
             // 点击热门标签
