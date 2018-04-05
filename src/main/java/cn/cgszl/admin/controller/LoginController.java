@@ -1,5 +1,7 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.ModuleOperation;
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.UserService;
 import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.pojo.User;
@@ -52,6 +54,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/admin/login")
+//    @SystemLog(module = "用户模块", methods = "用户登录")
     public String login(HttpServletRequest request, String username, String password, RedirectAttributes redirectAttributes) {
         // 服务端非空校验（用户名、密码）
         if (StringUtils.isBlank(username)) {
@@ -94,6 +97,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/admin/dashboard")
+    @SystemLog(module = "控制台", methods = "访问控制台")
     public String toIndex() {
         return "admin/dashboard";
     }

@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.CommentService;
 import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.dao.dto.GridData;
@@ -63,6 +64,7 @@ public class CommentController {
      */
     @RequestMapping(value = "/admin/comment/deleteById")
     @ResponseBody
+    @SystemLog(module = "评论管理模块", methods = "删除评论")
     public CommonResult deleteById(Integer coid) {
         try {
             commentService.deleteCommenntByid(coid);
@@ -82,6 +84,7 @@ public class CommentController {
      */
     @RequestMapping(value = "/admin/comment/updateCommentStatus")
     @ResponseBody
+    @SystemLog(module = "评论管理模块", methods = "更新评论状态")
     public CommonResult updateCommentStatus(Integer coid, String status) {
         try {
             commentService.updateCommentStatus(coid, status);

@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.LinkService;
 import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.dao.dto.GridData;
@@ -52,7 +53,7 @@ public class LinkController {
             return GridData.build(linkList, metasPageInfo.getTotal());
         } catch (CgszlException e) {
             // TODO 异常处理
-            return null;
+            return GridData.build(null, 0);
         }
     }
 
@@ -91,6 +92,7 @@ public class LinkController {
      */
     @RequestMapping(value = "/admin/saveLink", method = RequestMethod.POST)
     @ResponseBody
+    @SystemLog(module = "友情链接模块", methods = "保存链接")
     public CommonResult saveLink(Metas metas) {
         try {
             boolean result = linkService.SaveLink(metas);
@@ -112,6 +114,7 @@ public class LinkController {
      */
     @RequestMapping(value = "/admin/deleteByMid")
     @ResponseBody
+    @SystemLog(module = "友情链接模块", methods = "删除链接")
     public CommonResult deleteLinkById(int mid) {
         boolean result = false;
         try {

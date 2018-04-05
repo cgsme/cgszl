@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.CategoryService;
 import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.dao.dto.GridData;
@@ -84,6 +85,7 @@ public class CategoryController {
      */
     @RequestMapping(value = "/admin/addCategory")
     @ResponseBody
+    @SystemLog(module = "分类/标签管理模块", methods = "保存分类")
     public CommonResult addCategory(Metas metas) {
         try {
             boolean result = false;
@@ -134,6 +136,7 @@ public class CategoryController {
      */
     @RequestMapping(value = "/admin/category/deleteByMid")
     @ResponseBody
+    @SystemLog(module = "分类/标签管理模块", methods = "删除分类")
     public CommonResult deleteByMid(String mid) {
         try {
             boolean result = categoryService.deleteByMid(mid);

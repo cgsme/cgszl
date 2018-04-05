@@ -7,19 +7,34 @@ public class Log {
 
     private String data;
 
-    private Integer authorId;
+    private Integer operUserId;
 
     private String ip;
 
-    private Integer created;
+    private String created;
 
-    public Log(Integer id, String action, String data, Integer authorId, String ip, Integer created) {
+    private Boolean result;
+
+    private Integer processTime;
+
+    private String resultCn;
+
+    private String operUserName;
+
+    private String module;
+
+    public Log(Integer id, String action, String data, Integer operUserId, String ip, String created, Boolean result, Integer processTime, String resultCn, String operUserName, String module) {
         this.id = id;
         this.action = action;
         this.data = data;
-        this.authorId = authorId;
+        this.operUserId = operUserId;
         this.ip = ip;
         this.created = created;
+        this.result = result;
+        this.processTime = processTime;
+        this.resultCn = resultCn;
+        this.operUserName = operUserName;
+        this.module = module;
     }
 
     public Log() {
@@ -50,12 +65,12 @@ public class Log {
         this.data = data == null ? null : data.trim();
     }
 
-    public Integer getAuthorId() {
-        return authorId;
+    public Integer getOperUserId() {
+        return operUserId;
     }
 
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
+    public void setOperUserId(Integer operUserId) {
+        this.operUserId = operUserId;
     }
 
     public String getIp() {
@@ -66,11 +81,51 @@ public class Log {
         this.ip = ip == null ? null : ip.trim();
     }
 
-    public Integer getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Integer created) {
-        this.created = created;
+    public void setCreated(String created) {
+        this.created = created == null ? null : created.trim();
+    }
+
+    public Boolean getResult() {
+        return result;
+    }
+
+    public void setResult(Boolean result) {
+        this.result = result;
+    }
+
+    public Integer getProcessTime() {
+        return processTime;
+    }
+
+    public void setProcessTime(Integer processTime) {
+        this.processTime = processTime;
+    }
+
+    public String getResultCn() {
+        return resultCn;
+    }
+
+    public void setResultCn(String resultCn) {
+        this.resultCn = resultCn == null ? null : resultCn.trim();
+    }
+
+    public String getOperUserName() {
+        return operUserName;
+    }
+
+    public void setOperUserName(String operUserName) {
+        this.operUserName = operUserName == null ? null : operUserName.trim();
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module == null ? null : module.trim();
     }
 }

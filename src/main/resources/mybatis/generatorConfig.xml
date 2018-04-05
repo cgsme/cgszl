@@ -55,30 +55,30 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="t_users" domainObjectName="User">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
-        <table tableName="t_relationships" domainObjectName="Relationship">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
-        <table tableName=" t_options" domainObjectName="Option">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
-        <table tableName="t_metas" domainObjectName="Metas">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
+        <!--<table tableName="t_users" domainObjectName="User">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
+        <!--<table tableName="t_relationships" domainObjectName="Relationship">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
+        <!--<table tableName=" t_options" domainObjectName="Option">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
+        <!--<table tableName="t_metas" domainObjectName="Metas">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
         <table tableName="t_logs" domainObjectName="Log">
             <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
         </table>
-        <table tableName="t_comments" domainObjectName="Comment">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
-        <table tableName="t_attach" domainObjectName="Attach">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
-        <table tableName="t_articles" domainObjectName="Article">
-            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
+        <!--<table tableName="t_comments" domainObjectName="Comment">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
+        <!--<table tableName="t_attach" domainObjectName="Attach">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
+        <!--<table tableName="t_articles" domainObjectName="Article">-->
+            <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
+        <!--</table>-->
         <!-- 配置表
             schema：不用填写
             tableName: 表名

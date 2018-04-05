@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.AttachService;
 import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.constant.WebConst;
@@ -60,6 +61,7 @@ public class FileController {
      */
     @RequestMapping(value = "/admin/fileUpload")
     @ResponseBody
+    @SystemLog(module = "文件管理模块", methods = "上传文件")
     public CommonResult fileUpload(HttpServletRequest request, @RequestParam MultipartFile[] files) {
         try {
             // 保存失败文件
@@ -111,6 +113,7 @@ public class FileController {
      */
     @RequestMapping(value = "/admin/attach/deleteById")
     @ResponseBody
+    @SystemLog(module = "文件管理模块", methods = "删除文件")
     public CommonResult deleteById(HttpServletRequest request, Integer id) {
         try {
             Attach attach = attachService.getAttachById(id);

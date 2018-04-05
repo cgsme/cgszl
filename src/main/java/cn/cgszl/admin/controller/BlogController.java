@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.service.MetasService;
 import cn.cgszl.common.dao.dto.CommonResult;
@@ -50,6 +51,7 @@ public class BlogController {
      * @return 创建文章页面
      */
     @RequestMapping("/admin/newpost")
+    @SystemLog(module = "文章管理模块", methods = "创建新文章")
     public String newpost(HttpServletRequest request, Model model) {
         try {
             String aid = request.getParameter("aid");
@@ -110,6 +112,7 @@ public class BlogController {
      */
     @RequestMapping(value = "/admin/savePost", method = RequestMethod.POST)
     @ResponseBody   // 标记返回json对象!
+    @SystemLog(module = "文章管理模块", methods = "保存文章")
     public CommonResult savePost(HttpServletRequest request, Article article) {
         User user = CgszlUtils.getLoginUser(request);
         if (user != null) {
@@ -151,6 +154,7 @@ public class BlogController {
      */
     @RequestMapping(value = "/admin/blog/deleteByAid", method = RequestMethod.POST)
     @ResponseBody
+    @SystemLog(module = "文章管理模块", methods = "根据文章标识删除文章")
     public CommonResult deleteByAid(@RequestParam(value = "aid") String aid) {
         boolean result = false;
         try {
@@ -167,6 +171,7 @@ public class BlogController {
 
     @RequestMapping(value = "/admin/blog/deleteByAidPhy", method = RequestMethod.POST)
     @ResponseBody
+    @SystemLog(module = "文章管理模块", methods = "根据文章标识删除文章")
     public CommonResult deleteByAidPhy(@RequestParam(name = "aid") String aid) {
         boolean result = false;
         try {
@@ -236,6 +241,7 @@ public class BlogController {
      */
     @RequestMapping(value = "/admin/blog/publishByAid", method = RequestMethod.POST)
     @ResponseBody
+    @SystemLog(module = "文章管理模块", methods = "草稿箱中发布文章")
     public CommonResult publishByAid(@RequestParam(value = "aid") String aid) {
         try {
             boolean resule = blogService.publishById(aid);
@@ -281,14 +287,16 @@ public class BlogController {
      */
     @RequestMapping(value = "/admin/blog/revertByAid", method = RequestMethod.POST)
     @ResponseBody
+    @SystemLog(module = "文章管理模块", methods = "还原回收站中的文章")
     public CommonResult revertByAid(@RequestParam(name = "aid") String aid) {
-        boolean result = false;
+        boolean result;
         try {
             result = blogService.revertByAid(aid);
         } catch (CgszlException e) {
             e.printStackTrace();
             result = false;
         }
+        // TODO 需要这样啰嗦?
         if (result) {
             return CommonResult.ok();
         } else {

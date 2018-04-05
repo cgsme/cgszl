@@ -6,9 +6,14 @@
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="action" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="data" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="author_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="oper_user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="ip" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="created" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="created" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="result" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="process_time" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="result_cn" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="oper_user_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="module" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -70,7 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, action, data, author_id, ip, created
+    id, action, data, oper_user_id, ip, created, result, process_time, result_cn, oper_user_name, 
+    module
   </sql>
   <select id="selectByExample" parameterType="cn.cgszl.common.dao.pojo.LogExample" resultMap="BaseResultMap">
     select
@@ -104,11 +110,13 @@
   </delete>
   <insert id="insert" parameterType="cn.cgszl.common.dao.pojo.Log">
     insert into t_logs (id, action, data, 
-      author_id, ip, created
-      )
+      oper_user_id, ip, created, 
+      result, process_time, result_cn, 
+      oper_user_name, module)
     values (#{id,jdbcType=INTEGER}, #{action,jdbcType=VARCHAR}, #{data,jdbcType=VARCHAR}, 
-      #{authorId,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{created,jdbcType=INTEGER}
-      )
+      #{operUserId,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{created,jdbcType=VARCHAR}, 
+      #{result,jdbcType=BIT}, #{processTime,jdbcType=INTEGER}, #{resultCn,jdbcType=VARCHAR}, 
+      #{operUserName,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.cgszl.common.dao.pojo.Log">
     insert into t_logs
@@ -122,14 +130,29 @@
       <if test="data != null">
         data,
       </if>
-      <if test="authorId != null">
-        author_id,
+      <if test="operUserId != null">
+        oper_user_id,
       </if>
       <if test="ip != null">
         ip,
       </if>
       <if test="created != null">
         created,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="processTime != null">
+        process_time,
+      </if>
+      <if test="resultCn != null">
+        result_cn,
+      </if>
+      <if test="operUserName != null">
+        oper_user_name,
+      </if>
+      <if test="module != null">
+        module,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -142,14 +165,29 @@
       <if test="data != null">
         #{data,jdbcType=VARCHAR},
       </if>
-      <if test="authorId != null">
-        #{authorId,jdbcType=INTEGER},
+      <if test="operUserId != null">
+        #{operUserId,jdbcType=INTEGER},
       </if>
       <if test="ip != null">
         #{ip,jdbcType=VARCHAR},
       </if>
       <if test="created != null">
-        #{created,jdbcType=INTEGER},
+        #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=BIT},
+      </if>
+      <if test="processTime != null">
+        #{processTime,jdbcType=INTEGER},
+      </if>
+      <if test="resultCn != null">
+        #{resultCn,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserName != null">
+        #{operUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -171,14 +209,29 @@
       <if test="record.data != null">
         data = #{record.data,jdbcType=VARCHAR},
       </if>
-      <if test="record.authorId != null">
-        author_id = #{record.authorId,jdbcType=INTEGER},
+      <if test="record.operUserId != null">
+        oper_user_id = #{record.operUserId,jdbcType=INTEGER},
       </if>
       <if test="record.ip != null">
         ip = #{record.ip,jdbcType=VARCHAR},
       </if>
       <if test="record.created != null">
-        created = #{record.created,jdbcType=INTEGER},
+        created = #{record.created,jdbcType=VARCHAR},
+      </if>
+      <if test="record.result != null">
+        result = #{record.result,jdbcType=BIT},
+      </if>
+      <if test="record.processTime != null">
+        process_time = #{record.processTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.resultCn != null">
+        result_cn = #{record.resultCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operUserName != null">
+        oper_user_name = #{record.operUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.module != null">
+        module = #{record.module,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -190,9 +243,14 @@
     set id = #{record.id,jdbcType=INTEGER},
       action = #{record.action,jdbcType=VARCHAR},
       data = #{record.data,jdbcType=VARCHAR},
-      author_id = #{record.authorId,jdbcType=INTEGER},
+      oper_user_id = #{record.operUserId,jdbcType=INTEGER},
       ip = #{record.ip,jdbcType=VARCHAR},
-      created = #{record.created,jdbcType=INTEGER}
+      created = #{record.created,jdbcType=VARCHAR},
+      result = #{record.result,jdbcType=BIT},
+      process_time = #{record.processTime,jdbcType=INTEGER},
+      result_cn = #{record.resultCn,jdbcType=VARCHAR},
+      oper_user_name = #{record.operUserName,jdbcType=VARCHAR},
+      module = #{record.module,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -206,14 +264,29 @@
       <if test="data != null">
         data = #{data,jdbcType=VARCHAR},
       </if>
-      <if test="authorId != null">
-        author_id = #{authorId,jdbcType=INTEGER},
+      <if test="operUserId != null">
+        oper_user_id = #{operUserId,jdbcType=INTEGER},
       </if>
       <if test="ip != null">
         ip = #{ip,jdbcType=VARCHAR},
       </if>
       <if test="created != null">
-        created = #{created,jdbcType=INTEGER},
+        created = #{created,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=BIT},
+      </if>
+      <if test="processTime != null">
+        process_time = #{processTime,jdbcType=INTEGER},
+      </if>
+      <if test="resultCn != null">
+        result_cn = #{resultCn,jdbcType=VARCHAR},
+      </if>
+      <if test="operUserName != null">
+        oper_user_name = #{operUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        module = #{module,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -222,9 +295,14 @@
     update t_logs
     set action = #{action,jdbcType=VARCHAR},
       data = #{data,jdbcType=VARCHAR},
-      author_id = #{authorId,jdbcType=INTEGER},
+      oper_user_id = #{operUserId,jdbcType=INTEGER},
       ip = #{ip,jdbcType=VARCHAR},
-      created = #{created,jdbcType=INTEGER}
+      created = #{created,jdbcType=VARCHAR},
+      result = #{result,jdbcType=BIT},
+      process_time = #{processTime,jdbcType=INTEGER},
+      result_cn = #{resultCn,jdbcType=VARCHAR},
+      oper_user_name = #{operUserName,jdbcType=VARCHAR},
+      module = #{module,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
