@@ -55,9 +55,11 @@
                 </aside>
 
                 <%--评论展示区--%>
-                <aside class="comments" id="comments">
+                <aside class="comments" style="margin-bottom: 0px">
                     <hr>
                     <h2><i class="fa fa-comments"></i> ${article.commentsNum} 评论</h2>
+                </aside>
+                <aside class="comments" id="comments">
                     <%--<article class="comment">
                         <header class="clearfix">
                             <img src="/portal/img/favicon.ico" alt="也是大佬" class="avatar">
