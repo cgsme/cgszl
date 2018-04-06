@@ -11,6 +11,8 @@
     <link rel="bookmark" href="/portal/img/favicon.ico" type="image/x-icon"　/>
     <!-- Bootstrap样式 -->
     <link rel="stylesheet" href="/portal/css/bootstrap.min.css">
+    <%-- 回到顶部样式 --%>
+    <link rel="stylesheet" href="/portal/css/tab.css">
     <!-- 炫酷字体 -->
     <link rel="stylesheet" href="/portal/css/font-awesome/css/font-awesome.min.css">
     <!-- 谷歌字体 -->

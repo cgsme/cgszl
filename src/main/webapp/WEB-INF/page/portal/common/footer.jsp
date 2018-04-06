@@ -41,17 +41,24 @@
         </div>
     </div>
     <div class="widewrapper copyright">
-        Copyright 2018 曹图图 <a href="/" title="曹图图">博客</a>
+        <%--Copyright--%>&copy;2018 曹图图，<a href="/" title="曹图图">博客</a>
     </div>
 </footer>
 <script src="/portal/js/jquery.min.js"></script>
 <script src="/portal/js/bootstrap.min.js"></script>
+<script src="/portal/js/jquery.scrollUp.min.js"></script>
 <script src="/portal/js/modernizr.js"></script>
 <script src="/common/js/cgszl.utils.js"></script>
 <script src="/portal/js/portalIndex.js"></script>
 <script type="text/javascript">
     // 文档加载完成后执行
     $(function () {
+        // 初始化返回顶部按钮
+        $.scrollUp({
+            animation: 'slide',
+            scrollText: '返回顶部'
+//            activeOverlay: '#00FFFF'
+        });
         portalIndex.loadData('${name}', '${type}');
     });
 </script>
