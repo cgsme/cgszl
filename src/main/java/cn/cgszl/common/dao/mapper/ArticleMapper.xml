@@ -163,6 +163,12 @@
         from t_articles
         where aid = #{aid,jdbcType=INTEGER}
     </select>
+    <select id="selectByPrimaryKeyWithoutBlob" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_articles
+        where aid = #{aid,jdbcType=INTEGER}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         DELETE FROM t_articles
         WHERE aid = #{aid,jdbcType=INTEGER}

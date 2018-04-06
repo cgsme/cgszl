@@ -39,4 +39,30 @@ public interface CommentService {
      * @throws CgszlException
      */
     boolean updateCommentStatus(Integer coid, String status) throws CgszlException;
+
+    /**
+     * 保存评论
+     *
+     * @param comment 评论对象
+     * @throws CgszlException
+     */
+    boolean saveComment(Comment comment) throws CgszlException;
+
+    /**
+     * 获取所有评论
+     *
+     * @param aid 文章标识
+     * @return
+     * @throws CgszlException
+     */
+    List<Comment> selectByArticleKey(Integer aid) throws CgszlException;
+
+    /**
+     * 根据文章标识获取文章列表（无回复的评论）
+     *
+     * @param aid 文章标识
+     * @return
+     * @throws CgszlException
+     */
+    List<Comment> listCommentsByAid(Integer aid) throws CgszlException;
 }

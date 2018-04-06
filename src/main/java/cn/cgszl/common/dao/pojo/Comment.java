@@ -1,5 +1,7 @@
 package cn.cgszl.common.dao.pojo;
 
+import java.util.List;
+
 public class Comment {
     private Integer coid;
 
@@ -28,6 +30,8 @@ public class Comment {
     private Integer parent;
 
     private String content;
+
+    private List<Comment> commentList;
 
     public Comment(Integer coid, Integer aid, Integer created, String author, Integer authorId, Integer ownerId, String mail, String url, String ip, String agent, String type, String status, Integer parent) {
         this.coid = coid;
@@ -64,6 +68,14 @@ public class Comment {
 
     public Comment() {
         super();
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 
     public Integer getCoid() {

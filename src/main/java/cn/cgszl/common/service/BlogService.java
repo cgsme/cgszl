@@ -154,4 +154,12 @@ public interface BlogService {
      * @throws CgszlException
      */
     List<Article> loadArticleByCondition(String searchValue, String type, Integer page, Integer limit) throws CgszlException;
+
+    /**
+     * 根据文章标识获取文章（无大文本）
+     * @param aid
+     * @return
+     * @throws CgszlException
+     */
+    Article getArticleById(Integer aid) throws CgszlException;
 }

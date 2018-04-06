@@ -2,7 +2,9 @@ package cn.cgszl.common.dao.mapper;
 
 import cn.cgszl.common.dao.pojo.Comment;
 import cn.cgszl.common.dao.pojo.CommentExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface CommentMapper {
@@ -33,4 +35,20 @@ public interface CommentMapper {
     int updateByPrimaryKeyWithBLOBs(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+    /**
+     * 获取所有评论
+     *
+     * @param aid
+     * @return
+     */
+    List<Comment> selectByArticleKey(Integer aid);
+
+    /**
+     * 获取评论列表 （无回复的评论）
+     *
+     * @param aid 文章标识
+     * @return
+     */
+    List<Comment> listCommentsByAid(Integer aid);
 }
