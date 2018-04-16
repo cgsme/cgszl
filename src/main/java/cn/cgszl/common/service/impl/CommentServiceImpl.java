@@ -9,6 +9,7 @@ import cn.cgszl.common.dao.pojo.CommentExample;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.CgszlUtils;
 import cn.cgszl.common.utils.DateKit;
+import com.github.pagehelper.PageHelper;
 import com.vdurmont.emoji.EmojiParser;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,7 @@ public class CommentServiceImpl implements CommentService {
      */
     @Override
     public List<Comment> listComments(Integer page, Integer limit) throws CgszlException {
+        PageHelper.startPage(page, limit);
         return commentMapper.selectByExampleWithBLOBs(new CommentExample());
     }
 
