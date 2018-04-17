@@ -90,7 +90,7 @@
         <div class="layui-row site-demo-flow" id="LAY_demo3">
         </div>
         <div id="loadMore" class="userlistwidget">
-            <a class="more" href="javascript:void(0)">加载更多……</a>
+            <a class="more" href="javascript:void(0)">加载更多</a>
         </div>
     </div>
 </body>
