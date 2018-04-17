@@ -127,8 +127,7 @@
                             "<div class='layui-row grid-demo'>" +
                             "<div class='layui-col-md12 div-center'>" +
                             "<a href='javascript:void(0)'>" +
-                            "<img class='attach-img' onclick='viewPhoto();'" +
-                            "src='" + imgPath + "'" +
+                            "<img class='attach-img' onclick='viewPhoto();' src='" + imgPath + "'" +
                             "title='" + attach.fname + "'/>" +
                             "</a>" +
                             "</div>" +
@@ -138,15 +137,15 @@
                             "<div class='layui-col-md12'>" +
                             "<%--删除按钮--%>" +
                             "<div class='layui-btn-group'>" +
-                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
-                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
-                            "<i class='layui-icon'>&#xe640;</i>" +
-                            "</button>" +
                             "<a href='"+ attach.fkey +"' download='"+ attach.fname +"'>" +
                             "<button class='layui-btn layui-btn-primary layui-btn-sm'>" +
                             "<i class='layui-icon'>&#xe601;</i>" +
                             "</button>" +
                             "</a>" +
+                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
+                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe640;</i>" +
+                            "</button>" +
                             "</div>" +
                             "</div>" +
                             "</div>" +
@@ -308,15 +307,15 @@
                             "<div class='layui-col-md12'>" +
                             "<%--删除按钮--%>" +
                             "<div class='layui-btn-group'>" +
-                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
-                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
-                            "<i class='layui-icon'>&#xe640;</i>" +
-                            "</button>" +
                             "<a href='"+ attach.fkey +"' download='"+ attach.fname +"'>" +
                             "<button class='layui-btn layui-btn-primary layui-btn-sm'>" +
                             "<i class='layui-icon'>&#xe601;</i>" +
                             "</button>" +
                             "</a>" +
+                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
+                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe640;</i>" +
+                            "</button>" +
                             "</div>" +
                             "</div>" +
                             "</div>" +
