@@ -14,7 +14,7 @@
         </li>
         <li><a href="commentmanager.html" class="addons">评论管理</a></li>
         <li><a href="categorymanager.html" class="typo">分类/标签</a></li>
-        <li><a href="filemanager.html" class="gallery">文件管理</a></li>
+        <li><a href="filemanager.html" class="gallery">相册管理</a></li>
         <li><a href="pagemanager.html" class="widgets">页面管理</a></li>
         <li><a href="linkmanager.html" class="support">友链管理</a></li>
         <li><a href="systemsetting.html" class="elements">系统设置</a></li>

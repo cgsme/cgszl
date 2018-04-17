@@ -126,8 +126,8 @@
                         var $img = "<div id='" + attach.id + "' class='layui-col-md2 div-center'>" +
                             "<div class='layui-row grid-demo'>" +
                             "<div class='layui-col-md12 div-center'>" +
-                            "<a href='" + attach.fkey + "' target='_blank'>" +
-                            "<img class='attach-img'" +
+                            "<a href='javascript:void(0)'>" +
+                            "<img class='attach-img' onclick='viewPhoto();'" +
                             "src='" + imgPath + "'" +
                             "title='" + attach.fname + "'/>" +
                             "</a>" +
@@ -137,10 +137,17 @@
                             "</div>" +
                             "<div class='layui-col-md12'>" +
                             "<%--删除按钮--%>" +
+                            "<div class='layui-btn-group'>" +
                             "<button onclick='deleteAttachById(" + attach.id + ")'" +
-                            "class='layui-btn-radius layui-btn-primary layui-btn-sm'>" +
+                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
                             "<i class='layui-icon'>&#xe640;</i>" +
                             "</button>" +
+                            "<a href='"+ attach.fkey +"' download='"+ attach.fname +"'>" +
+                            "<button class='layui-btn layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe601;</i>" +
+                            "</button>" +
+                            "</a>" +
+                            "</div>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
@@ -242,6 +249,17 @@
     var LIMIT = 18;
 
     /**
+     * 浏览照片
+     */
+    function viewPhoto() {
+        layer.photos({
+//            area: ['900px', '550px'],
+            photos: '#LAY_demo3'
+            ,anim: 5 // 0-6的选择，指定弹出图片动画类型，默认随机（3.0之前的版本用shift参数）
+        });
+    }
+
+    /**
      * 加载更多
      *
      * @param page  页码
@@ -278,8 +296,8 @@
                         var $img = "<div id='" + attach.id + "' class='layui-col-md2 div-center'>" +
                             "<div class='layui-row grid-demo'>" +
                             "<div class='layui-col-md12 div-center'>" +
-                            "<a href='" + attach.fkey + "' target='_blank'>" +
-                            "<img class='attach-img'" +
+                            "<a href='javascript:void(0)'>" +
+                            "<img class='attach-img' onclick='viewPhoto();'" +
                             "src='" + imgPath + "'" +
                             "title='" + attach.fname + "'/>" +
                             "</a>" +
@@ -289,10 +307,17 @@
                             "</div>" +
                             "<div class='layui-col-md12'>" +
                             "<%--删除按钮--%>" +
+                            "<div class='layui-btn-group'>" +
                             "<button onclick='deleteAttachById(" + attach.id + ")'" +
-                            "class='layui-btn-radius layui-btn-primary layui-btn-sm'>" +
+                            "class='layui-btn layui-btn-primary layui-btn-sm'>" +
                             "<i class='layui-icon'>&#xe640;</i>" +
                             "</button>" +
+                            "<a href='"+ attach.fkey +"' download='"+ attach.fname +"'>" +
+                            "<button class='layui-btn layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe601;</i>" +
+                            "</button>" +
+                            "</a>" +
+                            "</div>" +
                             "</div>" +
                             "</div>" +
                             "</div>";
