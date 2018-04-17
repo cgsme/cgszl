@@ -35,7 +35,7 @@ public class AttachServiceImpl implements AttachService {
      * @return
      */
     @Override
-    public boolean sava(String fileName, String ftype, String fkey, Integer userId) {
+    public Attach sava(String fileName, String ftype, String fkey, Integer userId) {
         Attach attach = new Attach();
         attach.setFname(fileName);
         attach.setFtype(ftype);
@@ -43,8 +43,10 @@ public class AttachServiceImpl implements AttachService {
         attach.setAuthorId(userId);
         // 设置当前时间
         attach.setCreated(DateKit.getCurrentUnixTime());
-        attachMapper.insertSelective(attach);
-        return false;
+        if (attachMapper.insertSelective(attach) > 0) {
+            return attach;
+        }
+        return null;
     }
 
     /**
@@ -61,7 +63,7 @@ public class AttachServiceImpl implements AttachService {
             page = 1;
         }
         if (limit == null) {
-            limit = 500;
+            limit = 18;
         }
         // 开启分页
         PageHelper.startPage(page, limit);
@@ -93,5 +95,19 @@ public class AttachServiceImpl implements AttachService {
     @Override
     public Attach getAttachById(Integer id) throws CgszlException {
         return attachMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 根据文件名称获取文件
+     *
+     * @param fileName 文件名称
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public List<Attach> getAttachByName(String fileName) throws CgszlException {
+        AttachExample attachExample = new AttachExample();
+        attachExample.createCriteria().andFnameLike(fileName);
+        return attachMapper.selectByExample(attachExample);
     }
 }

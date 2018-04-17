@@ -55,6 +55,25 @@ public class FileController {
     }
 
     /**
+     * 获取文件列表
+     *
+     * @param page  页码
+     * @param limit 每页记录数
+     * @return
+     */
+    @RequestMapping("/admin/attach/listAttachs")
+    @ResponseBody
+    public CommonResult listAttachs(Integer page, Integer limit) {
+        try {
+            List<Attach> attaches = attachService.listAttach(page, limit).getList();
+            return CommonResult.ok(attaches);
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return CommonResult.fail(false, "系统异常");
+        }
+    }
+
+    /**
      * 文件上传
      *
      * @return
@@ -64,12 +83,21 @@ public class FileController {
     @SystemLog(module = "文件管理模块", methods = "上传文件")
     public CommonResult fileUpload(HttpServletRequest request, @RequestParam MultipartFile[] files) {
         try {
+            boolean result = false;
             // 保存失败文件
             List<String> errorFileNameList = null;
+            // 保存图片路径
+            List<Attach> attachs = new ArrayList<Attach>();
             for (MultipartFile file : files) {
                 // 获取文件名
                 String fileName = file.getOriginalFilename();
+                // 根据文件名获取文件
+                List<Attach> attachList = attachService.getAttachByName(fileName);
+                if (attachList != null && !attachList.isEmpty()) {
+                    return CommonResult.fail(false, "已存在文件名为【" + attachList.get(0).getFname() + "】的文件");
+                }
                 if (file.getSize() <= WebConst.MAX_FILE_SIZE) {  // 文件大小合适
+
                     // 文件相对路径
                     String fkey = CgszlUtils.getFileKey(fileName);
                     String servletContext = CgszlUtils.getWebappPath(request);
@@ -87,22 +115,28 @@ public class FileController {
                     }
                     // 保存文件
                     file.transferTo(tmpFile);
-                    boolean result = attachService.sava(fileName, ftype, fkey, userId);
-                    if (result) {
-                        return CommonResult.ok();
+                    Attach attach = attachService.sava(fileName, ftype, fkey, userId);
+                    if (null != attach) {
+                        result = true;
                     }
-                } else {  // 文件过大，上传失败
+                    // 添加图片路径
+                    attachs.add(attach);
+                } else {
+                    // 文件过大，上传失败
                     errorFileNameList = new ArrayList<String>();
                     // 保存上传失败的文件名
                     errorFileNameList.add(fileName);
-                    CommonResult.fail(false, "上传失败", errorFileNameList);
                 }
+            }
+            if (result) {
+                return CommonResult.ok("上传成功", attachs);
+            } else {
+                return CommonResult.fail(false, "上传失败", errorFileNameList);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return CommonResult.fail(false, "文件上传失败");
+            return CommonResult.fail(false, "上传失败");
         }
-        return null;
     }
 
     /**

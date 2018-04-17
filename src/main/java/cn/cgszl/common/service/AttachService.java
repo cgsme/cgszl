@@ -4,6 +4,8 @@ import cn.cgszl.common.dao.pojo.Attach;
 import cn.cgszl.common.exception.CgszlException;
 import com.github.pagehelper.PageInfo;
 
+import java.util.List;
+
 /**
  * 附件管理业务接口
  *
@@ -20,7 +22,7 @@ public interface AttachService {
      * @param userId   用户标识
      * @return
      */
-    boolean sava(String fileName, String ftype, String fkey, Integer userId) throws CgszlException;
+    Attach sava(String fileName, String ftype, String fkey, Integer userId) throws CgszlException;
 
     /**
      * 获取附件信息列表
@@ -49,4 +51,12 @@ public interface AttachService {
      * @throws CgszlException 系统异常
      */
     Attach getAttachById(Integer id) throws CgszlException;
+
+    /**
+     * 根据文件名获取文件
+     *
+     * @param fileName 文件名称
+     * @return
+     */
+    List<Attach> getAttachByName(String fileName) throws CgszlException;
 }

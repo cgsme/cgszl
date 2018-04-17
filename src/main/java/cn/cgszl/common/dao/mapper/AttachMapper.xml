@@ -110,7 +110,8 @@
       #{fkey,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER}, #{created,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.cgszl.common.dao.pojo.Attach">
+  <!--useGeneratedKeys="true" keyProperty="id" 两个属性用户返回主键-->
+  <insert id="insertSelective" parameterType="cn.cgszl.common.dao.pojo.Attach" useGeneratedKeys="true" keyProperty="id">
     insert into t_attach
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

@@ -75,56 +75,30 @@
     }
 </style>
 <body>
-<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
-<div class="dropzone">
-    <div class="dz-message">
-        将照片拖至此处或点击上传.
+    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
+    <div class="dropzone">
+        <div class="dz-message">
+            将照片拖至此处或点击上传.
+        </div>
     </div>
-</div>
-<c:choose>
-    <c:when test="${attachs == null or attachs.size() eq 0}">
-        <div class="layui-row div-center">
-            <div class="layui-col-md12">
-                ~ ~ 空空如也 ~ ~
-            </div>
+    <div id="tipBox" class="layui-row div-center" style="display: none">
+        <div class="layui-col-md12">
+            ~ ~ 空空如也 ~ ~
         </div>
-    </c:when>
-    <c:otherwise>
+    </div>
+    <div id="dataBox">
         <div class="layui-row site-demo-flow" id="LAY_demo3">
-            <c:forEach items="${attachs}" var="attach">
-                <div id="${attach.id}" class="layui-col-md2 div-center">
-                    <div class="layui-row grid-demo">
-                        <div class="layui-col-md12 div-center">
-                            <a href="${attach.fkey}" target="_blank">
-                                <img class="attach-img"
-                                     src="${attach.ftype eq 'image' ? attach.fkey : '/upload/attach.png'}"
-                                     title="${attach.fname}"/>
-                            </a>
-                        </div>
-                        <div class="layui-col-md12 layui-elip" title="${attach.fname}">
-                                ${attach.fname}
-                        </div>
-                        <div class="layui-col-md12">
-                                <%--删除按钮--%>
-                            <button onclick="deleteAttachById(${attach.id})"
-                                    class="layui-btn-radius layui-btn-primary layui-btn-sm">
-                                <i class="layui-icon">&#xe640;</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
         </div>
-        <div id="demo2-1"></div>
-        <ul id="biuuu_city_list"></ul>
-    </c:otherwise>
-</c:choose>
+        <div id="loadMore" class="userlistwidget">
+            <a class="more" href="javascript:void(0)">加载更多……</a>
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
 
     // 初始化dropzone上传区域
     jQuery("div.dropzone").dropzone({
-        url: "/admin/fileUpload.html",  // 上传文件的地址，
+        url: "/admin/fileUpload.action",  // 上传文件的地址，
         maxFiles: 5,                    // 最多上传几个文件
         maxFilesize: 100,               // 文件的大小，单位是M
         addRemoveLinks: true,           // 是否有删除文件的功能
@@ -138,6 +112,44 @@
 
             // 文件已经成功上传，获得服务器返回信息作为第二个参数(这个时间又被称作finished)
             this.on("success", function (file, result) {
+                // 移除框中文件
+                this.removeFile(file);
+                if (result && result.success) {
+                    var attachList = result.data;
+                    jQuery.each(attachList, function (index, attach) {
+                        var imgPath;
+                        if (attach.ftype === 'image') {
+                            imgPath = attach.fkey;
+                        } else {
+                            imgPath = "/upload/attach.png";
+                        }
+                        var $img = "<div id='" + attach.id + "' class='layui-col-md2 div-center'>" +
+                            "<div class='layui-row grid-demo'>" +
+                            "<div class='layui-col-md12 div-center'>" +
+                            "<a href='" + attach.fkey + "' target='_blank'>" +
+                            "<img class='attach-img'" +
+                            "src='" + imgPath + "'" +
+                            "title='" + attach.fname + "'/>" +
+                            "</a>" +
+                            "</div>" +
+                            "<div class='layui-col-md12 layui-elip' title='" + attach.fname + "'>" +
+                            attach.fname +
+                            "</div>" +
+                            "<div class='layui-col-md12'>" +
+                            "<%--删除按钮--%>" +
+                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
+                            "class='layui-btn-radius layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe640;</i>" +
+                            "</button>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>";
+                        jQuery("#LAY_demo3").prepend($img);
+                        layer.msg(result.message, {icon: 1});
+                    });
+                } else {
+                    layer.msg(result.message, {icon: 2});
+                }
                 var queueFiles = this.getQueuedFiles();
                 console.log(queueFiles.length);
                 console.log("File " + file.name + "uploaded");
@@ -145,10 +157,10 @@
 
             // 当上传队列中的所有文件上传完成时调用.
             this.on("queuecomplete", function (file) {
-                setTimeout(function () {
-                    // 触发菜单点击事件，刷新页面
-                    jQuery("a[href=filemanager\\.html]").trigger("click");
-                }, 2000);
+//                setTimeout(function () {
+//                    // 触发菜单点击事件，刷新页面
+//                    jQuery("a[href=filemanager\\.html]").trigger("click");
+//                }, 3000);
             });
 
             // 移除文件时
@@ -223,6 +235,93 @@
             layer.close(index);
         });
     }
+
+    /*  页码 */
+    var PAGE = 1;
+    /* 每页记录数 */
+    var LIMIT = 18;
+
+    /**
+     * 加载更多
+     *
+     * @param page  页码
+     * @param limit 每页记录数
+     */
+    function loadMore(page, limit) {
+        console.log("page:" + page + ", limit:" + limit);
+        /* 加载数据 */
+        loadData(page, limit);
+    }
+
+    /**
+     * 加载数据
+     *
+     * @param PAGE
+     * @param LIMIT
+     */
+    function loadData(PAGE, LIMIT) {
+        jQuery.post(
+            "/admin/attach/listAttachs.action",
+            {page:PAGE, limit:LIMIT},
+            function (result) {
+                if (result && result.success) {
+                    jQuery("#tipBox").css("display", "none");
+                    jQuery("#dataBox").css("display", "block");
+                    var attachList = result.data;
+                    jQuery.each(attachList, function (index, attach) {
+                        var imgPath;
+                        if (attach.ftype === 'image') {
+                            imgPath = attach.fkey;
+                        } else {
+                            imgPath = "/upload/attach.png";
+                        }
+                        var $img = "<div id='" + attach.id + "' class='layui-col-md2 div-center'>" +
+                            "<div class='layui-row grid-demo'>" +
+                            "<div class='layui-col-md12 div-center'>" +
+                            "<a href='" + attach.fkey + "' target='_blank'>" +
+                            "<img class='attach-img'" +
+                            "src='" + imgPath + "'" +
+                            "title='" + attach.fname + "'/>" +
+                            "</a>" +
+                            "</div>" +
+                            "<div class='layui-col-md12 layui-elip' title='" + attach.fname + "'>" +
+                            attach.fname +
+                            "</div>" +
+                            "<div class='layui-col-md12'>" +
+                            "<%--删除按钮--%>" +
+                            "<button onclick='deleteAttachById(" + attach.id + ")'" +
+                            "class='layui-btn-radius layui-btn-primary layui-btn-sm'>" +
+                            "<i class='layui-icon'>&#xe640;</i>" +
+                            "</button>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>";
+                        jQuery("#LAY_demo3").append($img);
+                    });
+                    if (attachList.length < LIMIT) {
+                        jQuery("#loadMore").unbind("click");
+                        jQuery(".more").html('没有更多了~');
+                    } else {
+                        PAGE ++;
+                        /* 为【加载更多】绑定点击事件 */
+                        jQuery("#loadMore").unbind("click").bind("click", function () {
+                            // 加载更多
+                            loadMore(PAGE, LIMIT);
+                        });
+                    }
+                } else {
+                    jQuery("#dataBox").css("display", "none");
+                    jQuery("#tipBox").css("display", "block");
+                }
+            });
+    }
+
+    /* 文档加载完成后执行 */
+    jQuery(function () {
+        /* 加载数据 */
+        loadData(PAGE, LIMIT);
+
+    });
 
 </script>
 </html>
