@@ -23,15 +23,15 @@
         </div>-->
         <div class="userinfo">
             <img src="images/thumbs/avatar.png" alt=""/>
-            <span>${login_user.username}</span>
+            <span>${login_user.screenName}</span>
         </div><!--userinfo-->
 
         <div class="userinfodrop">
             <div class="avatar">
                 <a href=""><img src="images/thumbs/avatarbig.png" alt=""/></a>
                 <div class="changetheme">
-                    切换主题: <br/>
-                    <a class="default"></a>
+                    <%--切换主题: <br/>--%>
+                    <%--<a class="default"></a>--%>
                     <%--<a class="blueline"></a>--%>
                     <%--<a class="greenline"></a>--%>
                     <%--<a class="contrast"></a>--%>
@@ -39,12 +39,12 @@
                 </div>
             </div><!--avatar-->
             <div class="userdata">
-                <h4>${login_user.username}</h4>
+                <h4>${login_user.screenName}</h4>
                 <span class="email">${login_user.email}</span>
                 <ul>
-                    <li id="editprofile"><a href="javascript:void(0)">编辑个人资料</a></li>
-                    <li id="accountsettings"><a href="javascript:void(0)">账号设置</a></li>
-                    <li id="help"><a href="javascript:void(0)">帮助</a></li>
+                    <li id="editprofile"><a href="javascript:void(0)">个人资料</a></li>
+                    <%--<li id="accountsettings"><a href="javascript:void(0)">账号设置</a></li>--%>
+                    <%--<li id="help"><a href="javascript:void(0)">帮助</a></li>--%>
                     <li><a href="/admin/logout.html">注销</a></li>
                 </ul>
             </div><!--userdata-->
@@ -61,7 +61,7 @@
             // 多窗口模式，层叠置顶
             var editprofileWinIndex = layer.open({
                 type: 2   // 此处是iframe
-                , title: '编辑资料'
+                , title: '个人资料'
                 , area: ['820px', '620px']
                 , shade: 0.3
                 , maxmin: true

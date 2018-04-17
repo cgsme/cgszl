@@ -18,18 +18,16 @@
     <![endif]-->
 </head>
 
-<body class="">
-<div class="">
-
+<body>
     <div class="pageheader">
         <span class="profilepic"><img src="images/thumbs/avatarbig.png" alt=""/></span>
         <div class="profiletitle">
-            <h1 class="pagetitle">Juan Dela Cruz</h1>
-            <span class="pagedesc">Front-End Engineer / UI Designer</span>
+            <h1 class="pagetitle">${login_user.screenName}</h1>
+            <span class="pagedesc">java / java</span>
         </div>
         <ul class="hornav">
-            <li class="current"><a href="#profile">Profile</a></li>
-            <li><a href="#editprofile">Edit Profile</a></li>
+            <li class="current"><a href="#profile">个人信息</a></li>
+            <li><a href="#editprofile">编辑个人信息</a></li>
         </ul>
     </div><!--pageheader-->
 
@@ -45,13 +43,11 @@
                     <li><a href=""><span>8</span> Project Shots</a></li>
                 </ul>
 
-
                 <blockquote class="bq2 currentstatus marginbottom0">
                     <a class="edit_status" title="Edit Status"></a>
                     This is an example of my current status. When clicking Follow button above, watch how the number of
                     Following change. This is ajax implementation ready, just read the documentation on how. :)
                 </blockquote>
-
 
                 <div class="contenttitle2">
                     <h3>About Juan</h3>
@@ -112,17 +108,108 @@
 
             </div><!--#profile-->
 
+            <%--编辑个人信息--%>
             <div id="editprofile" class="subcontent" style="display: none">
-                Edit profile form goes here...
+                <div id="basicform">
+                    <div class="contenttitle2">
+                        <h3>基本信息</h3>
+                    </div><!--contenttitle-->
+
+                    <form class="stdform" action="" method="post">
+
+                        <p>
+                            <label>登录名</label>
+                            <span class="field"><input type="text" name="userName" disabled="disabled"
+                                                       class="mediuminput"/></span>
+                            <small class="desc">登录名用于登录系统，不可修改.</small>
+                        </p>
+
+                        <p>
+                            <label>用户名</label>
+                            <span class="field"><input type="text" name="screenName" class="mediuminput"/></span>
+                        </p>
+
+                        <p>
+                            <label>邮箱</label>
+                            <span class="field"><input type="text" name="email" class="mediuminput"/></span>
+                        </p>
+
+                        <p>
+                            <label>主页</label>
+                            <span class="field"><input type="text" name="homeUrl" class="longinput"/></span>
+                        </p>
+
+                        <p>
+                            <label>个人说明</label>
+                            <span class="field">
+                                <textarea cols="80" rows="5" id="textarea2" class="longinput"></textarea>
+                            </span>
+                        </p>
+
+                        <p class="stdformbutton">
+                            <button class="submit radius2">保存</button>
+                            <input type="reset" class="reset radius2" value="重置"/>
+                        </p>
+
+                    </form>
+
+                    <br/>
+
+                </div><!--subcontent-->
+
+                <div id="validation" class="subcontent" style="display: none">
+
+                    <form id="form1" class="stdform" method="post" action="">
+                        <p>
+                            <label>First Name</label>
+                            <span class="field"><input type="text" name="firstname" id="firstname"
+                                                       class="longinput"/></span>
+                        </p>
+
+                        <p>
+                            <label>Last Name</label>
+                            <span class="field"><input type="text" name="lastname" id="lastname"
+                                                       class="longinput"/></span>
+                        </p>
+
+                        <p>
+                            <label>Email</label>
+                            <span class="field"><input type="text" name="email" id="email" class="longinput"/></span>
+                        </p>
+
+                        <p>
+                            <label>Location</label>
+                            <span class="field"><textarea cols="80" rows="5" name="location" class="mediuminput"
+                                                          id="location"></textarea></span>
+                        </p>
+
+                        <p>
+                            <label>Select</label>
+                            <span class="field">
+                            <select name="selection" id="selection">
+                            	<option value="">Choose One</option>
+                                <option value="1">Selection One</option>
+                                <option value="2">Selection Two</option>
+                                <option value="3">Selection Three</option>
+                                <option value="4">Selection Four</option>
+                            </select>
+                            </span>
+                        </p>
+
+                        <br/>
+
+                        <p class="stdformbutton">
+                            <button class="submit radius2">Submit Button</button>
+                        </p>
+                    </form>
+
+                </div><!--subcontent-->
             </div><!--#editprofile-->
 
             <br/><br/>
         </div><!--two_third-->
 
         <br/><br/>
-
-    </div><!--contentwrapper-->
-
 
 </div><!--bodywrapper-->
 
