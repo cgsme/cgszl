@@ -11,8 +11,10 @@
     </c:if>
     <title>发布文章页面</title>
     <link type="text/css" href="${request.pageContext.contextPath}/admin/css/plugins/jquery.tagsinput.css">
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/jquery.tagsinput.min.js"></script>
-    <script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript"
+            src="${request.pageContext.contextPath}/admin/js/plugins/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript"
+            src="${request.pageContext.contextPath}/admin/js/plugins/tinymce/tinymce.min.js"></script>
     <%--<script type="text/javascript" src="${request.pageContext.contextPath}/admin/js/custom/forms.js"></script>--%>
     <%--<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>--%>
 
@@ -27,7 +29,7 @@
                 tabPageId = "publishedTab";
             }
             if (actionType === "draft") {  // 草稿
-                 url = "/admin/savePost.action?actionType=deaft";
+                url = "/admin/savePost.action?actionType=deaft";
                 tabPageId = "draftTab";
             }
             // 序列化表单数据为字符串
@@ -38,10 +40,10 @@
             formData.content = content;
             // 提交请求
             jQuery.ajax({
-                url : url,
+                url: url,
                 data: formData,
                 type: 'POST',
-                dataType:'JSON',
+                dataType: 'JSON',
                 success: function (data) {
                     if (data.success) {
                         // 触发‘已发布’tab页的点击事件
@@ -51,10 +53,10 @@
                         // 关闭弹框
                         parent.layer.closeAll();
                         // 弹出操作结果提示框
-                        top.layer.msg('操作成功', {icon: 1, title: "系统提示" });
+                        top.layer.msg('操作成功', {icon: 1});
                     } else {
                         // 弹出提示框
-                        parent.top.layer.msg(data.message, {icon: 2, title: "系统提示" });
+                        parent.top.layer.msg(data.message, {icon: 2});
                     }
                 }
             });
@@ -93,7 +95,7 @@
 
             ////// 将文本框转换为特殊标签样式 //////
             jQuery('#tags').tagsInput({
-                width : '',
+                width: '',
                 height: '',
                 defaultText: '请输入标签...'
             });
@@ -114,88 +116,89 @@
 <body class="" style="background-color: white">
 <%--<body class="withvernav">--%>
 <%--<div class="bodywrapper">--%>
-    <%--<jsp:include page="common/header.jsp"/>--%>
+<%--<jsp:include page="common/header.jsp"/>--%>
 
-    <%--<jsp:include page="common/blogmanagerleftmenu.jsp"/>--%>
+<%--<jsp:include page="common/blogmanagerleftmenu.jsp"/>--%>
 
-    <%--<div class="centercontent">--%>
-    <%--<div class="">--%>
+<%--<div class="centercontent">--%>
+<%--<div class="">--%>
 
-        <div class="contentwrapper">
+<div class="contentwrapper">
 
-            <form id="articleForm" class="stdform stdform2" method="post">
-                <input type="hidden" name="aid" id="aid" value="${article.aid}" />
-                <p>
-                    <label>文章标题</label>
-                    <span class="field">
-                        <input type="text" name="title" id="title" class="longinput"
-                                               value="${article.title}" placeholder="请输入文章标题（必须）" required />
-                    </span>
-                </p>
+    <form id="articleForm" class="stdform stdform2" method="post">
+        <input type="hidden" name="aid" id="aid" value="${article.aid}"/>
+        <p>
+            <label>文章标题</label>
+            <span class="field">
+                <input type="text" name="title" id="title" class="longinput"
+                       value="${article.title}" placeholder="请输入文章标题（必须）" required/>
+            </span>
+        </p>
 
-                <p>
-                    <label>自定义访问路径</label>
-                    <span class="field">
-                        <input type="text" name="slug" id="sulg" class="longinput"  value="${article.slug}"
-                               placeholder="自定义访问路径，如：my-first-artiicle" />
-                    </span>
-                </p>
+        <p>
+            <label>自定义访问路径</label>
+            <span class="field">
+                <input type="text" name="slug" id="sulg" class="longinput" value="${article.slug}"
+                       placeholder="自定义访问路径，如：my-first-artiicle"/>
+            </span>
+        </p>
 
-                <p>
-                    <label>选择分类</label>
-                    <span class="field">
-                        <select name="categories" id="categories" required>
-                            <option value="">请选择分类...</option>
-                            <c:forEach var="metas" items="${metasList}">
-                                <option
-                                        <c:if test="${article.categories eq metas.name}">
-                                            selected
-                                        </c:if>
-                                        value="${metas.name}">${metas.name}</option>
-                            </c:forEach>
-                        </select>
-                    </span>
-                </p>
+        <p>
+            <label>选择分类</label>
+            <span class="field">
+                <select name="categories" id="categories" required>
+                    <option value="">请选择分类...</option>
+                    <c:forEach var="metas" items="${metasList}">
+                        <option
+                                <c:if test="${article.categories eq metas.name}">
+                                    selected
+                                </c:if>
+                                value="${metas.name}">${metas.name}</option>
+                    </c:forEach>
+                </select>
+            </span>
+        </p>
 
-                <p>
-                    <label>文章标签</label>
-                    <span class="field">
-                        <input name="tags" id="tags" type="text"  value="${article.tags}"  class="form-control" />
-                    </span>
-                </p>
+        <p>
+            <label>文章标签</label>
+            <span class="field">
+                <input name="tags" id="tags" type="text" value="${article.tags}" class="form-control"/>
+            </span>
+        </p>
 
-                <p>
-                    <label>开启评论</label>
-                    <span class="field">
-                        <c:choose>
-                            <c:when test="${article.allowComment}">
-                                <input type="radio" name="allowComment" value="1" checked required/> 开启 &nbsp; &nbsp;
-                                <input type="radio" name="allowComment" value="0" required/> 关闭 &nbsp; &nbsp;
-                            </c:when>
-                            <c:otherwise>
-                                <input type="radio" name="allowComment" value="1" required/> 开启 &nbsp; &nbsp;
-                                <input type="radio" name="allowComment" value="0" checked required/> 关闭 &nbsp; &nbsp;
-                            </c:otherwise>
-                        </c:choose>
-                        <%--<input type="radio" name="radiofield" disabled="disabled"/> Disabled Radio  &nbsp; &nbsp;--%>
-                        <%--<input type="radio" name="radiofield" checked="checked" disabled="disabled"/> Disabled Radio--%>
-                    </span>
-                </p>
+        <p>
+            <label>开启评论</label>
+            <span class="field">
+                <c:choose>
+                    <c:when test="${article.allowComment}">
+                        <input type="radio" name="allowComment" value="1" checked required/> 开启 &nbsp; &nbsp;
+                        <input type="radio" name="allowComment" value="0" required/> 关闭 &nbsp; &nbsp;
+                    </c:when>
+                    <c:otherwise>
+                        <input type="radio" name="allowComment" value="1" required/> 开启 &nbsp; &nbsp;
+                        <input type="radio" name="allowComment" value="0" checked required/> 关闭 &nbsp; &nbsp;
+                    </c:otherwise>
+                </c:choose>
+                <%--<input type="radio" name="radiofield" disabled="disabled"/> Disabled Radio  &nbsp; &nbsp;--%>
+                <%--<input type="radio" name="radiofield" checked="checked" disabled="disabled"/> Disabled Radio--%>
+            </span>
+        </p>
 
-                <br/>
-                <textarea cols="80" rows="5" name="content" id="content" style="width: auto; height: 300px" class="tinymce">${article.content}</textarea>
+        <br/>
+        <textarea cols="80" rows="5" name="content" id="content" style="width: auto; height: 300px"
+                  class="tinymce">${article.content}</textarea>
 
-                <br />
-                <div align="right">
-                <%--<input type="submit" value="发布"/>--%>
-                <button type="button" id="saveArticle"  onclick="saveArticle1('publish');" class="btn" >发布</button>
-                <button type="button" id="saveDraft" onclick="saveArticle1('draft');" class="btn">存为草稿</button>
-                <button type="reset" id="resetBtn" class="reset radius2">重置</button>&nbsp;&nbsp;
-                <%--<button class="submit radius2">发布</button>--%>
-                </div>
-            </form>
-        </div><!--subcontent-->
-    <%--</div><!--contentwrapper-->--%>
+        <br/>
+        <div align="right">
+            <%--<input type="submit" value="发布"/>--%>
+            <button type="button" id="saveArticle" onclick="saveArticle1('publish');" class="btn">发布</button>
+            <button type="button" id="saveDraft" onclick="saveArticle1('draft');" class="btn">存为草稿</button>
+            <button type="reset" id="resetBtn" class="reset radius2">重置</button>&nbsp;&nbsp;
+            <%--<button class="submit radius2">发布</button>--%>
+        </div>
+    </form>
+</div><!--subcontent-->
+<%--</div><!--contentwrapper-->--%>
 <%--</div><!--centercontent-->--%>
 <%--</div><!--bodywrapper-->--%>
 

@@ -142,7 +142,7 @@ public class BlogController {
             }
         } catch (CgszlException e) {
             e.printStackTrace();
-            return CommonResult.fail(false, "系统错误");
+            return CommonResult.fail(false, e.getMessage());
         }
     }
 

@@ -67,7 +67,7 @@
         <!--<table tableName="t_metas" domainObjectName="Metas">-->
             <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
         <!--</table>-->
-        <table tableName="t_logs" domainObjectName="Log">
+        <table tableName="t_userinfo" domainObjectName="UserInfo">
             <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
         </table>
         <!--<table tableName="t_comments" domainObjectName="Comment">-->
