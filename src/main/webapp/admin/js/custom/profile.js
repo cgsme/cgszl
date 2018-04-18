@@ -118,6 +118,16 @@ jQuery(document).ready(function () {
         }*/
     });
 
+    /* input转标签 */
+    jQuery('#tecHobby').tagsInput({
+        width: '461',
+        height: '',
+        defaultText: '',
+        'interactive':true,
+        'maxChars' : 200,
+        // placeholderColor : '#666666'
+    });
+
     /* Follow按钮 */
     jQuery('#followbtn').click(function () {
         if (jQuery(this).text() == 'Follow') {
