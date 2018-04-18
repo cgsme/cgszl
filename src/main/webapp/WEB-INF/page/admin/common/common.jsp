@@ -18,7 +18,9 @@
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.form.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.json-2.2.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/localization/messages_zh.min.js"></script>
 <script type="text/javascript" src="<%=sSystemPath %>common/js/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="<%=sSystemPath %>common/js/cgszl.utils.js"></script>
 <%--<script type="text/javascript" src="<%=sSystemPath %>common/bootstrap/js/bootstrap.js"></script>--%>
 
 

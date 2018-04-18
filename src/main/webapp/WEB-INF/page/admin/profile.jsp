@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,6 +8,8 @@
     <title>资料展示页面</title>
     <%@include file="common/common.jsp" %>
     <%@include file="common/pageResource.jsp" %>
+    <link rel="stylesheet" href="/common/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/common/bootstrap/css/bootstrap-theme.min.css"/>
     <!--[if IE 9]>
     <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
     <![endif]-->
@@ -16,6 +19,7 @@
     <!--[if lt IE 9]>
     <script src="js/plugins/css3-mediaqueries.js"></script>
     <![endif]-->
+    <script src="js/custom/profile.js"></script>
 </head>
 
 <body>
@@ -32,7 +36,6 @@
     </div><!--pageheader-->
 
     <div id="contentwrapper" class="contentwrapper">
-
         <div class="two_third last profile_wrapper">
             <div id="profile" class="subcontent">
                 <button id="followbtn" class="stdbtn btn_yellow followbtn">Follow</button>
@@ -107,45 +110,148 @@
                 <br clear="all"/>
 
             </div><!--#profile-->
-
             <%--编辑个人信息--%>
             <div id="editprofile" class="subcontent" style="display: none">
                 <div id="basicform">
                     <div class="contenttitle2">
                         <h3>基本信息</h3>
-                    </div><!--contenttitle-->
-
-                    <form class="stdform" action="" method="post">
-
+                    </div>
+                    <form id="userInfoForm" class="stdform"
+                          action="/admin/user/saveUserInfo.action" method="post">
+                        <input type="hidden" name="uid" value="${login_user.uid}"/>
+                        <input type="hidden" name="id" value="${userInfo.id}"/>
                         <p>
                             <label>登录名</label>
-                            <span class="field"><input type="text" name="userName" disabled="disabled"
-                                                       class="mediuminput"/></span>
+                            <span class="field">
+                                <input type="text" value="${login_user.username}" name="username" disabled="disabled" class="mediuminput"/>
+                            </span>
                             <small class="desc">登录名用于登录系统，不可修改.</small>
                         </p>
-
                         <p>
                             <label>用户名</label>
-                            <span class="field"><input type="text" name="screenName" class="mediuminput"/></span>
-                        </p>
-
-                        <p>
-                            <label>邮箱</label>
-                            <span class="field"><input type="text" name="email" class="mediuminput"/></span>
-                        </p>
-
-                        <p>
-                            <label>主页</label>
-                            <span class="field"><input type="text" name="homeUrl" class="longinput"/></span>
-                        </p>
-
-                        <p>
-                            <label>个人说明</label>
                             <span class="field">
-                                <textarea cols="80" rows="5" id="textarea2" class="longinput"></textarea>
+                                <input type="text" value="${login_user.screenName}" name="screenName" class="mediuminput"/>
                             </span>
                         </p>
-
+                        <p>
+                            <label>邮箱</label>
+                            <span class="field">
+                                <input type="text" id="" value="${login_user.email}" name="email" class="mediuminput"/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>主页</label>
+                            <span class="field">
+                                <input type="text" name="homeUrl" value="${login_user.homeUrl}"
+                                       class="longinput" placeholder="……"/>
+                            </span>
+                        </p>
+                        <div id="detail-panel" style="display: block;">
+                            <div class="contenttitle2">
+                                <h3>详细信息</h3>
+                            </div>
+                            <p>
+                                <label>性别</label>
+                                <span class="field">
+                                <select name="sex" class="uniformselect">
+                                    <c:choose>
+                                        <c:when test="${userInfo.sex eq '男'}">
+                                            <option value="未知">未知</option>
+                                            <option value="男" selected>男</option>
+                                            <option value="女">女</option>
+                                        </c:when>
+                                        <c:when test="${userInfo.sex eq '女'}">
+                                            <option value="未知">未知</option>
+                                            <option value="男">男</option>
+                                            <option value="女" selected>女</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="未知" selected>未知</option>
+                                            <option value="男">男</option>
+                                            <option value="女">女</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </select>
+                                </span>
+                            </p>
+                            <p>
+                                <label>住址</label>
+                                <span class="field">
+                                    <input type="text" value="${userInfo.address}" name="address" class="longinput"/>
+                                </span>
+                            </p>
+                            <p>
+                                <label>婚姻状况</label>
+                                <span class="field">
+                                    <select name="sex" class="uniformselect">
+                                        <c:choose>
+                                            <c:when test="${userInfo.merry eq '已婚'}">
+                                                <option value="未知">未知</option>
+                                                <option value="已婚" selected>已婚</option>
+                                                <option value="未婚">未婚</option>
+                                                <option value="单身狗">单身狗</option>
+                                            </c:when>
+                                            <c:when test="${userInfo.merry eq '未婚'}">
+                                                <option value="未知">未知</option>
+                                                <option value="已婚">已婚</option>
+                                                <option value="未婚" selected>未婚</option>
+                                                <option value="单身狗">单身狗</option>
+                                            </c:when>
+                                            <c:when test="${userInfo.merry eq '单身狗'}">
+                                                <option value="未知">未知</option>
+                                                <option value="已婚">已婚</option>
+                                                <option value="未婚">未婚</option>
+                                                <option value="单身狗" selected>单身狗</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="未知" selected>未知</option>
+                                                <option value="已婚">已婚</option>
+                                                <option value="未婚">未婚</option>
+                                                <option value="单身狗">单身狗</option>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </select>
+                                </span>
+                            </p>
+                            <p>
+                                <label>职位</label>
+                                <span class="field">
+                                    <input type="text" value="${userInfo.post}" name="post" class="longinput"/>
+                                </span>
+                            </p>
+                            <p>
+                                <label>Github</label>
+                                <span class="field">
+                                    <input type="text" value="${userInfo.github}" name="github" class="longinput"/>
+                                </span>
+                            </p>
+                            <p>
+                                <label>技术爱好</label>
+                                <span class="field">
+                                    <input id="tags" type="text" value="${userInfo.tecHobby}" name="tecHobby" class="longinput"/>
+                                </span>
+                            </p>
+                            <p>
+                                <label>座右铭</label>
+                                <span class="field">
+                                    <input type="text" value="${userInfo.maxim}" name="maxim" class="longinput"/>
+                                </span>
+                            </p>
+                            <p>
+                                <label>手机号码</label>
+                                <span class="field"><input type="text" value="${userInfo.phone}" name="phone" class="longinput"/></span>
+                            </p>
+                            <p>
+                                <label>QQ/微信</label>
+                                <span class="field"><input type="text" name="qq" class="longinput"/></span>
+                            </p>
+                            <p>
+                                <label>个人介绍</label>
+                                <span class="field">
+                                    <textarea cols="80" rows="8" id="textarea2" name="introduction" class="longinput">${userInfo.introduction}</textarea>
+                                </span>
+                            </p>
+                        </div>
                         <p class="stdformbutton">
                             <button class="submit radius2">保存</button>
                             <input type="reset" class="reset radius2" value="重置"/>
@@ -186,14 +292,14 @@
                         <p>
                             <label>Select</label>
                             <span class="field">
-                            <select name="selection" id="selection">
-                            	<option value="">Choose One</option>
-                                <option value="1">Selection One</option>
-                                <option value="2">Selection Two</option>
-                                <option value="3">Selection Three</option>
-                                <option value="4">Selection Four</option>
-                            </select>
-                            </span>
+                                <select name="selection" id="selection">
+                                    <option value="">Choose One</option>
+                                    <option value="1">Selection One</option>
+                                    <option value="2">Selection Two</option>
+                                    <option value="3">Selection Three</option>
+                                    <option value="4">Selection Four</option>
+                                </select>
+                                </span>
                         </p>
 
                         <br/>
@@ -205,13 +311,9 @@
 
                 </div><!--subcontent-->
             </div><!--#editprofile-->
-
             <br/><br/>
         </div><!--two_third-->
-
         <br/><br/>
-
-</div><!--bodywrapper-->
-
+    </div><!--bodywrapper-->
 </body>
 </html>

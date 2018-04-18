@@ -75,23 +75,23 @@
         });
 
         // 账号设置
-        jQuery("#accountsettings").click(function () {
-            var body = null;
-            // 多窗口模式，层叠置顶
-            var editprofileWinIndex = layer.open({
-                type: 2   // 此处是iframe
-                , title: '账号设置'
-                , area: ['420px', '320px']
-                , shade: 0.3
-                , maxmin: true
-                , content: '/admin/editProfile.html'     // 需要加载的页面地址
-                , loading: true          // 显示正在加载...
-                , end: function () {   // 窗口销毁时触发,无参数
-                    // 重新加载列表数据
-//                            table.reload('articleGrid');
-                }
-            });
-        });
+//        jQuery("#accountsettings").click(function () {
+//            var body = null;
+//            // 多窗口模式，层叠置顶
+//            var editprofileWinIndex = layer.open({
+//                type: 2   // 此处是iframe
+//                , title: '账号设置'
+//                , area: ['420px', '320px']
+//                , shade: 0.3
+//                , maxmin: true
+//                , content: '/admin/editProfile.html'     // 需要加载的页面地址
+//                , loading: true          // 显示正在加载...
+//                , end: function () {   // 窗口销毁时触发,无参数
+//                    // 重新加载列表数据
+////                            table.reload('articleGrid');
+//                }
+//            });
+//        });
 
         // 查看帮助
         jQuery("#help").click(function () {

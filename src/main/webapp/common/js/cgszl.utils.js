@@ -958,6 +958,7 @@ var cgszlUtils = {
         var longTimestamp = this.dateToTimstamp(timeStr);
         return this.translateTimstampTo(longTimestamp * 1000, newFormat);
     },
+
     /**
      * 获取cookie
      * @param name
@@ -969,5 +970,95 @@ var cgszlUtils = {
             return unescape(arr[2]);
         else
             return null;
+    },
+
+    /**
+     * 判断是否是对象
+     * @param object
+     */
+    isObj: function (object) {
+        return object && typeof (object) == 'object'
+            && Object.prototype.toString.call(object).toLowerCase() == "[object object]";
+    },
+
+    /**
+     * 判断是否为数组
+     * @param object
+     */
+    isArray: function (object) {
+        return object && typeof (object) == 'object' && object.constructor == Array;
+    },
+
+    /**
+     * 获取对象长度
+     *
+     * @param object
+     */
+    getLengthL: function (object) {
+        var count = 0;
+        for (var i in object) {
+            count++;
+        }
+        return count;
+    },
+
+    /**
+     * 比较json是否相等
+     * @param currObj
+     * @param targetObj
+     * @returns {boolean}
+     */
+    compare: function (currObj, targetObj) {
+        // 判断类型是否正确
+        if (!cgszlUtils.isObj(currObj) || !cgszlUtils.isObj(targetObj)) {
+            return false;
+        }
+        // 判断长度是否一致
+        if (cgszlUtils.getLengthL(currObj) != cgszlUtils.getLengthL(targetObj)) {
+            return false;
+        }
+        return cgszlUtils.compareObj(currObj, targetObj, true);  // 默认为true
+    },
+
+    /**
+     * 对比对象是否相等
+     *
+     * @param currObj
+     * @param targetObj
+     * @param flag
+     */
+    compareObj: function (currObj, targetObj, flag) {
+        for (var key in currObj) {
+            if (!flag) //跳出整个循环
+                break;
+            if (!targetObj.hasOwnProperty(key)) {
+                flag = false;
+                break;
+            }
+            if (!cgszlUtils.isArray(currObj[key])) { //子级不是数组时,比较属性值
+                if (targetObj[key] != currObj[key]) {
+                    flag = false;
+                    break;
+                }
+            } else {
+                if (!cgszlUtils.isArray(targetObj[key])) {
+                    flag = false;
+                    break;
+                }
+                var oA = currObj[key], oB = targetObj[key];
+                if (oA.length != oB.length) {
+                    flag = false;
+                    break;
+                }
+                for (var k in oA) {
+                    if (!flag) //这里跳出循环是为了不让递归继续
+                        break;
+                    flag = cgszlUtils.compareObj(oA[k], oB[k], flag);
+                }
+            }
+        }
+        return flag;
     }
+
+
 }
