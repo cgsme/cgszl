@@ -7,6 +7,7 @@ import cn.cgszl.common.dao.pojo.UserInfo;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.service.UserService;
 import cn.cgszl.common.utils.CgszlUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,10 +62,13 @@ public class UserController {
      */
     @RequestMapping(value = "/admin/user/saveUserInfo", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult saveUserInfo(User user, UserInfo userinfo) {
+    public CommonResult saveUserInfo(HttpServletRequest request, User user, UserInfo userinfo) {
         try {
             userService.updateUser(user);
             userInfoService.updateUserInfo(userinfo);
+            User loginUser = CgszlUtils.getLoginUser(request);
+            // 复制对象属性，将修改的用户信息同步到session中的用户信息中
+            BeanUtils.copyProperties(user, loginUser);
             return CommonResult.ok();
         } catch (CgszlException e) {
             e.printStackTrace();
