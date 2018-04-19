@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
         jQuery("#loginBtn").attr("disabled", "disabled");
         // jQuery("#loginBtn").css("background", "#ffc695");
         /* 显示loading动画 */
-        jQuery("#loginBtn").html("<img src='images/loaders/loader6.gif' />");
+        jQuery("#loginBtn").html("<img src='images/loaders/mouth.gif' />");
 
         // 获取复选框状态（是否记住密码）
         var isRememberPassword = jQuery("#rememberPassword").prop("checked");
