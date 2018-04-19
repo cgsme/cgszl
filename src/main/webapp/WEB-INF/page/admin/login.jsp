@@ -27,7 +27,7 @@
     <![endif]-->
 
 </head>
-<
+
 <script type="text/javascript">
     /* 防止登录页被嵌套在框架中 */
     if (window.top.location.href !== location.href) {
@@ -35,58 +35,50 @@
     }
 </script>
 <body class="loginpage">
+    <div class="loginbox">
+        <div class="loginboxinner">
+            <div class="logo">
+                <h1 class="logo">博客.<span>登录</span></h1>
+                <span class="slogan">曹图图</span>
+            </div><!--logo-->
 
-<div class="loginbox">
-    <div class="loginboxinner">
+            <br clear="all"/><br/>
 
-        <div class="logo">
-            <h1 class="logo">博客.<span>登录</span></h1>
-            <span class="slogan">曹图图</span>
-        </div><!--logo-->
+            <div class="nousername">
+                <div class="loginmsg">用户名不能为空.</div>
+            </div><!--nousername-->
 
-        <br clear="all"/><br/>
+            <div class="errormessage">
+                <div id="errormessage" class="loginmsg">${msg}</div>
+            </div><!--nousername-->
 
-        <div class="nousername">
-            <div class="loginmsg">用户名不能为空.</div>
-        </div><!--nousername-->
+            <div class="nopassword">
+                <div class="loginmsg">密码不能为空.</div>
+                <div class="loginf">
+                    <div class="thumb"><img alt="" src="images/thumbs/avatar1.png"/></div>
+                    <div class="userlogged">
+                        <h4></h4>
+                        <a href="index.html">不是 <span></span>?</a>
+                    </div>
+                </div><!--loginf-->
+            </div><!--nopassword-->
 
-        <div class="errormessage">
-            <div id="errormessage" class="loginmsg">${msg}</div>
-        </div><!--nousername-->
-
-        <div class="nopassword">
-            <div class="loginmsg">密码不能为空.</div>
-            <div class="loginf">
-                <div class="thumb"><img alt="" src="images/thumbs/avatar1.png"/></div>
-                <div class="userlogged">
-                    <h4></h4>
-                    <a href="index.html">不是 <span></span>?</a>
+            <form id="login" action="/admin/login.html" method="post">
+                <div class="username">
+                    <div class="usernameinner">
+                        <input type="text" name="username" id="username" value="${username}"/>
+                    </div>
                 </div>
-            </div><!--loginf-->
-        </div><!--nopassword-->
-
-        <form id="login" action="/admin/login.html" method="post">
-
-            <div class="username">
-                <div class="usernameinner">
-                    <input type="text" name="username" id="username" value="${username}"/>
+                <div class="password">
+                    <div class="passwordinner">
+                        <input type="password" name="password" id="password"/>
+                    </div>
                 </div>
-            </div>
-
-            <div class="password">
-                <div class="passwordinner">
-                    <input type="password" name="password" id="password"/>
-                </div>
-            </div>
-
-            <button>登录</button>
-
-            <div class="keep"><input type="checkbox"/> 记住密码</div>
-
-        </form>
-
-    </div><!--loginboxinner-->
-</div><!--loginbox-->
+                <button>登录</button>
+                <div class="keep"><input id="rememberPassword" type="checkbox" /> 记住密码</div>
+            </form>
+        </div><!--loginboxinner-->
+    </div><!--loginbox-->
 
 </body>
 </html>
