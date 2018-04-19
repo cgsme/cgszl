@@ -10,6 +10,7 @@
     <%@include file="common/pageResource.jsp" %>
 
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.cookie.js"></script>
+    <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.time.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.min.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.resize.min.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.slimscroll.js"></script>
@@ -57,23 +58,23 @@
         <div id="contentwrapper" class="contentwrapper">
 
             <div id="updates" class="subcontent">
-                <div class="notibar announcement">
-                    <a class="close"></a>
-                    <h3>公告</h3>
-                    <p>今天下午三点，系统维护。</p>
-                </div><!-- notification announcement -->
+                <%--<div class="notibar announcement">--%>
+                    <%--<a class="close"></a>--%>
+                    <%--<h3>公告</h3>--%>
+                    <%--<p>今天下午三点，系统维护。</p>--%>
+                <%--</div><!-- notification announcement -->--%>
 
                 <div class="two_third dashboard_left">
 
-                    <ul class="shortcuts">
-                        <li><a href="" class="settings"><span>设置</span></a></li>
-                        <li><a href="" class="users"><span>用户</span></a></li>
-                        <li><a href="" class="gallery"><span>相册</span></a></li>
-                        <li><a href="" class="events"><span>事件</span></a></li>
-                        <li><a href="" class="analytics"><span>分析</span></a></li>
-                    </ul>
+                    <%--<ul class="shortcuts">--%>
+                        <%--<li><a href="" class="settings"><span>设置</span></a></li>--%>
+                        <%--<li><a href="" class="users"><span>用户</span></a></li>--%>
+                        <%--<li><a href="" class="gallery"><span>相册</span></a></li>--%>
+                        <%--<li><a href="" class="events"><span>事件</span></a></li>--%>
+                        <%--<li><a href="" class="analytics"><span>分析</span></a></li>--%>
+                    <%--</ul>--%>
 
-                    <br clear="all"/>
+                    <%--<br clear="all"/>--%>
 
                     <div class="contenttitle2 nomargintop">
                         <h3>访问概况</h3>
@@ -112,7 +113,7 @@
                             <th class="head1">Rates</th>
                             <th class="head0">Impressions</th>
                             <th class="head1">Unique Visits</th>
-                            <th class="head0">Average Time (min)</th>
+                            <th class="head0">平均时间 (min)</th>
                         </tr>
                         </thead>
                         <tbody>
