@@ -31,4 +31,16 @@ public interface UserService {
      * @param user 用户对象
      */
     void updateUser(User user) throws CgszlException;
+
+    /**
+     * 修改密码
+     *
+     *
+     * @param user
+     * @param oldPassword     新密码
+     * @param newPassword     旧密码
+     * @param confirmPassword 确认密码
+     * @throws CgszlException
+     */
+    void changePassword(User user, String oldPassword, String newPassword, String confirmPassword) throws CgszlException;
 }

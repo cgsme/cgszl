@@ -118,13 +118,51 @@ jQuery(document).ready(function () {
         }*/
     });
 
+    // 修改密码表单验证
+    var validator = jQuery("#editPasswordForm").validate({
+        submitHandler: function (form) {
+            /* 异步提交表单 */
+            jQuery(form).ajaxSubmit({
+                success: function (data) {
+                    if (data && data.success) {
+                        top.layer.msg('修改成功', {icon: 1});
+                        validator.resetForm();
+                    } else {
+                        top.layer.msg(data.message, {icon: 2});
+                    }
+                }
+            });
+        },
+        rules: {
+            oldPassword: {
+                required: true,
+                maxlength: 18
+                // rangelength:[6,18]
+            },
+            newPassword: {
+                required: true,
+                rangelength: [6, 18]
+            },
+            confirmPassword: {
+                required: true,
+                rangelength: [6, 18],
+                equalTo: "#newpassword"
+            },
+        },
+        messages: {
+            confirmPassword: {
+                equalTo: "两次输入的密码不一致"
+            },
+        }
+    });
+
     /* input转标签 */
     jQuery('#tecHobby').tagsInput({
         width: '461',
         height: '',
         defaultText: '',
-        'interactive':true,
-        'maxChars' : 200,
+        'interactive': true,
+        'maxChars': 200,
         // placeholderColor : '#666666'
     });
 

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@page pageEncoding="utf-8"%>
+<%@page pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,10 +25,10 @@
     <script src="js/custom/profile.js"></script>
 </head>
 <script type="text/javascript">
-    window.onbeforeunload = function(){
+    window.onbeforeunload = function () {
         //刷新后页面自动回到顶部
-        document.documentElement.scrollTop = 0;  //ie下
-        document.body.scrollTop = 0;  //非ie
+        document.documentElement.scrollTop = 0;  // ie下
+        document.body.scrollTop = 0;  // 非ie
     }
 </script>
 <body>
@@ -36,11 +36,12 @@
     <span class="profilepic"><img src="images/thumbs/avatarbig.png" alt=""/></span>
     <div class="profiletitle">
         <h1 class="pagetitle">${login_user.screenName}</h1>
-        <span class="pagedesc">${fn:replace(userInfo.tecHobby, ",", " / ")}</span>
+        <span class="pagedesc" title="技能标签">${fn:replace(userInfo.tecHobby, ",", " / ")}</span>
     </div>
     <ul class="hornav">
         <li class="current"><a style="text-decoration: none;" href="#profile">个人信息</a></li>
         <li><a style="text-decoration: none;" href="#editprofile">编辑个人信息</a></li>
+        <li><a style="text-decoration: none;" href="#editpassword">修改密码</a></li>
     </ul>
 </div><!--pageheader-->
 
@@ -57,8 +58,8 @@
 
             <c:if test="${userInfo.maxim != null or userInfo.maxim ne ''}">
                 <blockquote class="bq2 currentstatus marginbottom0" style="margin: 0px;">
-                    <a class="edit_status" title="Edit Status"></a>
-                    ${userInfo.maxim}
+                    <a class="edit_status" title="编辑座右铭"></a>
+                        ${userInfo.maxim}
                 </blockquote>
             </c:if>
             <div class="contenttitle2">
@@ -73,45 +74,82 @@
             <div class="contenttitle2">
                 <h3>基本信息</h3>
             </div><!--contenttitle-->
-
             <div class="recentblog">
-                <div class="blogthumb">
-                    <a href="blogview.html"><img src="images/preview/blog1.png" alt=""/></a>
-                </div><!--blogthumb-->
-                <div class="blogsummary">
-                    <h3><a href="blogview.html">Some Tutorials (an in-house blog)</a></h3>
-                    <small>June 10, 2012 3:30pm &nbsp;/&nbsp; 0 Comment</small>
-                    <p>This is where you can discuss or give some tips/tutorials as a guide for your fellow
-                        teammates. Vivamus vitae lacus dui, in vestibulum augue. Vestibulum ante ipsum primis. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit. Ut eget nibh urna. Vivamus vitae lacus
-                        dui.</p>
-                    <p><a href="blogview.html" class="orangeboldlink">Read More &raquo;</a></p>
-                </div><!--blogsummary-->
+                <table class="stdtable stdtablecb overviewtable2">
+                    <colgroup>
+                        <col class="con1" width="30%"/>
+                        <col class="con0" width="70%"/>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <td>登录名</td>
+                        <td>${login_user.username}</td>
+                    </tr>
+                    <tr>
+                        <td>用户名</td>
+                        <td>${login_user.screenName}</td>
+                    </tr>
+                    <tr>
+                        <td>邮箱</td>
+                        <td>${login_user.email}</td>
+                    </tr>
+                    <tr>
+                        <td>主页</td>
+                        <td><a href="${login_user.homeUrl}" target="_blank">${login_user.homeUrl}</a></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div><!--recentblog-->
-
             <br clear="all"/>
 
             <div class="contenttitle2">
                 <h3>详细信息</h3>
             </div><!--contenttitle-->
-
-            <ul class="recentshots">
-                <li>
-                    <a href="" class="th"><img src="images/preview/portfolio1.png" alt=""/></a>
-                    <h4><a href="">Admin Template</a></h4>
-                    <small>2 Comments</small>
-                </li>
-                <li>
-                    <a href="" class="th"><img src="images/preview/portfolio2.png" alt=""/></a>
-                    <h4><a href="">File Manager</a></h4>
-                    <small>0 Comment</small>
-                </li>
-            </ul>
-
-
+            <table class="stdtable stdtablecb overviewtable2">
+                <colgroup>
+                    <col class="con1" width="30%"/>
+                    <col class="con0" width="70%"/>
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td>性别</td>
+                    <td>${userInfo.sex}</td>
+                </tr>
+                <tr>
+                    <td>手机号码</td>
+                    <td>${userInfo.phone}</td>
+                </tr>
+                <tr>
+                    <td>QQ / 微信</td>
+                    <td>${userInfo.qq}</td>
+                </tr>
+                <tr>
+                    <td>技术爱好</td>
+                    <td>${userInfo.tecHobby}</td>
+                </tr>
+                <tr>
+                    <td>婚姻状况</td>
+                    <td>${userInfo.merry}</td>
+                </tr>
+                <tr>
+                    <td>职位</td>
+                    <td>${userInfo.post}</td>
+                </tr>
+                <tr>
+                    <td>GitHub</td>
+                    <td>
+                        <a href="${userInfo.github}" target="_blank">${userInfo.github}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>住址</td>
+                    <td>${userInfo.address}</td>
+                </tr>
+                </tbody>
+            </table>
             <br clear="all"/>
-
         </div><!--#profile-->
+
         <%--编辑个人信息--%>
         <div id="editprofile" class="subcontent" style="display: none">
             <div id="basicform">
@@ -187,7 +225,7 @@
                         <p>
                             <label>婚姻状况</label>
                             <span class="field">
-                                    <select name="sex" class="uniformselect">
+                                    <select name="merry" class="uniformselect">
                                         <c:choose>
                                             <c:when test="${userInfo.merry eq '已婚'}">
                                                 <option value="未知">未知</option>
@@ -248,8 +286,8 @@
                                                        class="longinput"/></span>
                         </p>
                         <p>
-                            <label>QQ/微信</label>
-                            <span class="field"><input type="text" name="qq" class="longinput"/></span>
+                            <label>QQ / 微信</label>
+                            <span class="field"><input type="text" name="qq" value="${userInfo.qq}" class="longinput"/></span>
                         </p>
                         <p>
                             <label>个人介绍</label>
@@ -263,61 +301,40 @@
                         <button class="submit radius2">保存</button>
                         <input type="reset" class="reset radius2" value="重置"/>
                     </p>
-
                 </form>
-
                 <br/>
-
-            </div><!--subcontent-->
-
-            <div id="validation" class="subcontent" style="display: none">
-
-                <form id="form1" class="stdform" method="post" action="">
-                    <p>
-                        <label>First Name</label>
-                        <span class="field"><input type="text" name="firstname" id="firstname"
-                                                   class="longinput"/></span>
-                    </p>
-
-                    <p>
-                        <label>Last Name</label>
-                        <span class="field"><input type="text" name="lastname" id="lastname"
-                                                   class="longinput"/></span>
-                    </p>
-
-                    <p>
-                        <label>Email</label>
-                        <span class="field"><input type="text" name="email" id="email" class="longinput"/></span>
-                    </p>
-
-                    <p>
-                        <label>Location</label>
-                        <span class="field"><textarea cols="80" rows="5" name="location" class="mediuminput"
-                                                      id="location"></textarea></span>
-                    </p>
-
-                    <p>
-                        <label>Select</label>
-                        <span class="field">
-                                <select name="selection" id="selection">
-                                    <option value="">Choose One</option>
-                                    <option value="1">Selection One</option>
-                                    <option value="2">Selection Two</option>
-                                    <option value="3">Selection Three</option>
-                                    <option value="4">Selection Four</option>
-                                </select>
-                                </span>
-                    </p>
-
-                    <br/>
-
-                    <p class="stdformbutton">
-                        <button class="submit radius2">Submit Button</button>
-                    </p>
-                </form>
-
             </div><!--subcontent-->
         </div><!--#editprofile-->
+        <%-- editpassword --%>
+        <div id="editpassword" class="subcontent" style="display: none;">
+            <form id="editPasswordForm" class="stdform" method="post" action="/admin/user/changePassword.action">
+                <p>
+                    <label>旧密码</label>
+                    <span class="field">
+                        <input type="password" name="oldPassword" id="oldpassword"
+                               placeholder="请输入旧密码..." class="longinput" style="width: 300px"/>
+                    </span>
+                </p>
+                <p>
+                    <label>新密码</label>
+                    <span class="field">
+                        <input type="password" name="newPassword" id="newpassword"
+                               placeholder="请输入新密码..." class="longinput" style="width: 300px"/>
+                    </span>
+                </p>
+                <p>
+                    <label>确认密码</label>
+                    <span class="field">
+                        <input type="password" name="confirmPassword" id="confirmpassword"
+                               placeholder="请再次输入旧密码..." class="longinput" style="width: 300px"/>
+                    </span>
+                </p>
+                <p class="stdformbutton">
+                    <button class="submit radius2">确认修改</button>
+                </p>
+            </form>
+        </div>
+        <%--editpassword--%>
         <br/><br/>
     </div><!--two_third-->
     <br/><br/>

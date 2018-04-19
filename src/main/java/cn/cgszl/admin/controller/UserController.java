@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -64,6 +65,27 @@ public class UserController {
         try {
             userService.updateUser(user);
             userInfoService.updateUserInfo(userinfo);
+            return CommonResult.ok();
+        } catch (CgszlException e) {
+            e.printStackTrace();
+            return CommonResult.fail(false, e.getMessage());
+        }
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param oldPassword     旧密码
+     * @param newPassword     新密码
+     * @param confirmPassword 确人密码
+     * @return
+     */
+    @RequestMapping("/admin/user/changePassword")
+    @ResponseBody
+    public CommonResult changePassword(HttpServletRequest request, String oldPassword, String newPassword, String confirmPassword) {
+        User user = CgszlUtils.getLoginUser(request);
+        try {
+            userService.changePassword(user, oldPassword, newPassword, confirmPassword);
             return CommonResult.ok();
         } catch (CgszlException e) {
             e.printStackTrace();
