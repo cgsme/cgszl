@@ -11970,3 +11970,7 @@ FrameworkServlet 'cgszl': initialization completed in 2403 ms
 
 [INFO ] 2018-04-19 13:26:18,511 method:com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:655)
 {dataSource-1} inited
+
+
+[WARN ] 2018-04-19 15:32:27,768 method:org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1136)
+No mapping found for HTTP request with URI [/admin/pagemanager.html] in DispatcherServlet with name 'cgszl'

@@ -36,13 +36,13 @@
 <script type="text/html" id="toolbar">
     <%--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>--%>
     <a class="layui-btn layui-btn-xs" lay-event="pass">
-        <i class="layui-icon">&#xe605;</i>通过
+        <%--<i class="layui-icon">&#xe605;</i>--%>通过
     </a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="unpass">
-        <i class="layui-icon">&#x1006;</i>不通过
+       <%--<i class="layui-icon">&#x1006;</i>--%>不通过
     </a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">
-        <i class="layui-icon">&#xe640;</i>删除
+        <%--<i class="layui-icon">&#xe640;</i>--%>删除
     </a>
 </script>
 
@@ -108,9 +108,15 @@
                     }
                 }
                 , {
-                    field: 'created', title: '评论时间', width: 160, align: 'left',
+                    field: 'status', title: '状态', width: 75, align: 'center',
                     templet: function (d) {
-                        return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
+                        if (d.status === 'approved') {
+                            return "<font color='green'>已通过</font>";
+                        } else if (d.status === 'not_audit') {
+                            return "<font color='#ff4500'>待审核</font>";
+                        } else {
+                            return "<font color='red'>未通过</font>";
+                        }
                     }
                 }
                 , {
@@ -134,15 +140,9 @@
                     }
                 }
                 , {
-                    field: 'status', title: '状态', width: 75, align: 'center',
+                    field: 'created', title: '评论时间', width: 160, align: 'left',
                     templet: function (d) {
-                        if (d.status === 'approved') {
-                            return "<font color='green'>已通过</font>";
-                        } else if (d.status === 'not_audit') {
-                            return "<font color='#ff4500'>待审核</font>";
-                        } else {
-                            return "<font color='red'>未通过</font>";
-                        }
+                        return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
                     }
                 }
                 , {
