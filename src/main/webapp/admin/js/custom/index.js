@@ -36,6 +36,12 @@ jQuery(document).ready(function () {
             jQuery('.nousername,.username').hide();
             return false;
         }
+        // 禁用登录按钮
+        jQuery("#loginBtn").attr("disabled", "disabled");
+        // jQuery("#loginBtn").css("background", "#ffc695");
+        /* 显示loading动画 */
+        jQuery("#loginBtn").html("<img src='images/loaders/loader6.gif' />");
+
         // 获取复选框状态（是否记住密码）
         var isRememberPassword = jQuery("#rememberPassword").prop("checked");
         // 如果勾选了记住密码，保存到cookie

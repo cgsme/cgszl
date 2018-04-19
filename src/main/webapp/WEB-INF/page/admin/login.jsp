@@ -74,7 +74,7 @@
                         <input type="password" name="password" id="password"/>
                     </div>
                 </div>
-                <button>登录</button>
+                <button id="loginBtn">登录</button>
                 <div class="keep"><input id="rememberPassword" type="checkbox" /> 记住密码</div>
             </form>
         </div><!--loginboxinner-->
