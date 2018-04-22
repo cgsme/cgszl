@@ -10,13 +10,13 @@
     <%@include file="common/pageResource.jsp" %>
 
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.cookie.js"></script>
-    <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.time.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.time.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.flot.resize.min.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.slimscroll.js"></script>
 
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/dashboard.js"></script>
-
+    <script type="text/javascript" src="js/custom/tables.js"></script>
     <%--<link type="text/css" href="<%=sSystemPath %>admin/css/plugins/jquery.tagsinput.css">--%>
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.tagsinput.min.js"></script>--%>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/tinymce/tinymce.min.js"></script>
@@ -47,7 +47,7 @@
 
         <div class="pageheader">
             <h1 class="pagetitle">控制台</h1>
-            <span class="pagedesc">后台预览</span>
+            <span class="pagedesc">系统概览</span>
 
             <ul class="hornav">
                 <li class="current"><a href="#updates">最新更新</a></li>
@@ -432,14 +432,122 @@
                             </div>
                         </div> <!--widgetcontent-->
                     </div><!--widgetbox-->
-
                 </div><!--one_third last-->
-
-
             </div><!-- #updates -->
 
+            <%-- 最近活动 --%>
             <div id="activities" class="subcontent" style="display: none;">
-                &nbsp;
+
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable stdtablecb" id="logTable">
+                    <colgroup>
+                        <col class="con0" style="width: 4%" />
+                        <col class="con0" style="width: 5%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"  class="checkall" /></th>
+                            <th>序号</th>
+                            <th>操作</th>
+                            <th>操作模块</th>
+                            <th>操作人员</th>
+                            <th>客户端ip</th>
+                            <th>操作数据</th>
+                            <th>操作时间</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <%--<div class="contenttitle2">
+                    <h3>Table with Options</h3>
+                </div><!--contenttitle-->
+                <div class="tableoptions">
+                    <button class="deletebutton radius3" title="table1">Delete Selected</button> &nbsp;
+                    <select class="radius3">
+                        <option value="">Show All</option>
+                        <option value="">Rendering Engine</option>
+                        <option value="">Platform</option>
+                    </select> &nbsp;
+                    <button class="radius3">Apply Filter</button>
+                </div><!--tableoptions-->
+                <table cellpadding="0" cellspacing="0" border="0" id="table1" class="stdtable stdtablecb">
+                    <colgroup>
+                        <col class="con0" style="width: 4%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="head0"><input type="checkbox" class="checkall" /></th>
+                        <th class="head1">Rendering engine</th>
+                        <th class="head0">Browser</th>
+                        <th class="head1">Platform(s)</th>
+                        <th class="head0">Engine version</th>
+                        <th class="head1">CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th class="head0"><input type="checkbox" class="checkall" /></th>
+                        <th class="head1">Rendering engine</th>
+                        <th class="head0">Browser</th>
+                        <th class="head1">Platform(s)</th>
+                        <th class="head0">Engine version</th>
+                        <th class="head1">CSS grade</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td>Trident</td>
+                        <td>Internet Explorer 4.0</td>
+                        <td>Win 95+</td>
+                        <td class="center">4</td>
+                        <td class="center">X</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td>Trident</td>
+                        <td>Internet Explorer 5.0</td>
+                        <td>Win 95+</td>
+                        <td class="center">5</td>
+                        <td class="center">C</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td>Trident</td>
+                        <td>Internet  Explorer 5.5</td>
+                        <td>Win 95+</td>
+                        <td class="center">5.5</td>
+                        <td class="center">A</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td>Trident</td>
+                        <td>Internet Explorer 6</td>
+                        <td>Win 98+</td>
+                        <td class="center">6</td>
+                        <td class="center">A</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td>Trident</td>
+                        <td>Internet Explorer 7</td>
+                        <td>Win XP SP2+</td>
+                        <td class="center">7</td>
+                        <td class="center">A</td>
+                    </tr>
+                    </tbody>
+                </table>
+--%>
             </div><!-- #activities -->
 
         </div><!--contentwrapper-->

@@ -29,6 +29,97 @@ jQuery(document).ready(function () {
         }).appendTo("body").fadeIn(200);
     }
 
+    /* 复选框全选 */
+    jQuery('.stdtablecb .checkall').click(function () {
+        var parentTable = jQuery(this).parents('table');
+        var ch = parentTable.find('tbody input[type=checkbox]');
+        if (jQuery(this).is(':checked')) {
+            // 选中表格的全部行
+            ch.each(function () {
+                jQuery(this).attr('checked', true);
+                jQuery(this).parent().addClass('checked');	//used for the custom checkbox style
+                jQuery(this).parents('tr').addClass('selected');
+            });
+            // 选中表头和页脚
+            parentTable.find('.checkall').each(function () {
+                jQuery(this).attr('checked', true);
+            });
+        } else {
+            // 取消选中所有行
+            ch.each(function () {
+                jQuery(this).attr('checked', false);
+                jQuery(this).parent().removeClass('checked');	//used for the custom checkbox style
+                jQuery(this).parents('tr').removeClass('selected');
+            });
+            // 取消选中表头和页脚
+            parentTable.find('.checkall').each(function () {
+                jQuery(this).attr('checked', false);
+            });
+        }
+    });
+
+    /* 日志数据表格 */
+    ////// jquery dataTable插件 //////
+    var table = jQuery('#logTable').DataTable({
+        ajax: {
+            url: "/admin/log/listLog.action",
+        },
+        info: true,
+        // 绘制单元格时调用
+        drawCallback: function (settings) {
+            // 转换复选框样式
+            jQuery('input:checkbox,input:radio').uniform();
+            // jQuery.uniform.update();
+        },
+        columns: [
+            {
+                "data": "id",
+                "sortable": false,
+                "render": function (data, type, row, meta) {   // 返回自定义的样式
+                    return "<input type='checkbox' style='width: 20px'/>"
+                }
+            },
+            {
+                "data": "id",
+                "sortable": false,
+                "render": function (data, type, row, meta) {
+                    return meta.row + 1;
+                }
+            },
+            {"data": "action", "sortable": false,},
+            {"data": "module", "sortable": false,},
+            {"data": "operUserName", "sortable": false,},
+            {"data": "ip", "sortable": false,},
+            {
+                "data": "data",
+                "sortable": false,
+                "render": function (data, type, row, meta) {//返回自定义的样式
+                    if (!row.data) {
+                        return "<label> - </label>"
+                    }
+                }
+            },
+            {"data": "created"},
+        ],
+        //多语言配置
+        language: {
+            "dom": "<'top'fi>rt<'bottom'pl><'clear'>",
+            "processing": "正在加载中...",
+            "lengthMenu": "每页显示 _MENU_ 条记录",
+            "zeroRecords": "对不起，查询不到相关数据！",
+            "emptyTable": "表中无数据存在！",
+            "info": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+            "infoFiltered": "总共为 _MAX_ 条记录",
+            "search": "搜索： ",
+            "paginate": {
+                "first": "首页",
+                "previous": "上一页",
+                "next": "下一页",
+                "last": "末页"
+            }
+        },
+    });
+
 
     var plot = jQuery.plot(jQuery("#chartplace"),
         [
