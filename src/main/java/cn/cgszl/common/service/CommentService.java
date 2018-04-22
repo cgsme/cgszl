@@ -19,7 +19,7 @@ public interface CommentService {
      * @param limit 每页记录数
      * @return
      */
-    List<Comment> listComments(Integer page, Integer limit) throws CgszlException;
+    List<Comment> listComments(Integer page, Integer limit, String type) throws CgszlException;
 
     /**
      * 根据评论标识删除评论

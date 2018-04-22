@@ -1,5 +1,6 @@
 package cn.cgszl.admin.controller;
 
+import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.log.SystemLog;
 import cn.cgszl.common.service.CommentService;
 import cn.cgszl.common.dao.dto.CommonResult;
@@ -47,7 +48,7 @@ public class CommentController {
     @ResponseBody
     public GridData listComments(Integer page, Integer limit) {
         try {
-            List<Comment> commentList = commentService.listComments(page, limit);
+            List<Comment> commentList = commentService.listComments(page, limit, Types.COMMENT.getType());
             PageInfo<Comment> commentPageInfo = new PageInfo<Comment>(commentList);
             return GridData.build(commentList, commentPageInfo.getTotal());
         } catch (CgszlException e) {

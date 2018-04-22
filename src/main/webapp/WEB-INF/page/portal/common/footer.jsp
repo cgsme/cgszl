@@ -49,6 +49,7 @@
 <script src="/portal/js/jquery.scrollUp.min.js"></script>
 <script src="/portal/js/modernizr.js"></script>
 <script src="/common/js/cgszl.utils.js"></script>
+<script src="/common/js/jquery.form.js"></script>
 <script src="/portal/js/portalIndex.js"></script>
 <script type="text/javascript">
     // 文档加载完成后执行

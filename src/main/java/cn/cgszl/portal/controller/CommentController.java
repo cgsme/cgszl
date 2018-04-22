@@ -1,6 +1,7 @@
 package cn.cgszl.portal.controller;
 
 import cn.cgszl.common.dao.dto.CommonResult;
+import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Comment;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.service.CommentService;
@@ -75,6 +76,8 @@ public class CommentController {
             }
             // 设置ip
             comment.setIp(CgszlUtils.getClientIPAddress(request));
+            comment.setType(Types.COMMENT.getType());
+            comment.setAgent(CgszlUtils.getOsAndBrowserInfo(request));
             boolean result = commentService.saveComment(comment);
             if (result) {
                 return CommonResult.ok();

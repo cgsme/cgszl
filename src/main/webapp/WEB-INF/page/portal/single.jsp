@@ -60,50 +60,6 @@
                     <h2><i class="fa fa-comments"></i> ${article.commentsNum} 评论</h2>
                 </aside>
                 <aside class="comments" id="comments">
-                    <%--<article class="comment">
-                        <header class="clearfix">
-                            <img src="/portal/img/favicon.ico" alt="也是大佬" class="avatar">
-                            <div class="meta">
-                                <h3><a href="#">John Doe</a></h3>
-                                <span class="date">
-                                        24 August 2015
-                                    </span>
-                                <span class="separator">
-                                        -
-                                    </span>
-
-                                <a href="#create-comment" class="reply-link">回复</a>
-                            </div>
-                        </header>
-                        <div class="body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere sit perspiciatis debitis,
-                            vel ducimus praesentium expedita, assumenda ipsum cum corrupti dolorum modi. Rem ipsam
-                            similique sapiente obcaecati tenetur beatae voluptatibus.
-                        </div>
-                    </article>
-
-                    <article class="comment reply">
-                        <header class="clearfix">
-                            <img src="/portal/img/favicon.ico" alt="A Smart Guy" class="avatar">
-                            <div class="meta">
-                                <h3><a href="#">John Doe</a></h3>
-                                <span class="date">
-                                        24 August 2015
-                                    </span>
-                                <span class="separator">
-                                        -
-                                    </span>
-
-                                <a href="#create-comment" class="reply-link">Reply</a>
-                            </div>
-                        </header>
-                        <div class="body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere sit perspiciatis debitis,
-                            vel ducimus praesentium expedita, assumenda ipsum cum corrupti dolorum modi. Rem ipsam
-                            similique sapiente obcaecati tenetur beatae voluptatibus.
-                        </div>
-                    </article>
---%>
                 </aside>
 
                 <%--发表评论区--%>

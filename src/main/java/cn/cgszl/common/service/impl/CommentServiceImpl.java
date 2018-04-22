@@ -11,6 +11,7 @@ import cn.cgszl.common.utils.CgszlUtils;
 import cn.cgszl.common.utils.DateKit;
 import com.github.pagehelper.PageHelper;
 import com.vdurmont.emoji.EmojiParser;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -39,9 +40,11 @@ public class CommentServiceImpl implements CommentService {
      * @throws CgszlException
      */
     @Override
-    public List<Comment> listComments(Integer page, Integer limit) throws CgszlException {
+    public List<Comment> listComments(Integer page, Integer limit, String type) throws CgszlException {
         PageHelper.startPage(page, limit);
-        return commentMapper.selectByExampleWithBLOBs(new CommentExample());
+        CommentExample commentExample = new CommentExample();
+        commentExample.createCriteria().andTypeEqualTo(type);
+        return commentMapper.selectByExampleWithBLOBs(commentExample);
     }
 
     /**
@@ -82,24 +85,29 @@ public class CommentServiceImpl implements CommentService {
     public boolean saveComment(Comment comment) throws CgszlException {
 
         if (null != comment) {
-            // 防止xss注入
-            comment.setContent(CgszlUtils.cleanXSS(comment.getContent()));
-            comment.setAuthor(CgszlUtils.cleanXSS(comment.getAuthor()));
-            // 解析emoji表情
-            comment.setContent(EmojiParser.parseToAliases(comment.getContent()));
-            comment.setAuthor(EmojiParser.parseToAliases(comment.getAuthor()));
-
+            // 非空校验
+            if (StringUtils.isNotBlank(comment.getContent())) {
+                // 防止xss注入
+                comment.setContent(CgszlUtils.cleanXSS(comment.getContent()));
+                // 解析emoji表情
+                comment.setContent(EmojiParser.parseToAliases(comment.getContent()));
+            }
+            if (StringUtils.isNotBlank(comment.getAuthor())) {
+                comment.setAuthor(EmojiParser.parseToAliases(comment.getAuthor()));
+                comment.setAuthor(CgszlUtils.cleanXSS(comment.getAuthor()));
+            }
             // 评论时间
             comment.setCreated(DateKit.getCurrentUnixTime());
-
             // 保存评论
             boolean result = commentMapper.insertSelective(comment) > 0;
-            // 获取被评论的文章
-            Article article = blogService.getArticleById(comment.getAid());
-            // 文章评论数加 1
-            article.setCommentsNum(article.getCommentsNum() + 1);
-            // 更新文章评论数
-            blogService.savePost(article);
+            if (null != comment.getAid()) {
+                // 获取被评论的文章
+                Article article = blogService.getArticleById(comment.getAid());
+                // 文章评论数加 1
+                article.setCommentsNum(article.getCommentsNum() + 1);
+                // 更新文章评论数
+                blogService.savePost(article);
+            }
             return result;
         }
         return false;

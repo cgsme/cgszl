@@ -13,6 +13,10 @@ public enum Types {
     PAGE("page"),
     DRAFT("draft"),
     LINK("link"),
+    // 留言
+    MESSAGE("message"),
+    // 评论
+    COMMENT("comment"),
     IMAGE("image"),
     FILE("file"),
     CSRF_TOKEN("csrf_token"),
