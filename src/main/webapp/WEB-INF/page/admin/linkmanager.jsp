@@ -85,8 +85,18 @@
 //                    {type: 'checkbox'}
                     {type: 'numbers', title: '序号'}
                     , {field: 'name', title: '链接标题', width: 300}
-                    , {field: 'slug', title: '链接地址', width: 300}
-                    , {field: 'description', title: 'LOGO链接', width: 200}
+                    , {field: 'slug', title: '链接地址', width: 300,
+                        templet: function (d) {
+                            return "<a href='"+ d.slug +"' style='color: #00f;' " +
+                                "target='_blank' title='"+ d.name +"'>" + d.slug + "</a>";
+                        }
+                    }
+                    , {field: 'description', title: 'LOGO链接', width: 200,
+                            templet: function (d) {
+                                return "<a href='"+ d.description +"' style='color: #00f;' " +
+                                    "target='_blank'>" + d.description + "</a>";
+                            }
+                    }
                     , {field: 'sort', title: '排序', width: 80}
                     , {fixed: 'right', width: 178, align: 'center', title: "操作", toolbar: '#toolbar1', }
                 ]],
