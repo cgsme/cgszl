@@ -13,10 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 博客文章管理业务实现类
@@ -301,5 +298,28 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Article getArticleById(Integer aid) throws CgszlException {
         return articleMapper.selectByPrimaryKeyWithoutBlob(aid);
+    }
+
+    /**
+     * 根据关键字查询文章
+     *
+     * @param page  页码
+     * @param limit 每页记录数
+     * @param keyWord 关键字  @throws CgszlException
+     */
+    @Override
+    public List<Article> listArticleByKeyWord(Integer page, Integer limit, String keyWord) throws CgszlException {
+        if (null == page) {
+            page = 1;
+        }
+        if (org.springframework.util.StringUtils.isEmpty(limit)) {
+            limit = 6;
+        }
+        PageHelper.startPage(page, limit);
+        keyWord = "%" + keyWord + "%";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("keyWord", keyWord);
+        paramMap.put("orderCause", "created desc");
+        return articleMapper.getArticleListBySql(paramMap);
     }
 }

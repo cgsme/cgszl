@@ -6,12 +6,12 @@
         <h1 class="logo">曹.<span>图图</span></h1>
         <span class="slogan">后台管理系统</span>
 
-        <div class="search">
+        <%--<div class="search">
             <form action="" method="post">
                 <input type="text" name="keyword" id="keyword" placeholder="请输入关键字..."/>
                 <button class="submitbutton"></button>
             </form>
-        </div><!--search-->
+        </div>--%><!--search-->
 
         <br clear="all"/>
 

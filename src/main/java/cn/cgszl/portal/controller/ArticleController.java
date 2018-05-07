@@ -6,7 +6,12 @@ import cn.cgszl.common.dao.dto.CommonResult;
 import cn.cgszl.common.dao.dto.GridData;
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.exception.CgszlException;
+import cn.cgszl.common.utils.GsonUtil;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Isolation;
@@ -14,11 +19,16 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.List;
@@ -152,8 +162,8 @@ public class ArticleController {
         request.setAttribute("type", type);
         if (Types.TAG.getType().equalsIgnoreCase(type)) {
             return "portal/hotTagArticle";
-        } else if (Types.CATEGORY.getType().equalsIgnoreCase(type)){
-           return  "portal/hotCategoryArticle";
+        } else if (Types.CATEGORY.getType().equalsIgnoreCase(type)) {
+            return "portal/hotCategoryArticle";
         }
         return null;
     }
@@ -190,5 +200,46 @@ public class ArticleController {
             return CommonResult.fail(false, "系统异常");
         }
         return CommonResult.fail(false, "请求出错");
+    }
+
+    /**
+     * 搜索文章
+     *
+     * @param model   ui
+     * @param keyWord 查询关键字
+     * @return
+     */
+    @RequestMapping(value = "/portal/search", method = RequestMethod.GET, produces="text/html;charset=UTF-8")
+    public String search(HttpServletResponse response, Model model, String keyWord, Integer page, Integer limit) {
+        try {
+            // 解码
+            keyWord = URLDecoder.decode(keyWord, "UTF-8");
+            List<Article> articleList = blogService.listArticleByKeyWord(page, limit, keyWord);
+            // 自定义排除字段
+            Gson gson = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
+                // 判断哪些字段需要排除
+                @Override
+                public boolean shouldSkipField(FieldAttributes f) {
+                    // 排除字段名为content的字段
+                    return f.getName().equals("content");
+                }
+                @Override
+                public boolean shouldSkipClass(Class<?> clazz) {
+                    return false;
+                }
+            }).create();
+            // 如果页面不为null，说明是加载更多的操作。返回加载的数据
+            if (!org.springframework.util.StringUtils.isEmpty(page)) {
+                // 通过response对象返回字符串
+                response.getWriter().write(gson.toJson(articleList));
+                return null;
+            }
+            model.addAttribute("keyWord", keyWord);
+            model.addAttribute("articleList", gson.toJson(articleList));
+        } catch (CgszlException | IOException e) {
+            e.printStackTrace();
+        }
+        // 返回到查询结果页
+        return "portal/search";
     }
 }

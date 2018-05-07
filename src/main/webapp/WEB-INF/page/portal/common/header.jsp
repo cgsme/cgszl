@@ -65,12 +65,13 @@
             </div>
 
             <div class="clean-searchbox">
-                <form action="#" method="get" accept-charset="utf-8">
-                    <input class="searchfield " id="searchbox" type="text" placeholder="搜索">
-                    <button class="searchbutton" type="submit">
+                <%--<form action="/portal/search.html" method="get" accept-charset="utf-8">--%>
+                    <input name="keyWord" class="searchfield" id="searchbox" maxlength="20"
+                           required type="text" placeholder="搜索" value="${keyWord}">
+                    <button class="searchbutton" onclick="header.search($('#searchbox').val())">
                         <i class="fa fa-search"></i>
                     </button>
-                </form>
+                <%--</form>--%>
             </div>
         </div>
     </div>

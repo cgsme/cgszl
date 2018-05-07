@@ -11,7 +11,6 @@
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .acontent {
         /*overflow: hidden;*/
         display: -webkit-box;
@@ -20,17 +19,13 @@
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
     }
-
 </style>
 <div class="widewrapper main">
     <div class="container">
         <div class="row">
             <div class="col-md-8 blog-main">
                 <div id="postRow" class="row">
-
                 </div>
-
-                <div class="copyrights">Collect from <a href="http://www.smallseashell.com/">手机网站模板</a></div>
 
                 <div class="paging" style="text-align: center">
                     <a id="loadMoreText" href="javascript:void(0)" onclick="portalIndex.loadArticleByCondition('${name}', 'tag');"

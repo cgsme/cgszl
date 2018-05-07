@@ -788,8 +788,11 @@
             <if test="categories != null">
                 AND t_articles.categories = #{categories}
             </if>
+            <if test="keyWord != null">
+                AND t_articles.title LIKE #{keyWord}
+            </if>
               AND t_articles.draft = 0
-        <if test="orderCausse != null">
+        <if test="orderCause != null">
             ORDER BY #{orderCause}
         </if>
     </select>

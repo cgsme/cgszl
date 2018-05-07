@@ -127,9 +127,9 @@ public interface BlogService {
     /**
      * 根据sql查询文章列表
      *
-     * @param page      当前页
-     * @param limit     每页记录数
-     * @param paramMap  查询条件map
+     * @param page     当前页
+     * @param limit    每页记录数
+     * @param paramMap 查询条件map
      * @return
      * @throws CgszlException
      */
@@ -150,16 +150,27 @@ public interface BlogService {
      * @param searchValue 条件值
      * @param type
      * @param page
-     *@param limit @return
+     * @param limit       @return
      * @throws CgszlException
      */
     List<Article> loadArticleByCondition(String searchValue, String type, Integer page, Integer limit) throws CgszlException;
 
     /**
      * 根据文章标识获取文章（无大文本）
+     *
      * @param aid
      * @return
      * @throws CgszlException
      */
     Article getArticleById(Integer aid) throws CgszlException;
+
+    /**
+     * 根据文章标题查询文章
+     *
+     *
+     * @param page
+     * @param limit
+     *@param keyWord 关键字  @throws CgszlException
+     */
+    List<Article> listArticleByKeyWord(Integer page, Integer limit, String keyWord) throws CgszlException;
 }
