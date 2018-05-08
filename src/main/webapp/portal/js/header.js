@@ -34,10 +34,11 @@ var header = (function ($) {
                     + "<div class='col-md-4 col-sm-4'>"
                     + "<article class='blog-teaser'>"
                     + "<header>"
-                    + "<a title='" + article.title + "' href='/single/" + article.aid + ".html'>"
+                    + "<a title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
                     + "<img src='/portal/img/4.jpg' alt='曹图图'>"
                     + "</a>"
-                    + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h4>"
+                    + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
+                    + article.title + "</a></h4>"
                     + "<span class='meta' style='font-size: 14px;'>"
                     + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
                     + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName

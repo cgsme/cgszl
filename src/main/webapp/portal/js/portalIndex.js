@@ -83,7 +83,8 @@ var portalIndex = (function ($) {
                 function (data) {
                     if (data && data.success) {
                         $.each(data.data, function (index, category) {
-                            var $hotCategory = $("<li><a href='/portal/article/category/" + category.name + ".html'>" + category.name + "</a></li>");
+                            var $hotCategory = $("<li><a href='/portal/article/category/" + category.name + ".html' target='_blank'>"
+                                + category.name + "</a></li>");
                             // $hotCategory.bind("click", function () {
                             //     portalIndex.loadArticleByCondition(category.name, "category");
                             // });
@@ -117,11 +118,12 @@ var portalIndex = (function ($) {
                             + "<div class='col-md-6 col-sm-6'>"
                             + "<article class='blog-teaser'>"
                             + "<header>"
-                            + "<a title='" + article.title + "' href='/single/" + article.aid + ".html'>"
+                            + "<a title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
                             + "<img onmouseover='portalIndex.ooo(this, true);' onmouseleave='portalIndex.ooo(this, false);' "
                             + "src='/portal/img/4.jpg' alt='曹图图'>"
                             + "</a>"
-                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h4>"
+                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
+                            + article.title + "</a></h4>"
                             + "<span class='meta' style='font-size: 14px;'>"
                             + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
                             + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName
@@ -173,7 +175,8 @@ var portalIndex = (function ($) {
                 data: {page: page, limit: limit},
                 success: function (data) {
                     $.each(data, function (index, hotArticle) {
-                        var $hotArticle = $("<li><a href='/single/" + hotArticle.aid + ".html'>" + hotArticle.title + "</a></li>");
+                        var $hotArticle = $("<li><a href='/single/" + hotArticle.aid + ".html' target='_blank'>"
+                            + hotArticle.title + "</a></li>");
                         $("#hotArticles").append($hotArticle);
                     })
                 }
@@ -193,7 +196,8 @@ var portalIndex = (function ($) {
                 data: {page: page, limit: limit},
                 success: function (data) {
                     $.each(data.data, function (index, article) {
-                        var $latestArticle = "<li><a href='/single/" + article.aid + ".html'>" + article.title + "</a></li>"
+                        var $latestArticle = "<li><a href='/single/" + article.aid + ".html' target='_blank'>"
+                            + article.title + "</a></li>"
                         $("#latestArticles").append($latestArticle);
                     });
                 }
@@ -210,7 +214,8 @@ var portalIndex = (function ($) {
                 data: {page: 1, limit: 12},
                 success: function (data) {
                     $.each(data, function (index, tag) {
-                        var $tagItem = $("<li><a href='/portal/article/tag/" + tag.name + ".html'>" + tag.name + "</a></li>");
+                        var $tagItem = $("<li><a href='/portal/article/tag/" + tag.name + ".html' target='_blank'>"
+                            + tag.name + "</a></li>");
                         // $tagItem.bind("click", function () {
                         //     portalIndex.toHotPage(tag.name, "tag");
                         // });
@@ -264,11 +269,12 @@ var portalIndex = (function ($) {
                             + "<div class='col-md-6 col-sm-6'>"
                             + "<article class='blog-teaser'>"
                             + "<header>"
-                            + "<a title='" + article.title + "' href='/single/" + article.aid + ".html'>"
+                            + "<a title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
                             + "<img onmouseover='portalIndex.ooo(this, true);' onmouseleave='portalIndex.ooo(this, false);' "
                             + "src='/portal/img/4.jpg' alt='曹图图'>"
                             + "</a>"
-                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h4>"
+                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html' target='_blank'>"
+                            + article.title + "</a></h4>"
                             + "<span class='meta' style='font-size: 14px;'>"
                             + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
                             + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName
