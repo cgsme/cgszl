@@ -43,6 +43,6 @@
 <%@ include file="common/footer.jsp" %>
 <script type="text/javascript">
     $(function () {
-        $("#pageTitle").html("文章详情");
+        $("#pageTitle").html("热门分类 / 文章列表");
     });
 </script>
