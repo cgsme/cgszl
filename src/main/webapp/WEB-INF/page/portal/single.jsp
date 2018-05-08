@@ -29,8 +29,8 @@
                             <i title="作者" class="fa fa-user"></i>${article.user.screenName}
                             <i title="发布日期" class="fa fa-calendar"></i><span id="created"> </span>
                             <i title="分类" class="fa fa-list"></i><span id="created">${article.categories}</span>
-                            <i title="阅读量" class="fa fa-eye"></i><span class="data">${article.hits}</span>
-                            <i title="评论数" class="fa fa-comments"></i><span class="data"><a
+                            <i title="阅读" class="fa fa-eye"></i><span class="data">${article.hits}</span>
+                            <i title="评论" class="fa fa-comments"></i><span class="data"><a
                                 href="#comments">${article.commentsNum} 评论</a></span>
                         </div>
                         <div class="acontent">
