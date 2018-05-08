@@ -41,6 +41,7 @@
 <script src="/common/js/cgszl.utils.js"></script>
 <script src="/portal/js/header.js"></script>
 <script type="text/javascript">
+    $("#pageTitle").html("文章详情");
     var keyWord = '<%=request.getAttribute("keyWord")%>';
     var articleList = '<%=request.getAttribute("articleList")%>';
     header.renderArticleList(articleList, keyWord);

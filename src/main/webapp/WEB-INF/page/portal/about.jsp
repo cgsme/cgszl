@@ -28,4 +28,9 @@
 </div>
 <%--尾部--%>
 <jsp:include page="common/footer.jsp"/>
+<script type="text/javascript">
+    $(function () {
+       $("#pageTitle").html("关于");
+    });
+</script>
 

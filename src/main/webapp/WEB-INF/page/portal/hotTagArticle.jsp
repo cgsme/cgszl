@@ -38,4 +38,8 @@
 </div>
 <%--尾部--%>
 <%@ include file="common/footer.jsp" %>
-
+<script type="text/javascript">
+    $(function () {
+        $("#pageTitle").html("文章详情");
+    });
+</script>

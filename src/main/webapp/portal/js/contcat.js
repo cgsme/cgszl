@@ -1,6 +1,9 @@
 /* 留言 */
 var contcat = (function ($) {
 
+    // 设置页面标题
+    $("#pageTitle").html("联系我");
+
     /* 提示框 */
     var msgBox = $("#msgBox");
     /*  */
@@ -32,7 +35,6 @@ var contcat = (function ($) {
 
     // 公共方法
     return {
+    };
 
-
-    }
 })($);

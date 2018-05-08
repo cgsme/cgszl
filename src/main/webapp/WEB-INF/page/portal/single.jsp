@@ -104,6 +104,7 @@
 <script src="/portal/js/single.js"></script>
 <script type="text/javascript">
     $(function () {
+        $("#pageTitle").html("文章详情");
         single.init(${article.created}, ${article.aid});
     });
 </script>

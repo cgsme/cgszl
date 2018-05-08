@@ -30,8 +30,6 @@
 
                 </div>
 
-                <div class="copyrights">Collect from <a href="http://www.smallseashell.com/">手机网站模板</a></div>
-
                 <div class="paging" style="text-align: center">
                     <a id="loadMoreText" href="javascript:void(0)" onclick="portalIndex.loadArticleByCondition('${name}', 'category');"
                        class="older"><i class="fa fa-hand-o-down"></i><span >加载更多</span></a>
@@ -43,4 +41,8 @@
 </div>
 <%--尾部--%>
 <%@ include file="common/footer.jsp" %>
-
+<script type="text/javascript">
+    $(function () {
+        $("#pageTitle").html("文章详情");
+    });
+</script>

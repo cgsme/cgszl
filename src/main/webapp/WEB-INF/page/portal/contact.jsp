@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 clean-superblock" id="contact">
-                <h2>留言 / 反馈</h2>
+                <h2 style="font-size: 30px;">留言 / 反馈</h2>
                 <%-- 消息提示框 --%>
                 <div id="msgBox"></div>
                 <form id="messageForm" action="/portal/comment/leaveMessage.action"

@@ -121,8 +121,8 @@ var portalIndex = (function ($) {
                             + "<img onmouseover='portalIndex.ooo(this, true);' onmouseleave='portalIndex.ooo(this, false);' "
                             + "src='/portal/img/4.jpg' alt='曹图图'>"
                             + "</a>"
-                            + "<h3><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h3>"
-                            + "<span class='meta'>"
+                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h4>"
+                            + "<span class='meta' style='font-size: 14px;'>"
                             + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
                             + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName
                             + " <i title='阅读量' class='fa fa-eye'></i>" + article.hits
@@ -268,8 +268,8 @@ var portalIndex = (function ($) {
                             + "<img onmouseover='portalIndex.ooo(this, true);' onmouseleave='portalIndex.ooo(this, false);' "
                             + "src='/portal/img/4.jpg' alt='曹图图'>"
                             + "</a>"
-                            + "<h3><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h3>"
-                            + "<span class='meta'>"
+                            + "<h4><a class='atitle' title='" + article.title + "' href='/single/" + article.aid + ".html'>" + article.title + "</a></h4>"
+                            + "<span class='meta' style='font-size: 14px;'>"
                             + "<i title='发布日期' class='fa fa-calendar'></i>" + cgszlUtils.translateTimstampTo(article.created * 1000, "yyyy-MM-dd")
                             + " <i title='作者' class='fa fa-user'></i>" + article.user.screenName
                             + " <i title='阅读量' class='fa fa-eye'></i>" + article.hits
