@@ -9,7 +9,11 @@ var single = (function ($) {
          *
          * @param aid 文章标识
          */
-        loadComment: function (aid) {
+        loadComment: function (aid, allowComment) {
+            // 判断是否开启评论，未开启则不加载评论
+            if (!allowComment) {
+                return;
+            }
             $.ajax({
                 url: "/portal/article/listArticleComment.action",
                 data: {aid: aid},
@@ -23,7 +27,7 @@ var single = (function ($) {
                                 "<header class='clearfix'>" +
                                 "<img src='/portal/img/favicon.ico' alt='大佬' class='avatar'>" +
                                 "<div class='meta'>" +
-                                "<h3><a>" + comment.author + "</a></h3>" +
+                                "<h3><a>" + (comment.author ? comment.author : "热心网友") + "</a></h3>" +
                                 "<span class='date'>" + cgszlUtils.translateTimstampTo(comment.created * 1000, "yyyy-MM-dd hh:mm:ss") +
                                 "</span>" +
                                 "<span class='separator'> - </span><a href='#create-comment' onclick='single.setCoid(" + comment.coid + ")' class='reply-link'>回复</a>" +
@@ -38,7 +42,7 @@ var single = (function ($) {
                                         "<header class='clearfix'>" +
                                         "<img src='/portal/img/favicon.ico' alt='大佬' class='avatar'>" +
                                         "<div class='meta'>" +
-                                        "<h3><a> 回复： @" + childrenComment.author + "</a></h3>" +
+                                        "<h3><a> 回复：@" + (childrenComment.author ? childrenComment.author : "热心网友") + "</a></h3>" +
                                         "<span class='date'>" + cgszlUtils.translateTimstampTo(childrenComment.created * 1000, "yyyy-MM-dd hh:mm:ss") +
                                         "</span>" +
                                         // "<span class='separator'> - </span><a href='#create-comment' class='reply-link'>回复</a>" +
@@ -73,11 +77,11 @@ var single = (function ($) {
          * @param created 文章发布时间
          * @param aid     文章标识
          */
-        init: function (created, aid) {
+        init: function (created, aid, allowComment) {
             // 渲染文章发布时间
             $("#created").html(cgszlUtils.translateTimstampTo(created * 1000, "yyyy-MM-dd"));
             // 加载评论
-            single.loadComment(aid);
+            single.loadComment(aid, allowComment);
 
         },
 
@@ -124,6 +128,8 @@ var single = (function ($) {
         saveComment: function () {
             // 提示框
             var msgBox = $("#msgBox");
+            // 先移除所有class样式
+            msgBox.removeClass();
             // 序列化表单字段数据
             var commentForm = $("#commentForm");
             var commentJson = cgszlUtils.serializeObject(commentForm);

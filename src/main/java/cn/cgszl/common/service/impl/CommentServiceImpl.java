@@ -9,6 +9,7 @@ import cn.cgszl.common.dao.pojo.CommentExample;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.CgszlUtils;
 import cn.cgszl.common.utils.DateKit;
+import cn.cgszl.common.utils.UUID;
 import com.github.pagehelper.PageHelper;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
@@ -95,6 +96,9 @@ public class CommentServiceImpl implements CommentService {
             if (StringUtils.isNotBlank(comment.getAuthor())) {
                 comment.setAuthor(EmojiParser.parseToAliases(comment.getAuthor()));
                 comment.setAuthor(CgszlUtils.cleanXSS(comment.getAuthor()));
+            }
+            if (StringUtils.isBlank(comment.getAuthor())) {
+                comment.setAuthor("热心网友" + DateKit.getCurrentUnixTime());
             }
             // 评论时间
             comment.setCreated(DateKit.getCurrentUnixTime());

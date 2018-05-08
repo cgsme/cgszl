@@ -31,7 +31,7 @@
                             <i title="分类" class="fa fa-list"></i><span id="created">${article.categories}</span>
                             <i title="阅读" class="fa fa-eye"></i><span class="data">${article.hits}</span>
                             <i title="评论" class="fa fa-comments"></i><span class="data"><a
-                                href="#comments">${article.commentsNum} 评论</a></span>
+                                href="#comments">${article.commentsNum}</a></span>
                         </div>
                         <div class="acontent">
                             ${article.content}
@@ -117,7 +117,7 @@
 <script type="text/javascript">
     $(function () {
         $("#pageTitle").html("文章详情");
-        single.init(${article.created}, ${article.aid});
+        single.init(${article.created}, ${article.aid}, ${article.allowComment});
     });
 </script>
 <%--尾部--%>
