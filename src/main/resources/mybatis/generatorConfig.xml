@@ -67,9 +67,9 @@
         <!--<table tableName="t_metas" domainObjectName="Metas">-->
             <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
         <!--</table>-->
-        <table tableName="t_userinfo" domainObjectName="UserInfo">
+        <!--<table tableName="t_userinfo" domainObjectName="UserInfo">
             <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
-        </table>
+        </table>-->
         <!--<table tableName="t_comments" domainObjectName="Comment">-->
             <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
         <!--</table>-->
@@ -79,6 +79,9 @@
         <!--<table tableName="t_articles" domainObjectName="Article">-->
             <!--<generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>-->
         <!--</table>-->
+        <table tableName="t_options" domainObjectName="SiteOptions">
+            <generatedKey column="uuid" sqlStatement="SELECT REPLACE(UUID(),'-','') UUID FROM DUAL"/>
+        </table>
         <!-- 配置表
             schema：不用填写
             tableName: 表名
