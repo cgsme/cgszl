@@ -3,6 +3,7 @@ package cn.cgszl.common.utils;
 import cn.cgszl.admin.controller.FileController;
 import cn.cgszl.common.constant.WebConst;
 import cn.cgszl.common.dao.pojo.User;
+import cn.cgszl.common.exception.CgszlException;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.imageio.ImageIO;
@@ -120,7 +121,6 @@ public class CgszlUtils {
     public static String getClientIPAddress(HttpServletRequest request) {
 
         String ip = request.getHeader("x-forwarded-for");
-
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
@@ -130,7 +130,6 @@ public class CgszlUtils {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
-
         /*
          * 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割 "***.***.***.***".length() = 15
          */
@@ -139,7 +138,6 @@ public class CgszlUtils {
                 ip = ip.substring(0, ip.indexOf(","));
             }
         }
-
         return ip;
     }
 
@@ -151,13 +149,11 @@ public class CgszlUtils {
     public static String getLocalIPAddress() {
 
         InetAddress inet = null;
-
         try {
             inet = InetAddress.getLocalHost();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-
         return inet.getHostAddress();
     }
 
@@ -277,14 +273,12 @@ public class CgszlUtils {
                 browser = ((userAgent.substring(userAgent.indexOf("OPR")).split(" ")[0]).replace("/", "-"))
                         .replace("OPR", "Opera");
             }
-
         } else if (user.contains("chrome")) {
             browser = (userAgent.substring(userAgent.indexOf("Chrome")).split(" ")[0]).replace("/", " ");
         } else if ((user.contains("mozilla/7.0")) || (user.contains("netscape6")) ||
                 (user.contains("mozilla/4.7")) || (user.contains("mozilla/4.78")) ||
                 (user.contains("mozilla/4.08")) || (user.contains("mozilla/3"))) {
             browser = "Netscape-?";
-
         } else if (user.contains("firefox")) {
             browser = (userAgent.substring(userAgent.indexOf("Firefox")).split(" ")[0]).replace("/", "-");
         } else if (user.contains("rv")) {
@@ -293,7 +287,6 @@ public class CgszlUtils {
         } else {
             browser = "UnKnown, More-Info: " + userAgent;
         }
-
         return os + ":" + browser;
     }
 }

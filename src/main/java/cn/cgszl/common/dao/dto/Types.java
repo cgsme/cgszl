@@ -19,6 +19,9 @@ public enum Types {
     COMMENT("comment"),
     IMAGE("image"),
     FILE("file"),
+    PHOTOFILE("photoFile"),
+    ATTACHFILE("attachFile"),
+    SQLFILE("sqlFile"),
     CSRF_TOKEN("csrf_token"),
     COMMENTS_FREQUENCY("comments:frequency"),
 

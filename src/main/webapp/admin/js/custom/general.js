@@ -111,9 +111,17 @@ jQuery(document).ready(function () {
                 }
             } else {
                 //loading层
-                var index = layer.load(1, {
+                var index = layer.load(3, {
                     shade: [0.5,'#fff'] //0.1透明度的白色背景
                 });
+                // 菜单点击效果
+                jQuery('.vernav2 > ul li a').each(function () {
+                    if (this.style.backgroundColor) {
+                        this.style.backgroundColor = "";
+                    }
+                });
+                this.style.backgroundColor = "#fb9337";
+                // 菜单点击效果 end
                 // 先清空内容 add on 2018-03-19 00:07
                 jQuery('#bolgmanagerbox').html('');
                 ////// 加载页面 //////

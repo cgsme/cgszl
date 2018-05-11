@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>系统设置页面</title>
+    <title>系统设置基本信息页面</title>
     <%--<%@include file="common/common.jsp" %>--%>
     <%--<%@include file="common/pageResource.jsp" %>--%>
     <!--[if IE 9]>
@@ -23,7 +23,7 @@
     <script src="js/custom/systemsettings.js"></script>
 </head>
 <body>
-<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">系统设置</blockquote>
+<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">系统设置 / 基本信息</blockquote>
 <div id="contentwrapper" class="contentwrapper">
     <form id="systemSettingForm" class="stdform"
           action="/admin/setting/saveSiteOptions.action" method="post">
@@ -52,7 +52,7 @@
             <label>站点关键词</label>
             <span class="field">
                 <input id="keyWordTags" type="text" value="${siteOptionsMap["site_keywords"]}" name="site_keywords"
-                       class="mediuminput"/>
+                       maxlength="200" class="mediuminput"/>
             </span>
         </p>
         <p class="stdformbutton">
@@ -61,6 +61,5 @@
         </p>
     </form>
 </div>
-<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件备份</blockquote>
 </body>
 </html>

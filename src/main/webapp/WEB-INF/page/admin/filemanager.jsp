@@ -75,7 +75,7 @@
     }
 </style>
 <body>
-    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理 / 相册</blockquote>
     <div class="dropzone">
         <div class="dz-message">
             将照片拖至此处或点击上传.

@@ -411,7 +411,7 @@ body.withmenucoll2 { background-position: 35px 0; } /* with menu style 2 in coll
 .vernav2 ul ul { margin: 0; padding-left: 10px; border-top: 1px solid #eee; display: none; }
 .vernav2 ul ul li { border-bottom: 0; }
 .vernav2 ul ul li a { 
-	color: #999; background: #fff url(../images/line.dashed.png) no-repeat -25px center; border-left: 1px dashed #ccc; padding-left: 10px; 
+	/*color: #999; */background: #fff url(../images/line.dashed.png) no-repeat -25px center; border-left: 1px dashed #ccc; padding-left: 10px;
 }
 .vernav2 ul ul li a:hover { background-color: #fff; color: #666; }
 .vernav2 ul ul li:last-child { border-bottom: 0; }
