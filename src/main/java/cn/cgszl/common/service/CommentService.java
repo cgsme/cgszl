@@ -65,4 +65,30 @@ public interface CommentService {
      * @throws CgszlException
      */
     List<Comment> listCommentsByAid(Integer aid) throws CgszlException;
+
+    /**
+     * 留言 批量标记为已读
+     *
+     * @param checkIds 选中的留言标识
+     * @return
+     */
+    boolean batchRead(List<Comment> checkIds) throws CgszlException;
+
+    /**
+     * 批量删除
+     *
+     * @param checkIds 选中的留言标识
+     * @return
+     * @throws CgszlException
+     */
+    boolean batchDelete(Integer[] checkIds) throws CgszlException;
+
+    /**
+     * 留言已读
+     *
+     * @param comment 留言
+     * @throws CgszlException
+     */
+    void alreadyRead(Comment comment) throws CgszlException;
+
 }

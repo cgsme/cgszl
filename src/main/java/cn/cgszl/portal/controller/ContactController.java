@@ -1,6 +1,7 @@
 package cn.cgszl.portal.controller;
 
 import cn.cgszl.common.dao.dto.CommonResult;
+import cn.cgszl.common.dao.dto.States;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.Comment;
 import cn.cgszl.common.exception.CgszlException;
@@ -45,6 +46,7 @@ public class ContactController {
                 comment.setIp(CgszlUtils.getClientIPAddress(request));
                 comment.setType(Types.MESSAGE.getType());
                 comment.setAgent(CgszlUtils.getOsAndBrowserInfo(request));
+                comment.setStatus(States.COMMENT_STATE_NOT_AUDIT.getState());
                 boolean result = commentService.saveComment(comment);
                 if (result) {
                     return CommonResult.ok();

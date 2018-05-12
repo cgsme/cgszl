@@ -10,7 +10,7 @@
 
     <script type="text/javascript" src="/common/js/cgszl.utils.js"></script>
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
-    <title>所有文章页面</title>
+    <title>评论管理</title>
 </head>
 <style>
     .layui-table-view {
@@ -108,18 +108,6 @@
                     }
                 }
                 , {
-                    field: 'status', title: '状态', width: 75, align: 'center',
-                    templet: function (d) {
-                        if (d.status === 'approved') {
-                            return "<font color='green'>已通过</font>";
-                        } else if (d.status === 'not_audit') {
-                            return "<font color='#ff4500'>待审核</font>";
-                        } else {
-                            return "<font color='red'>未通过</font>";
-                        }
-                    }
-                }
-                , {
                     field: 'mail', title: '评论人邮箱', width: 120, align: 'left',
                     templet: function (d) {
                         if (!d.mail) {
@@ -130,7 +118,7 @@
                     }
                 }
                 , {
-                    field: 'url', title: '评论人网址', width: 150, align: 'left',
+                    field: 'url', title: '评论人主页', width: 150, align: 'left',
                     templet: function (d) {
                         if (!d.url) {
                             return "-";
@@ -143,6 +131,18 @@
                     field: 'created', title: '评论时间', width: 160, align: 'left',
                     templet: function (d) {
                         return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
+                    }
+                }
+                , {
+                    field: 'status', title: '状态', width: 75, align: 'center',
+                    templet: function (d) {
+                        if (d.status === 'approved') {
+                            return "<font color='green'>已通过</font>";
+                        } else if (d.status === 'not_audit') {
+                            return "<font color='#ff4500'>待审核</font>";
+                        } else {
+                            return "<font color='red'>未通过</font>";
+                        }
                     }
                 }
                 , {
@@ -208,9 +208,9 @@
                         , success: function (resule) {
                             if (resule && resule.success) {
                                 obj.del();
-                                top.layer.msg('删除成功', {icon: 1, title: "系统提示"});
+                                top.layer.msg('删除成功', {icon: 1});
                             } else {
-                                top.layer.msg(resule.message, {icon: 2, title: "系统提示"});
+                                top.layer.msg(resule.message, {icon: 2});
                             }
                         }
                     });
@@ -261,59 +261,4 @@
     })
 </script>
 </body>
-<%--<body class="withvernav">
-    &lt;%&ndash;<div class="centercontent tables">&ndash;%&gt;
-    <table id="allpoststable" cellpadding="0" cellspacing="0" border="0" class="stdtable">
-        <colgroup>
-            &lt;%&ndash;<col class="con0" style="width: 4%"/>&ndash;%&gt;
-            <col class="con1"/>
-            <col class="con0"/>
-            <col class="con1"/>
-            <col class="con0"/>
-        </colgroup>
-        <thead>
-            <tr>
-                &lt;%&ndash;<th class="head0 nosort"><input type="checkbox"  class="checkall"/></th>&ndash;%&gt;
-                <th class="head0">文章标题</th>
-                <th class="head1">作者</th>
-                <th class="head0">状态</th>
-                <th class="head0">发布时间</th>
-                <th class="head1">点击量</th>
-                <th class="head0">所属分类</th>
-            </tr>
-        </thead>
-        &lt;%&ndash;<tfoot>
-            <tr>
-                <th class="head0">
-                    <span class="center"><input type="checkbox"/></span>
-                </th>
-                <th class="head0">Rendering engine</th>
-                <th class="head1">Browser</th>
-                <th class="head0">Platform(s)</th>
-                <th class="head1">Engine version</th>
-                <th class="head0">CSS grade</th>
-            </tr>
-        </tfoot>&ndash;%&gt;
-        &lt;%&ndash;<tbody>
-            <c:forEach items="${articleList}" var="article">
-                <tr class="gradeX">
-                    <td align="center">
-                        <span class="center">
-                            <input type="checkbox"/>
-                        </span>
-                    </td>
-                    <td>${article.title}</td>
-                    <td>${article.authorId}</td>
-                    <td class="center">${article.status}</td>
-                    <td class="center">${article.created}</td>
-                    <td class="center">${article.hits}</td>
-                    <td class="center">${article.categories}</td>
-                </tr>
-            </c:forEach>
-        </tbody>&ndash;%&gt;
-    </table>
-
-</div><!--contentwrapper-->
-
-</body>--%>
 </html>

@@ -1,5 +1,6 @@
 package cn.cgszl.common.service.impl;
 
+import cn.cgszl.common.dao.dto.States;
 import cn.cgszl.common.dao.pojo.Article;
 import cn.cgszl.common.service.BlogService;
 import cn.cgszl.common.service.CommentService;
@@ -9,7 +10,6 @@ import cn.cgszl.common.dao.pojo.CommentExample;
 import cn.cgszl.common.exception.CgszlException;
 import cn.cgszl.common.utils.CgszlUtils;
 import cn.cgszl.common.utils.DateKit;
-import cn.cgszl.common.utils.UUID;
 import com.github.pagehelper.PageHelper;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
@@ -139,5 +139,59 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<Comment> listCommentsByAid(Integer aid) throws CgszlException {
         return commentMapper.listCommentsByAid(aid);
+    }
+
+    /**
+     * 留言批量标记为已读
+     *
+     * @param checkIds 选中的留言标识
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public boolean batchRead(List<Comment> checkIds) throws CgszlException {
+        boolean result = false;
+        for (Comment comment : checkIds) {
+            comment.setStatus(States.COMMENT_STATE_APPROVED.getState());
+            result = commentMapper.updateByPrimaryKeySelective(comment) > 0;
+            if (!result) {
+                return false;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 批量删除
+     *
+     * @param checkIds 选中的留言标识
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public boolean batchDelete(Integer[] checkIds) throws CgszlException {
+        boolean result = false;
+        for (Integer id : checkIds) {
+            result = commentMapper.deleteByPrimaryKey(id) > 0;
+            if (!result) {
+                return false;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 留言已读
+     *
+     * @param comment 留言
+     * @throws CgszlException
+     */
+    @Override
+    public void alreadyRead(Comment comment) throws CgszlException {
+        if (org.springframework.util.StringUtils.isEmpty(comment)) {
+            throw new CgszlException("操作失败");
+        }
+        comment.setStatus(States.COMMENT_STATE_APPROVED.getState());
+        commentMapper.updateByPrimaryKeySelective(comment);
     }
 }

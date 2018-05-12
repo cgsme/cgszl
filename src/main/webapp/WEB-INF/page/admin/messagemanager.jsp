@@ -10,7 +10,7 @@
 
     <script type="text/javascript" src="/common/js/cgszl.utils.js"></script>
     <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/tables.js"></script>--%>
-    <title>所有文章页面</title>
+    <title>留言管理</title>
 </head>
 <style>
     .layui-table-view {
@@ -18,74 +18,38 @@
     }
 </style>
 <body>
-<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">消息管理 / 评论</blockquote>
-<%--<div class="layui-btn-group articleTable" style="padding-top: 10px">--%>
-<%--<button class="layui-btn layui-btn-primary" data-type="createNewArticle">--%>
-<%--<i class="layui-icon">&#xe654;</i>创建新文章--%>
-<%--</button>--%>
-<%--<button class="layui-btn layui-btn-primary" data-type="getCheckData">获取选中行数据</button>--%>
-<%--<button class="layui-btn layui-btn-primary" data-type="getCheckLength">获取选中数目</button>--%>
-<%--<button class="layui-btn layui-btn-primary" data-type="isAll">验证是否全选</button>--%>
-<%--</div>--%>
-<%--文章列表--%>
-<table id="commentGrid" lay-filter="commentGrid">
+<blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">
+    <div class="layui-btn-group messageTable">
+        <button class="layui-btn layui-btn-sm" data-type="alreadyRead">
+            <i class="layui-icon">&#xe605;</i>已读
+        </button>
+        <button class="layui-btn layui-btn-danger layui-btn-sm" data-type="batchDelete">
+            <i class="layui-icon layui-icon-delete"></i>批量删除
+        </button>
+    </div>
+</blockquote>
+
+<table id="messageGrid" lay-filter="messageGrid">
 </table>
+
 <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862"
      data-ad-slot="3820120620"></ins>
 
 <script type="text/html" id="toolbar">
-    <%--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>--%>
-    <a class="layui-btn layui-btn-xs" lay-event="pass">
-        <%--<i class="layui-icon">&#xe605;</i>--%>通过
-    </a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="unpass">
-       <%--<i class="layui-icon">&#x1006;</i>--%>不通过
-    </a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">
-        <%--<i class="layui-icon">&#xe640;</i>--%>删除
-    </a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="alreadyRead">已读</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 
 <script>
-    jQuery(function () {
-        ///// 水平导航（ajax / 内联数据） /////
-        jQuery('.hornav a').click(function () {
-
-            // 这仅适用于窗口大小低于450像素的情况
-            if (jQuery(this).parents('.more').length == 0)
-                jQuery('.hornav li.more ul').hide();
-
-            // 删除当前菜单
-            jQuery('.hornav li').each(function () {
-                jQuery(this).removeClass('current');
-            });
-
-            jQuery(this).parent().addClass('current');	// 设置为当前菜单
-
-            var url = jQuery(this).attr('href');
-            if (jQuery(url).length > 0) {
-                jQuery('.contentwrapper .subcontent').hide();
-                jQuery(url).show();
-            } else {
-                jQuery.ajax({
-                    url: url,
-                    success: function (data) {
-                        jQuery('#contentwrapper').html(data);
-                        jQuery('.stdtable input:checkbox').uniform();	// 重新设定复选框
-                    }
-                });
-            }
-            return false;
-        });
-    });
     // 表格对象
     var table;
     layui.use('table', function () {
         table = layui.table;
         // 文章列表
         table.render({
-            elem: '#commentGrid'     // 表格元素id
-            , url: '/admin/comment/listComments.action' //数据接口
+            elem: '#messageGrid'     // 表格元素id
+            , url: '/admin/message/listMessages.action' //数据接口
             , page: true //开启分页
             , style: [{"background-color": "red"}]
             , size: ''
@@ -94,11 +58,11 @@
 //                , height: 'full-235'
             , limits: [10, 20, 40]
             , cols: [[    // 表头
-//                    {type: 'checkbox'},
+                {type: 'checkbox'},
                 {type: 'numbers', title: '序号'}
-                , {field: 'content', title: '评论内容', width: 270}
+                , {field: 'content', title: '留言内容', width: 270}
                 , {
-                    field: 'author', title: '评论者', width: 90, align: 'left',
+                    field: 'author', title: '留言者', width: 90, align: 'left',
                     templet: function (d) {
                         if (!d.author) {
                             return "-";
@@ -108,19 +72,7 @@
                     }
                 }
                 , {
-                    field: 'status', title: '状态', width: 75, align: 'center',
-                    templet: function (d) {
-                        if (d.status === 'approved') {
-                            return "<font color='green'>已通过</font>";
-                        } else if (d.status === 'not_audit') {
-                            return "<font color='#ff4500'>待审核</font>";
-                        } else {
-                            return "<font color='red'>未通过</font>";
-                        }
-                    }
-                }
-                , {
-                    field: 'mail', title: '评论人邮箱', width: 120, align: 'left',
+                    field: 'mail', title: '留言邮箱', width: 120, align: 'left',
                     templet: function (d) {
                         if (!d.mail) {
                             return "-";
@@ -130,7 +82,7 @@
                     }
                 }
                 , {
-                    field: 'url', title: '评论人网址', width: 150, align: 'left',
+                    field: 'url', title: '留言者主页', width: 150, align: 'left',
                     templet: function (d) {
                         if (!d.url) {
                             return "-";
@@ -140,13 +92,23 @@
                     }
                 }
                 , {
-                    field: 'created', title: '评论时间', width: 160, align: 'left',
+                    field: 'created', title: '留言时间', width: 160, align: 'left',
                     templet: function (d) {
                         return cgszlUtils.translateTimstampTo(d.created * 1000, 'yyyy-MM-dd hh:mm:ss');
                     }
                 }
                 , {
-                    fixed: 'right', width: 220, align: 'center', toolbar: '#toolbar', title: "操作",
+                    field: 'status', title: '状态', width: 75, align: 'center',
+                    templet: function (d) {
+                        if (d.status === 'approved') {
+                            return "<font color='green'>已读</font>";
+                        } else if (d.status === 'not_audit') {
+                            return "<font color='#ff4500'>未读</font>";
+                        }
+                    }
+                }
+                , {
+                    fixed: 'right', width: 160, align: 'center', toolbar: '#toolbar', title: "操作",
                     templet: function (d) {
                         if (d.status === "approved") {
                             debugger;
@@ -167,89 +129,107 @@
         });
 
         var $ = layui.$, active = {
-
-            ////// 获取选中数据 //////
-            getCheckData: function () { //获取选中数据
-                var checkStatus = table.checkStatus('commentGrid')
-                    , data = checkStatus.data;
-                layer.alert(JSON.stringify(data));
-            }
-            ////// 选中数量 //////
-            , getCheckLength: function () { //获取选中数目
-                var checkStatus = table.checkStatus('commentGrid')
-                    , data = checkStatus.data;
-                layer.msg('选中了：' + data.length + ' 个');
-            }
-            ////// 是否全选 //////
-            , isAll: function () { //验证是否全选
-                var checkStatus = table.checkStatus('commentGrid');
-                layer.msg(checkStatus.isAll ? '全选' : '未全选')
+            ////// 已读 //////
+            alreadyRead: function () {
+                var checkStatus = table.checkStatus('messageGrid');
+                if (checkStatus.data.length < 1) {
+                    layer.msg("请至少选择一条记录", {icon: 2});
+                    return;
+                }
+                $.ajax({
+                    url: "/admin/message/batchRead.action",
+                    type: "POST",
+                    data: JSON.stringify(checkStatus.data),
+                    contentType: 'application/json;charset=utf-8', // 指定请求的数据格式为json,这样后台才能用@RequestBody接受java bean
+                    success: function (result) {
+                        if (result && result.success) {
+                            layer.msg("操作成功", {icon: 1});
+                            // 刷新列表
+                            table.reload("messageGrid");
+                        } else {
+                            layer.msg(result.message, {icon: 2});
+                        }
+                    }
+                });
+            },
+            ////// 批量删除 //////
+            batchDelete: function () {
+                var checkStatus = table.checkStatus('messageGrid');
+                var checkIds = new Array();
+                for (var i = 0; i < checkStatus.data.length; i++) {
+                    checkIds.push(checkStatus.data[i].coid);
+                }
+                if (checkIds.length < 1) {
+                    layer.msg("请至少选择一条记录", {icon: 2});
+                    return;
+                }
+                $.ajax({
+                    url: "/admin/message/batchDelete.action",
+                    type: "POST",
+                    data: {'checkIds': checkIds},
+                    success: function (result) {
+                        if (result && result.success) {
+                            layer.msg("操作成功", {icon: 1});
+                            table.reload("messageGrid");
+                        } else {
+                            layer.msg(resule.message, {icon: 2});
+                        }
+                    }
+                });
             }
         };
 
+        // 绑定点击事件
+        $('.messageTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
         // 监听工具条
-        table.on('tool(commentGrid)', function (obj) {
+        table.on('tool(messageGrid)', function (obj) {
             var data = obj.data;
             ////// 操作 //////
             ////// 查看详情 //////
             if (obj.event === 'detail') {
                 layer.msg('ID：' + data.aid + ' 的查看操作');
-
                 ////// 删除 //////
             } else if (obj.event === 'del') {
-                layer.confirm('确认删除该评论?', {icon: 3, title: '温馨提示'}, function (index) {
+                layer.confirm('确认删除该留言?', {icon: 3, title: '温馨提示'}, function (index) {
                     // 移除列表中选中的数据
                     jQuery.ajax({
-                        url: "/admin/comment/deleteById.action"
+                        url: "/admin/message/deleteById.action"
                         , type: "POST"
                         , data: {coid: data.coid}
                         , dataType: "JSON"
                         , async: true
-                        , success: function (resule) {
-                            if (resule && resule.success) {
-                                obj.del();
+                        , success: function (result) {
+                            if (result && result.success) {
                                 top.layer.msg('删除成功', {icon: 1, title: "系统提示"});
+                                obj.del();
                             } else {
-                                top.layer.msg(resule.message, {icon: 2, title: "系统提示"});
+                                top.layer.msg(result.message, {icon: 2, title: "系统提示"});
                             }
                         }
                     });
                     // 关闭确认框
                     layer.close(index);
                 });
-                ////// 通过 //////
-            } else if (obj.event === 'pass' || obj.event === 'unpass') {
-                var param;
-                var msg;
-                if (obj.event === 'pass') {
-                    if (data.status === "approved") {
-                        top.layer.msg("该评论已通过，无法再次操作", {icon: 2});
-                        return;
-                    }
-                    msg = "确认通过该评论？";
-                    param = {coid: data.coid, status: 'approved'}
-                } else if (obj.event === 'unpass') {
-                    if (data.status === "unpass") {
-                        top.layer.msg("该评论已不通过，无法再次操作", {icon: 2});
-                        return;
-                    }
-                    msg = "不通过该评论？";
-                    param = {coid: data.coid, status: 'unpass'}
-                }
-                layer.confirm(msg, {icon: 3, title: '温馨提示'}, function (index) {
+                ////// 已读 //////
+            } else if (obj.event === 'alreadyRead') {
+                layer.confirm('是否标记为已读?', {icon: 3, title: '温馨提示'}, function (index) {
                     // 移除列表中选中的数据
                     jQuery.ajax({
-                        url: "/admin/comment/updateCommentStatus.action"
+                        url: "/admin/message/alreadyRead.action"
                         , type: "POST"
-                        , data: param
-                        , dataType: "JSON"
-                        , async: true
-                        , success: function (resule) {
-                            if (resule && resule.success) {
-                                table.reload('commentGrid');
-                                top.layer.msg('操作成功', {icon: 1});
+                        , data: JSON.stringify(data)
+                        , contentType: 'application/json;charset=utf-8'
+//                        , dataType: "JSON"
+                        , success: function (result) {
+                            if (result && result.success) {
+                                top.layer.msg('操作成功', {icon: 1, title: "系统提示"});
+                                table.reload('messageGrid');
                             } else {
-                                top.layer.msg(resule.message, {icon: 2});
+                                top.layer.msg(result.message, {icon: 2, title: "系统提示"});
                             }
                         }
                     });
@@ -261,59 +241,4 @@
     })
 </script>
 </body>
-<%--<body class="withvernav">
-    &lt;%&ndash;<div class="centercontent tables">&ndash;%&gt;
-    <table id="allpoststable" cellpadding="0" cellspacing="0" border="0" class="stdtable">
-        <colgroup>
-            &lt;%&ndash;<col class="con0" style="width: 4%"/>&ndash;%&gt;
-            <col class="con1"/>
-            <col class="con0"/>
-            <col class="con1"/>
-            <col class="con0"/>
-        </colgroup>
-        <thead>
-            <tr>
-                &lt;%&ndash;<th class="head0 nosort"><input type="checkbox"  class="checkall"/></th>&ndash;%&gt;
-                <th class="head0">文章标题</th>
-                <th class="head1">作者</th>
-                <th class="head0">状态</th>
-                <th class="head0">发布时间</th>
-                <th class="head1">点击量</th>
-                <th class="head0">所属分类</th>
-            </tr>
-        </thead>
-        &lt;%&ndash;<tfoot>
-            <tr>
-                <th class="head0">
-                    <span class="center"><input type="checkbox"/></span>
-                </th>
-                <th class="head0">Rendering engine</th>
-                <th class="head1">Browser</th>
-                <th class="head0">Platform(s)</th>
-                <th class="head1">Engine version</th>
-                <th class="head0">CSS grade</th>
-            </tr>
-        </tfoot>&ndash;%&gt;
-        &lt;%&ndash;<tbody>
-            <c:forEach items="${articleList}" var="article">
-                <tr class="gradeX">
-                    <td align="center">
-                        <span class="center">
-                            <input type="checkbox"/>
-                        </span>
-                    </td>
-                    <td>${article.title}</td>
-                    <td>${article.authorId}</td>
-                    <td class="center">${article.status}</td>
-                    <td class="center">${article.created}</td>
-                    <td class="center">${article.hits}</td>
-                    <td class="center">${article.categories}</td>
-                </tr>
-            </c:forEach>
-        </tbody>&ndash;%&gt;
-    </table>
-
-</div><!--contentwrapper-->
-
-</body>--%>
 </html>
