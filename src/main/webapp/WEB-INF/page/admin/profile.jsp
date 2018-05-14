@@ -38,7 +38,7 @@
         <h1 class="pagetitle">${login_user.screenName}</h1>
         <span class="pagedesc" title="技能标签">${fn:replace(userInfo.tecHobby, ",", " / ")}</span>
     </div>
-    <ul class="hornav">
+    <ul class="hornav" style="margin-top: 15px;">
         <li class="current"><a style="text-decoration: none;" href="#profile">个人信息</a></li>
         <li><a style="text-decoration: none;" href="#editprofile">编辑个人信息</a></li>
         <li><a style="text-decoration: none;" href="#editpassword">修改密码</a></li>
