@@ -91,4 +91,12 @@ public interface CommentService {
      */
     void alreadyRead(Comment comment) throws CgszlException;
 
+    /**
+     * 根据类型统计数量
+     *
+     * @param type 类型：评论、留言
+     * @return
+     * @throws CgszlException
+     */
+    Long countByType(String type) throws CgszlException;
 }

@@ -45,9 +45,18 @@ public interface LinkService {
 
     /**
      * 根据链接标识获取连接
-     * @param mid 连接标识
+     *
+     * @param mid  连接标识
      * @param name
      * @return
      */
-    List<Metas> getLinkByMid(Integer mid, String name);
+    List<Metas> getLinkByMid(Integer mid, String name) throws CgszlException;
+
+    /**
+     * 统计链接数量
+     *
+     * @return
+     * @throws CgszlException
+     */
+    Long countLink() throws CgszlException;
 }

@@ -110,4 +110,15 @@ public class AttachServiceImpl implements AttachService {
         attachExample.createCriteria().andFnameLike(fileName);
         return attachMapper.selectByExample(attachExample);
     }
+
+    /**
+     * 统计数量
+     *
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Long countPicture() throws CgszlException {
+        return attachMapper.countByExample(new AttachExample());
+    }
 }

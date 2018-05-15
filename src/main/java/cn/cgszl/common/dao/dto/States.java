@@ -7,9 +7,14 @@ package cn.cgszl.common.dao.dto;
  */
 public enum States {
 
+    // 评论相关状态
     COMMENT_STATE_APPROVED("approved"),
     COMMENT_STATE_NOT_AUDIT("not_audit"),
-    COMMENT_STATE_UN_PASS("unpass");
+    COMMENT_STATE_UN_PASS("unpass"),
+
+    ARTICLE_STATE_PUBLISH("publish"),
+    ARTICLE_STATE_UN_PUBLISH("unpublish");
+
 
     public String state;
 

@@ -26,7 +26,7 @@
             </ul>
         </li>
         <li><a href="linkmanager.html" class="support">友链管理</a></li>
-        <li><a href="pagemanager.html" class="widgets">页面管理</a></li>
+        <%--<li><a href="pagemanager.html" class="widgets">页面管理</a></li>--%>
         <li><a href="#settingsub" class="elements">系统设置</a>
             <span class="arrow"></span>
             <ul id="settingsub">

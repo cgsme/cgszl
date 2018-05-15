@@ -85,7 +85,7 @@ public class LinkServiceImpl implements LinkService {
     /**
      * 根据链接标识获取连接
      *
-     * @param mid 链接标识
+     * @param mid  链接标识
      * @param name
      * @return
      */
@@ -94,5 +94,18 @@ public class LinkServiceImpl implements LinkService {
         MetasExample metasExample = new MetasExample();
         metasExample.createCriteria().andNameEqualTo(name).andMidNotEqualTo(mid);
         return metasMapper.selectByExample(metasExample);
+    }
+
+    /**
+     * 统计链接数量
+     *
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Long countLink() throws CgszlException {
+        MetasExample metasExample = new MetasExample();
+        metasExample.createCriteria().andTypeEqualTo(Types.LINK.getType());
+        return metasMapper.countByExample(metasExample);
     }
 }

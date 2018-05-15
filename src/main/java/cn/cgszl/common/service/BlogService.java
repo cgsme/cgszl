@@ -167,10 +167,17 @@ public interface BlogService {
     /**
      * 根据文章标题查询文章
      *
-     *
      * @param page
      * @param limit
-     *@param keyWord 关键字  @throws CgszlException
+     * @param keyWord 关键字  @throws CgszlException
      */
     List<Article> listArticleByKeyWord(Integer page, Integer limit, String keyWord) throws CgszlException;
+
+    /**
+     * 根据状态统计文章数量
+     *
+     * @return
+     * @throws CgszlException
+     */
+    Long countArticle(String state) throws CgszlException;
 }

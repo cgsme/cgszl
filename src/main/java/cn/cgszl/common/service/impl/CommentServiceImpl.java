@@ -194,4 +194,18 @@ public class CommentServiceImpl implements CommentService {
         comment.setStatus(States.COMMENT_STATE_APPROVED.getState());
         commentMapper.updateByPrimaryKeySelective(comment);
     }
+
+    /**
+     * 根据类型统计数量
+     *
+     * @param type 类型：评论、留言
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Long countByType(String type) throws CgszlException {
+        CommentExample commentExample = new CommentExample();
+        commentExample.createCriteria().andTypeEqualTo(type);
+        return commentMapper.countByExample(commentExample);
+    }
 }

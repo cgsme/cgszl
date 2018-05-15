@@ -72,13 +72,13 @@ jQuery(document).ready(function () {
             // jQuery.uniform.update();
         },
         columns: [
-            {
-                "data": "id",
-                "sortable": false,
-                "render": function (data, type, row, meta) {   // 返回自定义的样式
-                    return "<input type='checkbox' style='width: 20px'/>"
-                }
-            },
+            // {
+            //     "data": "id",
+            //     "sortable": false,
+            //     "render": function (data, type, row, meta) {   // 返回自定义的样式
+            //         return "<input type='checkbox' style='width: 20px'/>"
+            //     }
+            // },
             {
                 "data": "id",
                 "sortable": false,
@@ -90,15 +90,15 @@ jQuery(document).ready(function () {
             {"data": "module", "sortable": false,},
             {"data": "operUserName", "sortable": false,},
             {"data": "ip", "sortable": false,},
-            {
-                "data": "data",
-                "sortable": false,
-                "render": function (data, type, row, meta) {//返回自定义的样式
-                    if (!row.data) {
-                        return "<label> - </label>"
-                    }
-                }
-            },
+            // {
+            //     "data": "data",
+            //     "sortable": false,
+            //     "render": function (data, type, row, meta) {//返回自定义的样式
+            //         if (!row.data) {
+            //             return "<label> - </label>"
+            //         }
+            //     }
+            // },
             {"data": "created"},
         ],
         //多语言配置

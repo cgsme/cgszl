@@ -15,7 +15,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    User getUserByUsername(String username);
+    User getUserByUsername(String username) throws CgszlException;
 
     /**
      * 验证登录
@@ -23,7 +23,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    User validateLogin(String username, String password);
+    User validateLogin(String username, String password) throws CgszlException;
 
     /**
      * 更新用户信息

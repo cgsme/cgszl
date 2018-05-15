@@ -59,4 +59,11 @@ public interface AttachService {
      * @return
      */
     List<Attach> getAttachByName(String fileName) throws CgszlException;
+
+    /**
+     * 统计数量
+     *
+     * @return
+     */
+    Long countPicture() throws CgszlException;
 }

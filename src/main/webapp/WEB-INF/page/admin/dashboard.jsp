@@ -1,3 +1,5 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,9 +19,8 @@
 
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/dashboard.js"></script>
     <script type="text/javascript" src="js/custom/tables.js"></script>
-    <%--<link type="text/css" href="<%=sSystemPath %>admin/css/plugins/jquery.tagsinput.css">--%>
-    <%--<script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/jquery.tagsinput.min.js"></script>--%>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="<%=sSystemPath %>common/angular/angular.js"></script>
 
     <!--[if lte IE 8]>
     <!--<script language="javascript" type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/excanvas.min.js"></script>-->
@@ -45,42 +46,42 @@
 
     <div id="bolgmanagerbox" class="centercontent">
 
-        <div class="pageheader">
-            <h1 class="pagetitle">控制台</h1>
-            <span class="pagedesc">系统概览</span>
+        <%--<div class="pageheader">
+            &lt;%&ndash;<h1 class="pagetitle">控制台</h1>&ndash;%&gt;
+            &lt;%&ndash;<span class="pagedesc">系统概览</span>&ndash;%&gt;
 
             <ul class="hornav">
                 <li class="current"><a href="#updates">最新更新</a></li>
                 <li><a href="#activities">最近活动</a></li>
             </ul>
-        </div><!--pageheader-->
+        </div>--%><!--pageheader-->
 
         <div id="contentwrapper" class="contentwrapper">
 
             <div id="updates" class="subcontent">
                 <%--<div class="notibar announcement">--%>
-                    <%--<a class="close"></a>--%>
-                    <%--<h3>公告</h3>--%>
-                    <%--<p>今天下午三点，系统维护。</p>--%>
+                <%--<a class="close"></a>--%>
+                <%--<h3>公告</h3>--%>
+                <%--<p>今天下午三点，系统维护。</p>--%>
                 <%--</div><!-- notification announcement -->--%>
 
                 <div class="two_third dashboard_left">
 
                     <%--<ul class="shortcuts">--%>
-                        <%--<li><a href="" class="settings"><span>设置</span></a></li>--%>
-                        <%--<li><a href="" class="users"><span>用户</span></a></li>--%>
-                        <%--<li><a href="" class="gallery"><span>相册</span></a></li>--%>
-                        <%--<li><a href="" class="events"><span>事件</span></a></li>--%>
-                        <%--<li><a href="" class="analytics"><span>分析</span></a></li>--%>
+                    <%--<li><a href="" class="settings"><span>设置</span></a></li>--%>
+                    <%--<li><a href="" class="users"><span>用户</span></a></li>--%>
+                    <%--<li><a href="" class="gallery"><span>相册</span></a></li>--%>
+                    <%--<li><a href="" class="events"><span>事件</span></a></li>--%>
+                    <%--<li><a href="" class="analytics"><span>分析</span></a></li>--%>
                     <%--</ul>--%>
 
                     <%--<br clear="all"/>--%>
 
-                    <div class="contenttitle2 nomargintop">
-                        <h3>访问概况</h3>
-                    </div><!--contenttitle-->
+                    <%--<div class="contenttitle2 nomargintop">
+                        <h3>操作日志</h3>
+                    </div>--%><!--contenttitle-->
 
-                    <div class="overviewhead">
+                    <%--<div class="overviewhead">
                         <div class="overviewselect">
                             <select id="overviewselect" name="select">
                                 <option value="">Last 1 hour ago</option>
@@ -196,109 +197,105 @@
                         </tbody>
                     </table>
 
-                    <br/>
-                    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/">手机网站模板</a></div>
+                    <br/>--%>
 
                     <div class="widgetbox">
                         <div class="title"><h3>最新文章</h3></div>
                         <div class="widgetcontent">
-                            <div id="scroll1" class="mousescroll">
+                            <div id="" class="mousescroll">
                                 <ul class="entrylist">
-                                    <li>
-                                        <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image1.png" alt=""/></div>
-                                            <div class="entry_content">
-                                                <h4><a href="">Why Won't My Cat Eat?</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
-                                                    2012
-                                                </small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                                                    consectetur, adipisci velit, sed quia non...</p>
-                                                <p>
-                                                    <button class="stdbtn btn_lime">Approve</button>
-                                                    <button class="stdbtn">Decline</button>
-                                                </p>
+                                    <c:forEach items="${recentArticleList}" var="recentArticle">
+                                        <li>
+                                            <div class="entry_wrap">
+                                                    <%--<div class="entry_img"><img src="images/thumbs/image2.png" alt=""/></div>--%>
+                                                <div class="entry_content" style="margin-left: 0px;">
+                                                    <h4>
+                                                        <a href="<%=sSystemPath %>single/${recentArticle.aid}.html"
+                                                           target="_blank">
+                                                                ${recentArticle.title}
+                                                        </a>
+                                                    </h4>
+                                                    <p>
+                                                        作者: <a><strong>${recentArticle.user.screenName}</strong></a>
+                                                        - ${recentArticle.created}
+                                                    </p>
+                                                        <%--<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,--%>
+                                                        <%--consectetur, adipisci velit, sed quia non...</p>--%>
+                                                        <%--<p>--%>
+                                                        <%--<button class="stdbtn btn_lime">Approve</button>--%>
+                                                        <%--<button class="stdbtn">Decline</button>--%>
+                                                        <%--</p>--%>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="even">
-                                        <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image2.png" alt=""/></div>
-                                            <div class="entry_content">
-                                                <h4><a href="">We Are About Color</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
-                                                    2012
-                                                </small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                                                    consectetur, adipisci velit, sed quia non...</p>
-                                                <p>
-                                                    <button class="stdbtn btn_lime">Approve</button>
-                                                    <button class="stdbtn">Decline</button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image3.png" alt=""/></div>
-                                            <div class="entry_content">
-                                                <h4><a href="">Ancient Technology</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
-                                                    2012
-                                                </small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                                                    consectetur, adipisci velit, sed quia non...</p>
-                                                <p>
-                                                    <button class="stdbtn btn_lime">Approve</button>
-                                                    <button class="stdbtn">Decline</button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="even">
-                                        <div class="entry_wrap">
-                                            <div class="entry_img"><img src="images/thumbs/image4.png" alt=""/></div>
-                                            <div class="entry_content">
-                                                <h4><a href="">Bird's Nest Soup</a></h4>
-                                                <small>Submitted by: <a href=""><strong>Hiccup</strong></a> - June 10,
-                                                    2012
-                                                </small>
-                                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                                                    consectetur, adipisci velit, sed quia non...</p>
-                                                <p>
-                                                    <button class="stdbtn btn_lime">Approve</button>
-                                                    <button class="stdbtn">Decline</button>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    </c:forEach>
+
                                 </ul>
                             </div><!--#scroll1-->
                         </div><!--widgetcontent-->
                     </div><!-- widgetbox -->
 
+                    <div class="contenttitle2 nomargintop">
+                        <h3>操作日志</h3>
+                    </div><!--contenttitle-->
 
+                    <table cellpadding="0" cellspacing="0" border="0" class="stdtable stdtablecb" id="logTable">
+                        <colgroup>
+                            <col class="con0" style="width: 8%"/>
+                            <col class="con1"/>
+                            <col class="con0"/>
+                            <col class="con1"/>
+                            <col class="con0"/>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>操作</th>
+                            <th>操作模块</th>
+                            <th>操作人员</th>
+                            <th>客户端ip</th>
+                            <th>操作时间</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <br/>
                 </div><!--two_third dashboard_left -->
 
                 <div class="one_third last dashboard_right">
 
                     <div class="contenttitle2 nomargintop">
-                        <h3>评分最高的网站</h3>
+                        <h3>统计概况</h3>
                     </div><!--contenttitle-->
-
 
                     <ul class="toplist">
                         <li>
                             <div>
-                                	<span class="three_fourth">
-                                    	<span class="left">
-                                    		<span class="title"><a href="">loremipsum.com</a></span>
-                                        	<span class="desc">社会网</span>
-                                    	</span><!--left-->
-                                    </span><!--three_fourth-->
+                                <span class="three_fourth">
+                                    <span class="left">
+                                        <span class="title"><a>发布文章数量</a></span>
+                                        <span class="desc">已发布的文章</span>
+                                    </span><!--left-->
+                                </span><!--three_fourth-->
                                 <span class="one_fourth last">
                                     	<span class="right">
-                                        	<span class="h3">8.1</span>
+                                        	<span class="h3">${statistics.articleNum}</span>
+                                        </span><!--right-->
+                                    </span><!--one_fourth-->
+                                <br clear="all"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="three_fourth">
+                                    <span class="left">
+                                        <span class="title"><a>收到评论数量</a></span>
+                                        <span class="desc">访客评论</span>
+                                    </span><!--left-->
+                                </span><!--three_fourth-->
+                                <span class="one_fourth last">
+                                    	<span class="right">
+                                        	<span class="h3">${statistics.commentNum}</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
                                 <br clear="all"/>
@@ -308,13 +305,13 @@
                             <div>
                                 	<span class="three_fourth">
                                     	<span class="left">
-                                    		<span class="title"><a href="">dolorsitamet.net</a></span>
-                                        	<span class="desc">是个关于==</span>
+                                    		<span class="title"><a>收到留言数量</a></span>
+                                        	<span class="desc">访客留言</span>
                                     	</span><!--left-->
                                     </span><!--three_fourth-->
                                 <span class="one_fourth last">
                                     	<span class="right">
-                                        	<span class="h3">7.8</span>
+                                        	<span class="h3">${statistics.messageNum}</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
                                 <br clear="all"/>
@@ -324,13 +321,13 @@
                             <div>
                                 	<span class="three_fourth">
                                     	<span class="left">
-                                    		<span class="title"><a href="">consectetur.org</a></span>
-                                        	<span class="desc">Social Network</span>
+                                    		<span class="title"><a>友链的好友数量</a></span>
+                                        	<span class="desc">友情链接</span>
                                     	</span><!--left-->
                                     </span><!--three_fourth-->
                                 <span class="one_fourth last">
                                     	<span class="right">
-                                        	<span class="h3">7.5</span>
+                                        	<span class="h3">${statistics.linkNum}</span>
                                         </span><!--right-->
                                     </span><!--one_fourth-->
                                 <br clear="all"/>
@@ -339,43 +336,27 @@
                     </ul>
 
                     <div class="widgetbox">
-                        <div class="title"><h3>新注册的用户</h3></div>
-                        <div class="widgetoptions">
+                        <div class="title"><h3>最新留言</h3></div>
+                        <%--<div class="widgetoptions">
                             <div class="right"><a href="">View All Users</a></div>
                             <a href="">Add User</a>
-                        </div>
+                        </div>--%>
                         <div class="widgetcontent userlistwidget nopadding">
                             <ul>
-                                <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png"/></div>
-                                    <div class="info">
-                                        <a href="">Squint</a> <br/>
-                                        Front-End Engineer <br/> 18 minutes ago
-                                    </div><!--info-->
-                                </li>
-                                <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png"/></div>
-                                    <div class="info">
-                                        <a href="">Eunice</a> <br/>
-                                        Architectural Designer <br/> 18 minutes ago
-                                    </div><!--info-->
-                                </li>
-                                <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar1.png"/></div>
-                                    <div class="info">
-                                        <a href="">Captain Gutt</a> <br/>
-                                        Software Engineer <br/> 18 minutes ago
-                                    </div><!--info-->
-                                </li>
-                                <li>
-                                    <div class="avatar"><img alt="" src="images/thumbs/avatar2.png"/></div>
-                                    <div class="info">
-                                        <a href="">Flynn</a> <br/>
-                                        Accounting Manager <br/> 18 minutes ago
-                                    </div><!--info-->
-                                </li>
+                                <c:forEach items="${recentMessageList}" var="recentMessage">
+                                    <li>
+                                        <div class="avatar"><img alt="" src="images/thumbs/avatar1.png"/></div>
+                                        <div class="info">
+                                            <a>${recentMessage.author}</a>
+                                            <br/>
+                                                ${recentMessage.content}
+                                            <br/>
+                                                ${recentMessage.created}
+                                        </div><!--info-->
+                                    </li>
+                                </c:forEach>
                             </ul>
-                            <a class="more" href="">View More Users</a>
+                            <%--<a class="more" href="">View More Users</a>--%>
                         </div><!--widgetcontent-->
                     </div>
 
@@ -383,52 +364,14 @@
                         <div class="title"><h3>最新评论</h3></div>
                         <div class="widgetcontent">
                             <div id="accordion" class="accordion">
-                                <h3><a href="#">Section 1</a></h3>
-                                <div>
-                                    <p>
-                                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                                        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                                        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                                        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                                    </p>
-                                </div>
-                                <h3><a href="#">Section 2</a></h3>
-                                <div>
-                                    <p>
-                                        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                                        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                                        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                                        suscipit faucibus urna.
-                                    </p>
-                                </div>
-                                <h3><a href="#">Section 3</a></h3>
-                                <div>
-                                    <p>
-                                        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                                        Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                                        ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                                        lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                                    </p>
-                                    <ul class="margin1020">
-                                        <li>List item one</li>
-                                        <li>List item two</li>
-                                        <li>List item three</li>
-                                    </ul>
-                                </div>
-                                <h3><a href="#">Section 4</a></h3>
-                                <div>
-                                    <p>
-                                        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                                        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                                        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                                        mauris vel est.
-                                    </p>
-                                    <p>
-                                        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                                        inceptos himenaeos.
-                                    </p>
-                                </div>
+                                <c:forEach var="recentComment" items="${recentCommentList}">
+                                    <h3><a href="#">${recentComment.author} - ${recentComment.created} <fmt:formatDate value="" pattern="yyyy-MM-dd"/></a></h3>
+                                    <div style="word-wrap: break-word;">
+                                        <p>
+                                            ${recentComment.content}
+                                        </p>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div> <!--widgetcontent-->
                     </div><!--widgetbox-->
@@ -436,119 +379,34 @@
             </div><!-- #updates -->
 
             <%-- 最近活动 --%>
-            <div id="activities" class="subcontent" style="display: none;">
+            <%--<div id="activities" class="subcontent" style="display: none;">
 
                 <table cellpadding="0" cellspacing="0" border="0" class="stdtable stdtablecb" id="logTable">
                     <colgroup>
-                        <col class="con0" style="width: 4%" />
-                        <col class="con0" style="width: 5%" />
-                        <col class="con1" />
-                        <col class="con0" />
-                        <col class="con1" />
-                        <col class="con0" />
-                        <col class="con1" />
+                        <col class="con0" style="width: 4%"/>
+                        <col class="con0" style="width: 5%"/>
+                        <col class="con1"/>
+                        <col class="con0"/>
+                        <col class="con1"/>
+                        <col class="con0"/>
+                        <col class="con1"/>
                     </colgroup>
                     <thead>
-                        <tr>
-                            <th><input type="checkbox"  class="checkall" /></th>
-                            <th>序号</th>
-                            <th>操作</th>
-                            <th>操作模块</th>
-                            <th>操作人员</th>
-                            <th>客户端ip</th>
-                            <th>操作数据</th>
-                            <th>操作时间</th>
-                        </tr>
+                    <tr>
+                        <th><input type="checkbox" class="checkall"/></th>
+                        <th>序号</th>
+                        <th>操作</th>
+                        <th>操作模块</th>
+                        <th>操作人员</th>
+                        <th>客户端ip</th>
+                        <th>操作数据</th>
+                        <th>操作时间</th>
+                    </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
 
-                <%--<div class="contenttitle2">
-                    <h3>Table with Options</h3>
-                </div><!--contenttitle-->
-                <div class="tableoptions">
-                    <button class="deletebutton radius3" title="table1">Delete Selected</button> &nbsp;
-                    <select class="radius3">
-                        <option value="">Show All</option>
-                        <option value="">Rendering Engine</option>
-                        <option value="">Platform</option>
-                    </select> &nbsp;
-                    <button class="radius3">Apply Filter</button>
-                </div><!--tableoptions-->
-                <table cellpadding="0" cellspacing="0" border="0" id="table1" class="stdtable stdtablecb">
-                    <colgroup>
-                        <col class="con0" style="width: 4%" />
-                        <col class="con1" />
-                        <col class="con0" />
-                        <col class="con1" />
-                        <col class="con0" />
-                        <col class="con1" />
-                    </colgroup>
-                    <thead>
-                    <tr>
-                        <th class="head0"><input type="checkbox" class="checkall" /></th>
-                        <th class="head1">Rendering engine</th>
-                        <th class="head0">Browser</th>
-                        <th class="head1">Platform(s)</th>
-                        <th class="head0">Engine version</th>
-                        <th class="head1">CSS grade</th>
-                    </tr>
-                    </thead>
-                    <tfoot>
-                    <tr>
-                        <th class="head0"><input type="checkbox" class="checkall" /></th>
-                        <th class="head1">Rendering engine</th>
-                        <th class="head0">Browser</th>
-                        <th class="head1">Platform(s)</th>
-                        <th class="head0">Engine version</th>
-                        <th class="head1">CSS grade</th>
-                    </tr>
-                    </tfoot>
-                    <tbody>
-                    <tr>
-                        <td align="center"><input type="checkbox" /></td>
-                        <td>Trident</td>
-                        <td>Internet Explorer 4.0</td>
-                        <td>Win 95+</td>
-                        <td class="center">4</td>
-                        <td class="center">X</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="checkbox" /></td>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.0</td>
-                        <td>Win 95+</td>
-                        <td class="center">5</td>
-                        <td class="center">C</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="checkbox" /></td>
-                        <td>Trident</td>
-                        <td>Internet  Explorer 5.5</td>
-                        <td>Win 95+</td>
-                        <td class="center">5.5</td>
-                        <td class="center">A</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="checkbox" /></td>
-                        <td>Trident</td>
-                        <td>Internet Explorer 6</td>
-                        <td>Win 98+</td>
-                        <td class="center">6</td>
-                        <td class="center">A</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="checkbox" /></td>
-                        <td>Trident</td>
-                        <td>Internet Explorer 7</td>
-                        <td>Win XP SP2+</td>
-                        <td class="center">7</td>
-                        <td class="center">A</td>
-                    </tr>
-                    </tbody>
-                </table>
---%>
-            </div><!-- #activities -->
+            </div>--%><!-- #activities -->
 
         </div><!--contentwrapper-->
 

@@ -1,6 +1,7 @@
 package cn.cgszl.common.service.impl;
 
 import cn.cgszl.common.ArticleOperThread;
+import cn.cgszl.common.dao.dto.States;
 import cn.cgszl.common.dao.dto.Types;
 import cn.cgszl.common.dao.pojo.ArticleExample;
 import cn.cgszl.common.service.BlogService;
@@ -303,8 +304,8 @@ public class BlogServiceImpl implements BlogService {
     /**
      * 根据关键字查询文章
      *
-     * @param page  页码
-     * @param limit 每页记录数
+     * @param page    页码
+     * @param limit   每页记录数
      * @param keyWord 关键字  @throws CgszlException
      */
     @Override
@@ -321,5 +322,19 @@ public class BlogServiceImpl implements BlogService {
         paramMap.put("keyWord", keyWord);
         paramMap.put("orderCause", "created desc");
         return articleMapper.getArticleListBySql(paramMap);
+    }
+
+    /**
+     * 根据状态统计文章数量
+     *
+     * @param state 文章状态
+     * @return
+     * @throws CgszlException
+     */
+    @Override
+    public Long countArticle(String state) throws CgszlException {
+        ArticleExample articleExample = new ArticleExample();
+        articleExample.createCriteria().andStatusEqualTo(state);
+        return articleMapper.countByExample(articleExample);
     }
 }
