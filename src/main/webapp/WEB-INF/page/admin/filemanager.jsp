@@ -75,7 +75,7 @@
     }
 </style>
 <body>
-    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理 / 相册</blockquote>
+    <blockquote class="layui-elem-quote layui-quote-nm" style="font-style: inherit;">文件管理</blockquote>
     <div class="dropzone">
         <div class="dz-message">
             将照片拖至此处或点击上传.
@@ -342,6 +342,7 @@
 
     /* 文档加载完成后执行 */
     jQuery(function () {
+        debugger;
         /* 加载数据 */
         loadData(PAGE, LIMIT);
 

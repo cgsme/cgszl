@@ -2055,7 +2055,7 @@ blockquote.bq2 {
 	.newsfeed { float: none; width: auto; margin-right: 0; }
 	
 	/* PROFILE */
-	.profile_wrapper { border-right: 0; padding-right: 0; width: auto; }
+	.profile_wrapper { border-right: 0; padding-right: 0; /*width: auto; */}
 	.blogviewthumb { display: inline-block; }
 	
 	/* PRODUCT LIST */

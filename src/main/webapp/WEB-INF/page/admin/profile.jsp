@@ -22,6 +22,8 @@
     <![endif]-->
     <link type="text/css" href="${request.pageContext.contextPath}/admin/css/plugins/jquery.tagsinput.css">
     <script src="${request.pageContext.contextPath}/admin/js/plugins/jquery.tagsinput.min.js"></script>
+    <script src="${request.pageContext.contextPath}/admin/js/plugins/jquery.autogrow-textarea.js"></script>
+    <script src="${request.pageContext.contextPath}/admin/js/plugins/jquery.bxSlider.min.js"></script>
     <script src="js/custom/profile.js"></script>
 </head>
 <script type="text/javascript">

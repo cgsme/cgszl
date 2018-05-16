@@ -158,7 +158,7 @@ jQuery(document).ready(function () {
 
     /* input转标签 */
     jQuery('#tecHobby').tagsInput({
-        width: '461',
+        width: '409',
         height: '',
         defaultText: '',
         'interactive': true,
@@ -212,13 +212,13 @@ jQuery(document).ready(function () {
     });
 
     ///// CONTENT SLIDER /////
-    jQuery('#slidercontent').bxSlider({
+    /*jQuery('#slidercontent').bxSlider({
         prevText: '',
         nextText: ''
-    });
+    });*/
 
     ///// AUTOGROW TEXTAREA /////
-    jQuery('#comment').autogrow();
+    jQuery('#textarea2').autogrow();
 
 
 });
