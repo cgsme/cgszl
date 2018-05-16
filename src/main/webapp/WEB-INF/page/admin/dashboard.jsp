@@ -20,7 +20,6 @@
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/custom/dashboard.js"></script>
     <script type="text/javascript" src="js/custom/tables.js"></script>
     <script type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript" src="<%=sSystemPath %>common/angular/angular.js"></script>
 
     <!--[if lte IE 8]>
     <!--<script language="javascript" type="text/javascript" src="<%=sSystemPath %>admin/js/plugins/excanvas.min.js"></script>-->
