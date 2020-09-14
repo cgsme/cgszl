@@ -36,7 +36,7 @@
         <activemq.version>5.11.2</activemq.version>
         <freemarker.version>2.3.23</freemarker.version>
         <quartz.version>2.2.2</quartz.version>
-        <ant.version>1.9.4</ant.version>
+        <ant.version>1.9.15</ant.version>
         <gson.version>2.3</gson.version>
     </properties>
 
